@@ -15,10 +15,10 @@ public class BlockRegistry {
 
     public static void init() {
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "attack_mushroom"), ATTACK_MUSHROOM_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "attack_mushroom"), new BlockItem(ATTACK_MUSHROOM_BLOCK, new Item.Settings().group(ItemGroup.DECORATIONS)));
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "attack_mushroom"), new BlockItem(ATTACK_MUSHROOM_BLOCK, new Item.Settings().group(MagicFungi.NATURAL)));
 
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "defense_mushroom"), DEFENSE_MUSHROOM_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "defense_mushroom"), new BlockItem(DEFENSE_MUSHROOM_BLOCK, new Item.Settings().group(ItemGroup.DECORATIONS)));
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "defense_mushroom"), new BlockItem(DEFENSE_MUSHROOM_BLOCK, new Item.Settings().group(MagicFungi.NATURAL)));
     }
 
     public static final MagicMushroomBlock ATTACK_MUSHROOM_BLOCK = new MagicMushroomBlock(AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
