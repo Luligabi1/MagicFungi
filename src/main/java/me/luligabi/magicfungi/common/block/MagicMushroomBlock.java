@@ -1,9 +1,7 @@
 package me.luligabi.magicfungi.common.block;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.BlockState;
-import net.minecraft.block.PlantBlock;
-import net.minecraft.block.ShapeContext;
+import net.minecraft.block.*;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -30,4 +28,6 @@ public class MagicMushroomBlock extends PlantBlock {
         return world.getBlockState(pos.down()).isIn(BlockTags.MUSHROOM_GROW_BLOCK) ||
                 (world.getBaseLightLevel(pos, 0) < 13 && this.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down()));
     }
+
+    public static final AbstractBlock.Settings MUSHROOM_SETTINGS =  AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS);
 }

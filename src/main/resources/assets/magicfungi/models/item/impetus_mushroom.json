@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "magicfungi:block/attack_mushroom"
+    "layer0": "magicfungi:block/impetus_mushroom"
   }
 }

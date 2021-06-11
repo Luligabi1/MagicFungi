@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "magicfungi:block/defense_mushroom"
+    "layer0": "magicfungi:block/clypeus_mushroom"
   }
 }
