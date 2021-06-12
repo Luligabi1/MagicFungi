@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common;
 
 import me.luligabi.magicfungi.common.registry.BlockRegistry;
+import me.luligabi.magicfungi.common.registry.ItemRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -12,6 +13,7 @@ public class MagicFungi implements ModInitializer {
     @Override
     public void onInitialize() {
         BlockRegistry.init();
+        ItemRegistry.init();
     }
 
     public static final String MOD_ID = "magicfungi";

@@ -25,8 +25,7 @@ public class MagicMushroomBlock extends PlantBlock {
     }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return world.getBlockState(pos.down()).isIn(BlockTags.MUSHROOM_GROW_BLOCK) ||
-                (world.getBaseLightLevel(pos, 0) < 13 && this.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down()));
+        return world.getBlockState(pos.down()).isIn(BlockTags.MUSHROOM_GROW_BLOCK) || this.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down());
     }
 
     public static final AbstractBlock.Settings MUSHROOM_SETTINGS =  AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS);
