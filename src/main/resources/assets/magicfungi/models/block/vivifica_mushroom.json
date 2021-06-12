@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "magicfungi:block/clypeus_mushroom"
+    "cross": "magicfungi:block/vivifica_mushroom"
   }
 }
