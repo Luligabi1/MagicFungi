@@ -1,29 +1,54 @@
 package me.luligabi.magicfungi.common.util;
 
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 
 public enum MushroomType {
 
-    IMPETUS(new TranslatableText("name.magicfungi.impetus.fancy"), new TranslatableText("name.magicfungi.impetus")),
-    CLYPEUS(new TranslatableText("name.magicfungi.clypeus.fancy"), new TranslatableText("name.magicfungi.clypeus")),
-    UTILIS(new TranslatableText("name.magicfungi.utilis.fancy"), new TranslatableText("name.magicfungi.utilis")),
-    VIVIFICA(new TranslatableText("name.magicfungi.vivifica.fancy"), new TranslatableText("name.magicfungi.vivifica")),
-    MORBUS(new TranslatableText("name.magicfungi.morbus.fancy"), new TranslatableText("name.magicfungi.morbus")),
-    UNKNOWN(null, null);
+    IMPETUS(new TranslatableText("name.magicfungi.impetus"), new TranslatableText("name.magicfungi.impetus.stats")),
+    CLYPEUS(new TranslatableText("name.magicfungi.clypeus"), new TranslatableText("name.magicfungi.clypeus.stats")),
+    UTILIS(new TranslatableText("name.magicfungi.utilis"), new TranslatableText("name.magicfungi.utilis.stats")),
+    VIVIFICA(new TranslatableText("name.magicfungi.vivifica"), new TranslatableText("name.magicfungi.vivifica.stats")),
+    MORBUS(new TranslatableText("name.magicfungi.morbus"), new TranslatableText("name.magicfungi.morbus.stats")),
+
+    // Unknown
+    INCOGNITA(new TranslatableText("name.magicfungi.incognita"), new TranslatableText("name.magicfungi.incognita.stats"));
 
     protected TranslatableText fancyName;
-    protected TranslatableText comprehensibleName;
+    protected TranslatableText statsName;
 
     MushroomType(TranslatableText fancy, TranslatableText comprehensible) {
         fancyName = fancy;
-        comprehensibleName = comprehensible;
+        statsName = comprehensible;
     }
 
     public TranslatableText getFancyName() {
         return fancyName;
     }
 
-    public TranslatableText getComprehensibleName() {
-        return comprehensibleName;
+    public TranslatableText getStatsName() {
+        return statsName;
+    }
+
+    public static Formatting getLightColor(MushroomType mushroomType) {
+        return switch (mushroomType) {
+            case IMPETUS -> Formatting.RED;
+            case CLYPEUS -> Formatting.AQUA;
+            case UTILIS -> Formatting.LIGHT_PURPLE;
+            case VIVIFICA -> Formatting.YELLOW;
+            case MORBUS -> Formatting.GRAY;
+            default -> Formatting.WHITE;
+        };
+    }
+
+    public static Formatting getDarkColor(MushroomType mushroomType) {
+        return switch (mushroomType) {
+            case IMPETUS -> Formatting.DARK_RED;
+            case CLYPEUS -> Formatting.DARK_AQUA;
+            case UTILIS -> Formatting.DARK_PURPLE;
+            case VIVIFICA -> Formatting.GOLD;
+            case MORBUS -> Formatting.DARK_GRAY;
+            default -> Formatting.WHITE;
+        };
     }
 }

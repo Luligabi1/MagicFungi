@@ -8,7 +8,6 @@ import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
-
     public static void init() {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "test_spell"), TEST_SPELL);
     }
