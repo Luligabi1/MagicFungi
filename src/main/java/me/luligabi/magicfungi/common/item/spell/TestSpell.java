@@ -8,7 +8,7 @@ public class TestSpell extends SpellBaseItem {
 
     public TestSpell(Settings settings) {
         super(settings);
-        setSoundEvent(SoundEvents.BLOCK_BEACON_ACTIVATE);
+        setSound(SoundEvents.BLOCK_BEACON_ACTIVATE);
         setCooldown(40*90);
         setMushroomType(MushroomType.IMPETUS);
     }

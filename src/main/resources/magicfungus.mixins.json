@@ -1,9 +1,11 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "me.luligabi.magicfungi.mixin",
+  "package": "me.luligabi.magicfungi.common.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
+    "MobSpawnerBlockEntityAccessor",
+    "MobSpawnerLogicAccessor"
   ],
   "client": [
   ],

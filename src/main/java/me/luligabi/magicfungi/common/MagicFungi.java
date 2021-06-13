@@ -1,7 +1,8 @@
 package me.luligabi.magicfungi.common;
 
 import me.luligabi.magicfungi.common.registry.BlockRegistry;
-import me.luligabi.magicfungi.common.registry.ItemRegistry;
+import me.luligabi.magicfungi.common.registry.GlyphRegistry;
+import me.luligabi.magicfungi.common.registry.SpellRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -13,13 +14,14 @@ public class MagicFungi implements ModInitializer {
     @Override
     public void onInitialize() {
         BlockRegistry.init();
-        ItemRegistry.init();
+        GlyphRegistry.init();
+        SpellRegistry.init();
     }
 
     public static final String MOD_ID = "magicfungi";
 
-    public static final ItemGroup NATURAL = FabricItemGroupBuilder.create(
-            new Identifier(MOD_ID, "natural"))
+    public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
+            new Identifier(MOD_ID, "item_group"))
             .icon(() -> new ItemStack(BlockRegistry.IMPETUS_MUSHROOM_BLOCK))
             .build();
 
