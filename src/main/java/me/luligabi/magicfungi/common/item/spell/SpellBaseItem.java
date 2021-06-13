@@ -34,13 +34,13 @@ public abstract class SpellBaseItem extends Item {
         world.playSound(null, user.getX(), user.getY(), user.getZ(), soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
         user.getItemCooldownManager().set(this, cooldown);
         if (!world.isClient) {
-            executeSpell(user);
+            executeSpell(user, user.getEntityWorld());
         }
         user.incrementStat(Stats.USED.getOrCreateStat(this));
         return TypedActionResult.success(itemStack, world.isClient());
     }
 
-    public void executeSpell(PlayerEntity playerEntity) { }
+    public void executeSpell(PlayerEntity playerEntity, World world) { }
 
     public void setCooldown(int cooldown) {
         this.cooldown = cooldown;

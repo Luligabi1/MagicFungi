@@ -2,7 +2,6 @@ package me.luligabi.magicfungi.common.registry;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.glyph.HabereGlyphItem;
-import me.luligabi.magicfungi.common.item.spell.TestSpell;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

@@ -27,7 +27,7 @@ public class HabereGlyphItem extends GlyphBaseItem {
         World world = playerEntity.getEntityWorld();
         ItemStack mobSpawner = new ItemStack(world.getBlockState(blockPos).getBlock());
         if(mobSpawner.getItem() != Blocks.SPAWNER.asItem()) return;
-        
+
         try {
             mobSpawner.putSubTag("BlockEntityTag", StringNbtReader.parse( // Puts tag on mobSpawner itemstack containing which mob the spawner generates.
                     "{SpawnData:{id:" + ((MobSpawnerLogicAccessor) ((MobSpawnerBlockEntityAccessor) world.getBlockEntity(blockPos)).getLogic()).getSpawnEntry().getEntityNbt().getString("id") + "}}"));
