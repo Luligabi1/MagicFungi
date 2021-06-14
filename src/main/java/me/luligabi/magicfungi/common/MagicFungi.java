@@ -22,7 +22,7 @@ public class MagicFungi implements ModInitializer {
 
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
             new Identifier(MOD_ID, "item_group"))
-            .icon(() -> new ItemStack(BlockRegistry.IMPETUS_MUSHROOM_BLOCK))
+            .icon(() -> new ItemStack(BlockRegistry.VIVIFICA_MUSHROOM_BLOCK))
             .build();
 
 }

@@ -17,9 +17,9 @@ public enum MushroomType {
     protected TranslatableText fancyName;
     protected TranslatableText statsName;
 
-    MushroomType(TranslatableText fancy, TranslatableText comprehensible) {
+    MushroomType(TranslatableText fancy, TranslatableText stats) {
         fancyName = fancy;
-        statsName = comprehensible;
+        statsName = stats;
     }
 
     public TranslatableText getFancyName() {
@@ -35,7 +35,7 @@ public enum MushroomType {
             case IMPETUS -> Formatting.RED;
             case CLYPEUS -> Formatting.AQUA;
             case UTILIS -> Formatting.LIGHT_PURPLE;
-            case VIVIFICA -> Formatting.YELLOW;
+            case VIVIFICA -> Formatting.GREEN;
             case MORBUS -> Formatting.GRAY;
             default -> Formatting.WHITE;
         };
@@ -46,7 +46,7 @@ public enum MushroomType {
             case IMPETUS -> Formatting.DARK_RED;
             case CLYPEUS -> Formatting.DARK_AQUA;
             case UTILIS -> Formatting.DARK_PURPLE;
-            case VIVIFICA -> Formatting.GOLD;
+            case VIVIFICA -> Formatting.DARK_GREEN;
             case MORBUS -> Formatting.DARK_GRAY;
             default -> Formatting.WHITE;
         };
