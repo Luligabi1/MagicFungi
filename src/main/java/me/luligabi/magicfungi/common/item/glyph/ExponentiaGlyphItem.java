@@ -18,7 +18,7 @@ public class ExponentiaGlyphItem extends GlyphBaseItem {
         World world = playerEntity.getEntityWorld();
         if(world.getBlockState(blockPos).getBlock() != Blocks.CRAFTING_TABLE) return;
         world.setBlockState(blockPos,
-                BlockRegistry.SPELL_DISCOVERY_BENCH_BLOCK.getDefaultState());
+                BlockRegistry.SPELL_DISCOVERY_BLOCK.getDefaultState());
         playSound(playerEntity);
     }
 }
