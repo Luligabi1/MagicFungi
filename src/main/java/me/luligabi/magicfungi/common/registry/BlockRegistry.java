@@ -1,7 +1,7 @@
 package me.luligabi.magicfungi.common.registry;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.block.MagicMushroomBlock;
+import me.luligabi.magicfungi.common.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -26,9 +26,9 @@ public class BlockRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom"), new BlockItem(MORBUS_MUSHROOM_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
     }
 
-    public static final MagicMushroomBlock IMPETUS_MUSHROOM_BLOCK = new MagicMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
-    public static final MagicMushroomBlock CLYPEUS_MUSHROOM_BLOCK = new MagicMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
-    public static final MagicMushroomBlock UTILIS_MUSHROOM_BLOCK = new MagicMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
-    public static final MagicMushroomBlock VIVIFICA_MUSHROOM_BLOCK = new MagicMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
-    public static final MagicMushroomBlock MORBUS_MUSHROOM_BLOCK = new MagicMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
+    public static final ImpetusMushroomBlock IMPETUS_MUSHROOM_BLOCK = new ImpetusMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
+    public static final ClypeusMushroomBlock CLYPEUS_MUSHROOM_BLOCK = new ClypeusMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
+    public static final UtilisMushroomBlock UTILIS_MUSHROOM_BLOCK = new UtilisMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
+    public static final VivificaMushroomBlock VIVIFICA_MUSHROOM_BLOCK = new VivificaMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
+    public static final MorbusMushroomBlock MORBUS_MUSHROOM_BLOCK = new MorbusMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
 }

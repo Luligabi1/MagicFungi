@@ -27,6 +27,7 @@ public abstract class GlyphBaseItem extends Item {
 
     public GlyphBaseItem (Item.Settings settings) {
         super(settings);
+        setMushroomType(MushroomType.INCOGNITA);
     }
 
     @Override
