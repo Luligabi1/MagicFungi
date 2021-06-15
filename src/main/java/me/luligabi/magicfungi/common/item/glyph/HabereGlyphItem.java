@@ -36,5 +36,6 @@ public class HabereGlyphItem extends GlyphBaseItem {
         world.spawnEntity(new ItemEntity(world,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(), mobSpawner));
         world.setBlockState(blockPos, Blocks.AIR.getDefaultState());
+        playSound(playerEntity);
     }
 }

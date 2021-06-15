@@ -32,7 +32,6 @@ public abstract class SpellBaseItem extends Item {
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack itemStack = user.getStackInHand(hand);
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
         user.getItemCooldownManager().set(this, cooldown);
         if (!world.isClient) {
             executeSpell(user, user.getEntityWorld());
@@ -41,13 +40,19 @@ public abstract class SpellBaseItem extends Item {
         return TypedActionResult.success(itemStack, world.isClient());
     }
 
-    public void executeSpell(PlayerEntity playerEntity, World world) { }
+    protected void executeSpell(PlayerEntity playerEntity, World world) { }
 
-    public void setCooldown(int cooldown) {
+    protected void playSound(PlayerEntity playerEntity) {
+        playerEntity.getEntityWorld().playSound(null,
+                playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
+                soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
+    }
+
+    protected void setCooldown(int cooldown) {
         this.cooldown = cooldown;
     }
 
-    public void setSound(SoundEvent soundEvent) {
+    protected void setSound(SoundEvent soundEvent) {
         this.soundEvent = soundEvent;
     }
 
@@ -55,7 +60,7 @@ public abstract class SpellBaseItem extends Item {
         return mushroomType;
     }
 
-    public void setMushroomType(MushroomType mushroomType) {
+    protected void setMushroomType(MushroomType mushroomType) {
         this.mushroomType = mushroomType;
     }
 

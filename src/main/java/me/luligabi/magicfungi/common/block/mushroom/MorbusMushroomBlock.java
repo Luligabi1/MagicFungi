@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.block;
+package me.luligabi.magicfungi.common.block.mushroom;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

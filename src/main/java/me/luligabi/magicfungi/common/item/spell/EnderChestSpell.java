@@ -25,6 +25,7 @@ public class EnderChestSpell extends SpellBaseItem { //TODO: Change name
         EnderChestInventory enderChestInventory = playerEntity.getEnderChestInventory();
         if (enderChestInventory != null) {
             playerEntity.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, playerx) -> GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory), new TranslatableText("container.enderchest")));
+            playSound(playerEntity);
             playerEntity.incrementStat(Stats.OPEN_ENDERCHEST);
             PiglinBrain.onGuardedBlockInteracted(playerEntity, true);
         }

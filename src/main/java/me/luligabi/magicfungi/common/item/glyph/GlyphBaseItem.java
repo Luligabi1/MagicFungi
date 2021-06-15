@@ -35,7 +35,6 @@ public abstract class GlyphBaseItem extends Item {
         blockPos = context.getBlockPos();
         World world = context.getWorld();
         PlayerEntity user = context.getPlayer();
-        world.playSound(null, user.getX(), user.getY(), user.getZ(), soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
         if (!world.isClient) {
             executeGlyph(user);
         }
@@ -46,9 +45,15 @@ public abstract class GlyphBaseItem extends Item {
         return super.useOnBlock(context);
     }
 
-    public void executeGlyph(PlayerEntity playerEntity) { }
+    protected void executeGlyph(PlayerEntity playerEntity) { }
 
-    public void setSound(SoundEvent soundEvent) {
+    protected void playSound(PlayerEntity playerEntity) {
+        playerEntity.getEntityWorld().playSound(null,
+                playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
+                soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
+    }
+
+    protected void setSound(SoundEvent soundEvent) {
         this.soundEvent = soundEvent;
     }
 
@@ -56,7 +61,7 @@ public abstract class GlyphBaseItem extends Item {
         return mushroomType;
     }
 
-    public void setMushroomType(MushroomType mushroomType) {
+    protected void setMushroomType(MushroomType mushroomType) {
         this.mushroomType = mushroomType;
     }
 
