@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common;
 
 import me.luligabi.magicfungi.common.registry.BlockRegistry;
 import me.luligabi.magicfungi.common.registry.GlyphRegistry;
+import me.luligabi.magicfungi.common.registry.RecipeRegistry;
 import me.luligabi.magicfungi.common.registry.SpellRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -16,6 +17,7 @@ public class MagicFungi implements ModInitializer {
         BlockRegistry.init();
         GlyphRegistry.init();
         SpellRegistry.init();
+        RecipeRegistry.init();
     }
 
     public static final String MOD_ID = "magicfungi";
