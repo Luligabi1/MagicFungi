@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import me.luligabi.magicfungi.common.MagicFungi;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
@@ -10,8 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class SpellDiscoveryScreen extends HandledScreen<ScreenHandler> {
 
-    private static final Identifier TEXTURE = new Identifier("minecraft", "textures/gui/container/dispenser.png");
-    //TODO: Change texture
+    private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/container/spell_bench.png");
 
     public SpellDiscoveryScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -21,8 +21,6 @@ public class SpellDiscoveryScreen extends HandledScreen<ScreenHandler> {
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        int x = (width - backgroundWidth) / 2;
-        int y = (height - backgroundHeight) / 2;
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
     }
 
@@ -36,6 +34,10 @@ public class SpellDiscoveryScreen extends HandledScreen<ScreenHandler> {
     @Override
     protected void init() {
         super.init();
+        backgroundHeight = 205;
+        x = width / 2 -backgroundWidth / 2;
+        y = height / 2 - backgroundHeight / 2;
+        playerInventoryTitleY = 112;
         titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
     }
 }
