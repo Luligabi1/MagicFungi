@@ -36,18 +36,29 @@ public class SpellDiscoveryScreenHandler extends ScreenHandler {
         int m;
         int l;
         //Our inventory
-        for (m = 0; m < 3; ++m) {
+        this.addSlot(new Slot(inventory, 0, 62 + 0 * 18, 17 + -2 * 18)); // inputA
+        this.addSlot(new Slot(inventory, 1, 62 + 2 * 18, 17 + -2 * 18)); // inputB
+        this.addSlot(new Slot(inventory, 2, 62 + -1 * 18, 17 + -1 * 18)); // inputC
+        this.addSlot(new Slot(inventory, 3, 62 + 3 * 18, 17 + -1 * 18)); // inputD
+        this.addSlot(new Slot(inventory, 4, 62 + -1 * 18, 17 + 1 * 18)); // inputE
+        this.addSlot(new Slot(inventory, 5, 62 + 3 * 18, 17 + 1 * 18)); // inputF
+        this.addSlot(new Slot(inventory, 6, 62 + 0 * 18, 17 + 2 * 18)); // inputG
+        this.addSlot(new Slot(inventory, 7, 62 + 2 * 18, 17 + 2 * 18)); // inputH
+
+        this.addSlot(new Slot(inventory, 8, 62 + 1 * 18, 17 + 0 * 18)); // output
+
+        /*for (m = 0; m < 3; ++m) {
             for (l = 0; l < 3; ++l) {
                 this.addSlot(new Slot(inventory, l + m * 3, 62 + l * 18, 17 + m * 18));
             }
-        }
-        //The player inventory
+        }*/
+        //Player Inventory
         for (m = 0; m < 3; ++m) {
             for (l = 0; l < 9; ++l) {
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 84 + m * 18));
             }
         }
-        //The player Hotbar
+        //Player Hotbar
         for (m = 0; m < 9; ++m) {
             this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
         }
