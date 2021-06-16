@@ -6,10 +6,13 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.ScreenHandler;
+import net.minecraft.recipe.Recipe;
+import net.minecraft.recipe.RecipeMatcher;
+import net.minecraft.recipe.book.RecipeBookCategory;
+import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class SpellDiscoveryScreenHandler extends ScreenHandler {
+public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inventory> {
     private final Inventory inventory;
 
     public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory) {
@@ -33,7 +36,13 @@ public class SpellDiscoveryScreenHandler extends ScreenHandler {
         this.addSlot(new Slot(inventory, 6, 62, 56 + 2 * 18)); // inputG
         this.addSlot(new Slot(inventory, 7, 62 + 2 * 18, 56 + 2 * 18)); // inputH
 
-        this.addSlot(new Slot(inventory, 8, 62 + 18, 56)); // Output
+        this.addSlot(new Slot(inventory, 8, 62 + 18, 56) {
+
+            @Override
+            public boolean canInsert(ItemStack stack) {
+                return false;
+            }
+        });
 
         int m;
         int l;
@@ -80,5 +89,50 @@ public class SpellDiscoveryScreenHandler extends ScreenHandler {
         }
 
         return newStack;
+    }
+
+    @Override
+    public void populateRecipeFinder(RecipeMatcher finder) {
+
+    }
+
+    @Override
+    public void clearCraftingSlots() {
+
+    }
+
+    @Override
+    public boolean matches(Recipe<? super Inventory> recipe) {
+        return false;
+    }
+
+    @Override
+    public int getCraftingResultSlotIndex() {
+        return 0;
+    }
+
+    @Override
+    public int getCraftingWidth() {
+        return 0;
+    }
+
+    @Override
+    public int getCraftingHeight() {
+        return 0;
+    }
+
+    @Override
+    public int getCraftingSlotCount() {
+        return 0;
+    }
+
+    @Override
+    public RecipeBookCategory getCategory() {
+        return null;
+    }
+
+    @Override
+    public boolean canInsertIntoSlot(int index) {
+        return false;
     }
 }
