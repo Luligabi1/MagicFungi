@@ -12,30 +12,26 @@ import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.slot.Slot;
 
-public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inventory> {
+public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Inventory> {
     private final Inventory inventory;
 
-    public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(9));
+    public GlyphCarvingScreenHandler(int syncId, PlayerInventory playerInventory) {
+        this(syncId, playerInventory, new SimpleInventory(5));
     }
 
-    public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-        super(ScreenHandllingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, syncId);
-        checkSize(inventory, 9);
+    public GlyphCarvingScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
+        super(ScreenHandllingRegistry.GLYPH_CARVING_SCREEN_HANDLER, syncId);
+        checkSize(inventory, 5);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);
 
         // Crafting Slots
-        this.addSlot(new Slot(inventory, 0, 62, 56 + -2 * 18)); // inputA
-        this.addSlot(new Slot(inventory, 1, 62 + 2 * 18, 56 + -2 * 18)); // inputB
-        this.addSlot(new Slot(inventory, 2, 62 + -1 * 18, 56 + -1 * 18)); // inputC
-        this.addSlot(new Slot(inventory, 3, 62 + 3 * 18, 56 + -1 * 18)); // inputD
-        this.addSlot(new Slot(inventory, 4, 62 + -1 * 18, 56 + 18)); // inputE
-        this.addSlot(new Slot(inventory, 5, 62 + 3 * 18, 56 + 18)); // inputF
-        this.addSlot(new Slot(inventory, 6, 62, 56 + 2 * 18)); // inputG
-        this.addSlot(new Slot(inventory, 7, 62 + 2 * 18, 56 + 2 * 18)); // inputH
+        this.addSlot(new Slot(inventory, 0, 62 + -1 * 18, 56 + -2 * 18)); // inputA
+        this.addSlot(new Slot(inventory, 1, 62 + 3 * 18, 56 + -2 * 18)); // inputB
+        this.addSlot(new Slot(inventory, 2, 62 + -1 * 18, 56 + 2 * 18)); // inputC
+        this.addSlot(new Slot(inventory, 3, 62 + 3 * 18, 56 + 2 * 18)); // inputD
 
-        this.addSlot(new Slot(inventory, 8, 62 + 18, 56) {
+        this.addSlot(new Slot(inventory, 4, 62 + 18, 56) { // Output
 
             @Override
             public boolean canInsert(ItemStack stack) {
