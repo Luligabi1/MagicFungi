@@ -1,11 +1,4 @@
 {
-  "tooltip.magicfungi.spell_info.1": "Type: ",
-  "tooltip.magicfungi.spell_info.2": "%d (%d)",
-
-  "tooltip.magicfungi.spell_info.3": "Cooldown: ",
-  "tooltip.magicfungi.spell_info.4": "%d seconds",
-
-
   "name.magicfungi.impetus": "Impetus",
   "name.magicfungi.clypeus": "Clypeus",
   "name.magicfungi.utilis": "Utilis",
@@ -18,5 +11,14 @@
   "name.magicfungi.utilis.stats": "Utility",
   "name.magicfungi.vivifica.stats": "Heal",
   "name.magicfungi.morbus.stats": "Plague",
-  "name.magicfungi.incognita.stats": "???"
+  "name.magicfungi.incognita.stats": "???",
+
+  "tooltip.magicfungi.spell_info.1": "Type: ",
+  "tooltip.magicfungi.spell_info.2": "%d (%d)",
+
+  "tooltip.magicfungi.spell_info.3": "Cooldown: ",
+  "tooltip.magicfungi.spell_info.4": "%d seconds",
+
+  "title.magicfungi.glyph_carving": "Glyph Carving",
+  "title.magicfungi.spell_discovery": "Spell Discovery"
 }

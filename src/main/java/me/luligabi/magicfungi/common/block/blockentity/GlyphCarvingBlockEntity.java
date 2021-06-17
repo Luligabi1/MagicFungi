@@ -37,7 +37,7 @@ public class GlyphCarvingBlockEntity extends BlockEntity implements NamedScreenH
 
     @Override
     public Text getDisplayName() {
-        return new TranslatableText(getCachedState().getBlock().getTranslationKey());
+        return new TranslatableText("title.magicfungi.glyph_carving");
     }
 
     @Override

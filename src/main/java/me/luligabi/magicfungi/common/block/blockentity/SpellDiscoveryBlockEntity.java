@@ -37,7 +37,7 @@ public class SpellDiscoveryBlockEntity extends BlockEntity implements NamedScree
 
     @Override
     public Text getDisplayName() {
-        return new TranslatableText(getCachedState().getBlock().getTranslationKey());
+        return new TranslatableText("title.magicfungi.spell_discovery");
     }
 
     @Override
