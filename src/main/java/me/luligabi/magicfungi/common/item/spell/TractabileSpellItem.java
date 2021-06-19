@@ -11,9 +11,9 @@ import net.minecraft.stat.Stats;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
-public class EnderChestSpell extends SpellBaseItem { //TODO: Change name
+public class TractabileSpellItem extends SpellBaseItem {
 
-    public EnderChestSpell(Settings settings) {
+    public TractabileSpellItem(Settings settings) {
         super(settings);
         setSound(SoundEvents.BLOCK_ENDER_CHEST_OPEN);
         setCooldown(60);
@@ -24,7 +24,9 @@ public class EnderChestSpell extends SpellBaseItem { //TODO: Change name
     public void executeSpell(PlayerEntity playerEntity, World world) {
         EnderChestInventory enderChestInventory = playerEntity.getEnderChestInventory();
         if (enderChestInventory != null) {
-            playerEntity.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, playerx) -> GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory), new TranslatableText("container.enderchest")));
+            playerEntity.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, playerx) ->
+                    GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory),
+                    new TranslatableText("container.enderchest")));
             playSound(playerEntity);
             playerEntity.incrementStat(Stats.OPEN_ENDERCHEST);
             PiglinBrain.onGuardedBlockInteracted(playerEntity, true);

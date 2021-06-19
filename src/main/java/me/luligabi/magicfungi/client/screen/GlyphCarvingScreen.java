@@ -12,7 +12,6 @@ import net.minecraft.util.Identifier;
 public class GlyphCarvingScreen extends HandledScreen<ScreenHandler> {
 
     private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/glyph_bench.png");
-    //TODO: Change texture
 
     public GlyphCarvingScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
