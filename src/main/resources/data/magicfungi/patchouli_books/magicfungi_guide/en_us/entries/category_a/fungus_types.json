@@ -1,0 +1,11 @@
+{
+  "name": "Fungus Types",
+  "icon": "magicfungi:impetus_mushroom",
+  "category": "magicfungi:category_a",
+  "pages": [
+    {
+      "type": "text",
+      "text": "All around the cube, you might find $(5)$(l)Magic Fungus $()from the old, old times. Using them, you might obtain special magic spells and items. (WIP)"
+    }
+  ]
+}
