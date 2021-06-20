@@ -7,7 +7,6 @@ import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.stat.Stats;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
@@ -27,9 +26,8 @@ public class TractabileSpellItem extends SpellBaseItem {
             playerEntity.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, playerx) ->
                     GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory),
                     new TranslatableText("container.enderchest")));
-            playSound(playerEntity);
-            playerEntity.incrementStat(Stats.OPEN_ENDERCHEST);
             PiglinBrain.onGuardedBlockInteracted(playerEntity, true);
         }
+        super.executeSpell(playerEntity, world);
     }
 }

@@ -31,21 +31,18 @@ public abstract class SpellBaseItem extends Item {
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-        ItemStack itemStack = user.getStackInHand(hand);
-        user.getItemCooldownManager().set(this, cooldown);
         if (!world.isClient) {
             executeSpell(user, user.getEntityWorld());
         }
-        user.incrementStat(Stats.USED.getOrCreateStat(this));
-        return TypedActionResult.success(itemStack, world.isClient());
+        return TypedActionResult.success(user.getStackInHand(hand), world.isClient());
     }
 
-    protected void executeSpell(PlayerEntity playerEntity, World world) { }
-
-    protected void playSound(PlayerEntity playerEntity) {
+    protected void executeSpell(PlayerEntity playerEntity, World world) {
+        playerEntity.getItemCooldownManager().set(this, cooldown);
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                 soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
+        playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
     protected void setCooldown(int cooldown) {
