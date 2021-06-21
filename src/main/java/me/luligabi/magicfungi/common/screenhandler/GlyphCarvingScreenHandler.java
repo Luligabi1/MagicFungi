@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.screenhandler;
 
-import me.luligabi.magicfungi.common.registry.ScreenHandllingRegistry;
+import me.luligabi.magicfungi.common.registry.ScreenHandlingRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -20,7 +20,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Inven
     }
 
     public GlyphCarvingScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-        super(ScreenHandllingRegistry.GLYPH_CARVING_SCREEN_HANDLER, syncId);
+        super(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, syncId);
         checkSize(inventory, 5);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);

@@ -8,7 +8,7 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.WorldView;
 
-public class MagicMushroomBlock extends PlantBlock {
+public abstract class MagicMushroomBlock extends PlantBlock {
 
     protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
 
@@ -25,7 +25,7 @@ public class MagicMushroomBlock extends PlantBlock {
     }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-        return world.getBlockState(pos.down()).isIn(BlockTags.MUSHROOM_GROW_BLOCK) || this.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down());
+        return world.getBlockState(pos.down()).isIn(BlockTags.MUSHROOM_GROW_BLOCK) || world.getBaseLightLevel(pos, 0) < 11 && this.canPlantOnTop(world.getBlockState(pos.down()), world, pos.down());
     }
 
     public static final AbstractBlock.Settings MUSHROOM_SETTINGS =  AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS);

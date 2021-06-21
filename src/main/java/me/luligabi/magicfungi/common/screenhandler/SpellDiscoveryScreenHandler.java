@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.screenhandler;
 
-import me.luligabi.magicfungi.common.registry.ScreenHandllingRegistry;
+import me.luligabi.magicfungi.common.registry.ScreenHandlingRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -20,7 +20,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inv
     }
 
     public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
-        super(ScreenHandllingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, syncId);
+        super(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, syncId);
         checkSize(inventory, 9);
         this.inventory = inventory;
         inventory.onOpen(playerInventory.player);

@@ -14,8 +14,11 @@ public class MagicFungi implements ModInitializer {
         BlockRegistry.init();
         GlyphRegistry.init();
         SpellRegistry.init();
+
+        ConfiguredFeatureRegistry.init();
+
         RecipeRegistry.init();
-        ScreenHandllingRegistry.init();
+        ScreenHandlingRegistry.init();
     }
 
     public static final String MOD_ID = "magicfungi";

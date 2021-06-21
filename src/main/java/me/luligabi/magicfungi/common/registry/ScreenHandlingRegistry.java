@@ -5,7 +5,7 @@ import me.luligabi.magicfungi.common.screenhandler.SpellDiscoveryScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.screen.ScreenHandlerType;
 
-public class ScreenHandllingRegistry {
+public class ScreenHandlingRegistry {
 
     public static void init() {
         GLYPH_CARVING_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(BlockRegistry.GLYPH_CARVING_BENCH_IDENTIFIER, GlyphCarvingScreenHandler::new);

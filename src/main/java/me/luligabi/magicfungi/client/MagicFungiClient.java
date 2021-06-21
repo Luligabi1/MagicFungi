@@ -3,7 +3,7 @@ package me.luligabi.magicfungi.client;
 import me.luligabi.magicfungi.client.screen.GlyphCarvingScreen;
 import me.luligabi.magicfungi.client.screen.SpellDiscoveryScreen;
 import me.luligabi.magicfungi.common.registry.BlockRegistry;
-import me.luligabi.magicfungi.common.registry.ScreenHandllingRegistry;
+import me.luligabi.magicfungi.common.registry.ScreenHandlingRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
@@ -22,7 +22,7 @@ public class MagicFungiClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.VIVIFICA_MUSHROOM_BLOCK, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MORBUS_MUSHROOM_BLOCK, RenderLayer.getCutout());
 
-        ScreenRegistry.register(ScreenHandllingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
-        ScreenRegistry.register(ScreenHandllingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
+        ScreenRegistry.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
+        ScreenRegistry.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
     }
 }
