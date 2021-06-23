@@ -20,13 +20,19 @@ import net.minecraft.world.gen.stateprovider.SimpleBlockStateProvider;
 public class ConfiguredFeatureRegistry { // TODO: Add features for all mushrooms to generate.
 
     public static void init() {
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, vivifica.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.VIVIFICA_MUSHROOM_CONFIG).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(5))).repeat(1));
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, vivificaJungle.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.VIVIFICA_MUSHROOM_CONFIG_JUNGLE).decorate(Decorator.CHANCE.configure(new ChanceDecoratorConfig(5))).repeat(3));
 
+        BiomeModifications.addFeature(BiomeSelectors.foundInOverworld(), GenerationStep.Feature.VEGETAL_DECORATION, vivifica);
         BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.JUNGLE), GenerationStep.Feature.VEGETAL_DECORATION, vivificaJungle);
     }
+
+    public static final RegistryKey<ConfiguredFeature<?, ?>> vivifica = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
+            new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom"));
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> vivificaJungle = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom_jungle"));
 
-    private static final RandomPatchFeatureConfig VIVIFICA_MUSHROOM_CONFIG_JUNGLE = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.VIVIFICA_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(64).build();
+    private static final RandomPatchFeatureConfig VIVIFICA_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.VIVIFICA_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(8).build();
+    private static final RandomPatchFeatureConfig VIVIFICA_MUSHROOM_CONFIG_JUNGLE = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.VIVIFICA_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(32).build();
 }
