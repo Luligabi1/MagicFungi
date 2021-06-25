@@ -14,9 +14,9 @@ public class TractabileSpellItem extends SpellBaseItem {
 
     public TractabileSpellItem(Settings settings) {
         super(settings);
-        setSound(SoundEvents.BLOCK_ENDER_CHEST_OPEN);
-        setCooldown(60);
         setMushroomType(MushroomType.UTILIS);
+        setCooldown(3*20);
+        setSound(SoundEvents.BLOCK_ENDER_CHEST_OPEN);
     }
 
     @Override

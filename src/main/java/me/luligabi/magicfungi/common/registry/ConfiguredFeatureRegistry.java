@@ -48,7 +48,10 @@ public class ConfiguredFeatureRegistry {
         BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION, vivifica);
         BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.JUNGLE), GenerationStep.Feature.VEGETAL_DECORATION, vivificaJungle);
 
-        //TODO: Add morbus generation
+        // Morbus
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, morbusHost.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.MORBUS_MUSHROOM_CONFIG_HOST).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(3)));
+
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), GenerationStep.Feature.VEGETAL_DECORATION, morbusHost);
     }
 
     // Impetus Mushroom - Regular
@@ -99,6 +102,14 @@ public class ConfiguredFeatureRegistry {
             new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom_jungle"));
 
     private static final RandomPatchFeatureConfig VIVIFICA_MUSHROOM_CONFIG_JUNGLE = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.VIVIFICA_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
+
+
+    // Morbus Mushroom - Host Biome
+    public static final RegistryKey<ConfiguredFeature<?, ?>> morbusHost = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
+            new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_host"));
+
+    private static final RandomPatchFeatureConfig MORBUS_MUSHROOM_CONFIG_HOST = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.MORBUS_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
+
 
     // List of Overworld Biome Categories excluding biomes that would be odd for mushrooms to spawn (such as oceans and deserts)
     private static final Biome.Category[] OVERWORLD_BIOMES = {Biome.Category.PLAINS,

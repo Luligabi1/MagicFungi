@@ -26,7 +26,6 @@ public abstract class SpellBaseItem extends Item {
 
     public SpellBaseItem(Settings settings) {
         super(settings);
-        setMushroomType(MushroomType.INCOGNITA);
     }
 
     @Override

@@ -16,6 +16,7 @@ public class MagicFungi implements ModInitializer {
         SpellRegistry.init();
 
         ConfiguredFeatureRegistry.init();
+        BiomeRegistry.init();
 
         RecipeRegistry.init();
         ScreenHandlingRegistry.init();
