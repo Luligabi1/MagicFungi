@@ -14,11 +14,14 @@ public class ExponentiaGlyphItem extends GlyphBaseItem {
     }
 
     @Override
-    public void executeGlyph(PlayerEntity playerEntity) {
+    public boolean executeGlyph(PlayerEntity playerEntity) {
         World world = playerEntity.getEntityWorld();
-        if(world.getBlockState(blockPos).getBlock() != Blocks.CRAFTING_TABLE) return;
-        world.setBlockState(blockPos,
-                BlockRegistry.SPELL_DISCOVERY_BLOCK.getDefaultState());
-        playSound(playerEntity);
+        if (world.getBlockState(blockPos).getBlock() == Blocks.CRAFTING_TABLE) {
+            world.setBlockState(blockPos,
+                    BlockRegistry.SPELL_DISCOVERY_BLOCK.getDefaultState());
+            super.executeGlyph(playerEntity);
+            return true;
+        }
+        return false;
     }
 }

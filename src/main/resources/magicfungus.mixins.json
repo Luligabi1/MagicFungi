@@ -4,8 +4,6 @@
   "package": "me.luligabi.magicfungi.common.mixin",
   "compatibilityLevel": "JAVA_16",
   "mixins": [
-    "MobSpawnerBlockEntityAccessor",
-    "MobSpawnerLogicAccessor"
   ],
   "client": [
   ],

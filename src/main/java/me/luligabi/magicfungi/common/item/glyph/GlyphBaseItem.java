@@ -30,7 +30,7 @@ public abstract class GlyphBaseItem extends Item {
         setMushroomType(MushroomType.INCOGNITA);
     }
 
-    @Override
+    @Override //TODO: Fix glyph dupe when opening another UI after using glyphs.
     public ActionResult useOnBlock(ItemUsageContext context) {
         blockPos = context.getBlockPos();
         World world = context.getWorld();
@@ -38,19 +38,18 @@ public abstract class GlyphBaseItem extends Item {
         if (!world.isClient) {
             executeGlyph(user);
         }
-        if (!user.getAbilities().creativeMode) {
+        if (!user.getAbilities().creativeMode && executeGlyph(user)) {
             context.getStack().decrement(1);
         }
-        user.incrementStat(Stats.USED.getOrCreateStat(this));
-        return super.useOnBlock(context);
+        return ActionResult.CONSUME;
     }
 
-    protected void executeGlyph(PlayerEntity playerEntity) { }
-
-    protected void playSound(PlayerEntity playerEntity) {
+    protected boolean executeGlyph(PlayerEntity playerEntity) {
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                 soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
+        playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+        return true;
     }
 
     protected void setSound(SoundEvent soundEvent) {

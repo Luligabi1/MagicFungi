@@ -1,7 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell;
 
 import me.luligabi.magicfungi.common.util.MushroomType;
-import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.screen.GenericContainerScreenHandler;
@@ -22,12 +21,10 @@ public class TractabileSpellItem extends SpellBaseItem {
     @Override
     public void executeSpell(PlayerEntity playerEntity, World world) {
         EnderChestInventory enderChestInventory = playerEntity.getEnderChestInventory();
-        if (enderChestInventory != null) {
-            playerEntity.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, playerx) ->
-                    GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory),
-                    new TranslatableText("container.enderchest")));
-            PiglinBrain.onGuardedBlockInteracted(playerEntity, true);
-        }
+        if (enderChestInventory == null) return;
+        playerEntity.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, playerx) ->
+                GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory),
+                new TranslatableText("container.enderchest")));
         super.executeSpell(playerEntity, world);
     }
 }
