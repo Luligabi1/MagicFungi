@@ -6,8 +6,9 @@ import me.luligabi.magicfungi.common.block.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.blockentity.GlyphCarvingBlockEntity;
 import me.luligabi.magicfungi.common.block.blockentity.SpellDiscoveryBlockEntity;
 import me.luligabi.magicfungi.common.block.mushroom.*;
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.minecraft.block.AbstractBlock;
+import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.Material;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
@@ -52,11 +53,11 @@ public class BlockRegistry {
     public static final VivificaMushroomBlock VIVIFICA_MUSHROOM_BLOCK = new VivificaMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
     public static final MorbusMushroomBlock MORBUS_MUSHROOM_BLOCK = new MorbusMushroomBlock(MagicMushroomBlock.MUSHROOM_SETTINGS);
 
-    public static final GlyphCarvingBlock GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(AbstractBlock.Settings.of(Material.STONE).strength(1.5F).resistance(6.0F).requiresTool().sounds(BlockSoundGroup.STONE));
+    public static final GlyphCarvingBlock GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
     public static BlockEntityType<GlyphCarvingBlockEntity> GLYPH_CARVING_BLOCK_ENTITY;
 
 
-    public static final SpellDiscoveryBlock SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(AbstractBlock.Settings.of(Material.WOOD).strength(2.5F).sounds(BlockSoundGroup.WOOD));
+    public static final SpellDiscoveryBlock SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
     public static BlockEntityType<SpellDiscoveryBlockEntity> SPELL_DISCOVERY_BLOCK_ENTITY;
 
     public static final Identifier GLYPH_CARVING_BENCH_IDENTIFIER = new Identifier(MagicFungi.MOD_ID, "glyph_carving_bench");

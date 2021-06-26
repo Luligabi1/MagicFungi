@@ -1,0 +1,14 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:red_mushroom",
+    "minecraft:brown_mushroom",
+    "minecraft:crimson_fungus",
+    "minecraft:warped_fungus",
+    "magicfungi:impetus_mushroom",
+    "magicfungi:clypeus_mushroom",
+    "magicfungi:utilis_mushroom",
+    "magicfungi:vivifica_mushroom",
+    "magicfungi:morbus_mushroom"
+  ]
+}

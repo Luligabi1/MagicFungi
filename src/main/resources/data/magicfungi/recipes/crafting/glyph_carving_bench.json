@@ -1,0 +1,26 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "_I_",
+    "SRS",
+    "SSS"
+  ],
+  "key": {
+    "_": {
+      "item": "minecraft:stone_brick_slab"
+    },
+    "I": {
+      "item": "minecraft:iron_sword"
+    },
+    "S": {
+      "item": "minecraft:stone_bricks"
+    },
+    "R": {
+      "tag": "magicfungi:all_mushrooms"
+    }
+  },
+  "result": {
+    "item": "magicfungi:glyph_carving_bench",
+    "count": 1
+  }
+}
