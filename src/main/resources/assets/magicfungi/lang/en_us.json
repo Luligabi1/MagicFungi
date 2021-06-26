@@ -1,4 +1,10 @@
 {
+  "block.magicfungi.impetus_mushroom": "Impetus Mushroom",
+  "block.magicfungi.clypeus_mushroom": "Clypeus Mushroom",
+  "block.magicfungi.utilis_mushroom": "Utilis Mushroom",
+  "block.magicfungi.vivifica_mushroom": "Vivifica Mushroom",
+  "block.magicfungi.morbus_mushroom": "Morbus Mushroom",
+
   "name.magicfungi.impetus": "Impetus",
   "name.magicfungi.clypeus": "Clypeus",
   "name.magicfungi.utilis": "Utilis",
@@ -13,12 +19,21 @@
   "name.magicfungi.morbus.stats": "Plague",
   "name.magicfungi.incognita.stats": "???",
 
+
   "tooltip.magicfungi.spell_info.1": "Type: ",
   "tooltip.magicfungi.spell_info.2": "%d (%d)",
 
   "tooltip.magicfungi.spell_info.3": "Cooldown: ",
   "tooltip.magicfungi.spell_info.4": "%d seconds",
 
+
+  "block.magicfungi.glyph_carving_bench": "Glyph Carving Workbench",
   "title.magicfungi.glyph_carving": "Glyph Carving",
-  "title.magicfungi.spell_discovery": "Spell Discovery"
+
+  "block.magicfungi.spell_discovery_bench": "Spell Discovery Workbench",
+  "title.magicfungi.spell_discovery": "Spell Discovery",
+
+
+  "biome.magicfungi.host_biome": "Host Biome",
+  "itemGroup.magicfungi.item_group": "Magic Fungi"
 }
