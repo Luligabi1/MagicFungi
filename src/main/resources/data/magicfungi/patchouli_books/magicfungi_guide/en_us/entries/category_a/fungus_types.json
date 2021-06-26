@@ -5,7 +5,11 @@
   "pages": [
     {
       "type": "text",
-      "text": "All around the cube, you might find $(5)$(l)Magic Fungus $()from the old, old times. Using them, you might obtain special magic spells and items. (WIP)"
+      "text": "All around the cube, you might find $(5)$(l)Magic Fungus $()from the ancient times. Using them, you can obtain powerful magic spells and items.$(br)$(br)$(c)$(l)Impetus: $()Used on $(c)$(l)attack $()magic. Easier to look for on $(6)$(l)Savanna biomes$(). $(br)$(br)$(3)$(l)Clypeus: $()Used on $(3)$(l)defense $()magic. Easier to find at $(b)$(l)Icy biomes$()."
+    },
+    {
+      "type": "text",
+      "text": "$(d)$(l)Utilis: $()Used on $(d)$(l)utility $()magic. Easier to look for on $(8)$(l)Extreme Hills$(). $(br)$(br)$(a)$(l)Vivifica: $()Used on $(a)$(l)nature $()magic. Easier to find at $(2)$(l)Jungle biomes$(). $(br)$(br)$(8)$(l)Morbus: $()Used on $(8)$(l)forbidden $()magic. Can only be found on the $(8)$(l)Host Biome$()."
     }
   ]
 }
