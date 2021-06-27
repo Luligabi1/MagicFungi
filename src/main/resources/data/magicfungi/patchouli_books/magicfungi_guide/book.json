@@ -1,5 +1,9 @@
 {
   "name": "item.magicfungi.guide",
   "landing_text": "text.magic_fungi.landing_text",
-  "version": 1
+  "version": 1,
+  "subtitle": "Unravel the secrets of the fungus.",
+  "creative_tab": "magicfungi.item_group",
+  "show_progress": false,
+  "pause_game": false
 }
