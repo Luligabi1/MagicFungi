@@ -37,11 +37,32 @@ public abstract class SpellBaseItem extends Item {
     }
 
     protected void executeSpell(PlayerEntity playerEntity, World world) {
-        playerEntity.getItemCooldownManager().set(this, cooldown);
+        applyCooldown(playerEntity);
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                 soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+    }
+
+    /*
+     * Applies cooldown to spells, following the instructions bellow:
+     * - The spell that was cast will receive a cooldown with a variable time, set individually for each spell.
+     * - If another spell has the same mushroom type as the cast spell, it will receive a static 15 seconds cooldown
+     *
+     * This is made mostly for balancing, as this avoids spell spams being made.
+     */
+    private void applyCooldown(PlayerEntity playerEntity) {
+        playerEntity.getItemCooldownManager().set(this, cooldown);
+
+        for(ItemStack itemStack : playerEntity.getInventory().main) {
+            if(itemStack.getItem() instanceof SpellBaseItem) {
+                if(itemStack.getItem() != this) {
+                    if(((SpellBaseItem) itemStack.getItem()).getMushroomType() == this.getMushroomType()) {
+                        playerEntity.getItemCooldownManager().set(itemStack.getItem(), 15*20);
+                    }
+                }
+            }
+        }
     }
 
     protected void setCooldown(int cooldown) {
