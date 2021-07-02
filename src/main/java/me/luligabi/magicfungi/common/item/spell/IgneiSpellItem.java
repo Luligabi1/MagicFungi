@@ -12,7 +12,7 @@ public class IgneiSpellItem extends SpellBaseItem {
         super(settings);
         setMushroomType(MushroomType.IMPETUS);
         setCooldown(12*20);
-        setSound(SoundEvents.ENTITY_BLAZE_AMBIENT);
+        setSound(SoundEvents.ITEM_FLINTANDSTEEL_USE);
     }
 
     @Override
