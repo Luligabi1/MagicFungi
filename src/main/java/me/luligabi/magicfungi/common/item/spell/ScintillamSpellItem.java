@@ -2,22 +2,22 @@ package me.luligabi.magicfungi.common.item.spell;
 
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.SmallFireballEntity;
+import net.minecraft.entity.projectile.FireballEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
-public class IgneiSpellItem extends SpellBaseItem {
+public class ScintillamSpellItem extends SpellBaseItem {
 
-    public IgneiSpellItem(Settings settings) {
+    public ScintillamSpellItem(Settings settings) {
         super(settings);
         setMushroomType(MushroomType.IMPETUS);
-        setCooldown(15*20);
-        setSound(SoundEvents.ENTITY_BLAZE_AMBIENT);
+        setCooldown(22*20);
+        setSound(SoundEvents.ITEM_FIRECHARGE_USE);
     }
 
     @Override
     protected void executeSpell(PlayerEntity playerEntity, World world) {
-        SmallFireballEntity fireball = new SmallFireballEntity(world, playerEntity, playerEntity.getRotationVector().x, playerEntity.getRotationVector().y, playerEntity.getRotationVector().z);
+        FireballEntity fireball = new FireballEntity(world, playerEntity, playerEntity.getRotationVector().x, playerEntity.getRotationVector().y, playerEntity.getRotationVector().z, 3);
         fireball.setPos(fireball.getX(), fireball.getY() + 0.75F, fireball.getZ());
         fireball.setOwner(playerEntity);
         world.spawnEntity(fireball);
