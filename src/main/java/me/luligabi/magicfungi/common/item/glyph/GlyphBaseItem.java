@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common.item.glyph;
 
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -13,6 +14,7 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -36,15 +38,35 @@ public abstract class GlyphBaseItem extends Item {
         World world = context.getWorld();
         PlayerEntity user = context.getPlayer();
         if (!world.isClient) {
-            executeGlyph(user);
+            executeBlockGlyph(user);
         }
-        if (!user.getAbilities().creativeMode && executeGlyph(user)) {
+        if (!user.getAbilities().creativeMode && executeBlockGlyph(user)) {
             context.getStack().decrement(1);
         }
         return ActionResult.CONSUME;
     }
 
-    protected boolean executeGlyph(PlayerEntity playerEntity) {
+    @Override
+    public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
+        World world = user.getEntityWorld();
+        if (!world.isClient) {
+            executeEntityGlyph(user, entity);
+        }
+        if (!user.getAbilities().creativeMode && executeEntityGlyph(user, entity)) {
+            stack.decrement(1);
+        }
+        return ActionResult.CONSUME;
+    }
+
+    protected boolean executeBlockGlyph(PlayerEntity playerEntity) {
+        playerEntity.getEntityWorld().playSound(null,
+                playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
+                soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
+        playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+        return true;
+    }
+
+    protected boolean executeEntityGlyph(PlayerEntity playerEntity, LivingEntity livingEntity) {
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                 soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
