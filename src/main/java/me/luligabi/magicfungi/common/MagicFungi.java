@@ -1,6 +1,12 @@
 package me.luligabi.magicfungi.common;
 
-import me.luligabi.magicfungi.common.registry.*;
+import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
+import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
+import me.luligabi.magicfungi.common.recipe.RecipeRegistry;
+import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
+import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
+import me.luligabi.magicfungi.common.worldgen.feature.ConfiguredFeatureRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;

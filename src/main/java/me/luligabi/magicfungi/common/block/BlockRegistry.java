@@ -1,10 +1,10 @@
-package me.luligabi.magicfungi.common.registry;
+package me.luligabi.magicfungi.common.block;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.block.GlyphCarvingBlock;
-import me.luligabi.magicfungi.common.block.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.blockentity.GlyphCarvingBlockEntity;
 import me.luligabi.magicfungi.common.block.blockentity.SpellDiscoveryBlockEntity;
+import me.luligabi.magicfungi.common.block.misc.GlyphCarvingBlock;
+import me.luligabi.magicfungi.common.block.misc.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;

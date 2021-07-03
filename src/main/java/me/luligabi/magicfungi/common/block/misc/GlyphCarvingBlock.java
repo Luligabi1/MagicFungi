@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.block;
+package me.luligabi.magicfungi.common.block.misc;
 
 import me.luligabi.magicfungi.common.block.blockentity.GlyphCarvingBlockEntity;
 import net.minecraft.block.AbstractBlock;

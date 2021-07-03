@@ -1,5 +1,6 @@
-package me.luligabi.magicfungi.common.item.spell;
+package me.luligabi.magicfungi.common.item.spell.utilis;
 
+import me.luligabi.magicfungi.common.item.spell.SpellBaseItem;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EnderChestInventory;

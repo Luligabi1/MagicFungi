@@ -1,5 +1,6 @@
-package me.luligabi.magicfungi.common.item.glyph;
+package me.luligabi.magicfungi.common.item.glyph.vivifica;
 
+import me.luligabi.magicfungi.common.item.glyph.GlyphBaseItem;
 import me.luligabi.magicfungi.common.mixin.ZombieVillagerEntityInvoker;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.LivingEntity;

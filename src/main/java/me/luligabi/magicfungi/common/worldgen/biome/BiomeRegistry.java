@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.registry;
+package me.luligabi.magicfungi.common.worldgen.biome;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;

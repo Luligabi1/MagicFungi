@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.item.glyph;
 
-import me.luligabi.magicfungi.common.registry.BlockRegistry;
+import me.luligabi.magicfungi.common.block.BlockRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;

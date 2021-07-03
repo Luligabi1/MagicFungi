@@ -1,9 +1,9 @@
-package me.luligabi.magicfungi.common.registry;
+package me.luligabi.magicfungi.common.item.spell;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.item.spell.IgneiSpellItem;
-import me.luligabi.magicfungi.common.item.spell.ScintillamSpellItem;
-import me.luligabi.magicfungi.common.item.spell.TractabileSpellItem;
+import me.luligabi.magicfungi.common.item.spell.impetus.IgneiSpellItem;
+import me.luligabi.magicfungi.common.item.spell.impetus.ScintillamSpellItem;
+import me.luligabi.magicfungi.common.item.spell.utilis.TractabileSpellItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;

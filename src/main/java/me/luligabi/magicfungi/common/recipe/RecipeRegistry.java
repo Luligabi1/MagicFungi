@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.registry;
+package me.luligabi.magicfungi.common.recipe;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;

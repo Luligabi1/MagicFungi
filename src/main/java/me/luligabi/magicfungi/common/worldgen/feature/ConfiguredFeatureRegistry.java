@@ -1,6 +1,8 @@
-package me.luligabi.magicfungi.common.registry;
+package me.luligabi.magicfungi.common.worldgen.feature;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.util.Identifier;

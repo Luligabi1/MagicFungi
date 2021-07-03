@@ -1,8 +1,7 @@
-package me.luligabi.magicfungi.common.registry;
+package me.luligabi.magicfungi.common.item.glyph;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.item.glyph.ExponentiaGlyphItem;
-import me.luligabi.magicfungi.common.item.glyph.PaganumGlyphItem;
+import me.luligabi.magicfungi.common.item.glyph.vivifica.PaganumGlyphItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
