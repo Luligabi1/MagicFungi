@@ -1,19 +1,28 @@
 package me.luligabi.magicfungi.common.screenhandler;
 
+import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
 import me.luligabi.magicfungi.common.registry.ScreenHandlingRegistry;
+import me.luligabi.magicfungi.common.screenhandler.misc.SpellCraftingInventory;
+import me.luligabi.magicfungi.common.screenhandler.misc.SpellDiscoveryResultSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
-import net.minecraft.recipe.Recipe;
-import net.minecraft.recipe.RecipeMatcher;
-import net.minecraft.recipe.book.RecipeBookCategory;
-import net.minecraft.screen.AbstractRecipeScreenHandler;
+import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
+import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.world.World;
 
-public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inventory> {
-    private final Inventory inventory;
+import java.util.Optional;
+
+public class SpellDiscoveryScreenHandler extends ScreenHandler {
+
+    public final SpellCraftingInventory input = new SpellCraftingInventory(this);
+    public final CraftingResultInventory result = new CraftingResultInventory();
+    public final PlayerInventory playerInventory;
 
     public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, new SimpleInventory(9));
@@ -22,7 +31,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inv
     public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory) {
         super(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, syncId);
         checkSize(inventory, 9);
-        this.inventory = inventory;
+        this.playerInventory = playerInventory;
         inventory.onOpen(playerInventory.player);
 
         // Crafting Slots
@@ -35,13 +44,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inv
         this.addSlot(new Slot(inventory, 6, 62, 56 + 2 * 18)); // inputG
         this.addSlot(new Slot(inventory, 7, 62 + 2 * 18, 56 + 2 * 18)); // inputH
 
-        this.addSlot(new Slot(inventory, 8, 62 + 18, 56) {
-
-            @Override
-            public boolean canInsert(ItemStack stack) {
-                return false;
-            }
-        });
+        this.addSlot(new SpellDiscoveryResultSlot(playerInventory.player, input, result, 8, 62 + 18, 56));
 
         int m;
         int l;
@@ -61,7 +64,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inv
 
     @Override
     public boolean canUse(PlayerEntity player) {
-        return this.inventory.canPlayerUse(player);
+        return this.input.canPlayerUse(player);
     }
 
     // Shift + Player Inv Slot
@@ -72,11 +75,11 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inv
         if (slot != null && slot.hasStack()) {
             ItemStack originalStack = slot.getStack();
             newStack = originalStack.copy();
-            if (invSlot < this.inventory.size()) {
-                if (!this.insertItem(originalStack, this.inventory.size(), this.slots.size(), true)) {
+            if (invSlot < this.input.size()) {
+                if (!this.insertItem(originalStack, this.input.size(), this.slots.size(), true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 0, this.inventory.size(), false)) {
+            } else if (!this.insertItem(originalStack, 0, this.input.size(), false)) {
                 return ItemStack.EMPTY;
             }
 
@@ -90,48 +93,29 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Inv
         return newStack;
     }
 
-    @Override
-    public void populateRecipeFinder(RecipeMatcher finder) {
+    protected static void updateResult(ScreenHandler screenHandler, World world, PlayerEntity player, SpellCraftingInventory inventory, CraftingResultInventory resultInventory) {
+        if (!world.isClient) {
+            ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)player;
+            ItemStack itemStack = ItemStack.EMPTY;
+            System.out.println(inventory.isEmpty() + "- test 1");
+            Optional<SpellRecipe> optional = world.getServer().getRecipeManager().getFirstMatch(SpellRecipe.Type.INSTANCE, inventory, world);
+            if (optional.isPresent()) {
+                System.out.println("test 2");
+                SpellRecipe craftingRecipe = optional.get();
+                if (resultInventory.shouldCraftRecipe(world, serverPlayerEntity, craftingRecipe)) {
+                    itemStack = craftingRecipe.craft(inventory);
+                }
+            }
 
+            resultInventory.setStack(8, itemStack);
+            screenHandler.setPreviousTrackedSlot(8, itemStack);
+            serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(screenHandler.syncId, 0, itemStack));
+        }
     }
 
     @Override
-    public void clearCraftingSlots() {
-
-    }
-
-    @Override
-    public boolean matches(Recipe<? super Inventory> recipe) {
-        return false;
-    }
-
-    @Override
-    public int getCraftingResultSlotIndex() {
-        return 0;
-    }
-
-    @Override
-    public int getCraftingWidth() {
-        return 0;
-    }
-
-    @Override
-    public int getCraftingHeight() {
-        return 0;
-    }
-
-    @Override
-    public int getCraftingSlotCount() {
-        return 0;
-    }
-
-    @Override
-    public RecipeBookCategory getCategory() {
-        return null;
-    }
-
-    @Override
-    public boolean canInsertIntoSlot(int index) {
-        return false;
+    public void onContentChanged(Inventory inventory) {
+        this.sendContentUpdates();
+        updateResult(this, playerInventory.player.world, playerInventory.player, input, result);
     }
 }

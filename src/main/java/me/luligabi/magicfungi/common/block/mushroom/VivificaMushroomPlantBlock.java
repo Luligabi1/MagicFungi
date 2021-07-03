@@ -7,11 +7,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 
-public class MorbusMushroomBlock extends MagicMushroomBlock {
+public class VivificaMushroomPlantBlock extends MagicMushroomPlantBlock {
 
-    protected static final VoxelShape SHAPE = Block.createCuboidShape(3.0D, 0.0D, 3.0D, 13.0D, 8.5D, 13.0D);
+    protected static final VoxelShape SHAPE = Block.createCuboidShape(4.5D, 0.0D, 4.5D, 11.5D, 9.5D, 11.5D);
 
-    public MorbusMushroomBlock(Settings settings) { super(settings); }
+    public VivificaMushroomPlantBlock(Settings settings) { super(settings); }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {

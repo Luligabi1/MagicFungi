@@ -58,57 +58,57 @@ public class ConfiguredFeatureRegistry {
     public static final RegistryKey<ConfiguredFeature<?, ?>> impetus = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "impetus_mushroom"));
 
-    private static final RandomPatchFeatureConfig IMPETUS_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.IMPETUS_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(4).build();
+    private static final RandomPatchFeatureConfig IMPETUS_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(4).build();
 
     // Impetus Mushroom - Savanna Biomes
     public static final RegistryKey<ConfiguredFeature<?, ?>> impetusSavanna = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "impetus_mushroom_savanna"));
 
-    private static final RandomPatchFeatureConfig IMPETUS_MUSHROOM_CONFIG_SAVANNA = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.IMPETUS_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
+    private static final RandomPatchFeatureConfig IMPETUS_MUSHROOM_CONFIG_SAVANNA = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
 
     // Clypeus Mushroom - Regular
     public static final RegistryKey<ConfiguredFeature<?, ?>> clypeus = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "clypeus_mushroom"));
 
-    private static final RandomPatchFeatureConfig CLYPEUS_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.CLYPEUS_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(4).build();
+    private static final RandomPatchFeatureConfig CLYPEUS_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(4).build();
 
-    // Clypeus Mushroom - Savanna Biomes
+    // Clypeus Mushroom - Icy Biomes
     public static final RegistryKey<ConfiguredFeature<?, ?>> clypeusIcy = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "clypeus_mushroom_icy"));
 
-    private static final RandomPatchFeatureConfig CLYPEUS_MUSHROOM_CONFIG_ICY = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.CLYPEUS_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
+    private static final RandomPatchFeatureConfig CLYPEUS_MUSHROOM_CONFIG_ICY = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
 
     // Utilis Mushroom - Regular
     public static final RegistryKey<ConfiguredFeature<?, ?>> utilis = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "utilis_mushroom"));
 
-    private static final RandomPatchFeatureConfig UTILIS_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.UTILIS_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(4).build();
+    private static final RandomPatchFeatureConfig UTILIS_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(4).build();
 
     // Utilis Mushroom - Extreme Hills
     public static final RegistryKey<ConfiguredFeature<?, ?>> utilisExtremeHills = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "utilis_mushroom_extreme_hills"));
 
-    private static final RandomPatchFeatureConfig UTILIS_MUSHROOM_CONFIG_EXTREME_HILLS = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.UTILIS_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
+    private static final RandomPatchFeatureConfig UTILIS_MUSHROOM_CONFIG_EXTREME_HILLS = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
 
 
     // Vivifica Mushroom - Regular
     public static final RegistryKey<ConfiguredFeature<?, ?>> vivifica = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom"));
 
-    private static final RandomPatchFeatureConfig VIVIFICA_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.VIVIFICA_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(4).build();
+    private static final RandomPatchFeatureConfig VIVIFICA_MUSHROOM_CONFIG = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(4).build();
 
     // Vivifica Mushroom - Jungle Biome
     public static final RegistryKey<ConfiguredFeature<?, ?>> vivificaJungle = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom_jungle"));
 
-    private static final RandomPatchFeatureConfig VIVIFICA_MUSHROOM_CONFIG_JUNGLE = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.VIVIFICA_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
+    private static final RandomPatchFeatureConfig VIVIFICA_MUSHROOM_CONFIG_JUNGLE = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
 
 
     // Morbus Mushroom - Host Biome
     public static final RegistryKey<ConfiguredFeature<?, ?>> morbusHost = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_host"));
 
-    private static final RandomPatchFeatureConfig MORBUS_MUSHROOM_CONFIG_HOST = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.MORBUS_MUSHROOM_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
+    private static final RandomPatchFeatureConfig MORBUS_MUSHROOM_CONFIG_HOST = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(24).build();
 
 
     // List of Overworld Biome Categories excluding biomes that would be odd for mushrooms to spawn (such as oceans and deserts)

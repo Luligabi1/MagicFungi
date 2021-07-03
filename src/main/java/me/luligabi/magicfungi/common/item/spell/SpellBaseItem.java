@@ -54,7 +54,7 @@ public abstract class SpellBaseItem extends Item {
     private void applyCooldown(PlayerEntity playerEntity) {
         playerEntity.getItemCooldownManager().set(this, cooldown);
 
-        for(ItemStack itemStack : playerEntity.getInventory().main) {
+        for(ItemStack itemStack : playerEntity.getInventory().main) { // TODO: Items on the off-hand slot or backpacks will not receive cooldown
             if(itemStack.getItem() instanceof SpellBaseItem) {
                 if(itemStack.getItem() != this) {
                     if(((SpellBaseItem) itemStack.getItem()).getMushroomType() == this.getMushroomType()) {

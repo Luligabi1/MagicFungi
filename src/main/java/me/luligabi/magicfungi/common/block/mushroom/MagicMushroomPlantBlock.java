@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.block.mushroom;
 
+import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.BlockSoundGroup;
@@ -13,11 +14,11 @@ import net.minecraft.world.WorldView;
 import java.util.Arrays;
 import java.util.Random;
 
-public abstract class MagicMushroomBlock extends MushroomPlantBlock {
+public abstract class MagicMushroomPlantBlock extends MushroomPlantBlock {
 
     protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
 
-    public MagicMushroomBlock(Settings settings) {
+    public MagicMushroomPlantBlock(Settings settings) {
         super(settings, null);
     }
 
@@ -61,5 +62,5 @@ public abstract class MagicMushroomBlock extends MushroomPlantBlock {
     }
 
 
-    public static final AbstractBlock.Settings MUSHROOM_SETTINGS =  AbstractBlock.Settings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS);
+    public static final AbstractBlock.Settings MUSHROOM_SETTINGS =  FabricBlockSettings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS);
 }
