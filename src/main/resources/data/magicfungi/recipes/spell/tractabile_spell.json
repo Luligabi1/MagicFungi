@@ -1,0 +1,31 @@
+{
+  "type": "magicfungi:spell_recipe",
+
+  "inputA" : {
+    "item": "minecraft:obsidian"
+  },
+  "inputB" : {
+    "item": "minecraft:obsidian"
+  },
+  "inputC" : {
+    "item": "magicfungi:utilis_mushroom"
+  },
+  "inputD" : {
+    "item": "minecraft:ender_eye"
+  },
+  "inputE" : {
+    "item": "minecraft:ender_eye"
+  },
+  "inputF" : {
+    "item": "magicfungi:utilis_mushroom"
+  },
+  "inputG" : {
+    "item": "minecraft:obsidian"
+  },
+  "inputH" : {
+    "item": "minecraft:obsidian"
+  },
+  
+  "outputItem": "magicfungi:tractabile_spell",
+  "outputAmount": "1"
+}

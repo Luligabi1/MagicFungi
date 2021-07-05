@@ -16,11 +16,14 @@
   "icon": "assets/magicfungi/icon.png",
   "environment": "*",
   "entrypoints": {
+    "main": [
+      "me.luligabi.magicfungi.common.MagicFungi"
+    ],
     "client": [
       "me.luligabi.magicfungi.client.MagicFungiClient"
     ],
-    "main": [
-      "me.luligabi.magicfungi.common.MagicFungi"
+    "rei_plugins": [
+      "me.luligabi.magicfungi.client.compat.rei.ReiPlugin"
     ]
   },
   "mixins": [

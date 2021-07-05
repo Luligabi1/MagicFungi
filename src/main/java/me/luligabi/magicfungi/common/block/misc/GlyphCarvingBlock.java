@@ -20,7 +20,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.event.listener.GameEventListener;
 import org.jetbrains.annotations.Nullable;
 
-public class GlyphCarvingBlock extends BlockWithEntity {
+public class GlyphCarvingBlock extends BlockWithEntity { //TODO: Add REI info board for how to obtain this.
 
     public GlyphCarvingBlock(AbstractBlock.Settings settings) {
         super(settings);
