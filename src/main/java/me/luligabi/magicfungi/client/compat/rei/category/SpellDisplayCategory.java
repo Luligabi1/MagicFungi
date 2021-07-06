@@ -26,16 +26,16 @@ public class SpellDisplayCategory implements DisplayCategory<SpellRecipeDisplay>
         List<Widget> widgets = new ArrayList<>();
 
         widgets.add(Widgets.createRecipeBase(bounds));
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 0.5 * 18, origin.y + -1 * 18)).entries(display.getInputEntries().get(0)).markInput());
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 2.5 * 18, origin.y + -1 * 18)).entries(display.getInputEntries().get(1)).markInput());
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + -0.5 * 18, origin.y + 0 * 18)).entries(display.getInputEntries().get(2)).markInput());
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 3.5 * 18, origin.y + 0 * 18)).entries(display.getInputEntries().get(3)).markInput());
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + -0.5 * 18, origin.y + 2 * 18)).entries(display.getInputEntries().get(4)).markInput());
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 3.5 * 18, origin.y + 2 * 18)).entries(display.getInputEntries().get(5)).markInput());
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 0.5 * 18, origin.y + 3 * 18)).entries(display.getInputEntries().get(6)).markInput());
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 2.5 * 18, origin.y + 3 * 18)).entries(display.getInputEntries().get(7)).markInput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 0.75 * 18, origin.y + -1 * 18)).entries(display.getInputEntries().get(0)).markInput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 2.75 * 18, origin.y + -1 * 18)).entries(display.getInputEntries().get(1)).markInput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + -0.25 * 18, origin.y + 0 * 18)).entries(display.getInputEntries().get(2)).markInput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 3.75 * 18, origin.y + 0 * 18)).entries(display.getInputEntries().get(3)).markInput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + -0.25 * 18, origin.y + 2 * 18)).entries(display.getInputEntries().get(4)).markInput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 3.75 * 18, origin.y + 2 * 18)).entries(display.getInputEntries().get(5)).markInput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 0.75 * 18, origin.y + 3 * 18)).entries(display.getInputEntries().get(6)).markInput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 2.75 * 18, origin.y + 3 * 18)).entries(display.getInputEntries().get(7)).markInput());
 
-        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 1.5 * 18, origin.y + 1 * 18)).entries(display.getOutputEntries().get(0)).markOutput());
+        widgets.add(Widgets.createSlot(new Point(origin.x + 20 + 1.75 * 18, origin.y + 1 * 18)).entries(display.getOutputEntries().get(0)).markOutput());
 
         return widgets;
     }

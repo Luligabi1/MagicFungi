@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "magicfungi:impetus_mushroom",
+    "magicfungi:clypeus_mushroom",
+    "magicfungi:utilis_mushroom",
+    "magicfungi:vivifica_mushroom",
+    "magicfungi:morbus_mushroom"
+  ]
+}

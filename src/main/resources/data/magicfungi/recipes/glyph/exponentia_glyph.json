@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "tag": "magicfungi:mod_mushrooms"
+  },
+  "inputB" : {
+    "item": "minecraft:paper"
+  },
+  "inputC" : {
+    "item": "minecraft:feather"
+  },
+  "inputD" : {
+    "tag": "minecraft:planks"
+  },
+
+  "outputItem": "magicfungi:exponentia_glyph",
+  "outputAmount": "1"
+}
