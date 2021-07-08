@@ -58,19 +58,20 @@ public abstract class GlyphBaseItem extends Item {
         return ActionResult.CONSUME;
     }
 
-    protected boolean executeBlockGlyph(PlayerEntity playerEntity) {
+    private void executeGlyph(PlayerEntity playerEntity) {
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                 soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+    }
+
+    protected boolean executeBlockGlyph(PlayerEntity playerEntity) {
+        executeGlyph(playerEntity);
         return true;
     }
 
     protected boolean executeEntityGlyph(PlayerEntity playerEntity, LivingEntity livingEntity) {
-        playerEntity.getEntityWorld().playSound(null,
-                playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-                soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
-        playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
+        executeGlyph(playerEntity);
         return true;
     }
 
