@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
 import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
 import me.luligabi.magicfungi.common.recipe.RecipeRegistry;
@@ -18,8 +19,10 @@ public class MagicFungi implements ModInitializer {
     @Override
     public void onInitialize() {
         BlockRegistry.init();
+
         GlyphRegistry.init();
         SpellRegistry.init();
+        ItemRegistry.init();
 
         ConfiguredFeatureRegistry.init();
         BiomeRegistry.init();

@@ -1,7 +1,7 @@
 package me.luligabi.magicfungi.common.block.blockentity;
 
+import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.recipe.ImplementedInventory;
-import me.luligabi.magicfungi.common.registry.BlockRegistry;
 import me.luligabi.magicfungi.common.screenhandler.SpellDiscoveryScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
@@ -12,13 +12,14 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 
 public class SpellDiscoveryBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory {
-    private final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
+    private static final DefaultedList<ItemStack> inventory = DefaultedList.ofSize(9, ItemStack.EMPTY);
 
     public SpellDiscoveryBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistry.SPELL_DISCOVERY_BLOCK_ENTITY, pos, state);
@@ -27,12 +28,11 @@ public class SpellDiscoveryBlockEntity extends BlockEntity implements NamedScree
     @Override
     public DefaultedList<ItemStack> getItems() {
         return inventory;
-
     }
 
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new SpellDiscoveryScreenHandler(syncId, playerInventory, this);
+        return new SpellDiscoveryScreenHandler(syncId, playerInventory, this, ScreenHandlerContext.create(this.getWorld(), this.getPos()));
     }
 
     @Override
@@ -42,13 +42,14 @@ public class SpellDiscoveryBlockEntity extends BlockEntity implements NamedScree
 
     @Override
     public NbtCompound writeNbt(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, this.inventory);
+        Inventories.writeNbt(nbt, inventory);
         return super.writeNbt(nbt);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
-        Inventories.readNbt(nbt, this.inventory);
+        Inventories.readNbt(nbt, inventory);
     }
+
 }

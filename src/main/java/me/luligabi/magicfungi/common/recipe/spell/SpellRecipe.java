@@ -1,15 +1,16 @@
 package me.luligabi.magicfungi.common.recipe.spell;
 
-import me.luligabi.magicfungi.common.recipe.ImplementedInventory;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class SpellRecipe implements Recipe<ImplementedInventory> {
+public class SpellRecipe implements Recipe<Inventory> {
 
     private final Ingredient inputA;
     private final Ingredient inputB;
@@ -21,7 +22,6 @@ public class SpellRecipe implements Recipe<ImplementedInventory> {
     private final Ingredient inputH;
     private final ItemStack outputStack;
     private final Identifier identifier;
-
 
     public SpellRecipe(Ingredient inputA, Ingredient inputB, Ingredient inputC, Ingredient inputD, Ingredient inputE, Ingredient inputF, Ingredient inputG, Ingredient inputH, ItemStack outputStack, Identifier identifier) {
         this.inputA = inputA;
@@ -53,7 +53,7 @@ public class SpellRecipe implements Recipe<ImplementedInventory> {
     public Ingredient getInputH() { return inputH; }
 
     @Override
-    public boolean matches(ImplementedInventory inventory, World world) {
+    public boolean matches(Inventory inventory, World world) {
         if (inventory.size() < 8) return false;
         return inputA.test(inventory.getStack(0)) &&
                 inputB.test(inventory.getStack(1)) &&
@@ -66,8 +66,8 @@ public class SpellRecipe implements Recipe<ImplementedInventory> {
     }
 
     @Override
-    public ItemStack craft(ImplementedInventory inventory) {
-        return ItemStack.EMPTY;
+    public ItemStack craft(Inventory inventory) {
+        return outputStack.copy();
     }
 
     @Override
@@ -75,9 +75,24 @@ public class SpellRecipe implements Recipe<ImplementedInventory> {
         return false;
     }
 
+    public DefaultedList<Ingredient> getInputs() {
+        DefaultedList<Ingredient> inputs = DefaultedList.of();
+
+        inputs.add(0, getInputA());
+        inputs.add(1, getInputB());
+        inputs.add(2, getInputC());
+        inputs.add(3, getInputD());
+        inputs.add(4, getInputE());
+        inputs.add(5, getInputF());
+        inputs.add(6, getInputG());
+        inputs.add(7, getInputH());
+
+        return inputs;
+    }
+
     @Override
     public ItemStack getOutput() {
-        return outputStack;
+        return outputStack.copy();
     }
 
     @Override
@@ -102,4 +117,8 @@ public class SpellRecipe implements Recipe<ImplementedInventory> {
         return Type.INSTANCE;
     }
 
+    @Override
+    public boolean isIgnoredInRecipeBook() {
+        return true;
+    }
 }

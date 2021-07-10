@@ -1,7 +1,7 @@
 package me.luligabi.magicfungi.common.block.blockentity;
 
+import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.recipe.ImplementedInventory;
-import me.luligabi.magicfungi.common.registry.BlockRegistry;
 import me.luligabi.magicfungi.common.screenhandler.GlyphCarvingScreenHandler;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;

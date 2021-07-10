@@ -1,6 +1,5 @@
 package me.luligabi.magicfungi.common.screenhandler;
 
-import me.luligabi.magicfungi.common.registry.ScreenHandlingRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
