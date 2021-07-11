@@ -3,6 +3,7 @@
   "landing_text": "text.magic_fungi.landing_text",
   "version": 1,
   "subtitle": "Unravel the secrets of the fungus.",
+  "model": "magicfungi:guide_book",
   "show_progress": false,
   "pause_game": false
 }
