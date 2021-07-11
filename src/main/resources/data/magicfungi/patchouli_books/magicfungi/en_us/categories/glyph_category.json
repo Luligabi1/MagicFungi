@@ -1,5 +1,6 @@
 {
   "name": "Glyph Magic",
   "description": "Glyphs are one-use items for special magic.",
+  "sortnum": 1,
   "icon": "magicfungi:glyph_carving_bench"
 }

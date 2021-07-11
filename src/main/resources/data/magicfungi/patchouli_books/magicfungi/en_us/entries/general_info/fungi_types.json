@@ -1,7 +1,8 @@
 {
   "name": "Fungi Types",
   "icon": "magicfungi:impetus_mushroom",
-  "category": "magicfungi:category_a",
+  "category": "magicfungi:general_info",
+  "sortnum": 0,
   "pages": [
     {
       "type": "text",
