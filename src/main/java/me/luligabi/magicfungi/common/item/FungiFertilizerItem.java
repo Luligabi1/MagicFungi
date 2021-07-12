@@ -3,9 +3,12 @@ package me.luligabi.magicfungi.common.item;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.block.mushroom.ImpetusMushroomPlantBlock;
 import me.luligabi.magicfungi.common.util.Util;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -20,6 +23,7 @@ public class FungiFertilizerItem extends Item {
     public ActionResult useOnBlock(ItemUsageContext context) {
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();
+        PlayerEntity playerEntity = context.getPlayer();
         ImpetusMushroomPlantBlock impetusMushroom = BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK;
         double radius = 2.5;
 
@@ -37,12 +41,16 @@ public class FungiFertilizerItem extends Item {
                                 if (!context.getPlayer().getAbilities().creativeMode) {
                                     context.getStack().decrement(1);
                                 }
+
+                                playerEntity.getEntityWorld().playSound(null,
+                                        playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
+                                        SoundEvents.ITEM_BONE_MEAL_USE, SoundCategory.BLOCKS, 1F, 1F);
                             }
                         }
                     }
                 }
             }
-        } else {
+        } else { //TODO: Fix particles appearing even when not using.
             BoneMealItem.createParticles(context.getWorld(), context.getBlockPos(), 2);
         }
         return ActionResult.SUCCESS;
