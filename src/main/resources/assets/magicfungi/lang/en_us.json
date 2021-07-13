@@ -36,6 +36,8 @@
   "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
   "item.magicfungi.guide_book": "Magic Mycology Book",
 
+  "description.magicfungi.spell_discovery_bench": "Spell Discovery Workbench is a special crafting block for Magic Fungi's spells. It's not crafted by normal means, but via shift right-clicking a Crafting Table with an Exponentia Spell.",
+
   "biome.magicfungi.host_biome": "Host Biome",
   "itemGroup.magicfungi.item_group": "Magic Fungi"
 }
