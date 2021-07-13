@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "magicfungi:vivifica_mushroom"
+  },
+  "inputB" : {
+    "item": "minecraft:scute"
+  },
+  "inputC" : {
+    "item": "minecraft:scute"
+  },
+  "inputD" : {
+    "item": "minecraft:glass_bottle"
+  },
+
+  "outputItem": "magicfungi:vivifica_essence",
+  "outputAmount": "4"
+}

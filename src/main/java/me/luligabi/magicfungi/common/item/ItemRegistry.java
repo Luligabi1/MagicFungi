@@ -9,7 +9,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
-    public static void init() {
+    public static void init() { // TODO: Tag essences to have Items.GLASS_BOTTLE as recipe remainder.
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_essence"), IMPETUS_ESSENCE);
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_essence"), CLYPEUS_ESSENCE);
