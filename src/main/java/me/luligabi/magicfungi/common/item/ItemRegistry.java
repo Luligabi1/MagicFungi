@@ -3,13 +3,14 @@ package me.luligabi.magicfungi.common.item;
 import me.luligabi.magicfungi.common.MagicFungi;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class ItemRegistry {
 
-    public static void init() { // TODO: Tag essences to have Items.GLASS_BOTTLE as recipe remainder.
+    public static void init() {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_essence"), IMPETUS_ESSENCE);
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_essence"), CLYPEUS_ESSENCE);
@@ -26,15 +27,15 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "guide_book"), GUIDE_BOOK);
     }
 
-    public static final Item IMPETUS_ESSENCE = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
+    public static final Item IMPETUS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item CLYPEUS_ESSENCE = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
+    public static final Item CLYPEUS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item UTILIS_ESSENCE = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
+    public static final Item UTILIS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item VIVIFICA_ESSENCE = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
+    public static final Item VIVIFICA_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MORBUS_ESSENCE = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
+    public static final Item MORBUS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).group(MagicFungi.ITEM_GROUP));
 
 
     public static final FungiFertilizerItem FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
