@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "magicfungi:block/host_grass_block"
+      },
+      {
+        "model": "magicfungi:block/host_grass_block",
+        "y": 90
+      },
+      {
+        "model": "magicfungi:block/host_grass_block",
+        "y": 180
+      },
+      {
+        "model": "magicfungi:block/host_grass_block",
+        "y": 270
+      }
+    ]
+  }
+}

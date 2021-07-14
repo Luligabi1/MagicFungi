@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "magicfungi:block/host_dirt"
+      },
+      {
+        "model": "magicfungi:block/host_dirt",
+        "y": 90
+      },
+      {
+        "model": "magicfungi:block/host_dirt",
+        "y": 180
+      },
+      {
+        "model": "magicfungi:block/host_dirt",
+        "y": 270
+      }
+    ]
+  }
+}

@@ -9,9 +9,7 @@ import me.luligabi.magicfungi.common.block.mushroom.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.Material;
-import net.minecraft.block.MushroomBlock;
+import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
@@ -41,6 +39,15 @@ public class BlockRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_block"), new BlockItem(MORBUS_MUSHROOM_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
 
+        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "host_grass_block"), HOST_GRASS_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "host_grass_block"), new BlockItem(HOST_GRASS_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+
+
+        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "host_dirt"), HOST_DIRT);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "host_dirt"), new BlockItem(HOST_DIRT, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+
+
+
         Registry.register(Registry.BLOCK, GLYPH_CARVING_BENCH_IDENTIFIER, GLYPH_CARVING_BLOCK);
         Registry.register(Registry.ITEM, GLYPH_CARVING_BENCH_IDENTIFIER, new BlockItem(GLYPH_CARVING_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
@@ -59,6 +66,10 @@ public class BlockRegistry {
     public static final MorbusMushroomPlantBlock MORBUS_MUSHROOM_PLANT_BLOCK = new MorbusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
 
     public static final MushroomBlock MORBUS_MUSHROOM_BLOCK = new MushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(0.2F).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block HOST_GRASS_BLOCK = new GrassBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
+
+    public static final Block HOST_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
 
     public static final GlyphCarvingBlock GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
     public static BlockEntityType<GlyphCarvingBlockEntity> GLYPH_CARVING_BLOCK_ENTITY;

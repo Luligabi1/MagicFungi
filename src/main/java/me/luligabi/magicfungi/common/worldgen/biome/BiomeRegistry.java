@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.worldgen.biome;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.block.BlockRegistry;
 import net.fabricmc.fabric.api.biome.v1.OverworldBiomes;
 import net.fabricmc.fabric.api.biome.v1.OverworldClimate;
 import net.minecraft.block.Blocks;
@@ -31,8 +32,8 @@ public class BiomeRegistry {
 
     private static final ConfiguredSurfaceBuilder<TernarySurfaceConfig> HOST_BIOME_SURFACE_BUILDER = SurfaceBuilder.DEFAULT
             .withConfig(new TernarySurfaceConfig(
-                    Blocks.GRASS_BLOCK.getDefaultState(),
-                    Blocks.DIRT.getDefaultState(),
+                    BlockRegistry.HOST_GRASS_BLOCK.getDefaultState(),
+                    BlockRegistry.HOST_DIRT.getDefaultState(),
                     Blocks.GRAVEL.getDefaultState()));
 
     private static final Biome HOST_BIOME = createHostBiome();
@@ -60,12 +61,12 @@ public class BiomeRegistry {
                 .temperature(1.0F)
                 .downfall(0.0F)
                 .effects((new BiomeEffects.Builder())
-                        .grassColor(2890780)
+                        .grassColor(9470285)
                         .foliageColor(10387789)
-                        .waterColor(6388580)
-                        .waterFogColor(2302743)
+                        .waterColor(4159204)
+                        .waterFogColor(329011)
                         .fogColor(12638463)
-                        .skyColor(0x77adff)
+                        .skyColor(7254527)
                         .build())
                 .spawnSettings(spawnSettings.build())
                 .generationSettings(generationSettings.build())
