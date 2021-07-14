@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell;
 
+import me.luligabi.magicfungi.common.mixin.PlayerInventoryAccessor;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
@@ -13,6 +14,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
@@ -46,19 +48,22 @@ public abstract class SpellBaseItem extends Item {
 
     /*
      * Applies cooldown to spells, following the instructions bellow:
-     * - The spell that was cast will receive a cooldown with a variable time, set individually for each spell.
-     * - If another spell has the same mushroom type as the cast spell, it will receive a static 15 seconds cooldown
+     *
+     * - The spell that was cast will receive a cooldown with a variable time, set individually for each spell;
+     * - If another spell has the same MushroomType as the cast spell, the other spell will receive a static 15 seconds cooldown.
      *
      * This is made mostly for balancing, as this avoids spell spams being made.
      */
     private void applyCooldown(PlayerEntity playerEntity) {
         playerEntity.getItemCooldownManager().set(this, cooldown);
 
-        for(ItemStack itemStack : playerEntity.getInventory().main) { // TODO: Items on the off-hand slot or backpacks will not receive cooldown
-            if(itemStack.getItem() instanceof SpellBaseItem) {
-                if(itemStack.getItem() != this) {
-                    if(((SpellBaseItem) itemStack.getItem()).getMushroomType() == this.getMushroomType()) {
-                        playerEntity.getItemCooldownManager().set(itemStack.getItem(), 15*20);
+        for (DefaultedList<ItemStack> itemStacks : ((PlayerInventoryAccessor) playerEntity.getInventory()).getCombinedInventory()) {
+            for (ItemStack itemStack : itemStacks) {
+                if (itemStack.getItem() instanceof SpellBaseItem) {
+                    if (itemStack.getItem() != this) {
+                        if (((SpellBaseItem) itemStack.getItem()).getMushroomType() == this.getMushroomType()) {
+                            playerEntity.getItemCooldownManager().set(itemStack.getItem(), 15*20);
+                        }
                     }
                 }
             }
