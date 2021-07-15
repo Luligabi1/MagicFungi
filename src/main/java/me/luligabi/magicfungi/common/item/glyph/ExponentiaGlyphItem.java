@@ -7,7 +7,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
-public class ExponentiaGlyphItem extends GlyphBaseItem {
+public class ExponentiaGlyphItem extends BaseGlyphItem {
 
     public ExponentiaGlyphItem(Settings settings) {
         super(settings);

@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.item.glyph.vivifica;
 
-import me.luligabi.magicfungi.common.item.glyph.GlyphBaseItem;
+import me.luligabi.magicfungi.common.item.glyph.BaseGlyphItem;
 import me.luligabi.magicfungi.common.mixin.ZombieVillagerEntityInvoker;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.EntityType;
@@ -11,7 +11,7 @@ import net.minecraft.entity.mob.ZombifiedPiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvents;
 
-public class PudicitiamGlyphItem extends GlyphBaseItem {
+public class PudicitiamGlyphItem extends BaseGlyphItem {
 
     public PudicitiamGlyphItem(Settings settings) {
         super(settings);

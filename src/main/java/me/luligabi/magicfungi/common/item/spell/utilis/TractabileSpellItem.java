@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell.utilis;
 
-import me.luligabi.magicfungi.common.item.spell.SpellBaseItem;
+import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EnderChestInventory;
@@ -10,7 +10,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.world.World;
 
-public class TractabileSpellItem extends SpellBaseItem {
+public class TractabileSpellItem extends BaseSpellItem {
 
     public TractabileSpellItem(Settings settings) {
         super(settings);

@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.item.glyph.morbus;
 
-import me.luligabi.magicfungi.common.item.glyph.GlyphBaseItem;
+import me.luligabi.magicfungi.common.item.glyph.BaseGlyphItem;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -11,7 +11,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.sound.SoundEvents;
 
-public class CorrumpereGlyphItem extends GlyphBaseItem {
+public class CorrumpereGlyphItem extends BaseGlyphItem {
 
     public CorrumpereGlyphItem(Item.Settings settings) {
         super(settings);

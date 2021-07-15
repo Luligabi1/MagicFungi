@@ -21,13 +21,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public abstract class GlyphBaseItem extends Item {
+public abstract class BaseGlyphItem extends Item {
 
     protected SoundEvent soundEvent;
     protected MushroomType mushroomType;
     protected BlockPos blockPos;
 
-    public GlyphBaseItem (Item.Settings settings) {
+    public BaseGlyphItem (Item.Settings settings) {
         super(settings);
         setMushroomType(MushroomType.INCOGNITA);
     }

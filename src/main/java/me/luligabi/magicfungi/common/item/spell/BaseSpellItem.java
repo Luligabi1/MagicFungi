@@ -20,13 +20,13 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public abstract class SpellBaseItem extends Item {
+public abstract class BaseSpellItem extends Item {
 
     protected int cooldown = 20;
     protected SoundEvent soundEvent;
     protected MushroomType mushroomType;
 
-    public SpellBaseItem(Settings settings) {
+    public BaseSpellItem(Settings settings) {
         super(settings);
     }
 
@@ -59,9 +59,9 @@ public abstract class SpellBaseItem extends Item {
 
         for (DefaultedList<ItemStack> itemStacks : ((PlayerInventoryAccessor) playerEntity.getInventory()).getCombinedInventory()) {
             for (ItemStack itemStack : itemStacks) {
-                if (itemStack.getItem() instanceof SpellBaseItem) {
+                if (itemStack.getItem() instanceof BaseSpellItem) {
                     if (itemStack.getItem() != this) {
-                        if (((SpellBaseItem) itemStack.getItem()).getMushroomType() == this.getMushroomType()) {
+                        if (((BaseSpellItem) itemStack.getItem()).getMushroomType() == this.getMushroomType()) {
                             playerEntity.getItemCooldownManager().set(itemStack.getItem(), 15*20);
                         }
                     }

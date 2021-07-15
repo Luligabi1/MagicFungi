@@ -1,13 +1,13 @@
 package me.luligabi.magicfungi.common.item.spell.impetus;
 
-import me.luligabi.magicfungi.common.item.spell.SpellBaseItem;
+import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
-public class IgneiSpellItem extends SpellBaseItem {
+public class IgneiSpellItem extends BaseSpellItem {
 
     public IgneiSpellItem(Settings settings) {
         super(settings);
