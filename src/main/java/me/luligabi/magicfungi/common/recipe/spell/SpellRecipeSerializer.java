@@ -19,11 +19,9 @@ public class SpellRecipeSerializer implements RecipeSerializer<SpellRecipe> {
 
     public static final SpellRecipeSerializer INSTANCE = new SpellRecipeSerializer();
 
-    // This will be the "type" field in the json
     public static final Identifier ID = new Identifier(MagicFungi.MOD_ID, "spell_recipe");
 
-    @Override
-    // Turns json into Recipe
+    @Override // Turns json into Recipe
     public SpellRecipe read(Identifier recipeId, JsonObject json) {
         SpellRecipeJsonFormat recipeJson = new Gson().fromJson(json, SpellRecipeJsonFormat.class);
         if (recipeJson.inputA == null ||
@@ -37,7 +35,6 @@ public class SpellRecipeSerializer implements RecipeSerializer<SpellRecipe> {
                 recipeJson.outputItem == null) {
             throw new JsonSyntaxException("A required attribute is missing!");
         }
-        // If output size isn't specified, default to 1.
         if (recipeJson.outputAmount == 0) recipeJson.outputAmount = 1;
 
         Ingredient inputA = Ingredient.fromJson(recipeJson.inputA);
@@ -49,14 +46,12 @@ public class SpellRecipeSerializer implements RecipeSerializer<SpellRecipe> {
         Ingredient inputG = Ingredient.fromJson(recipeJson.inputG);
         Ingredient inputH = Ingredient.fromJson(recipeJson.inputH);
         Item outputItem = Registry.ITEM.getOrEmpty(new Identifier(recipeJson.outputItem))
-                // Validating the inputted item actually exists
                 .orElseThrow(() -> new JsonSyntaxException("No such item " + recipeJson.outputItem));
         ItemStack output = new ItemStack(outputItem, recipeJson.outputAmount);
 
         return new SpellRecipe(inputA, inputB, inputC, inputD, inputE, inputF, inputG, inputH, output, recipeId);
     }
-    @Override
-    // Turns Recipe into PacketByteBuf
+    @Override // Turns Recipe into PacketByteBuf
     public void write(PacketByteBuf packetData, SpellRecipe recipe) {
         recipe.getInputA().write(packetData);
         recipe.getInputB().write(packetData);
@@ -69,8 +64,7 @@ public class SpellRecipeSerializer implements RecipeSerializer<SpellRecipe> {
         packetData.writeItemStack(recipe.getOutput());
     }
 
-    @Override
-    // Turns PacketByteBuf into Recipe
+    @Override // Turns PacketByteBuf into Recipe
     public SpellRecipe read(Identifier recipeId, PacketByteBuf packetData) {
         Ingredient inputA = Ingredient.fromPacket(packetData);
         Ingredient inputB = Ingredient.fromPacket(packetData);
