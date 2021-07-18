@@ -2,7 +2,6 @@ package me.luligabi.magicfungi.common.block;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.blockentity.GlyphCarvingBlockEntity;
-import me.luligabi.magicfungi.common.block.blockentity.SpellDiscoveryBlockEntity;
 import me.luligabi.magicfungi.common.block.misc.GlyphCarvingBlock;
 import me.luligabi.magicfungi.common.block.misc.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
@@ -56,7 +55,6 @@ public class BlockRegistry {
         Registry.register(Registry.BLOCK, SPELL_DISCOVERY_BENCH_IDENTIFIER, SPELL_DISCOVERY_BLOCK);
         Registry.register(Registry.ITEM, SPELL_DISCOVERY_BENCH_IDENTIFIER, new BlockItem(SPELL_DISCOVERY_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
-        SPELL_DISCOVERY_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, SPELL_DISCOVERY_BENCH_IDENTIFIER, FabricBlockEntityTypeBuilder.create(SpellDiscoveryBlockEntity::new, SPELL_DISCOVERY_BLOCK).build(null));
     }
 
     public static final ImpetusMushroomPlantBlock IMPETUS_MUSHROOM_PLANT_BLOCK = new ImpetusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
@@ -76,7 +74,6 @@ public class BlockRegistry {
 
 
     public static final SpellDiscoveryBlock SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
-    public static BlockEntityType<SpellDiscoveryBlockEntity> SPELL_DISCOVERY_BLOCK_ENTITY;
 
     public static final Identifier GLYPH_CARVING_BENCH_IDENTIFIER = new Identifier(MagicFungi.MOD_ID, "glyph_carving_bench");
     public static final Identifier SPELL_DISCOVERY_BENCH_IDENTIFIER = new Identifier(MagicFungi.MOD_ID, "spell_discovery_bench");

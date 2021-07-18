@@ -35,13 +35,13 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
 
     public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, syncId);
-        //checkSize(inventory, 9);
         this.playerInventory = playerInventory;
         this.input = new CraftingInventory(this, 3, 3);
         this.result = new CraftingResultInventory();
         this.context = context;
 
-        //inventory.onOpen(playerInventory.player);
+        checkSize(this.input, 9);
+        this.input.onOpen(playerInventory.player);
 
         // Crafting Slots
         this.addSlot(new Slot(this.input, 0, 62, 56 + -2 * 18)); // inputA
@@ -72,9 +72,9 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
     }
 
     //TODO: Fix items getting added instead of subtracted
-    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity player, CraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
+    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity, CraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
         if (!world.isClient) {
-            ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity)player;
+            ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) playerEntity;
             ItemStack itemStack = ItemStack.EMPTY;
             Optional<SpellRecipe> optional = world.getServer().getRecipeManager().getFirstMatch(SpellRecipe.Type.INSTANCE, craftingInventory, world);
             if (optional.isPresent()) {
@@ -94,38 +94,63 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
         this.context.run((world, pos) -> updateResult(this, world, this.playerInventory.player, this.input, this.result));
     }
 
-    @Override // Shift + Player Inv Slot //TODO: Fix this working screen -> player but not the other way
-    public ItemStack transferSlot(PlayerEntity player, int invSlot) {
-        ItemStack newStack = ItemStack.EMPTY;
-        Slot slot = this.slots.get(invSlot);
+    public void close(PlayerEntity player) {
+        super.close(player);
+        this.context.run((world, pos) -> this.dropInventory(player, this.input));
+    }
+
+    @Override // Shift-Click interactions
+    public ItemStack transferSlot(PlayerEntity player, int index) {
+        ItemStack itemStack = ItemStack.EMPTY;
+        Slot slot = this.slots.get(index);
         if (slot != null && slot.hasStack()) {
-            ItemStack originalStack = slot.getStack();
-            newStack = originalStack.copy();
-            if (invSlot < this.input.size()) {
-                if (!this.insertItem(originalStack, this.input.size(), this.slots.size(), true)) {
+            ItemStack itemStack2 = slot.getStack();
+            itemStack = itemStack2.copy();
+            if (index == 8) {
+                this.context.run((world, pos) -> itemStack2.getItem().onCraft(itemStack2, world, player));
+                if (!this.insertItem(itemStack2, 10, 45, true)) {
                     return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(originalStack, 8, this.input.size(), false)) {
+
+                slot.onQuickTransfer(itemStack2, itemStack);
+            } else if (index >= 9 && index < 46) {
+                if (!this.insertItem(itemStack2, 0, 8, false)) {
+                    if (index < 37) {
+                        if (!this.insertItem(itemStack2, 37, 45, false)) {
+                            return ItemStack.EMPTY;
+                        }
+                    } else if (!this.insertItem(itemStack2, 9, 37, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                }
+            } else if (!this.insertItem(itemStack2, 9, 45, false)) {
                 return ItemStack.EMPTY;
             }
 
-            if (originalStack.isEmpty()) {
+            if (itemStack2.isEmpty()) {
                 slot.setStack(ItemStack.EMPTY);
             } else {
                 slot.markDirty();
             }
+
+            if (itemStack2.getCount() == itemStack.getCount()) {
+                return ItemStack.EMPTY;
+            }
+
+            slot.onTakeItem(player, itemStack2);
+            if (index == 8) {
+                player.dropItem(itemStack2, false);
+            }
         }
 
-        return newStack;
+        return itemStack;
     }
 
     @Override
     public boolean canUse(PlayerEntity player) { return canUse(this.context, player, BlockRegistry.SPELL_DISCOVERY_BLOCK); }
 
     @Override
-    public void populateRecipeFinder(RecipeMatcher finder) {
-        this.input.provideRecipeInputs(finder);
-    }
+    public void populateRecipeFinder(RecipeMatcher finder) { this.input.provideRecipeInputs(finder); }
 
     @Override
     public void clearCraftingSlots() {
@@ -137,34 +162,22 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
     public boolean matches(Recipe<? super CraftingInventory> recipe) { return recipe.matches(this.input, this.playerInventory.player.world); }
 
     @Override
-    public int getCraftingResultSlotIndex() {
-        return 8;
-    }
+    public int getCraftingResultSlotIndex() { return 8; }
 
     @Override
-    public int getCraftingWidth() {
-        return 4;
-    }
+    public int getCraftingWidth() { return 3; }
 
     @Override
-    public int getCraftingHeight() {
-        return 4;
-    }
+    public int getCraftingHeight() { return 3; }
 
     @Override
-    public int getCraftingSlotCount() {
-        return 9;
-    }
+    public int getCraftingSlotCount() { return 9; }
 
     @Override
-    public RecipeBookCategory getCategory() {
-        return null;
-    }
+    public RecipeBookCategory getCategory() { return null; }
 
     @Override
-    public boolean canInsertIntoSlot(int index) {
-        return index != this.getCraftingResultSlotIndex();
-    }
+    public boolean canInsertIntoSlot(int index) { return index != this.getCraftingResultSlotIndex(); }
 
     @Override
     public boolean canInsertIntoSlot(ItemStack stack, Slot slot) { return slot.inventory != this.result && super.canInsertIntoSlot(stack, slot); }
