@@ -3,14 +3,14 @@
   "id": "magicfungi",
   "version": "${version}",
   "name": "Magic Fungi",
-  "description": "dummy",
+  "description": "An original magic mod all about the fungi!",
   "authors": [
     "Luligabi"
   ],
   "contact": {
-    "homepage": "dummy",
-    "repo": "dummy",
-    "issues": "dummy"
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/magic-fungi",
+    "repo": "https://github.com/Luligabi1/MagicFungi",
+    "issues": "https://github.com/Luligabi1/MagicFungi/issues"
   },
   "license": "Apache-2.0",
   "icon": "assets/magicfungi/icon.png",
@@ -33,7 +33,8 @@
   "depends": {
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.17.x"
+    "minecraft": ">=1.17.1",
+    "patchouli": "*"
   },
   "recommends": {
     "roughlyenoughitems": "*"
