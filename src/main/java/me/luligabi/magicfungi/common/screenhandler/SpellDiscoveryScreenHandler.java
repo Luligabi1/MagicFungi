@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common.screenhandler;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
+import me.luligabi.magicfungi.common.screenhandler.slots.SpellDiscoveryResultSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingInventory;
@@ -15,7 +16,6 @@ import net.minecraft.recipe.book.RecipeBookCategory;
 import net.minecraft.screen.AbstractRecipeScreenHandler;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
-import net.minecraft.screen.slot.CraftingResultSlot;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.world.World;
@@ -43,7 +43,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
         checkSize(this.input, 9);
         this.input.onOpen(playerInventory.player);
 
-        // Crafting Slots
+
         this.addSlot(new Slot(this.input, 0, 62, 56 + -2 * 18)); // inputA
         this.addSlot(new Slot(this.input, 1, 62 + 2 * 18, 56 + -2 * 18)); // inputB
         this.addSlot(new Slot(this.input, 2, 62 + -1 * 18, 56 + -1 * 18)); // inputC
@@ -53,18 +53,18 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
         this.addSlot(new Slot(this.input, 6, 62, 56 + 2 * 18)); // inputG
         this.addSlot(new Slot(this.input, 7, 62 + 2 * 18, 56 + 2 * 18)); // inputH
 
-        this.addSlot(new CraftingResultSlot(playerInventory.player, this.input, this.result, 8, 62 + 18, 56)); // Output
+        this.addSlot(new SpellDiscoveryResultSlot(playerInventory.player, this.input, this.result, 8, 62 + 18, 56)); // Output
 
         int m;
         int l;
 
-        //Player Inventory
+        // Player Inventory
         for (m = 0; m < 3; ++m) {
             for (l = 0; l < 9; ++l) {
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 123 + m * 18));
             }
         }
-        //Player Hotbar
+        // Hotbar
         for (m = 0; m < 9; ++m) {
             this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 181));
         }
@@ -165,10 +165,10 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
     public int getCraftingResultSlotIndex() { return 8; }
 
     @Override
-    public int getCraftingWidth() { return 3; }
+    public int getCraftingWidth() { return Integer.MAX_VALUE; }
 
     @Override
-    public int getCraftingHeight() { return 3; }
+    public int getCraftingHeight() { return Integer.MAX_VALUE; }
 
     @Override
     public int getCraftingSlotCount() { return 9; }
