@@ -71,7 +71,6 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
 
     }
 
-    //TODO: Fix items getting added instead of subtracted
     protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity, CraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
         if (!world.isClient) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) playerEntity;

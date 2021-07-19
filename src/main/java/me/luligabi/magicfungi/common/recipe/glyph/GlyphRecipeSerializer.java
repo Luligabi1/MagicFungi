@@ -21,7 +21,7 @@ public class GlyphRecipeSerializer implements RecipeSerializer<GlyphRecipe> {
 
     public static final Identifier ID = new Identifier(MagicFungi.MOD_ID, "glyph_recipe");
 
-    @Override
+    @Override // Turns json into Recipe
     public GlyphRecipe read(Identifier recipeId, JsonObject json) {
         GlyphRecipeJsonFormat recipeJson = new Gson().fromJson(json, GlyphRecipeJsonFormat.class);
         if (recipeJson.inputA == null ||
@@ -31,7 +31,6 @@ public class GlyphRecipeSerializer implements RecipeSerializer<GlyphRecipe> {
                 recipeJson.outputItem == null) {
             throw new JsonSyntaxException("A required attribute is missing!");
         }
-        // If output size isn't specified, default to 1.
         if (recipeJson.outputAmount == 0) recipeJson.outputAmount = 1;
 
         Ingredient inputA = Ingredient.fromJson(recipeJson.inputA);
@@ -39,14 +38,12 @@ public class GlyphRecipeSerializer implements RecipeSerializer<GlyphRecipe> {
         Ingredient inputC = Ingredient.fromJson(recipeJson.inputC);
         Ingredient inputD = Ingredient.fromJson(recipeJson.inputD);
         Item outputItem = Registry.ITEM.getOrEmpty(new Identifier(recipeJson.outputItem))
-                // Validating the inputted item actually exists
                 .orElseThrow(() -> new JsonSyntaxException("No such item " + recipeJson.outputItem));
         ItemStack output = new ItemStack(outputItem, recipeJson.outputAmount);
 
         return new GlyphRecipe(inputA, inputB, inputC, inputD, output, recipeId);
     }
-    @Override
-    // Turns Recipe into PacketByteBuf
+    @Override // Turns Recipe into PacketByteBuf
     public void write(PacketByteBuf packetData, GlyphRecipe recipe) {
         recipe.getInputA().write(packetData);
         recipe.getInputB().write(packetData);
@@ -55,8 +52,7 @@ public class GlyphRecipeSerializer implements RecipeSerializer<GlyphRecipe> {
         packetData.writeItemStack(recipe.getOutput());
     }
 
-    @Override
-    // Turns PacketByteBuf into Recipe
+    @Override // Turns PacketByteBuf into Recipe
     public GlyphRecipe read(Identifier recipeId, PacketByteBuf packetData) {
         Ingredient inputA = Ingredient.fromPacket(packetData);
         Ingredient inputB = Ingredient.fromPacket(packetData);

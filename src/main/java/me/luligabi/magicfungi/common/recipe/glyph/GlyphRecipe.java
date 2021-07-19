@@ -1,8 +1,6 @@
 package me.luligabi.magicfungi.common.recipe.glyph;
 
-import me.luligabi.magicfungi.common.recipe.ImplementedInventory;
-import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
-import me.luligabi.magicfungi.common.recipe.spell.SpellRecipeSerializer;
+import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
@@ -11,7 +9,7 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public class GlyphRecipe implements Recipe<ImplementedInventory> {
+public class GlyphRecipe implements Recipe<Inventory> {
 
     private final Ingredient inputA;
     private final Ingredient inputB;
@@ -39,7 +37,7 @@ public class GlyphRecipe implements Recipe<ImplementedInventory> {
     public Ingredient getInputD() { return inputD; }
 
     @Override
-    public boolean matches(ImplementedInventory inventory, World world) {
+    public boolean matches(Inventory inventory, World world) {
         if (inventory.size() < 5) return false;
         return inputA.test(inventory.getStack(0)) &&
                 inputB.test(inventory.getStack(1)) &&
@@ -48,8 +46,8 @@ public class GlyphRecipe implements Recipe<ImplementedInventory> {
     }
 
     @Override
-    public ItemStack craft(ImplementedInventory inventory) {
-        return ItemStack.EMPTY;
+    public ItemStack craft(Inventory inventory) {
+        return outputStack.copy();
     }
 
     @Override
@@ -69,10 +67,10 @@ public class GlyphRecipe implements Recipe<ImplementedInventory> {
 
     @Override
     public RecipeSerializer<?> getSerializer() {
-        return SpellRecipeSerializer.INSTANCE;
+        return GlyphRecipeSerializer.INSTANCE;
     }
 
-    public static class Type implements RecipeType<SpellRecipe> {
+    public static class Type implements RecipeType<GlyphRecipe> {
         private Type() {}
         public static final GlyphRecipe.Type INSTANCE = new GlyphRecipe.Type();
 
@@ -81,7 +79,11 @@ public class GlyphRecipe implements Recipe<ImplementedInventory> {
 
     @Override
     public RecipeType<?> getType() {
-        return SpellRecipe.Type.INSTANCE;
+        return GlyphRecipe.Type.INSTANCE;
     }
 
+    @Override
+    public boolean isIgnoredInRecipeBook() {
+        return true;
+    }
 }

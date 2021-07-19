@@ -1,15 +1,12 @@
 package me.luligabi.magicfungi.common.block;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.block.blockentity.GlyphCarvingBlockEntity;
 import me.luligabi.magicfungi.common.block.misc.GlyphCarvingBlock;
 import me.luligabi.magicfungi.common.block.misc.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
-import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
@@ -46,11 +43,9 @@ public class BlockRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "host_dirt"), new BlockItem(HOST_DIRT, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
 
-
         Registry.register(Registry.BLOCK, GLYPH_CARVING_BENCH_IDENTIFIER, GLYPH_CARVING_BLOCK);
         Registry.register(Registry.ITEM, GLYPH_CARVING_BENCH_IDENTIFIER, new BlockItem(GLYPH_CARVING_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
-        GLYPH_CARVING_BLOCK_ENTITY = Registry.register(Registry.BLOCK_ENTITY_TYPE, GLYPH_CARVING_BENCH_IDENTIFIER, FabricBlockEntityTypeBuilder.create(GlyphCarvingBlockEntity::new, GLYPH_CARVING_BLOCK).build(null));
 
         Registry.register(Registry.BLOCK, SPELL_DISCOVERY_BENCH_IDENTIFIER, SPELL_DISCOVERY_BLOCK);
         Registry.register(Registry.ITEM, SPELL_DISCOVERY_BENCH_IDENTIFIER, new BlockItem(SPELL_DISCOVERY_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
@@ -70,8 +65,6 @@ public class BlockRegistry {
     public static final Block HOST_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
 
     public static final GlyphCarvingBlock GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
-    public static BlockEntityType<GlyphCarvingBlockEntity> GLYPH_CARVING_BLOCK_ENTITY;
-
 
     public static final SpellDiscoveryBlock SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
 
