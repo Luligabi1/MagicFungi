@@ -9,6 +9,7 @@ import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
 
 public class CorrumpereGlyphItem extends BaseGlyphItem {
@@ -20,27 +21,27 @@ public class CorrumpereGlyphItem extends BaseGlyphItem {
     }
 
     @Override
-    protected boolean executeEntityGlyph(PlayerEntity playerEntity, LivingEntity livingEntity) {
+    protected boolean executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
         if(livingEntity instanceof VillagerEntity) { //TODO: Fix this not working
             ((VillagerEntity) livingEntity).convertTo(EntityType.ZOMBIE_VILLAGER, true);
-            super.executeEntityGlyph(playerEntity, livingEntity);
+            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
             return true;
         }
         if(livingEntity instanceof PiglinEntity) {
             ((PiglinEntity) livingEntity).convertTo(EntityType.ZOMBIFIED_PIGLIN, true);
-            super.executeEntityGlyph(playerEntity, livingEntity);
+            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
             return true;
         }
         if(livingEntity instanceof HoglinEntity) {
             ((HoglinEntity) livingEntity).convertTo(EntityType.ZOGLIN, true);
-            super.executeEntityGlyph(playerEntity, livingEntity);
+            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
             return true;
         }
         return false;
     }
 
     @Override
-    protected boolean executeBlockGlyph(PlayerEntity playerEntity) {
+    protected boolean executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
         return false;
     }
 }

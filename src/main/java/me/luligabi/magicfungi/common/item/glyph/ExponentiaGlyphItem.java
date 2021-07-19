@@ -4,6 +4,7 @@ import me.luligabi.magicfungi.common.block.BlockRegistry;
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
 
@@ -15,19 +16,17 @@ public class ExponentiaGlyphItem extends BaseGlyphItem {
     }
 
     @Override
-    public boolean executeBlockGlyph(PlayerEntity playerEntity) {
+    public boolean executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
         World world = playerEntity.getEntityWorld();
         if (world.getBlockState(blockPos).getBlock() == Blocks.CRAFTING_TABLE) {
             world.setBlockState(blockPos,
                     BlockRegistry.SPELL_DISCOVERY_BLOCK.getDefaultState());
-            super.executeBlockGlyph(playerEntity);
+            super.executeBlockGlyph(playerEntity, itemStack);
             return true;
         }
         return false;
     }
 
     @Override
-    protected boolean executeEntityGlyph(PlayerEntity playerEntity, LivingEntity livingEntity) {
-        return false;
-    }
+    protected boolean executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) { return false; }
 }

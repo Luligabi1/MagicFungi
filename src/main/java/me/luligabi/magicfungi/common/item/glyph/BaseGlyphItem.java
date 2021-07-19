@@ -32,46 +32,41 @@ public abstract class BaseGlyphItem extends Item {
         setMushroomType(MushroomType.INCOGNITA);
     }
 
-    @Override //TODO: Fix glyph dupe when opening another UI after using glyphs.
+    @Override 
     public ActionResult useOnBlock(ItemUsageContext context) {
         blockPos = context.getBlockPos();
         World world = context.getWorld();
         PlayerEntity user = context.getPlayer();
         if (!world.isClient) {
-            executeBlockGlyph(user);
+            executeBlockGlyph(user, context.getStack());
         }
-        if (!user.getAbilities().creativeMode && executeBlockGlyph(user)) {
-            context.getStack().decrement(1);
-        }
-        return ActionResult.CONSUME;
+        return ActionResult.CONSUME_PARTIAL;
     }
 
     @Override
     public ActionResult useOnEntity(ItemStack stack, PlayerEntity user, LivingEntity entity, Hand hand) {
         World world = user.getEntityWorld();
         if (!world.isClient) {
-            executeEntityGlyph(user, entity);
+            executeEntityGlyph(user, stack, entity);
         }
-        if (!user.getAbilities().creativeMode && executeEntityGlyph(user, entity)) {
-            stack.decrement(1);
-        }
-        return ActionResult.CONSUME;
+        return ActionResult.CONSUME_PARTIAL;
     }
 
-    private void executeGlyph(PlayerEntity playerEntity) {
+    private void executeGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
+        itemStack.decrement(1);
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                 soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
-    protected boolean executeBlockGlyph(PlayerEntity playerEntity) {
-        executeGlyph(playerEntity);
+    protected boolean executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
+        executeGlyph(playerEntity, itemStack);
         return true;
     }
 
-    protected boolean executeEntityGlyph(PlayerEntity playerEntity, LivingEntity livingEntity) {
-        executeGlyph(playerEntity);
+    protected boolean executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
+        executeGlyph(playerEntity, itemStack);
         return true;
     }
 
