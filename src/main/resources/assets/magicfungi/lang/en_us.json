@@ -33,11 +33,36 @@
   "block.magicfungi.spell_discovery_bench": "Spell Discovery Workbench",
   "title.magicfungi.spell_discovery": "Spell Discovery",
 
+  "block.magicfungi.host_grass_block": "Host Grass Block",
+  "block.magicfungi.host_dirt": "Host Dirt",
+
   "item.magicfungi.impetus_essence": "Impetus Essence",
   "item.magicfungi.clypeus_essence": "Clypeus Essence",
   "item.magicfungi.utilis_essence": "Utilis Essence",
   "item.magicfungi.vivifica_essence": "Vivifica Essence",
   "item.magicfungi.morbus_essence": "Morbus Essence",
+
+  "item.magicfungi.exponentia_glyph": "Exponentia Glyph",
+
+
+  "item.magicfungi.pudicitiam_glyph": "Pudicitiam Glyph",
+
+
+  "item.magicfungi.corrumpere_glyph": "Corrumpere Glyph",
+
+
+
+  "item.magicfungi.ignei_spell": "Ignei Spell",
+  "item.magicfungi.scintillam_spell": "Scintillam Spell",
+
+
+  "item.magicfungi.glacies_spell": "Glacies Spell",
+
+
+  "item.magicfungi.tractabile_spell": "Tractabile Spell",
+  "item.magicfungi.cibus_spell": "Cibus Spell",
+
+
 
   "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
   "item.magicfungi.guide_book": "Magic Mycology Book",
