@@ -2,7 +2,7 @@
   "name": "Clypeus Spells",
   "icon": "magicfungi:glacies_spell",
   "category": "magicfungi:spell_category",
-  "sortnum": 3,
+  "sortnum": 2,
   "pages": [
     {
       "type": "text",

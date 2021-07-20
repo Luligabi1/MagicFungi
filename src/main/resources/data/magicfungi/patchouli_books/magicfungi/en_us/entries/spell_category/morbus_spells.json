@@ -2,7 +2,7 @@
   "name": "Morbus Spells",
   "icon": "magicfungi:tractabile_spell",
   "category": "magicfungi:spell_category",
-  "sortnum": 6,
+  "sortnum": 5,
   "pages": [
     {
       "type": "text",

@@ -1,5 +1,5 @@
 {
   "variants": {
-    "": { "model": "magicfungi:block/spell_discovery_bench" }
+    "": { "model": "magicfungi:block/spell_discovery_workbench" }
   }
 }

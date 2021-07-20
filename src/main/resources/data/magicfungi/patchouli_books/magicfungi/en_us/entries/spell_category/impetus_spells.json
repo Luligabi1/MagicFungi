@@ -2,7 +2,7 @@
   "name": "Impetus Spells",
   "icon": "magicfungi:ignei_spell",
   "category": "magicfungi:spell_category",
-  "sortnum": 2,
+  "sortnum": 1,
   "pages": [
     {
       "type": "text",

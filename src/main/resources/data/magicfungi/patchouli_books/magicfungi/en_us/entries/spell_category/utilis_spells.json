@@ -2,7 +2,7 @@
   "name": "Utilis Spells",
   "icon": "magicfungi:tractabile_spell",
   "category": "magicfungi:spell_category",
-  "sortnum": 4,
+  "sortnum": 3,
   "pages": [
     {
       "type": "text",

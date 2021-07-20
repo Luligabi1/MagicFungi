@@ -2,7 +2,7 @@
   "name": "Discovering Spells",
   "icon": "magicfungi:spell_discovery_workbench",
   "category": "magicfungi:spell_category",
-  "sortnum": 1,
+  "sortnum": 0,
   "pages": [
     {
       "type": "text",
