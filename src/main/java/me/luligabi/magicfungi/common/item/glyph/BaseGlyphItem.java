@@ -27,12 +27,12 @@ public abstract class BaseGlyphItem extends Item {
     protected MushroomType mushroomType;
     protected BlockPos blockPos;
 
-    public BaseGlyphItem (Item.Settings settings) {
+    public BaseGlyphItem (Settings settings) {
         super(settings);
         setMushroomType(MushroomType.INCOGNITA);
     }
 
-    @Override 
+    @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
         blockPos = context.getBlockPos();
         World world = context.getWorld();

@@ -23,11 +23,11 @@ public class SpellDiscoveryBlock extends Block {
 
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (world.isClient) {
-            return ActionResult.SUCCESS;
+            return ActionResult.success(world.isClient());
         } else {
             player.openHandledScreen(state.createScreenHandlerFactory(world, pos));
             player.incrementStat(Stats.INTERACT_WITH_CRAFTING_TABLE);
-            return ActionResult.CONSUME;
+            return ActionResult.CONSUME_PARTIAL;
         }
     }
 

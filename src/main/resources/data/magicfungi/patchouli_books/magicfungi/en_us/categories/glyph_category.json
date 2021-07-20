@@ -1,6 +1,6 @@
 {
   "name": "Glyph Magic",
-  "description": "Glyphs are one-use items for special magic.",
+  "description": "Glyphs are simple, single-use magics. They come in all 5 fungi types and can be used without any cooldown.",
   "sortnum": 1,
-  "icon": "magicfungi:glyph_carving_bench"
+  "icon": "magicfungi:exponentia_glyph"
 }

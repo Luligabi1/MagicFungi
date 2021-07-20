@@ -11,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class SpellDiscoveryScreen extends HandledScreen<ScreenHandler> {
 
-    private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/spell_bench.png");
+    private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/spell_workbench.png");
 
     public SpellDiscoveryScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);

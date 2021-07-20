@@ -1,0 +1,12 @@
+{
+  "name": "Morbus Spells",
+  "icon": "magicfungi:tractabile_spell",
+  "category": "magicfungi:spell_category",
+  "sortnum": 6,
+  "pages": [
+    {
+      "type": "text",
+      "text": "WIP"
+    }
+  ]
+}

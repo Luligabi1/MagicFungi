@@ -1,0 +1,12 @@
+{
+  "name": "Discovering Spells",
+  "icon": "magicfungi:spell_discovery_workbench",
+  "category": "magicfungi:spell_category",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "Spells are a form to cast magic similar to glyphs. Unlike the former, spells aren't consumed upon used, but instead have a cooldown.$(br)$(br)$(l)Discovering Spells$()$(br)To start discovering spells, you must craft a $(l)Exponentia Glyph $()and use it on a regular $(l)Crafting Table$()."
+    }
+  ]
+}

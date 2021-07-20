@@ -43,12 +43,12 @@ public class BlockRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "host_dirt"), new BlockItem(HOST_DIRT, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
 
-        Registry.register(Registry.BLOCK, GLYPH_CARVING_BENCH_IDENTIFIER, GLYPH_CARVING_BLOCK);
-        Registry.register(Registry.ITEM, GLYPH_CARVING_BENCH_IDENTIFIER, new BlockItem(GLYPH_CARVING_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "glyph_carving_workbench"), GLYPH_CARVING_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "glyph_carving_workbench"), new BlockItem(GLYPH_CARVING_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
 
-        Registry.register(Registry.BLOCK, SPELL_DISCOVERY_BENCH_IDENTIFIER, SPELL_DISCOVERY_BLOCK);
-        Registry.register(Registry.ITEM, SPELL_DISCOVERY_BENCH_IDENTIFIER, new BlockItem(SPELL_DISCOVERY_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "spell_discovery_workbench"), SPELL_DISCOVERY_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "spell_discovery_workbench"), new BlockItem(SPELL_DISCOVERY_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
     }
 
@@ -68,8 +68,5 @@ public class BlockRegistry {
     public static final GlyphCarvingBlock GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
 
     public static final SpellDiscoveryBlock SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
-
-    public static final Identifier GLYPH_CARVING_BENCH_IDENTIFIER = new Identifier(MagicFungi.MOD_ID, "glyph_carving_bench");
-    public static final Identifier SPELL_DISCOVERY_BENCH_IDENTIFIER = new Identifier(MagicFungi.MOD_ID, "spell_discovery_bench");
 
 }

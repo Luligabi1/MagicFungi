@@ -1,0 +1,12 @@
+{
+  "name": "Impetus Spells",
+  "icon": "magicfungi:ignei_spell",
+  "category": "magicfungi:spell_category",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "WIP"
+    }
+  ]
+}

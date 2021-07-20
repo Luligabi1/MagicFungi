@@ -57,7 +57,7 @@ public class GlyphRecipe implements Recipe<Inventory> {
 
     @Override
     public ItemStack getOutput() {
-        return outputStack;
+        return outputStack.copy();
     }
 
     @Override
@@ -79,7 +79,7 @@ public class GlyphRecipe implements Recipe<Inventory> {
 
     @Override
     public RecipeType<?> getType() {
-        return GlyphRecipe.Type.INSTANCE;
+        return Type.INSTANCE;
     }
 
     @Override

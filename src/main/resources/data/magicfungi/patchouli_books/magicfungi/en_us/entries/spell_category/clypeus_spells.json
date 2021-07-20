@@ -1,0 +1,12 @@
+{
+  "name": "Clypeus Spells",
+  "icon": "magicfungi:glacies_spell",
+  "category": "magicfungi:spell_category",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "text": "WIP"
+    }
+  ]
+}

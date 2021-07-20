@@ -85,7 +85,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Cra
 
             resultInventory.setStack(8, itemStack);
             handler.setPreviousTrackedSlot(8, itemStack);
-            serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, 8, itemStack));
+            serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, handler.nextRevision(), 8, itemStack));
         }
     }
 

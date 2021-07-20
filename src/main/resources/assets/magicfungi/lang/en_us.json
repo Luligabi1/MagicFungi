@@ -27,10 +27,10 @@
   "tooltip.magicfungi.spell_info.4": "%d seconds",
 
 
-  "block.magicfungi.glyph_carving_bench": "Glyph Carving Workbench",
+  "block.magicfungi.glyph_carving_workbench": "Glyph Carving Workbench",
   "title.magicfungi.glyph_carving": "Glyph Carving",
 
-  "block.magicfungi.spell_discovery_bench": "Spell Discovery Workbench",
+  "block.magicfungi.spell_discovery_workbench": "Spell Discovery Workbench",
   "title.magicfungi.spell_discovery": "Spell Discovery",
 
   "block.magicfungi.host_grass_block": "Host Grass Block",

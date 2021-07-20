@@ -1,8 +1,0 @@
-{
-  "parent": "minecraft:block/cube_bottom_top",
-  "textures": {
-    "top": "magicfungi:block/glyph_carving_bench_top",
-    "bottom": "minecraft:block/lodestone_top",
-    "side": "magicfungi:block/glyph_carving_bench_side"
-  }
-}

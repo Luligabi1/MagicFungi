@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "magicfungi:spell_discovery_bench"
+          "name": "magicfungi:glyph_carving_workbench"
         }
       ],
       "conditions": [

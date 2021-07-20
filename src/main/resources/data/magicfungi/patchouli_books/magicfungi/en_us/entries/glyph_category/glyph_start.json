@@ -1,6 +1,6 @@
 {
   "name": "Carving Glyphs",
-  "icon": "magicfungi:glyph_carving_bench",
+  "icon": "magicfungi:glyph_carving_workbench",
   "category": "magicfungi:glyph_category",
   "pages": [
     {
@@ -9,7 +9,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "magicfungi:crafting/glyph_carving_bench"
+      "recipe": "magicfungi:crafting/glyph_carving_workbench"
     }
   ]
 }

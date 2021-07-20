@@ -80,7 +80,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Craft
 
             resultInventory.setStack(4, itemStack);
             handler.setPreviousTrackedSlot(4, itemStack);
-            serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, 4, itemStack));
+            serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, handler.nextRevision(), 4, itemStack));
         }
     }
 
