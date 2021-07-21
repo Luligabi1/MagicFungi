@@ -27,7 +27,7 @@ public class GlaciesSpellItem extends BaseSpellItem {
         if (!world.isClient) {
             executeSpell(user, user.getEntityWorld());
         } else {
-
+            user.setInPowderSnow(true);
             for(int i = 0; i < 20*10; ++i) { //TODO: Fix particle not working.
                 if (user.lastRenderX != user.getX() || user.lastRenderZ != user.getZ()) {
                     world.addParticle(ParticleTypes.SNOWFLAKE, user.getX(), user.getY() + 1, user.getZ(),

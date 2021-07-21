@@ -1,8 +1,8 @@
 package me.luligabi.magicfungi.common.item;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.block.mushroom.ImpetusMushroomPlantBlock;
 import me.luligabi.magicfungi.common.util.Util;
+import net.minecraft.block.Block;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.BoneMealItem;
 import net.minecraft.item.Item;
@@ -24,7 +24,7 @@ public class FungiFertilizerItem extends Item {
         World world = context.getWorld();
         BlockPos blockPos = context.getBlockPos();
         PlayerEntity playerEntity = context.getPlayer();
-        ImpetusMushroomPlantBlock impetusMushroom = BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK;
+        Block impetusMushroom = BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK;
         double radius = 2.5;
 
         for (int x = (int) -radius - 1; x <= radius; x++) {

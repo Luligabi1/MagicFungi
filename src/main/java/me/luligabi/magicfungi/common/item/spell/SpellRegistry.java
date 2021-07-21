@@ -25,15 +25,20 @@ public class SpellRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "cibus_spell"), CIBUS_SPELL);
     }
 
-    public static final Item IGNEI_SPELL = new IgneiSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
-
-    public static final Item SCINTILLAM_SPELL = new ScintillamSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
-
-
-    public static final Item GLACIES_SPELL = new GlaciesSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
+    // Impetus
+    public static final Item IGNEI_SPELL = new IgneiSpellItem(SpellRegistry.SPELL_ITEM_SETTINGS);
+    public static final Item SCINTILLAM_SPELL = new ScintillamSpellItem(SpellRegistry.SPELL_ITEM_SETTINGS);
 
 
-    public static final Item TRACTABILE_SPELL = new TractabileSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
+    // Clypeus
+    public static final Item GLACIES_SPELL = new GlaciesSpellItem(SpellRegistry.SPELL_ITEM_SETTINGS);
 
-    public static final Item CIBUS_SPELL = new CibusSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
+
+    // Utilis
+    public static final Item TRACTABILE_SPELL = new TractabileSpellItem(SpellRegistry.SPELL_ITEM_SETTINGS);
+    public static final Item CIBUS_SPELL = new CibusSpellItem(SpellRegistry.SPELL_ITEM_SETTINGS);
+
+
+
+    private static final Item.Settings SPELL_ITEM_SETTINGS = new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP);
 }

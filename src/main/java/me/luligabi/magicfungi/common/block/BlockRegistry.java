@@ -52,21 +52,20 @@ public class BlockRegistry {
 
     }
 
-    public static final ImpetusMushroomPlantBlock IMPETUS_MUSHROOM_PLANT_BLOCK = new ImpetusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
-    public static final ClypeusMushroomPlantBlock CLYPEUS_MUSHROOM_PLANT_BLOCK = new ClypeusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
-    public static final UtilisMushroomPlantBlock UTILIS_MUSHROOM_PLANT_BLOCK = new UtilisMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
-    public static final VivificaMushroomPlantBlock VIVIFICA_MUSHROOM_PLANT_BLOCK = new VivificaMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
-    public static final MorbusMushroomPlantBlock MORBUS_MUSHROOM_PLANT_BLOCK = new MorbusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
+    public static final Block IMPETUS_MUSHROOM_PLANT_BLOCK = new ImpetusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
+    public static final Block CLYPEUS_MUSHROOM_PLANT_BLOCK = new ClypeusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
+    public static final Block UTILIS_MUSHROOM_PLANT_BLOCK = new UtilisMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
+    public static final Block VIVIFICA_MUSHROOM_PLANT_BLOCK = new VivificaMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
+    public static final Block MORBUS_MUSHROOM_PLANT_BLOCK = new MorbusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
 
-    public static final MushroomBlock MORBUS_MUSHROOM_BLOCK = new MushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(0.2F).sounds(BlockSoundGroup.WOOD));
+    public static final Block MORBUS_MUSHROOM_BLOCK = new MushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(0.2F).sounds(BlockSoundGroup.WOOD));
 
     //TODO: Make Host Grass spread to Host Dirt.
     public static final Block HOST_GRASS_BLOCK = new GrassBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
-
     public static final Block HOST_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
 
-    public static final GlyphCarvingBlock GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
 
-    public static final SpellDiscoveryBlock SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
+    public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
+    public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
 
 }
