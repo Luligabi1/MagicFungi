@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.recipe.spell;
 
-import net.minecraft.inventory.Inventory;
+import me.luligabi.magicfungi.common.screenhandler.inventory.SpellCraftingInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
@@ -10,7 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class SpellRecipe implements Recipe<Inventory> {
+public class SpellRecipe implements Recipe<SpellCraftingInventory> {
 
     private final Ingredient inputA;
     private final Ingredient inputB;
@@ -53,7 +53,7 @@ public class SpellRecipe implements Recipe<Inventory> {
     public Ingredient getInputH() { return inputH; }
 
     @Override
-    public boolean matches(Inventory inventory, World world) {
+    public boolean matches(SpellCraftingInventory inventory, World world) {
         if (inventory.size() < 8) return false;
         return inputA.test(inventory.getStack(0)) &&
                 inputB.test(inventory.getStack(1)) &&
@@ -66,7 +66,7 @@ public class SpellRecipe implements Recipe<Inventory> {
     }
 
     @Override
-    public ItemStack craft(Inventory inventory) {
+    public ItemStack craft(SpellCraftingInventory inventory) {
         return outputStack.copy();
     }
 

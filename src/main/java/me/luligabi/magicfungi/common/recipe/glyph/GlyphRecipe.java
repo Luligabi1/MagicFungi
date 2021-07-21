@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.recipe.glyph;
 
-import net.minecraft.inventory.Inventory;
+import me.luligabi.magicfungi.common.screenhandler.inventory.GlyphCraftingInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
@@ -9,7 +9,7 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-public class GlyphRecipe implements Recipe<Inventory> {
+public class GlyphRecipe implements Recipe<GlyphCraftingInventory> {
 
     private final Ingredient inputA;
     private final Ingredient inputB;
@@ -37,7 +37,7 @@ public class GlyphRecipe implements Recipe<Inventory> {
     public Ingredient getInputD() { return inputD; }
 
     @Override
-    public boolean matches(Inventory inventory, World world) {
+    public boolean matches(GlyphCraftingInventory inventory, World world) {
         if (inventory.size() < 5) return false;
         return inputA.test(inventory.getStack(0)) &&
                 inputB.test(inventory.getStack(1)) &&
@@ -46,7 +46,7 @@ public class GlyphRecipe implements Recipe<Inventory> {
     }
 
     @Override
-    public ItemStack craft(Inventory inventory) {
+    public ItemStack craft(GlyphCraftingInventory inventory) {
         return outputStack.copy();
     }
 
