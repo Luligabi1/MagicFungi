@@ -18,6 +18,8 @@ public class MagicFungi implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ItemRegistry.initGuideBook();
+
         BlockRegistry.init();
 
         GlyphRegistry.init();

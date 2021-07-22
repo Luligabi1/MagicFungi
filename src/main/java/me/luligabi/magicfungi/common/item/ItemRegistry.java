@@ -23,7 +23,9 @@ public class ItemRegistry {
 
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fungi_fertilizer"), FUNGI_FERTILIZER);
+    }
 
+    public static void initGuideBook() {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "guide_book"), GUIDE_BOOK);
     }
 
