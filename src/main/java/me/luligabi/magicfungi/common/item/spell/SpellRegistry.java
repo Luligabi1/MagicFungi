@@ -6,6 +6,7 @@ import me.luligabi.magicfungi.common.item.spell.impetus.IgneiSpellItem;
 import me.luligabi.magicfungi.common.item.spell.impetus.ScintillamSpellItem;
 import me.luligabi.magicfungi.common.item.spell.utilis.CibusSpellItem;
 import me.luligabi.magicfungi.common.item.spell.utilis.TractabileSpellItem;
+import me.luligabi.magicfungi.common.item.spell.vivifica.FertilisSpellItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
@@ -23,6 +24,9 @@ public class SpellRegistry {
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "tractabile_spell"), TRACTABILE_SPELL);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "cibus_spell"), CIBUS_SPELL);
+
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fertilis_spell"), FERTILIS_SPELL);
     }
 
     // Impetus
@@ -37,5 +41,9 @@ public class SpellRegistry {
     // Utilis
     public static final Item TRACTABILE_SPELL = new TractabileSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
     public static final Item CIBUS_SPELL = new CibusSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
+
+
+    // Vivifica
+    public static final Item FERTILIS_SPELL = new FertilisSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
 
 }
