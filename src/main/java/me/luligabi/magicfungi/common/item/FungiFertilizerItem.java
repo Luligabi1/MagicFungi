@@ -27,29 +27,27 @@ public class FungiFertilizerItem extends Item {
         Block impetusMushroom = BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK;
         double radius = 2.5;
 
-        for (int x = (int) -radius - 1; x <= radius; x++) {
-            for (int y = (int) -radius - 1; y <= radius; y++) {
-                for (int z = (int) -radius - 1; z <= radius; z++) {
-                    BlockPos blockPos2 = new BlockPos(blockPos.getX() + x, blockPos.getY() + y, blockPos.getZ() + z);
-                    if (!world.getBlockState(new BlockPos(blockPos.getX() + x, (blockPos.getY() + y) - 1, blockPos.getZ() + z)).isAir()
-                            && impetusMushroom.canPlaceAt(impetusMushroom.getDefaultState(), world, blockPos2)
-                            && world.getBlockState(blockPos2).isAir()) {
-                        if(!world.isClient()) {
+        if(!world.isClient()) {
+            for (int x = (int) -radius - 1; x <= radius; x++) {
+                for (int y = (int) -radius - 1; y <= radius; y++) {
+                    for (int z = (int) -radius - 1; z <= radius; z++) {
+                        BlockPos blockPos2 = new BlockPos(blockPos.getX() + x, blockPos.getY() + y, blockPos.getZ() + z);
+                        if (!world.getBlockState(new BlockPos(blockPos.getX() + x, (blockPos.getY() + y) - 1, blockPos.getZ() + z)).isAir()
+                                && impetusMushroom.canPlaceAt(impetusMushroom.getDefaultState(), world, blockPos2)
+                                && world.getBlockState(blockPos2).isAir()) {
                             if (world.getRandom().nextDouble() > 0.8) { // 20% chance
                                 world.setBlockState(blockPos2, Util.getMushroomByNumber(world.getRandom().nextInt(4)).getDefaultState());
                                 context.getStack().decrement(1);
-
+                                BoneMealItem.createParticles(context.getWorld(), context.getBlockPos(), 2);
                                 playerEntity.getEntityWorld().playSound(null,
                                         playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                                         SoundEvents.ITEM_BONE_MEAL_USE, SoundCategory.BLOCKS, 1F, 1F);
-                                }
-                            } else {
-                                BoneMealItem.createParticles(context.getWorld(), context.getBlockPos(), 2);
                             }
                         }
                     }
                 }
             }
+        }
         return ActionResult.success(world.isClient());
     }
 }

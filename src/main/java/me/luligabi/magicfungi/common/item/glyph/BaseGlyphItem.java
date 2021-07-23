@@ -40,7 +40,7 @@ public abstract class BaseGlyphItem extends Item {
         if (!world.isClient) {
             executeBlockGlyph(user, context.getStack());
         }
-        return ActionResult.CONSUME_PARTIAL;
+        return ActionResult.CONSUME;
     }
 
     @Override
@@ -49,7 +49,7 @@ public abstract class BaseGlyphItem extends Item {
         if (!world.isClient) {
             executeEntityGlyph(user, stack, entity);
         }
-        return ActionResult.CONSUME_PARTIAL;
+        return ActionResult.CONSUME;
     }
 
     private void executeGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
