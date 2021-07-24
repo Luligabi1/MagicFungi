@@ -1,0 +1,31 @@
+{
+  "type": "magicfungi:spell_recipe",
+
+  "inputA" : {
+    "item": "minecraft:wheat_seeds"
+  },
+  "inputB" : {
+    "item": "minecraft:wheat_seeds"
+  },
+  "inputC" : {
+    "item": "minecraft:bone_meal"
+  },
+  "inputD" : {
+    "item": "minecraft:bone_meal"
+  },
+  "inputE" : {
+    "item": "magicfungi:vivifica_mushroom"
+  },
+  "inputF" : {
+    "item": "magicfungi:vivifica_mushroom"
+  },
+  "inputG" : {
+    "item": "minecraft:wheat_seeds"
+  },
+  "inputH" : {
+    "item": "minecraft:wheat_seeds"
+  },
+
+  "outputItem": "magicfungi:fertilis_spell",
+  "outputAmount": "1"
+}

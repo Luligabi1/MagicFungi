@@ -1,0 +1,31 @@
+{
+  "type": "magicfungi:spell_recipe",
+
+  "inputA" : {
+    "item": "minecraft:flint_and_steel"
+  },
+  "inputB" : {
+    "item": "minecraft:flint_and_steel"
+  },
+  "inputC" : {
+    "item": "minecraft:lava_bucket"
+  },
+  "inputD" : {
+    "item": "minecraft:lava_bucket"
+  },
+  "inputE" : {
+    "item": "magicfungi:impetus_essence"
+  },
+  "inputF" : {
+    "item": "magicfungi:impetus_essence"
+  },
+  "inputG" : {
+    "item": "minecraft:magma_block"
+  },
+  "inputH" : {
+    "item": "minecraft:magma_block"
+  },
+  
+  "outputItem": "magicfungi:scintillam_spell",
+  "outputAmount": "1"
+}

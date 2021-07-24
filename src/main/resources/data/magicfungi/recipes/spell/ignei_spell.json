@@ -1,0 +1,31 @@
+{
+  "type": "magicfungi:spell_recipe",
+
+  "inputA" : {
+    "item": "minecraft:magma_block"
+  },
+  "inputB" : {
+    "item": "minecraft:magma_block"
+  },
+  "inputC" : {
+    "item": "minecraft:fire_charge"
+  },
+  "inputD" : {
+    "item": "minecraft:fire_charge"
+  },
+  "inputE" : {
+    "item": "magicfungi:impetus_mushroom"
+  },
+  "inputF" : {
+    "item": "magicfungi:impetus_mushroom"
+  },
+  "inputG" : {
+    "item": "minecraft:magma_block"
+  },
+  "inputH" : {
+    "item": "minecraft:magma_block"
+  },
+
+  "outputItem": "magicfungi:ignei_spell",
+  "outputAmount": "1"
+}

@@ -1,0 +1,31 @@
+{
+  "type": "magicfungi:spell_recipe",
+
+  "inputA" : {
+    "item": "minecraft:golden_carrot"
+  },
+  "inputB" : {
+    "item": "minecraft:golden_carrot"
+  },
+  "inputC" : {
+    "item": "minecraft:apple"
+  },
+  "inputD" : {
+    "item": "minecraft:apple"
+  },
+  "inputE" : {
+    "item": "magicfungi:utilis_essence"
+  },
+  "inputF" : {
+    "item": "magicfungi:utilis_essence"
+  },
+  "inputG" : {
+    "item": "minecraft:bread"
+  },
+  "inputH" : {
+    "item": "minecraft:bread"
+  },
+
+  "outputItem": "magicfungi:cibus_spell",
+  "outputAmount": "1"
+}
