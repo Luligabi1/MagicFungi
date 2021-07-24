@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.client.compat.rei.display;
+package me.luligabi.magicfungi.client.compat.rei.glyph;
 
 import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class GlyphRecipeDisplay implements Display {
 
-    protected GlyphRecipe display;
+    protected GlyphRecipe recipe;
     protected ArrayList<EntryIngredient> input;
 
     protected List<EntryIngredient> inputA;
@@ -24,7 +24,7 @@ public class GlyphRecipeDisplay implements Display {
     protected List<EntryIngredient> output;
 
     public GlyphRecipeDisplay(GlyphRecipe recipe) {
-        this.display = recipe;
+        this.recipe = recipe;
 
         this.inputA = EntryIngredients.ofIngredients(List.of(recipe.getInputA()));
         this.inputB = EntryIngredients.ofIngredients(List.of(recipe.getInputB()));

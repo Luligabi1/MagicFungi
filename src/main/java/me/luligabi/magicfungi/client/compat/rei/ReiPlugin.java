@@ -1,9 +1,9 @@
 package me.luligabi.magicfungi.client.compat.rei;
 
-import me.luligabi.magicfungi.client.compat.rei.category.GlyphDisplayCategory;
-import me.luligabi.magicfungi.client.compat.rei.category.SpellDisplayCategory;
-import me.luligabi.magicfungi.client.compat.rei.display.GlyphRecipeDisplay;
-import me.luligabi.magicfungi.client.compat.rei.display.SpellRecipeDisplay;
+import me.luligabi.magicfungi.client.compat.rei.glyph.GlyphDisplayCategory;
+import me.luligabi.magicfungi.client.compat.rei.glyph.GlyphRecipeDisplay;
+import me.luligabi.magicfungi.client.compat.rei.spell.SpellDisplayCategory;
+import me.luligabi.magicfungi.client.compat.rei.spell.SpellRecipeDisplay;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;

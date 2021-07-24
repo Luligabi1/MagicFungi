@@ -1,7 +1,6 @@
-package me.luligabi.magicfungi.client.compat.rei.category;
+package me.luligabi.magicfungi.client.compat.rei.spell;
 
 import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
-import me.luligabi.magicfungi.client.compat.rei.display.SpellRecipeDisplay;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;

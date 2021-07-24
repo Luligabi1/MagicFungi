@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.client.compat.rei.display;
+package me.luligabi.magicfungi.client.compat.rei.spell;
 
 import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
@@ -13,7 +13,7 @@ import java.util.List;
 
 public class SpellRecipeDisplay implements Display {
 
-    protected SpellRecipe display;
+    protected SpellRecipe recipe;
     protected ArrayList<EntryIngredient> input;
 
     protected List<EntryIngredient> inputA;
@@ -28,7 +28,7 @@ public class SpellRecipeDisplay implements Display {
     protected List<EntryIngredient> output;
 
     public SpellRecipeDisplay(SpellRecipe recipe) {
-        this.display = recipe;
+        this.recipe = recipe;
 
         this.inputA = EntryIngredients.ofIngredients(List.of(recipe.getInputA()));
         this.inputB = EntryIngredients.ofIngredients(List.of(recipe.getInputB()));
