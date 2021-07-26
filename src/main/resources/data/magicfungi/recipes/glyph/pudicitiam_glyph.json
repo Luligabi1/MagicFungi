@@ -2,18 +2,18 @@
   "type": "magicfungi:glyph_recipe",
 
   "inputA" : {
-    "tag": "magicfungi:mod_mushrooms"
+    "item": "magicfungi:vivifica_mushroom"
   },
   "inputB" : {
-    "item": "minecraft:paper"
+    "item": "minecraft:fermented_spider_eye"
   },
   "inputC" : {
-    "item": "minecraft:feather"
+    "item": "minecraft:golden_apple"
   },
   "inputD" : {
     "item": "minecraft:stone"
   },
 
-  "outputItem": "magicfungi:exponentia_glyph",
+  "outputItem": "magicfungi:pudicitiam_glyph",
   "outputAmount": "1"
 }

@@ -2,18 +2,18 @@
   "type": "magicfungi:glyph_recipe",
 
   "inputA" : {
-    "tag": "magicfungi:mod_mushrooms"
+    "item": "magicfungi:morbus_mushroom"
   },
   "inputB" : {
-    "item": "minecraft:paper"
+    "item": "minecraft:wither_rose"
   },
   "inputC" : {
-    "item": "minecraft:feather"
+    "item": "minecraft:wither_rose"
   },
   "inputD" : {
     "item": "minecraft:stone"
   },
 
-  "outputItem": "magicfungi:exponentia_glyph",
+  "outputItem": "magicfungi:corrumpere_glyph",
   "outputAmount": "1"
 }

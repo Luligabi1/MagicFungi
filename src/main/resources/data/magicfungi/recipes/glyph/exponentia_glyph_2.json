@@ -5,10 +5,10 @@
     "tag": "magicfungi:mod_mushrooms"
   },
   "inputB" : {
-    "item": "minecraft:paper"
+    "item": "minecraft:feather"
   },
   "inputC" : {
-    "item": "minecraft:feather"
+    "item": "minecraft:paper"
   },
   "inputD" : {
     "item": "minecraft:stone"
