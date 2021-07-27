@@ -21,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public abstract class BaseGlyphItem extends Item { //TODO: Add enum to specify action type (block, entity, both, etc).
+public abstract class BaseGlyphItem extends Item {
 
     protected SoundEvent soundEvent;
     protected MushroomType mushroomType;
