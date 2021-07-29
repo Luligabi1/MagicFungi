@@ -1,6 +1,5 @@
 # MagicFungi
 An original magic mod for the Fabric Loader.
 
-## DISCLAIMER
-
-WIP
+## Licensing
+While the code and most of the assets are licensed under the [Apache 2.0](https://github.com/Luligabi1/MagicFungi/blob/master/LICENSE) license. However, the spell textures ([impetus_spell.png](https://github.com/Luligabi1/MagicFungi/blob/master/src/main/resources/assets/magicfungi/textures/item/impetus_spell.png), [clypeus_spell.png](https://github.com/Luligabi1/MagicFungi/blob/master/src/main/resources/assets/magicfungi/textures/item/clypeus_spell.png), [utilis_spell.png](https://github.com/Luligabi1/MagicFungi/blob/master/src/main/resources/assets/magicfungi/textures/item/utilis_spell.png), [vivifica_spell.png](https://github.com/Luligabi1/MagicFungi/blob/master/src/main/resources/assets/magicfungi/textures/item/vivifica_spell.png), [morbus_spell.png](https://github.com/Luligabi1/MagicFungi/blob/master/src/main/resources/assets/magicfungi/textures/item/morbus_spell.png) and [incognita_spell.png](https://github.com/Luligabi1/MagicFungi/blob/master/src/main/resources/assets/magicfungi/textures/item/incognita_spell.png)) are all slightly edited versions of [Kyrise's Free 16x16 RPG Icon Pack](https://kyrise.itch.io/kyrises-free-16x16-rpg-icon-pack), that's licensed under [Creative Commons Attribution 4.0 (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/).
