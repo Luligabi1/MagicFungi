@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item.glyph.morbus;
 
 import me.luligabi.magicfungi.common.item.glyph.BaseGlyphItem;
+import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
@@ -18,30 +19,25 @@ public class CorrumpereGlyphItem extends BaseGlyphItem {
         super(settings);
         setMushroomType(MushroomType.MORBUS);
         setSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CONVERTED);
+        setActionType(ActionType.ENTITY);
     }
 
     @Override
-    protected boolean executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
+    protected void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
         if(livingEntity instanceof VillagerEntity) { //TODO: Fix this not working
             ((VillagerEntity) livingEntity).convertTo(EntityType.ZOMBIE_VILLAGER, true);
             super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
-            return true;
+            return;
         }
         if(livingEntity instanceof PiglinEntity) {
             ((PiglinEntity) livingEntity).convertTo(EntityType.ZOMBIFIED_PIGLIN, true);
             super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
-            return true;
+            return;
         }
         if(livingEntity instanceof HoglinEntity) {
             ((HoglinEntity) livingEntity).convertTo(EntityType.ZOGLIN, true);
             super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
-            return true;
         }
-        return false;
     }
 
-    @Override
-    protected boolean executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
-        return false;
-    }
 }

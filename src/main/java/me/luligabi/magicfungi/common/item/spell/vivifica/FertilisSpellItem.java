@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item.spell.vivifica;
 
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
+import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
@@ -17,6 +18,7 @@ public class FertilisSpellItem extends BaseSpellItem {
         setMushroomType(MushroomType.VIVIFICA);
         setSound(SoundEvents.ITEM_BONE_MEAL_USE);
         setCooldown(170*20);
+        setActionType(ActionType.BLOCK);
     }
 
     @Override

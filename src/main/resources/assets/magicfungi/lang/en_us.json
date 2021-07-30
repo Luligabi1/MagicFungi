@@ -26,6 +26,14 @@
   "tooltip.magicfungi.spell_info.3": "Cooldown: ",
   "tooltip.magicfungi.spell_info.4": "%d seconds",
 
+  "tooltip.magicfungi.spell_info.5": "Action Type: ",
+
+  "actionType.magicfungi.player": "Player",
+  "actionType.magicfungi.block": "Block",
+  "actionType.magicfungi.world": "World",
+  "actionType.magicfungi.entity": "Entity",
+  "actionType.magicfungi.unknown": "Unknown",
+
 
   "block.magicfungi.glyph_carving_workbench": "Glyph Carving Workbench",
   "title.magicfungi.glyph_carving": "Glyph Carving",

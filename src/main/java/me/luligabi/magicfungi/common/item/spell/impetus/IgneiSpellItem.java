@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item.spell.impetus;
 
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
+import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
@@ -14,6 +15,7 @@ public class IgneiSpellItem extends BaseSpellItem {
         setMushroomType(MushroomType.IMPETUS);
         setCooldown(12*20);
         setSound(SoundEvents.ITEM_FLINTANDSTEEL_USE);
+        setActionType(ActionType.WORLD);
     }
 
     @Override

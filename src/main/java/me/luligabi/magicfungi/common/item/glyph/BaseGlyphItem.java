@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.glyph;
 
+import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
@@ -26,6 +27,7 @@ public abstract class BaseGlyphItem extends Item {
     protected SoundEvent soundEvent;
     protected MushroomType mushroomType;
     protected BlockPos blockPos;
+    protected ActionType actionType;
 
     public BaseGlyphItem (Settings settings) {
         super(settings);
@@ -60,18 +62,12 @@ public abstract class BaseGlyphItem extends Item {
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
-    protected boolean executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
+    protected void executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
         executeGlyph(playerEntity, itemStack);
-        return true;
     }
 
-    protected boolean executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
+    protected void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
         executeGlyph(playerEntity, itemStack);
-        return true;
-    }
-
-    protected void setSound(SoundEvent soundEvent) {
-        this.soundEvent = soundEvent;
     }
 
     public MushroomType getMushroomType() {
@@ -82,11 +78,22 @@ public abstract class BaseGlyphItem extends Item {
         this.mushroomType = mushroomType;
     }
 
+    protected void setSound(SoundEvent soundEvent) {
+        this.soundEvent = soundEvent;
+    }
+
+    public void setActionType(ActionType actionType) { this.actionType = actionType; }
+
+
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.1")
-                .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
+                    .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
                 .append(new TranslatableText("tooltip.magicfungi.spell_info.2", mushroomType.getFancyName(), mushroomType.getStatsName())
+                        .formatted(MushroomType.getLightColor(getMushroomType()))));
+        tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
+                .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
+                .append(actionType.getTranslatableText()
                         .formatted(MushroomType.getLightColor(getMushroomType()))));
     }
 }

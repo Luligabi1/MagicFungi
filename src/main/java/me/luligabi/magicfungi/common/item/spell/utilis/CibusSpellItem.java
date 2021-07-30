@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item.spell.utilis;
 
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
+import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.sound.SoundEvents;
@@ -13,6 +14,7 @@ public class CibusSpellItem extends BaseSpellItem {
         setMushroomType(MushroomType.UTILIS);
         setSound(SoundEvents.ENTITY_PLAYER_BURP);
         setCooldown(160*20);
+        setActionType(ActionType.PLAYER);
     }
 
     @Override

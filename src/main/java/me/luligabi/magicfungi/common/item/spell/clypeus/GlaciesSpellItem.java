@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item.spell.clypeus;
 
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
+import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.entity.effect.StatusEffects;
@@ -20,6 +21,7 @@ public class GlaciesSpellItem extends BaseSpellItem {
         setMushroomType(MushroomType.CLYPEUS);
         setSound(SoundEvents.BLOCK_SNOW_PLACE);
         setCooldown(40*20);
+        setActionType(ActionType.PLAYER);
     }
 
     @Override

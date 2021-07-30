@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item.spell.utilis;
 
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
+import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.EnderChestInventory;
@@ -17,6 +18,7 @@ public class TractabileSpellItem extends BaseSpellItem {
         setMushroomType(MushroomType.UTILIS);
         setCooldown(3*20);
         setSound(SoundEvents.BLOCK_ENDER_CHEST_OPEN);
+        setActionType(ActionType.PLAYER);
     }
 
     @Override
