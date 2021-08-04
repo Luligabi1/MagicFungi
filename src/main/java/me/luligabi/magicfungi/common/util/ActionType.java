@@ -11,7 +11,7 @@ public enum ActionType {
     UNKNOWN(new TranslatableText("actionType.magicfungi.unknown"));
 
 
-    protected TranslatableText translatableText;
+    private final TranslatableText translatableText;
 
     ActionType(TranslatableText translatableText) {
         this.translatableText = translatableText;
