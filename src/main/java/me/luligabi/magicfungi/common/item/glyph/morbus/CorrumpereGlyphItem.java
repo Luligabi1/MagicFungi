@@ -22,22 +22,26 @@ public class CorrumpereGlyphItem extends BaseGlyphItem {
         setActionType(ActionType.ENTITY);
     }
 
+
     @Override
-    protected void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
+    public void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
         if(livingEntity instanceof VillagerEntity) { //TODO: Fix this not working
             ((VillagerEntity) livingEntity).convertTo(EntityType.ZOMBIE_VILLAGER, true);
-            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
+            super.executeGlyph(playerEntity, itemStack);
             return;
         }
         if(livingEntity instanceof PiglinEntity) {
             ((PiglinEntity) livingEntity).convertTo(EntityType.ZOMBIFIED_PIGLIN, true);
-            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
+            super.executeGlyph(playerEntity, itemStack);
             return;
         }
         if(livingEntity instanceof HoglinEntity) {
             ((HoglinEntity) livingEntity).convertTo(EntityType.ZOGLIN, true);
-            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
+            super.executeGlyph(playerEntity, itemStack);
         }
     }
+
+    @Override
+    public void executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {}
 
 }

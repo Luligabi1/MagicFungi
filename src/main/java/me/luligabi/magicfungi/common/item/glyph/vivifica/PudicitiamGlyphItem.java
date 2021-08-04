@@ -23,20 +23,23 @@ public class PudicitiamGlyphItem extends BaseGlyphItem {
     }
 
     @Override
-    protected void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
+    public void executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {}
+
+    @Override
+    public void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
         if(livingEntity instanceof  ZombieVillagerEntity) {
             ((ZombieVillagerEntityInvoker) livingEntity).invokeSetConverting(playerEntity.getUuid(), 0);
-            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
+            super.executeGlyph(playerEntity, itemStack);
             return;
         }
         if(livingEntity instanceof ZombifiedPiglinEntity) {
             ((ZombifiedPiglinEntity) livingEntity).convertTo(EntityType.PIGLIN, true);
-            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
+            super.executeGlyph(playerEntity, itemStack);
             return;
         }
         if(livingEntity instanceof ZoglinEntity) {
             ((ZoglinEntity) livingEntity).convertTo(EntityType.HOGLIN, true);
-            super.executeEntityGlyph(playerEntity, itemStack, livingEntity);
+            super.executeGlyph(playerEntity, itemStack);
         }
     }
 

@@ -22,7 +22,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public abstract class BaseGlyphItem extends Item {
+public abstract class BaseGlyphItem extends Item implements GlyphExecutor {
 
     protected SoundEvent soundEvent;
     protected MushroomType mushroomType;
@@ -54,22 +54,14 @@ public abstract class BaseGlyphItem extends Item {
         return ActionResult.CONSUME;
     }
 
-    private void executeGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
+    protected void executeGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
         itemStack.decrement(1);
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                 soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
-
-    protected void executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
-        executeGlyph(playerEntity, itemStack);
-    }
-
-    protected void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
-        executeGlyph(playerEntity, itemStack);
-    }
-
+    
     public MushroomType getMushroomType() {
         return mushroomType;
     }
