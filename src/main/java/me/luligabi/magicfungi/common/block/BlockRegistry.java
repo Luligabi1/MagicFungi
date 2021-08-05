@@ -7,10 +7,7 @@ import me.luligabi.magicfungi.common.block.misc.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
-import net.minecraft.block.Block;
-import net.minecraft.block.MapColor;
-import net.minecraft.block.Material;
-import net.minecraft.block.MushroomBlock;
+import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
@@ -20,40 +17,38 @@ import net.minecraft.util.registry.Registry;
 public class BlockRegistry {
 
     public static void init() {
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "impetus_mushroom"), IMPETUS_MUSHROOM_PLANT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_mushroom"), new BlockItem(IMPETUS_MUSHROOM_PLANT_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
-
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "clypeus_mushroom"), CLYPEUS_MUSHROOM_PLANT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_mushroom"), new BlockItem(CLYPEUS_MUSHROOM_PLANT_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
-
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "utilis_mushroom"), UTILIS_MUSHROOM_PLANT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_mushroom"), new BlockItem(UTILIS_MUSHROOM_PLANT_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
-
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom"), VIVIFICA_MUSHROOM_PLANT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom"), new BlockItem(VIVIFICA_MUSHROOM_PLANT_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
-
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom"), MORBUS_MUSHROOM_PLANT_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom"), new BlockItem(MORBUS_MUSHROOM_PLANT_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
-
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_block"), MORBUS_MUSHROOM_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_block"), new BlockItem(MORBUS_MUSHROOM_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+        initBlock("impetus_mushroom", IMPETUS_MUSHROOM_PLANT_BLOCK);
+        initBlock("clypeus_mushroom", CLYPEUS_MUSHROOM_PLANT_BLOCK);
+        initBlock("utilis_mushroom", UTILIS_MUSHROOM_PLANT_BLOCK);
+        initBlock("vivifica_mushroom", VIVIFICA_MUSHROOM_PLANT_BLOCK);
+        initBlock("morbus_mushroom", MORBUS_MUSHROOM_PLANT_BLOCK);
 
 
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "host_grass_block"), HOST_GRASS_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "host_grass_block"), new BlockItem(HOST_GRASS_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+        initBlock("morbus_mushroom_block", MORBUS_MUSHROOM_BLOCK);
 
 
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "host_dirt"), HOST_DIRT);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "host_dirt"), new BlockItem(HOST_DIRT, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+        initBlock("host_grass_block", HOST_GRASS_BLOCK);
+        initBlock("host_dirt", HOST_DIRT);
 
 
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "glyph_carving_workbench"), GLYPH_CARVING_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "glyph_carving_workbench"), new BlockItem(GLYPH_CARVING_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+        initBlock("glyph_carving_workbench", GLYPH_CARVING_BLOCK);
+        initBlock("spell_discovery_workbench", SPELL_DISCOVERY_BLOCK);
 
+        initPotBlock("potted_impetus_mushroom", POTTED_IMPETUS_MUSHROOM);
+        initPotBlock("potted_clypeus_mushroom", POTTED_CLYPEUS_MUSHROOM);
+        initPotBlock("potted_utilis_mushroom", POTTED_UTILIS_MUSHROOM);
+        initPotBlock("potted_vivifica_mushroom", POTTED_VIVIFICA_MUSHROOM);
+        initPotBlock("potted_morbus_mushroom", POTTED_MORBUS_MUSHROOM);
+    }
 
-        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "spell_discovery_workbench"), SPELL_DISCOVERY_BLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "spell_discovery_workbench"), new BlockItem(SPELL_DISCOVERY_BLOCK, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+    private static void initBlock(String identifier, Block block) {
+        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, identifier), block);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, identifier), new BlockItem(block, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
 
+    }
+
+    private static void initPotBlock(String identifier, Block content) {
+        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, identifier), content);
     }
 
     public static final Block IMPETUS_MUSHROOM_PLANT_BLOCK = new ImpetusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
@@ -61,6 +56,7 @@ public class BlockRegistry {
     public static final Block UTILIS_MUSHROOM_PLANT_BLOCK = new UtilisMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
     public static final Block VIVIFICA_MUSHROOM_PLANT_BLOCK = new VivificaMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
     public static final Block MORBUS_MUSHROOM_PLANT_BLOCK = new MorbusMushroomPlantBlock(MagicMushroomPlantBlock.MUSHROOM_SETTINGS);
+
 
     public static final Block MORBUS_MUSHROOM_BLOCK = new MushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(0.2F).sounds(BlockSoundGroup.WOOD));
 
@@ -71,5 +67,12 @@ public class BlockRegistry {
 
     public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
     public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
+
+
+    public static final Block POTTED_IMPETUS_MUSHROOM = new FlowerPotBlock(IMPETUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+    public static final Block POTTED_CLYPEUS_MUSHROOM = new FlowerPotBlock(CLYPEUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+    public static final Block POTTED_UTILIS_MUSHROOM = new FlowerPotBlock(UTILIS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+    public static final Block POTTED_VIVIFICA_MUSHROOM = new FlowerPotBlock(VIVIFICA_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
+    public static final Block POTTED_MORBUS_MUSHROOM = new FlowerPotBlock(MORBUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
 }
