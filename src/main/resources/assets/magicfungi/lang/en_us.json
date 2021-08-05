@@ -53,9 +53,13 @@
   "item.magicfungi.exponentia_glyph": "Exponentia Glyph",
 
 
+  "item.magicfungi.pluviam_glyph": "Pluviam Glyph",
+
+
   "item.magicfungi.pudicitiam_glyph": "Pudicitiam Glyph",
 
 
+  "item.magicfungi.parasitus_glyph": "Parasitus Glyph",
   "item.magicfungi.corrumpere_glyph": "Corrumpere Glyph",
 
 
@@ -64,6 +68,7 @@
   "item.magicfungi.scintillam_spell": "Scintillam Spell",
 
 
+  "item.magicfungi.cadere_spell": "Cadere Spell",
   "item.magicfungi.glacies_spell": "Glacies Spell",
 
 
@@ -71,6 +76,7 @@
   "item.magicfungi.cibus_spell": "Cibus Spell",
 
 
+  "item.magicfungi.fertilis_spell": "Fertilis Spell",
 
   "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
   "item.magicfungi.guide_book": "Magic Mycology Book",

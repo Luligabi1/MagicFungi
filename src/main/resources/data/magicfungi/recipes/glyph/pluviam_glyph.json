@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "magicfungi:utilis_mushroom"
+  },
+  "inputB" : {
+    "item": "minecraft:water_bucket"
+  },
+  "inputC" : {
+    "item": "minecraft:water_bucket"
+  },
+  "inputD" : {
+    "item": "minecraft:stone"
+  },
+
+  "outputItem": "magicfungi:pluviam_glyph",
+  "outputAmount": "1"
+}

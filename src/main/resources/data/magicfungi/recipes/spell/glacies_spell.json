@@ -2,16 +2,16 @@
   "type": "magicfungi:spell_recipe",
 
   "inputA" : {
-    "item": "minecraft:ice"
+    "item": "minecraft:snowball"
   },
   "inputB" : {
-    "item": "minecraft:ice"
+    "item": "minecraft:snowball"
   },
   "inputC" : {
-    "item": "minecraft:snowball"
+    "item": "minecraft:snow_block"
   },
   "inputD" : {
-    "item": "minecraft:snowball"
+    "item": "minecraft:snow_block"
   },
   "inputE" : {
     "item": "magicfungi:clypeus_essence"
@@ -20,10 +20,10 @@
     "item": "magicfungi:clypeus_essence"
   },
   "inputG" : {
-    "item": "minecraft:snow_block"
+    "item": "minecraft:ice"
   },
   "inputH" : {
-    "item": "minecraft:snow_block"
+    "item": "minecraft:ice"
   },
 
   "outputItem": "magicfungi:glacies_spell",

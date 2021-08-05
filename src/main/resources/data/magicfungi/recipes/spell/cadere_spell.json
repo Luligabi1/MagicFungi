@@ -1,0 +1,31 @@
+{
+  "type": "magicfungi:spell_recipe",
+
+  "inputA" : {
+    "item": "minecraft:feather"
+  },
+  "inputB" : {
+    "item": "minecraft:feather"
+  },
+  "inputC" : {
+    "item": "minecraft:phantom_membrane"
+  },
+  "inputD" : {
+    "item": "minecraft:phantom_membrane"
+  },
+  "inputE" : {
+    "item": "magicfungi:clypeus_mushroom"
+  },
+  "inputF" : {
+    "item": "magicfungi:clypeus_mushroom"
+  },
+  "inputG" : {
+    "item": "minecraft:feather"
+  },
+  "inputH" : {
+    "item": "minecraft:feather"
+  },
+
+  "outputItem": "magicfungi:cadere_spell",
+  "outputAmount": "1"
+}

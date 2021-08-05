@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "magicfungi:morbus_mushroom"
+  },
+  "inputB" : {
+    "item": "magicfungi:host_dirt"
+  },
+  "inputC" : {
+    "item": "magicfungi:host_dirt"
+  },
+  "inputD" : {
+    "item": "minecraft:stone"
+  },
+
+  "outputItem": "magicfungi:parasitus_glyph",
+  "outputAmount": "1"
+}
