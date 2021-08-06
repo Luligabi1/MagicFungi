@@ -21,8 +21,7 @@ public class ExponentiaGlyphItem extends BaseGlyphItem {
     public void executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
         World world = playerEntity.getEntityWorld();
         if (world.getBlockState(blockPos).getBlock() == Blocks.CRAFTING_TABLE) {
-            world.setBlockState(blockPos,
-                    BlockRegistry.SPELL_DISCOVERY_BLOCK.getDefaultState());
+            world.setBlockState(blockPos, BlockRegistry.SPELL_DISCOVERY_BLOCK.getDefaultState());
             super.executeGlyph(playerEntity, itemStack);
         }
     }

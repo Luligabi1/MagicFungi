@@ -44,7 +44,6 @@ public class BlockRegistry {
     private static void initBlock(String identifier, Block block) {
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, identifier), block);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, identifier), new BlockItem(block, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
-
     }
 
     private static void initPotBlock(String identifier, Block content) {
