@@ -1,15 +1,16 @@
 package me.luligabi.magicfungi.common.block;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.block.misc.GlyphCarvingBlock;
+import me.luligabi.magicfungi.common.block.crafting.GlyphCarvingBlock;
+import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
 import me.luligabi.magicfungi.common.block.misc.HostGrassBlock;
-import me.luligabi.magicfungi.common.block.misc.SpellDiscoveryBlock;
+import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
+import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -34,6 +35,9 @@ public class BlockRegistry {
         initBlock("glyph_carving_workbench", GLYPH_CARVING_BLOCK);
         initBlock("spell_discovery_workbench", SPELL_DISCOVERY_BLOCK);
 
+        // Block registered apart from the BlockItem, which is a glyph.
+        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "cadentis_block"), CADENTIS_BLOCK);
+
         initPotBlock("potted_impetus_mushroom", POTTED_IMPETUS_MUSHROOM);
         initPotBlock("potted_clypeus_mushroom", POTTED_CLYPEUS_MUSHROOM);
         initPotBlock("potted_utilis_mushroom", POTTED_UTILIS_MUSHROOM);
@@ -43,7 +47,7 @@ public class BlockRegistry {
 
     private static void initBlock(String identifier, Block block) {
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, identifier), block);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, identifier), new BlockItem(block, new Item.Settings().group(MagicFungi.ITEM_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, identifier), new BlockItem(block, new FabricItemSettings().group(MagicFungi.ITEM_GROUP)));
     }
 
     private static void initPotBlock(String identifier, Block content) {
@@ -67,6 +71,8 @@ public class BlockRegistry {
     public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
     public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
 
+
+    public static final Block CADENTIS_BLOCK = new CadentisBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(15).noCollision());
 
     public static final Block POTTED_IMPETUS_MUSHROOM = new FlowerPotBlock(IMPETUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
     public static final Block POTTED_CLYPEUS_MUSHROOM = new FlowerPotBlock(CLYPEUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());

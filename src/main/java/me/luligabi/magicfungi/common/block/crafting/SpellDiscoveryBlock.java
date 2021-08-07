@@ -1,7 +1,6 @@
-package me.luligabi.magicfungi.common.block.misc;
+package me.luligabi.magicfungi.common.block.crafting;
 
-import me.luligabi.magicfungi.common.screenhandler.GlyphCarvingScreenHandler;
-import net.minecraft.block.AbstractBlock;
+import me.luligabi.magicfungi.common.screenhandler.SpellDiscoveryScreenHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.player.PlayerEntity;
@@ -16,10 +15,9 @@ import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
+public class SpellDiscoveryBlock extends Block {
 
-public class GlyphCarvingBlock extends Block {
-
-    public GlyphCarvingBlock(AbstractBlock.Settings settings) {
+    public SpellDiscoveryBlock(Settings settings) {
         super(settings);
     }
 
@@ -35,7 +33,6 @@ public class GlyphCarvingBlock extends Block {
 
     public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) ->
-                new GlyphCarvingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), new TranslatableText("title.magicfungi.glyph_carving"));
+                new SpellDiscoveryScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), new TranslatableText("title.magicfungi.spell_discovery"));
     }
-
 }

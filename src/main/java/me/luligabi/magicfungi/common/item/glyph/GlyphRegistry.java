@@ -1,11 +1,14 @@
 package me.luligabi.magicfungi.common.item.glyph;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.item.glyph.morbus.CorrumpereGlyphItem;
 import me.luligabi.magicfungi.common.item.glyph.morbus.ParasitusGlyphItem;
+import me.luligabi.magicfungi.common.item.glyph.utilis.CadentisGlyphItem;
 import me.luligabi.magicfungi.common.item.glyph.utilis.PluviamGlyphItem;
 import me.luligabi.magicfungi.common.item.glyph.vivifica.PudicitiamGlyphItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
@@ -17,6 +20,7 @@ public class GlyphRegistry {
 
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "pluviam_glyph"), PLUVIAM_GLYPH);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "cadentis_glyph"), new CadentisGlyphItem(BlockRegistry.CADENTIS_BLOCK, new FabricItemSettings().maxCount(8).group(MagicFungi.ITEM_GROUP)));
 
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "pudicitiam_glyph"), PUDICITIAM_GLYPH);
