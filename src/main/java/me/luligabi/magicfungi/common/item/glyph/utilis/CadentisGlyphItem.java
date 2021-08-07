@@ -33,7 +33,7 @@ public class CadentisGlyphItem extends BlockItem {
                         .formatted(MushroomType.getLightColor(mushroomType))));
         tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
                 .formatted(MushroomType.getDarkColor(mushroomType), Formatting.BOLD)
-                .append(ActionType.WORLD.getTranslatableText()
+                .append(ActionType.BLOCK.getTranslatableText()
                         .formatted(MushroomType.getLightColor(mushroomType))));
     }
 

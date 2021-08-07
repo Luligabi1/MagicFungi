@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "magicfungi:utilis_mushroom"
+  },
+  "inputB" : {
+    "item": "minecraft:glowstone_dust"
+  },
+  "inputC" : {
+    "item": "minecraft:glowstone_dust"
+  },
+  "inputD" : {
+    "item": "minecraft:stone"
+  },
+
+  "outputItem": "magicfungi:cadentis_glyph",
+  "outputAmount": "4"
+}
