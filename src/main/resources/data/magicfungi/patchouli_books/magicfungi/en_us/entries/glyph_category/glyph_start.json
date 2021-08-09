@@ -2,6 +2,7 @@
   "name": "Carving Glyphs",
   "icon": "magicfungi:glyph_carving_workbench",
   "category": "magicfungi:glyph_category",
+  "sortnum": 0,
   "pages": [
     {
       "type": "text",

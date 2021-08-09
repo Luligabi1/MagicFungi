@@ -6,7 +6,7 @@
   "pages": [
     {
       "type": "text",
-      "text": "WIP"
+      "text": "$(l)Tractabile Spell$(br)$(br)$()Opens the user's Ender Chest. $(br)$(br)$(l)Cibus Spell$(br)$(br)$()Slightly decreases the user's hunger."
     }
   ]
 }

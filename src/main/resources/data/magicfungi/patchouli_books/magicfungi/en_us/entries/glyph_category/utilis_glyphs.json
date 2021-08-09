@@ -1,0 +1,12 @@
+{
+  "name": "Utilis Glyphs",
+  "icon": "magicfungi:pluviam_glyph",
+  "category": "magicfungi:glyph_category",
+  "sortnum": 3,
+  "pages": [
+    {
+      "type": "text",
+      "text": "$(l)Pluviam Glyph $(br)$(br)$()Instantly removes any sort of bad weather on the world. $(br)$(br)$(l)Cadentis Glyph$(br)$(br)$()Creates a small, invisible light source where placed."
+    }
+  ]
+}

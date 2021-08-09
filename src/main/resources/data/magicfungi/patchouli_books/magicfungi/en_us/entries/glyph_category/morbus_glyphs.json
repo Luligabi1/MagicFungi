@@ -1,0 +1,12 @@
+{
+  "name": "Morbus Glyphs",
+  "icon": "magicfungi:parasitus_glyph",
+  "category": "magicfungi:glyph_category",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "text",
+      "text": "$(l)Parasitus Glyph $(br)$(br)$()The selected mob turns into a host for a parasite that will slowly kill the creature, while healing you. $(br)$(br)$(l)Corrumpere Glyph$(br)$(br)$()Corrupts any non-modded creatures into their corrupted counterpart (e.g: Hoglin -> Zoglin)."
+    }
+  ]
+}
