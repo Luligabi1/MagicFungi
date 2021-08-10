@@ -45,7 +45,6 @@ public class BiomeRegistry {
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
         generationSettings.surfaceBuilder(HOST_BIOME_SURFACE_BUILDER);
 
-        DefaultBiomeFeatures.addSavannaGrass(generationSettings);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDungeons(generationSettings);
