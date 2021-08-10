@@ -45,7 +45,6 @@ public class BiomeRegistry {
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
         generationSettings.surfaceBuilder(HOST_BIOME_SURFACE_BUILDER);
 
-        DefaultBiomeFeatures.addSavannaGrass(generationSettings);
         DefaultBiomeFeatures.addDefaultUndergroundStructures(generationSettings);
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDungeons(generationSettings);
@@ -61,12 +60,12 @@ public class BiomeRegistry {
                 .temperature(1.0F)
                 .downfall(0.0F)
                 .effects((new BiomeEffects.Builder())
-                        .grassColor(9470285)
-                        .foliageColor(10387789)
-                        .waterColor(4159204)
-                        .waterFogColor(329011)
-                        .fogColor(12638463)
-                        .skyColor(7254527)
+                        .grassColor(0x6a3d11)
+                        .foliageColor(0x4c2c0c)
+                        .waterColor(0x617b64)
+                        .waterFogColor(0x232317)
+                        .fogColor(0xc0d8ff)
+                        .skyColor(0x6eb1ff)
                         .build())
                 .spawnSettings(spawnSettings.build())
                 .generationSettings(generationSettings.build())

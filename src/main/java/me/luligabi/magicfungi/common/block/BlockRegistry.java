@@ -24,7 +24,6 @@ public class BlockRegistry {
         initBlock("vivifica_mushroom", VIVIFICA_MUSHROOM_PLANT_BLOCK);
         initBlock("morbus_mushroom", MORBUS_MUSHROOM_PLANT_BLOCK);
 
-
         initBlock("morbus_mushroom_block", MORBUS_MUSHROOM_BLOCK);
 
 

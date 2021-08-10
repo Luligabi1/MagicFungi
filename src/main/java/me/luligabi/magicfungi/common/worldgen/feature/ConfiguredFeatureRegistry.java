@@ -5,6 +5,7 @@ import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.MushroomBlock;
 import net.minecraft.util.Identifier;
@@ -50,16 +51,19 @@ public class ConfiguredFeatureRegistry {
         BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.JUNGLE), GenerationStep.Feature.VEGETAL_DECORATION, vivificaJungle);
 
         // Morbus
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, morbusHost.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.MORBUS_MUSHROOM_CONFIG_HOST).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(3)));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, morbusHost.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.MORBUS_MUSHROOM_CONFIG_HOST).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(2)));
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), GenerationStep.Feature.VEGETAL_DECORATION, morbusHost);
 
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, witherRoseHost.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.WITHER_ROSE_CONFIG_HOST).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(3)));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, witherRoseHost.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.WITHER_ROSE_CONFIG_HOST).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(1)));
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), GenerationStep.Feature.VEGETAL_DECORATION, witherRoseHost);
 
+        // Huge Morbus
+        LARGE_MORBUS_MUSHROOM = Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MagicFungi.MOD_ID, "large_morbus_mushroom"), Feature.HUGE_RED_MUSHROOM.configure(new HugeMushroomFeatureConfig(new SimpleBlockStateProvider(LARGE_MORBUS), new SimpleBlockStateProvider(MUSHROOM_STEM), 2)));
 
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, hugeMorbusMushroom.getValue(), Feature.HUGE_RED_MUSHROOM.configure(new HugeMushroomFeatureConfig(
-                new SimpleBlockStateProvider(BlockRegistry.MORBUS_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.DOWN, false)),
-                new SimpleBlockStateProvider(Blocks.MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false).with(MushroomBlock.DOWN, false)), 3)));
+        TALL_MORBUS_MUSHROOM = Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MagicFungi.MOD_ID, "tall_morbus_mushroom"), Feature.HUGE_BROWN_MUSHROOM.configure(new HugeMushroomFeatureConfig(new SimpleBlockStateProvider(TALL_MORBUS), new SimpleBlockStateProvider(MUSHROOM_STEM), 3)));
+
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, hugeMorbusMushroom.getValue(), Feature.RANDOM_BOOLEAN_SELECTOR.configure(new RandomBooleanFeatureConfig(
+                () -> LARGE_MORBUS_MUSHROOM, () -> TALL_MORBUS_MUSHROOM)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP));
 
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, hugeMorbusMushroom);
     }
@@ -127,9 +131,15 @@ public class ConfiguredFeatureRegistry {
 
     private static final RandomPatchFeatureConfig WITHER_ROSE_CONFIG_HOST = new RandomPatchFeatureConfig.Builder(new SimpleBlockStateProvider(Blocks.WITHER_ROSE.getDefaultState()), SimpleBlockPlacer.INSTANCE).tries(12).build();
 
+    // Huge Morbus Mushroom - Host Biome
+    public static ConfiguredFeature<?, ?> TALL_MORBUS_MUSHROOM;
+
+    public static ConfiguredFeature<?, ?> LARGE_MORBUS_MUSHROOM;
+
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> hugeMorbusMushroom = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "huge_morbus_mushroom"));
+
 
 
     // List of Overworld Biome Categories excluding biomes that would be odd for mushrooms to spawn (such as oceans and deserts)
@@ -142,4 +152,12 @@ public class ConfiguredFeatureRegistry {
             Biome.Category.JUNGLE,
             Biome.Category.UNDERGROUND,
             Biome.Category.MUSHROOM};
+
+
+    private static final BlockState LARGE_MORBUS = BlockRegistry.MORBUS_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.DOWN, false);
+
+    private static final BlockState TALL_MORBUS = BlockRegistry.MORBUS_MUSHROOM_BLOCK.getDefaultState().with(MushroomBlock.UP, true).with(MushroomBlock.DOWN, false);
+
+    private static final BlockState MUSHROOM_STEM = Blocks.MUSHROOM_STEM.getDefaultState().with(MushroomBlock.UP, false).with(MushroomBlock.DOWN, false);
+
 }
