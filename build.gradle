@@ -11,8 +11,10 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
+    mavenCentral()
     maven { url 'https://maven.blamejared.com' }
     maven { url "https://maven.shedaniel.me/" }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
@@ -23,6 +25,12 @@ dependencies {
 
     modApi "vazkii.patchouli:Patchouli:${project.patchouli_version}"
     include "vazkii.patchouli:Patchouli:${project.patchouli_version}"
+
+    modApi "com.oroarmor:oro-config-fabric:${project.oro_config_version}"
+    include "com.oroarmor:oro-config-fabric:${project.oro_config_version}"
+
+    modApi "com.oroarmor:Multi-Item-Lib:${project.multi_item_lib_version}"
+    include "com.oroarmor:Multi-Item-Lib:${project.multi_item_lib_version}"
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 }
