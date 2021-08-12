@@ -22,8 +22,6 @@ While the code and most of the assets are licensed under the [Apache 2.0](https:
 ## Build
 If you want to build this yourself, please clone the repository and execute `gradlew build` in the projects folder. 
 
-Latest public build will be at the `master` branch, while the latest development build in `development`.
-
-Artifacts will be generated at `/build/libs`
+Artifacts will be generated at `/build/libs`.
 
 
