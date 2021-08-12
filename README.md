@@ -1,4 +1,4 @@
-<p align="center"><img src="https://i.imgur.com/wxBb9f2.png" width="128" height="128"></p>
+<p align="center"><img src="https://imgur.com/4qt6nmo.png" width="827" height="132"></p>
 <h3 align="center">Magic Fungi - BETA</h3>
 <p align="center">An original Magic mod surrounding mushrooms for the Fabric Loader.</p>
 <p align="center">
