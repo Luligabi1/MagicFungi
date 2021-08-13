@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "minecraft:nether_star"
+  },
+  "inputB" : {
+    "item": "magicfungi:morbus_essence"
+  },
+  "inputC" : {
+    "item": "magicfungi:morbus_essence"
+  },
+  "inputD" : {
+    "item": "minecraft:netherite_hoe"
+  },
+
+  "outputItem": "magicfungi:morbus_scythe",
+  "outputAmount": "1"
+}

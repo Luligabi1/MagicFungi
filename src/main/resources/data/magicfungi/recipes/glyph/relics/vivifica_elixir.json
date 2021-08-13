@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "minecraft:nether_star"
+  },
+  "inputB" : {
+    "item": "magicfungi:vivifica_essence"
+  },
+  "inputC" : {
+    "item": "magicfungi:vivifica_essence"
+  },
+  "inputD" : {
+    "item": "minecraft:glass_bottle"
+  },
+
+  "outputItem": "magicfungi:vivifica_elixir",
+  "outputAmount": "1"
+}
