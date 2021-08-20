@@ -12,14 +12,8 @@ public enum ToolMaterials implements ToolMaterial {
     IMPETUS(4, 3046, 10.5F, 5.5F, 15, () -> {
         return Ingredient.ofItems(ItemRegistry.IMPETUS_ESSENCE);
     }),
-    CLYPEUS(4, 3046, 10.5F, 5.5F, 15, () -> {
-        return Ingredient.ofItems(ItemRegistry.CLYPEUS_ESSENCE);
-    }),
     UTILIS(4, 3046, 10.5F, 5.5F, 15, () -> {
         return Ingredient.ofItems(ItemRegistry.UTILIS_ESSENCE);
-    }),
-    VIVIFICA(4, 3046, 10.5F, 5.5F, 15, () -> {
-        return Ingredient.ofItems(ItemRegistry.VIVIFICA_ESSENCE);
     }),
     MORBUS(4, 3046, 10.5F, 5.5F, 15, () -> {
         return Ingredient.ofItems(ItemRegistry.MORBUS_ESSENCE);

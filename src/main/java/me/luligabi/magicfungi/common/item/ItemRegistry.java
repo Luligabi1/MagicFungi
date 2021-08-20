@@ -3,11 +3,12 @@ package me.luligabi.magicfungi.common.item;
 import com.oroarmor.multiitemlib.api.UniqueItemRegistry;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.tool.*;
-import me.luligabi.magicfungi.common.item.tool.ToolMaterials;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.*;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -61,14 +62,15 @@ public class ItemRegistry {
 
     public static final Item IMPETUS_SWORD = new ImpetusSwordItem(ToolMaterials.IMPETUS, 3, -2.4F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item CLYPEUS_SHIELD = new ShieldItem(new FabricItemSettings().rarity(Rarity.EPIC).maxDamage(2031).group(MagicFungi.ITEM_GROUP)); //TODO: Fix Clypeus Shield
+    public static final Item CLYPEUS_SHIELD = new ClypeusShieldItem(new FabricItemSettings().rarity(Rarity.EPIC).maxDamage(3072).group(MagicFungi.ITEM_GROUP)); //TODO: Fix Clypeus Shield
 
-    public static final Item UTILIS_PICKAXE = new UtilisPickaxeItem(ToolMaterials.CLYPEUS, 1, -2.8F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+    public static final Item UTILIS_PICKAXE = new UtilisPickaxeItem(ToolMaterials.UTILIS, 1, -2.8F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
     public static final Item VIVIFICA_ELIXIR = new VivificaElixirItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(9).saturationModifier(0.8F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 25*20, 2), 1.0F).alwaysEdible().build()));
 
     public static final Item MORBUS_SCYTHE = new MorbusScytheItem(ToolMaterials.MORBUS, 2, -1.2F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
