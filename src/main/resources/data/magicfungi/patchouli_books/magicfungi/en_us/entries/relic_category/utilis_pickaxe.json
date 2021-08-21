@@ -1,0 +1,12 @@
+{
+  "name": "Utilis Pickaxe",
+  "icon": "magicfungi:utilis_pickaxe",
+  "category": "magicfungi:relic_category",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "text",
+      "text": "$(d)$(l)Utilis Pickaxe $()is a special pickaxe made from $(d)Utilis Essence$(). After breaking a block, you'll receive temporary $(6)Haste Effect$()."
+    }
+  ]
+}

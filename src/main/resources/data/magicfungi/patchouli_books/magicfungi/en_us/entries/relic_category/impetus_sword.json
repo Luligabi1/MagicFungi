@@ -1,0 +1,12 @@
+{
+  "name": "Impetus Sword",
+  "icon": "magicfungi:impetus_sword",
+  "category": "magicfungi:relic_category",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "text",
+      "text": "$(4)$(l)Impetus Sword $()is a special sword made from $(4)Impetus Essence$(). Sets hit entities on $(c)fire$()."
+    }
+  ]
+}
