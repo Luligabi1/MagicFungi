@@ -40,6 +40,19 @@ public class ItemRegistry {
 
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fungi_fertilizer"), FUNGI_FERTILIZER);
+
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_mushroom_stew"), IMPETUS_MUSHROOM_STEW);
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_mushroom_stew"), CLYPEUS_MUSHROOM_STEW);
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_mushroom_stew"), UTILIS_MUSHROOM_STEW);
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom_stew"), VIVIFICA_MUSHROOM_STEW);
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_stew"), MORBUS_MUSHROOM_STEW);
+
+
     }
 
     public static void initGuideBook() {
@@ -73,5 +86,20 @@ public class ItemRegistry {
 
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
+
+    public static final Item IMPETUS_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 10*20, 1), 1.0F).build()));
+
+    public static final Item CLYPEUS_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 15*20, 1), 1.0F).build()));
+
+    public static final Item UTILIS_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 12*20, 1), 1.0F).build()));
+
+    public static final Item VIVIFICA_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 6*20, 1), 1.0F).build()));
+
+    public static final Item MORBUS_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 6*20, 1), 1.0F).build()));
 
 }
