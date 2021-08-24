@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "magicfungi:vivifica_mushroom"
+    },
+    {
+      "item": "magicfungi:vivifica_mushroom"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "magicfungi:vivifica_mushroom_stew",
+    "count": 1
+  }
+}
