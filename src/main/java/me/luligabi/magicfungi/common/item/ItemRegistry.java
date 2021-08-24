@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.Item;
 import net.minecraft.item.Items;
+import net.minecraft.item.MushroomStewItem;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -87,19 +88,19 @@ public class ItemRegistry {
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
-    public static final Item IMPETUS_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+    public static final Item IMPETUS_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 10*20, 1), 1.0F).build()));
 
-    public static final Item CLYPEUS_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+    public static final Item CLYPEUS_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 15*20, 1), 1.0F).build()));
 
-    public static final Item UTILIS_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+    public static final Item UTILIS_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 12*20, 1), 1.0F).build()));
 
-    public static final Item VIVIFICA_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+    public static final Item VIVIFICA_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 6*20, 1), 1.0F).build()));
 
-    public static final Item MORBUS_MUSHROOM_STEW = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+    public static final Item MORBUS_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 6*20, 1), 1.0F).build()));
 
 }
