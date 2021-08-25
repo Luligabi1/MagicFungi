@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "magicfungi:clypeus_mushroom"
+    },
+    {
+      "item": "magicfungi:clypeus_mushroom"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "magicfungi:clypeus_mushroom_stew",
+    "count": 1
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "minecraft:nether_star"
+  },
+  "inputB" : {
+    "item": "magicfungi:utilis_essence"
+  },
+  "inputC" : {
+    "item": "magicfungi:utilis_essence"
+  },
+  "inputD" : {
+    "item": "minecraft:netherite_pickaxe"
+  },
+
+  "outputItem": "magicfungi:utilis_pickaxe",
+  "outputAmount": "1"
+}

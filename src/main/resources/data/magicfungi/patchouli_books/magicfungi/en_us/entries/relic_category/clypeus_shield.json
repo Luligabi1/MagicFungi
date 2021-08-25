@@ -1,0 +1,12 @@
+{
+  "name": "Clypeus Shield - WIP",
+  "icon": "magicfungi:clypeus_shield",
+  "category": "magicfungi:relic_category",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "text",
+      "text": "$(b)$(l)Clypeus Shield $()is a special, high-durability shield made from $(b)Clypeus Essence.$()"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "magicfungi:impetus_mushroom"
+    },
+    {
+      "item": "magicfungi:impetus_mushroom"
+    },
+    {
+      "item": "minecraft:bowl"
+    }
+  ],
+  "result": {
+    "item": "magicfungi:impetus_mushroom_stew",
+    "count": 1
+  }
+}
