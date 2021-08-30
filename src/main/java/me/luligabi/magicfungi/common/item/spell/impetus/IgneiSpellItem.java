@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell.impetus;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
@@ -13,7 +14,7 @@ public class IgneiSpellItem extends BaseSpellItem {
     public IgneiSpellItem(Settings settings) {
         super(settings);
         setMushroomType(MushroomType.IMPETUS);
-        setCooldown(12*20);
+        setCooldown(MagicFungi.CONFIG.igneiSpellCooldown*20);
         setSound(SoundEvents.ITEM_FLINTANDSTEEL_USE);
         setActionType(ActionType.WORLD);
     }

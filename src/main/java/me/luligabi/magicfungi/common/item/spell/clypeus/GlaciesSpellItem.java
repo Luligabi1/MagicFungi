@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell.clypeus;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
@@ -20,7 +21,7 @@ public class GlaciesSpellItem extends BaseSpellItem {
         super(settings);
         setMushroomType(MushroomType.CLYPEUS);
         setSound(SoundEvents.BLOCK_SNOW_PLACE);
-        setCooldown(40*20);
+        setCooldown(MagicFungi.CONFIG.glaciesSpellCooldown*20);
         setActionType(ActionType.PLAYER);
     }
 
