@@ -90,6 +90,12 @@
   "item.magicfungi.vivifica_elixir": "Vivifica Elixir",
   "item.magicfungi.morbus_scythe": "Morbus Scythe",
 
+  "item.magicfungi.impetus_mushroom_stew": "Impetus Mushroom Stew",
+  "item.magicfungi.clypeus_mushroom_stew": "Clypeus Mushroom Stew",
+  "item.magicfungi.utilis_mushroom_stew": "Utilis Mushroom Stew",
+  "item.magicfungi.vivifica_mushroom_stew": "Vivifica Mushroom Stew",
+  "item.magicfungi.morbus_mushroom_stew": "Morbus Mushroom Stew",
+
   "description.magicfungi.spell_discovery_bench": "Spell Discovery Workbench is a special crafting block for Magic Fungi's spells. It's not crafted by normal means, but via shift right-clicking a Crafting Table with an Exponentia Spell.",
 
   "biome.magicfungi.host_biome": "Host Biome",

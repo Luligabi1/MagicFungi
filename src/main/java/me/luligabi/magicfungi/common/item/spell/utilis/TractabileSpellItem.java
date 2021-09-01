@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell.utilis;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
@@ -16,7 +17,7 @@ public class TractabileSpellItem extends BaseSpellItem {
     public TractabileSpellItem(Settings settings) {
         super(settings);
         setMushroomType(MushroomType.UTILIS);
-        setCooldown(3*20);
+        setCooldown(MagicFungi.CONFIG.tractabileSpellCooldown*20);
         setSound(SoundEvents.BLOCK_ENDER_CHEST_OPEN);
         setActionType(ActionType.PLAYER);
     }

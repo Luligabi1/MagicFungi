@@ -1,0 +1,103 @@
+{
+  "block.magicfungi.impetus_mushroom": "Cogumelo Impetus",
+  "block.magicfungi.clypeus_mushroom": "Cogumelo Clypeus",
+  "block.magicfungi.utilis_mushroom": "Cogumelo Utilis",
+  "block.magicfungi.vivifica_mushroom": "Cogumelo Vivifica",
+  "block.magicfungi.morbus_mushroom": "Cogumelo Morbus",
+
+  "name.magicfungi.impetus": "Impetus",
+  "name.magicfungi.clypeus": "Clypeus",
+  "name.magicfungi.utilis": "Utilis",
+  "name.magicfungi.vivifica": "Vivifica",
+  "name.magicfungi.morbus": "Morbus",
+  "name.magicfungi.incognita": "Incognita",
+
+  "name.magicfungi.impetus.stats": "Ataque",
+  "name.magicfungi.clypeus.stats": "Defesa",
+  "name.magicfungi.utilis.stats": "Utilidade",
+  "name.magicfungi.vivifica.stats": "Cura",
+  "name.magicfungi.morbus.stats": "Doença",
+  "name.magicfungi.incognita.stats": "???",
+
+
+  "tooltip.magicfungi.spell_info.1": "Tipo: ",
+  "tooltip.magicfungi.spell_info.2": "%d (%d)",
+
+  "tooltip.magicfungi.spell_info.3": "Recarga: ",
+  "tooltip.magicfungi.spell_info.4": "%d segundos",
+
+  "tooltip.magicfungi.spell_info.5": "Tipo de Ação: ",
+
+  "actionType.magicfungi.player": "Jogador",
+  "actionType.magicfungi.block": "Bloco",
+  "actionType.magicfungi.world": "Mundo",
+  "actionType.magicfungi.entity": "Entidade",
+  "actionType.magicfungi.unknown": "Desconhecido",
+
+
+  "block.magicfungi.glyph_carving_workbench": "Mesa de Entalhamento de Glifos",
+  "title.magicfungi.glyph_carving": "Entalhamento de Glifos",
+
+  "block.magicfungi.spell_discovery_workbench": "Mesa de Descoberta de Feitiços",
+  "title.magicfungi.spell_discovery": "Descoberta de Feitiços",
+
+  "block.magicfungi.morbus_mushroom_block": "Bloco de Cogumelo Morbus",
+
+  "block.magicfungi.host_grass_block": "Bloco de Grama Hospedeira",
+  "block.magicfungi.host_dirt": "Terra Hospedeira",
+
+  "item.magicfungi.impetus_essence": "Essência Impetus",
+  "item.magicfungi.clypeus_essence": "Essência Clypeus",
+  "item.magicfungi.utilis_essence": "Essência Utilis",
+  "item.magicfungi.vivifica_essence": "Essência Vivifica",
+  "item.magicfungi.morbus_essence": "Essência Morbus",
+
+  "item.magicfungi.exponentia_glyph": "Glifo Exponentia",
+
+
+  "item.magicfungi.cadentis_glyph": "Glifo Cadentis",
+  "item.magicfungi.pluviam_glyph": "Glifo Pluviam",
+
+
+  "item.magicfungi.pudicitiam_glyph": "Glifo Pudicitiam",
+
+
+  "item.magicfungi.parasitus_glyph": "Glifo Parasitus",
+  "item.magicfungi.corrumpere_glyph": "Glifo Corrumpere",
+
+
+
+  "item.magicfungi.ignei_spell": "Feitiço Ignei",
+  "item.magicfungi.scintillam_spell": "Feitiço Scintillam",
+
+
+  "item.magicfungi.cadere_spell": "Feitiço Cadere",
+  "item.magicfungi.glacies_spell": "Feitiço Glacies",
+
+
+  "item.magicfungi.tractabile_spell": "Feitiço Tractabile",
+  "item.magicfungi.cibus_spell": "Feitiço Cibus",
+
+
+  "item.magicfungi.fertilis_spell": "Feitiço Fertilis",
+
+  "item.magicfungi.fungi_fertilizer": "Fertilizador Fungal",
+  "item.magicfungi.guide_book": "Livro de Micologia Mágica",
+
+  "item.magicfungi.impetus_sword": "Espada Impetus",
+  "item.magicfungi.clypeus_shield": "Escudo Clypeus",
+  "item.magicfungi.utilis_pickaxe": "Picareta Utilis",
+  "item.magicfungi.vivifica_elixir": "Elixir Vivifica",
+  "item.magicfungi.morbus_scythe": "Foice Morbus",
+
+  "item.magicfungi.impetus_mushroom_stew": "Ensopado de Cogumelo Impetus",
+  "item.magicfungi.clypeus_mushroom_stew": "Ensopado de Cogumelo Clypeus",
+  "item.magicfungi.utilis_mushroom_stew": "Ensopado de Cogumelo Utilis",
+  "item.magicfungi.vivifica_mushroom_stew": "Ensopado de Cogumelo Vivifica",
+  "item.magicfungi.morbus_mushroom_stew": "Ensopado de Cogumelo Morbus",
+
+  "description.magicfungi.spell_discovery_bench": "A Mesa de Descoberta de Feitiços é uma mesa especial para a fabricação dos feitiços do mod Magic Fungi. Não é fabricado por meios comuns, mas usando um Glifo Exponentia em uma Mesa de Trabalho.",
+
+  "biome.magicfungi.host_biome": "Bioma Hospedeiro",
+  "itemGroup.magicfungi.item_group": "Magic Fungi"
+}

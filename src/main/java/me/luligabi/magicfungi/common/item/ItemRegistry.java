@@ -88,6 +88,7 @@ public class ItemRegistry {
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
+
     public static final Item IMPETUS_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 10*20, 1), 1.0F).build()));
 

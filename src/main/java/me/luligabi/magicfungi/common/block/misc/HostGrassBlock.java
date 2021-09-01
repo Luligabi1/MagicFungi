@@ -83,7 +83,7 @@ public class HostGrassBlock extends GrassBlock {
         }
     }
 
-    private static boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {
+    private boolean canSurvive(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.up();
         BlockState blockState = world.getBlockState(blockPos);
         if (blockState.isOf(Blocks.SNOW) && blockState.get(SnowBlock.LAYERS) == 1) {
@@ -96,7 +96,7 @@ public class HostGrassBlock extends GrassBlock {
         }
     }
 
-    private static boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
+    private boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.up();
         return canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);
     }

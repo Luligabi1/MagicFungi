@@ -23,13 +23,13 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modApi "vazkii.patchouli:Patchouli:${project.patchouli_version}"
+    modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
     include "vazkii.patchouli:Patchouli:${project.patchouli_version}"
 
-    /*modApi "com.oroarmor:oro-config-fabric:${project.oro_config_version}"
-    include "com.oroarmor:oro-config-fabric:${project.oro_config_version}"*/
+    modImplementation "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
+    include "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
 
-    modApi "com.oroarmor:Multi-Item-Lib:${project.multi_item_lib_version}"
+    modImplementation "com.oroarmor:Multi-Item-Lib:${project.multi_item_lib_version}"
     include "com.oroarmor:Multi-Item-Lib:${project.multi_item_lib_version}"
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"

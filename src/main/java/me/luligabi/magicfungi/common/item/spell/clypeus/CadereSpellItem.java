@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell.clypeus;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
@@ -14,8 +15,8 @@ public class CadereSpellItem extends BaseSpellItem {
     public CadereSpellItem(Settings settings) {
         super(settings);
         setMushroomType(MushroomType.CLYPEUS);
-        //setSound(SoundEvents.ITEM_ELYTRA_FLYING); //TODO: Find nice sound for this; ITEM_ELYTRA_FALLING is far too long.
-        setCooldown(35*20);
+        setSound(SoundEvents.ENTITY_ENDER_DRAGON_FLAP);
+        setCooldown(MagicFungi.CONFIG.cadereSpellCooldown*20);
         setActionType(ActionType.PLAYER);
     }
 
