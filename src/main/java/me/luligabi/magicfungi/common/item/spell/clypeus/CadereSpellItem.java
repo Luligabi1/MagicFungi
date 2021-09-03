@@ -22,7 +22,7 @@ public class CadereSpellItem extends BaseSpellItem {
 
     @Override
     protected void executeSpell(PlayerEntity playerEntity, World world) {
-        Util.applyEffectIfNotPresent(playerEntity, StatusEffects.SLOW_FALLING, 12, 1);
+        Util.applyEffectIfNotPresent(playerEntity, StatusEffects.SLOW_FALLING, MagicFungi.CONFIG.cadereSpellEffectTime, 1);
         super.executeSpell(playerEntity, world);
     }
 }

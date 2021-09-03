@@ -30,6 +30,23 @@ public class ModConfig implements Config {
     public int fertilisSpellCooldown = 170;
 
 
+
+    @Comment(value = "Duration of Parasitus Glyph's effects.")
+    public int parasitusGlyphEffectTime = 7;
+
+    @Comment(value = "Duration of Cadere Spell's effects.")
+    public int cadereSpellEffectTime = 12;
+
+    @Comment(value = "Duration of Glacies Spell's effects.")
+    public int glaciesSpellEffectTime = 10;
+
+    @Comment(value = "Hunger satiated by Cibus Spell. 1 = half drumstick.")
+    public int cibusSpellHungerModifier = 9;
+
+    @Comment(value = "Saturation given by Cibus Spell.")
+    public float cibusSpellSaturationModifier = 0.8F;
+
+
     @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
     public double hostBiomeSpawnRate = 0.2;
 

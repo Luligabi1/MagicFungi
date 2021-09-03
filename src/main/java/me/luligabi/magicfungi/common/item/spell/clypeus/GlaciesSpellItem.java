@@ -21,10 +21,10 @@ public class GlaciesSpellItem extends BaseSpellItem {
     }
 
     @Override
-    protected void executeSpell(PlayerEntity playerEntity, World world) { //TODO: Add config setting to customize duration of effects.
-        Util.applyEffectIfNotPresent(playerEntity, StatusEffects.RESISTANCE, 10, 4);
-        Util.applyEffectIfNotPresent(playerEntity, StatusEffects.SLOWNESS, 10, 2);
-        playerEntity.setFrozenTicks(18*20);
+    protected void executeSpell(PlayerEntity playerEntity, World world) {
+        Util.applyEffectIfNotPresent(playerEntity, StatusEffects.RESISTANCE, MagicFungi.CONFIG.glaciesSpellEffectTime, 4);
+        Util.applyEffectIfNotPresent(playerEntity, StatusEffects.SLOWNESS,  MagicFungi.CONFIG.glaciesSpellEffectTime, 2);
+        playerEntity.setFrozenTicks((MagicFungi.CONFIG.glaciesSpellEffectTime+8)*20); //Additional 8 seconds to ensure the visual effects end alongside the buffs.
         super.executeSpell(playerEntity, world);
     }
 }

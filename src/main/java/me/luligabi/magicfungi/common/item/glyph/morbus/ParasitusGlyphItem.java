@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.glyph.morbus;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.glyph.BaseGlyphItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
@@ -24,8 +25,8 @@ public class ParasitusGlyphItem extends BaseGlyphItem {
     public void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
         if(livingEntity instanceof PassiveEntity) {
             if (playerEntity.getHealth() <= playerEntity.getMaxHealth()) {
-                Util.applyEffectIfNotPresent(livingEntity, StatusEffects.WITHER, 7, 0);
-                Util.applyEffectIfNotPresent(playerEntity, StatusEffects.REGENERATION, 7, 0);
+                Util.applyEffectIfNotPresent(livingEntity, StatusEffects.WITHER, MagicFungi.CONFIG.parasitusGlyphEffectTime, 0);
+                Util.applyEffectIfNotPresent(playerEntity, StatusEffects.REGENERATION, MagicFungi.CONFIG.parasitusGlyphEffectTime, 0);
                 super.executeGlyph(playerEntity, itemStack);
             }
         }
