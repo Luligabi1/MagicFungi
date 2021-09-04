@@ -2,9 +2,9 @@ package me.luligabi.magicfungi.common.block;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.crafting.GlyphCarvingBlock;
+import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
 import me.luligabi.magicfungi.common.block.misc.HostGrassBlock;
-import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
@@ -71,7 +71,7 @@ public class BlockRegistry {
     public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
 
 
-    public static final Block CADENTIS_BLOCK = new CadentisBlock(FabricBlockSettings.of(Material.REDSTONE_LAMP).luminance(15).noCollision());
+    public static final Block CADENTIS_BLOCK = new CadentisBlock(FabricBlockSettings.of(Material.AMETHYST).luminance(15).noCollision().nonOpaque().sounds(BlockSoundGroup.AMETHYST_BLOCK));
 
     public static final Block POTTED_IMPETUS_MUSHROOM = new FlowerPotBlock(IMPETUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
     public static final Block POTTED_CLYPEUS_MUSHROOM = new FlowerPotBlock(CLYPEUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
