@@ -1,9 +1,7 @@
 package me.luligabi.magicfungi.common.block.mushroom;
 
-import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
-import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.tag.BlockTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.shape.VoxelShape;
@@ -58,9 +56,6 @@ public abstract class MagicMushroomPlantBlock extends MushroomPlantBlock {
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
-    }
+    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) { }
 
-
-    public static final AbstractBlock.Settings MUSHROOM_SETTINGS =  FabricBlockSettings.of(Material.REPLACEABLE_PLANT).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS);
 }
