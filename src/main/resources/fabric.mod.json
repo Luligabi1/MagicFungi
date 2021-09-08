@@ -12,7 +12,7 @@
   ],
   "contact": {
     "homepage": "https://www.curseforge.com/minecraft/mc-mods/magic-fungi",
-    "repo": "https://github.com/Luligabi1/MagicFungi",
+    "sources": "https://github.com/Luligabi1/MagicFungi",
     "issues": "https://github.com/Luligabi1/MagicFungi/issues"
   },
   "license": "Apache-2.0",
