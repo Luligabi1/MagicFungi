@@ -1,6 +1,5 @@
 package me.luligabi.magicfungi.common.item;
 
-import com.oroarmor.multiitemlib.api.UniqueItemRegistry;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.tool.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -30,8 +29,8 @@ public class ItemRegistry {
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_sword"), IMPETUS_SWORD);
 
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_shield"), CLYPEUS_SHIELD);
-        UniqueItemRegistry.SHIELD.addItemToRegistry(CLYPEUS_SHIELD);
+        // Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_shield"), CLYPEUS_SHIELD);
+        // UniqueItemRegistry.SHIELD.addItemToRegistry(CLYPEUS_SHIELD); // TODO: Re-add Clypeus Shield.
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_pickaxe"), UTILIS_PICKAXE);
 
@@ -76,7 +75,7 @@ public class ItemRegistry {
 
     public static final Item IMPETUS_SWORD = new ImpetusSwordItem(ToolMaterials.IMPETUS, 3, -2.4F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item CLYPEUS_SHIELD = new ClypeusShieldItem(new FabricItemSettings().rarity(Rarity.EPIC).maxDamage(3072).group(MagicFungi.ITEM_GROUP)); //TODO: Fix Clypeus Shield
+    //public static final Item CLYPEUS_SHIELD = new ClypeusShieldItem(new FabricItemSettings().rarity(Rarity.EPIC).maxDamage(3072).group(MagicFungi.ITEM_GROUP));
 
     public static final Item UTILIS_PICKAXE = new UtilisPickaxeItem(ToolMaterials.UTILIS, 1, -2.8F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 

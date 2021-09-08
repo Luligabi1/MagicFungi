@@ -21,7 +21,9 @@ public class CibusSpellItem extends BaseSpellItem {
     @Override
     protected void executeSpell(PlayerEntity playerEntity, World world) {
         if(!playerEntity.getHungerManager().isNotFull()) return;
-        playerEntity.getHungerManager().add(9, 0.8F);
+        playerEntity.getHungerManager().add(
+                MagicFungi.CONFIG.cibusSpellHungerModifier,
+                MagicFungi.CONFIG.cibusSpellSaturationModifier);
         super.executeSpell(playerEntity, world);
     }
 }

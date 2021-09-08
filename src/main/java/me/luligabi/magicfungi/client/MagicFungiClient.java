@@ -3,6 +3,7 @@ package me.luligabi.magicfungi.client;
 import me.luligabi.magicfungi.client.screen.GlyphCarvingScreen;
 import me.luligabi.magicfungi.client.screen.SpellDiscoveryScreen;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.particle.ParticleRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
@@ -33,5 +34,7 @@ public class MagicFungiClient implements ClientModInitializer {
 
         ScreenRegistry.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
         ScreenRegistry.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
+
+        ParticleRegistry.clientInit();
     }
 }
