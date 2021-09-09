@@ -15,8 +15,8 @@ public class MorbusScytheItem extends HoeItem {
     }
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        Util.applyEffectIfNotPresent(target, StatusEffects.WITHER, 6, 0);
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) { //TODO: Add config to change effect duration
+        Util.applyEffectIfNotPresent(target, StatusEffects.WITHER, 8, 0);
         return true;
     }
 
