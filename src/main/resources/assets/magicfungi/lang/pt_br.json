@@ -28,6 +28,8 @@
 
   "tooltip.magicfungi.spell_info.5": "Tipo de Ação: ",
 
+  "tooltip.magicfungi.extended_info": "Segure SHIFT para informações extras.",
+
   "actionType.magicfungi.player": "Jogador",
   "actionType.magicfungi.block": "Bloco",
   "actionType.magicfungi.world": "Mundo",

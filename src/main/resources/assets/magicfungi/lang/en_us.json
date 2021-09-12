@@ -28,6 +28,8 @@
 
   "tooltip.magicfungi.spell_info.5": "Action Type: ",
 
+  "tooltip.magicfungi.extended_info": "Hold SHIFT for extended information.",
+
   "actionType.magicfungi.player": "Player",
   "actionType.magicfungi.block": "Block",
   "actionType.magicfungi.world": "World",
