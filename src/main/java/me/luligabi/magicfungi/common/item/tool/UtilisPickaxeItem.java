@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.tool;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.block.BlockState;
 import net.minecraft.entity.LivingEntity;
@@ -18,7 +19,8 @@ public class UtilisPickaxeItem extends PickaxeItem {
 
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        Util.applyEffectIfNotPresent(miner, StatusEffects.HASTE, 4, 2);
+        Util.applyEffectIfNotPresent(miner, StatusEffects.HASTE,
+                MagicFungi.CONFIG.utilisPickaxeEffectDuration, MagicFungi.CONFIG.utilisPickaxeEffectStrength);
         return true;
     }
 

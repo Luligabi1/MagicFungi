@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.tool;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
@@ -15,8 +16,9 @@ public class MorbusScytheItem extends HoeItem {
     }
 
     @Override
-    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) { //TODO: Add config to change effect duration
-        Util.applyEffectIfNotPresent(target, StatusEffects.WITHER, 8, 0);
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) { 
+        Util.applyEffectIfNotPresent(target, StatusEffects.WITHER,
+                MagicFungi.CONFIG.morbusScytheEffectDuration, MagicFungi.CONFIG.morbusScytheEffectStrength);
         return true;
     }
 

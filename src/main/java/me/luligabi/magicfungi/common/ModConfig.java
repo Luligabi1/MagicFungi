@@ -47,6 +47,18 @@ public class ModConfig implements Config {
     public float cibusSpellSaturationModifier = 0.8F;
 
 
+    @Comment(value = "Utilis Pickaxe's haste effect duration in seconds.")
+    public int utilisPickaxeEffectDuration = 4;
+
+    @Comment(value = "Utilis Pickaxe's haste effect strength. 0 = I, 1 = II, etc.")
+    public int utilisPickaxeEffectStrength = 2;
+
+    @Comment(value = "Morbus Scythe's wither effect duration in seconds.")
+    public int morbusScytheEffectDuration = 8;
+
+    @Comment(value = "Morbus Scythe's wither effect strength. 0 = I, 1 = II, etc.")
+    public int morbusScytheEffectStrength =0;
+
     @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
     public double hostBiomeSpawnRate = 0.2;
 
