@@ -26,6 +26,11 @@ public class Util {
         livingEntity.addStatusEffect(new StatusEffectInstance(statusEffect, duration*20, strength));
     }
 
+    public static void removeEffectIfPresent(LivingEntity livingEntity, StatusEffect statusEffect) {
+        if(!livingEntity.hasStatusEffect(statusEffect)) return;
+        livingEntity.removeStatusEffect(statusEffect);
+    }
+
     public static boolean isUsingFullArmor(LivingEntity livingEntity, Item helmet, Item chestplate, Item leggings, Item boots) {
         return livingEntity.getEquippedStack(EquipmentSlot.HEAD).getItem() == helmet &&
                 livingEntity.getEquippedStack(EquipmentSlot.CHEST).getItem() == chestplate &&
