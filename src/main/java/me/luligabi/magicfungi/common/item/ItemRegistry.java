@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.item.armor.MagicalFungiArmorItem;
 import me.luligabi.magicfungi.common.item.armor.MagicalFungiArmorMaterial;
 import me.luligabi.magicfungi.common.item.tool.ToolMaterials;
 import me.luligabi.magicfungi.common.item.tool.*;
@@ -95,13 +96,13 @@ public class ItemRegistry {
 
     // TODO: Add proper textures + model changes for these.
     public static final ArmorMaterial MAGICAL_FUNGI_ARMOR_MATERIAL = new MagicalFungiArmorMaterial();
-    public static final Item MAGICAL_FUNGI_HELMET = new ArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_HELMET = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_CHESTPLATE = new ArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_CHESTPLATE = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_LEGGINGS = new ArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_LEGGINGS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_BOOTS = new ArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_BOOTS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
