@@ -49,6 +49,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_boots"), MAGICAL_FUNGI_BOOTS);
 
 
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_alloy"), MAGICAL_FUNGI_ALLOY);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fungi_fertilizer"), FUNGI_FERTILIZER);
 
 
@@ -61,8 +62,6 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom_stew"), VIVIFICA_MUSHROOM_STEW);
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_stew"), MORBUS_MUSHROOM_STEW);
-
-
     }
 
     public static void initGuideBook() {
@@ -96,13 +95,13 @@ public class ItemRegistry {
 
     // TODO: Add proper textures + model changes for these.
     public static final ArmorMaterial MAGICAL_FUNGI_ARMOR_MATERIAL = new MagicalFungiArmorMaterial();
-    public static final Item MAGICAL_FUNGI_HELMET = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_HELMET = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_CHESTPLATE = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_CHESTPLATE = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_LEGGINGS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_LEGGINGS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_BOOTS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_BOOTS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
@@ -122,5 +121,8 @@ public class ItemRegistry {
 
     public static final Item MORBUS_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 6*20, 1), 1.0F).build()));
+
+
+    public static final Item MAGICAL_FUNGI_ALLOY = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
 }

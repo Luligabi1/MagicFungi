@@ -16,7 +16,7 @@ public class PlayerEntityMixin {
     public void injectTick(CallbackInfo info) {
         PlayerEntity playerEntity = ((PlayerEntity) (Object) this);
         if(Util.isUsingFullArmor(playerEntity, ItemRegistry.MAGICAL_FUNGI_HELMET, ItemRegistry.MAGICAL_FUNGI_CHESTPLATE, ItemRegistry.MAGICAL_FUNGI_LEGGINGS, ItemRegistry.MAGICAL_FUNGI_BOOTS)) {
-            Util.applyEffectIfNotPresent(playerEntity, StatusEffects.HEALTH_BOOST, 9999, 1);
+            Util.applyEffectIfNotPresent(playerEntity, StatusEffects.HEALTH_BOOST, 9999, 3);
         } else {
             Util.removeEffectIfPresent(playerEntity, StatusEffects.HEALTH_BOOST);
         }
