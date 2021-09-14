@@ -32,9 +32,7 @@ public class MagicalFungiArmorMaterial implements ArmorMaterial {
     }
 
     @Override
-    public Ingredient getRepairIngredient() {
-        return Ingredient.ofItems(Items.AIR);
-    } // TODO: Add proper repair ingredient
+    public Ingredient getRepairIngredient() { return Ingredient.ofItems(Items.AIR); } // TODO: Add proper repair ingredient
 
     @Override
     public String getName() {
@@ -48,6 +46,6 @@ public class MagicalFungiArmorMaterial implements ArmorMaterial {
 
     @Override
     public float getKnockbackResistance() {
-        return 0.3F;
-    } // TODO: Add mixin to get knocknack resistance working
+        return 0.15F;
+    }
 }

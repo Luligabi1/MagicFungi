@@ -94,13 +94,14 @@ public class ItemRegistry {
     public static final Item MORBUS_SCYTHE = new MorbusScytheItem(ToolMaterials.MORBUS, 2, -1.2F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
     // TODO: Add proper textures + model changes for these.
-    public static final Item MAGICAL_FUNGI_HELMET = new ArmorItem(new MagicalFungiArmorMaterial(), EquipmentSlot.HEAD, new Item.Settings().group(MagicFungi.ITEM_GROUP));
+    public static final ArmorMaterial MAGICAL_FUNGI_ARMOR_MATERIAL = new MagicalFungiArmorMaterial();
+    public static final Item MAGICAL_FUNGI_HELMET = new ArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_CHESTPLATE = new ArmorItem(new MagicalFungiArmorMaterial(), EquipmentSlot.CHEST, new Item.Settings().group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_CHESTPLATE = new ArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_LEGGINGS = new ArmorItem(new MagicalFungiArmorMaterial(), EquipmentSlot.LEGS, new Item.Settings().group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_LEGGINGS = new ArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MAGICAL_FUNGI_BOOTS = new ArmorItem(new MagicalFungiArmorMaterial(), EquipmentSlot.FEET, new Item.Settings().group(MagicFungi.ITEM_GROUP));
+    public static final Item MAGICAL_FUNGI_BOOTS = new ArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().group(MagicFungi.ITEM_GROUP));
 
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
