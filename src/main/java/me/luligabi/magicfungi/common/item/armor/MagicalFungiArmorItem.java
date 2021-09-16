@@ -28,10 +28,10 @@ public class MagicalFungiArmorItem extends ArmorItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.magicfungi.magical_fungi_armor.1").formatted(Formatting.GRAY, Formatting.ITALIC));
+        tooltip.add(new TranslatableText("tooltip.magicfungi.magical_fungi_armor.1").formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
         if(Screen.hasShiftDown()) {
             tooltip.add(new LiteralText(" "));
-            tooltip.add(new TranslatableText("tooltip.magicfungi.magical_fungi_armor.2").formatted(Formatting.GRAY, Formatting.ITALIC));
+            tooltip.add(new TranslatableText("tooltip.magicfungi.magical_fungi_armor.2").formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
         } else {
             tooltip.add(new TranslatableText("tooltip.magicfungi.extended_info").formatted(Formatting.GRAY, Formatting.ITALIC));
         }
