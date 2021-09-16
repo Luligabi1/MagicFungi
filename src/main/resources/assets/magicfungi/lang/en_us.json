@@ -81,16 +81,32 @@
   "item.magicfungi.cibus_spell": "Cibus Spell",
 
 
-  "item.magicfungi.fertilis_spell": "Fertilis Spell",
-
-  "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
-  "item.magicfungi.guide_book": "Magic Mycology Book",
-
   "item.magicfungi.impetus_sword": "Impetus Sword",
   "item.magicfungi.clypeus_shield": "Clypeus Shield",
   "item.magicfungi.utilis_pickaxe": "Utilis Pickaxe",
   "item.magicfungi.vivifica_elixir": "Vivifica Elixir",
   "item.magicfungi.morbus_scythe": "Morbus Scythe",
+
+
+  "item.magicfungi.fertilis_spell": "Fertilis Spell",
+
+  "item.magicfungi.magical_fungi_helmet": "Magical Fungi Helmet",
+  "item.magicfungi.magical_fungi_chestplate": "Magical Fungi Chestplate",
+  "item.magicfungi.magical_fungi_leggings": "Magical Fungi Leggings",
+  "item.magicfungi.magical_fungi_boots": "Magical Fungi Boots",
+
+
+  "tooltip.magicfungi.magical_fungi_armor.1": "A special armor that harness the power of pure Fungi Magic.",
+  "tooltip.magicfungi.magical_fungi_armor.2": "Grants 8 permanent extra hearts while using full armor.",
+
+
+  "item.magicfungi.magical_fungi_alloy": "Magical Fungi Alloy",
+
+  "tooltip.magicfungi.alloy_info.1": "A special alloy uniting all forms of pure Fungi Magic.",
+  "tooltip.magicfungi.alloy_info.2": "Try not to think too much about it.",
+
+  "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
+  "item.magicfungi.guide_book": "Magic Mycology Book",
 
   "item.magicfungi.impetus_mushroom_stew": "Impetus Mushroom Stew",
   "item.magicfungi.clypeus_mushroom_stew": "Clypeus Mushroom Stew",

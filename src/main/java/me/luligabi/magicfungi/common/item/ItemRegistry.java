@@ -93,7 +93,7 @@ public class ItemRegistry {
 
     public static final Item MORBUS_SCYTHE = new MorbusScytheItem(ToolMaterials.MORBUS, 2, -1.2F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
-    // TODO: Add proper textures + model changes for these.
+
     public static final ArmorMaterial MAGICAL_FUNGI_ARMOR_MATERIAL = new MagicalFungiArmorMaterial();
     public static final Item MAGICAL_FUNGI_HELMET = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
@@ -103,6 +103,8 @@ public class ItemRegistry {
 
     public static final Item MAGICAL_FUNGI_BOOTS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
+
+    public static final Item MAGICAL_FUNGI_ALLOY = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
@@ -121,8 +123,5 @@ public class ItemRegistry {
 
     public static final Item MORBUS_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 6*20, 1), 1.0F).build()));
-
-
-    public static final Item MAGICAL_FUNGI_ALLOY = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
 }

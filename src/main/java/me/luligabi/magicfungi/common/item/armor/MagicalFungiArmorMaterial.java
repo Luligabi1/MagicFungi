@@ -1,8 +1,8 @@
 package me.luligabi.magicfungi.common.item.armor;
 
+import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
-import net.minecraft.item.Items;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -32,7 +32,7 @@ public class MagicalFungiArmorMaterial implements ArmorMaterial {
     }
 
     @Override
-    public Ingredient getRepairIngredient() { return Ingredient.ofItems(Items.AIR); } // TODO: Add proper repair ingredient
+    public Ingredient getRepairIngredient() { return Ingredient.ofItems(ItemRegistry.MAGICAL_FUNGI_ALLOY); }
 
     @Override
     public String getName() {
