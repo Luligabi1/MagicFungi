@@ -10,16 +10,18 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(PlayerEntity.class)
-public class PlayerEntityMixin {
+public abstract class PlayerEntityMixin {
 
-    @Inject(method = "tick", at = @At("RETURN"), cancellable = true)
-    public void injectTick(CallbackInfo info) {
+    @Inject(method = "tick",
+            at = @At("RETURN"),
+            cancellable = true)
+    public void injectTick(CallbackInfo callbackInfo) {
         PlayerEntity playerEntity = ((PlayerEntity) (Object) this);
         if(Util.isUsingFullArmor(playerEntity, ItemRegistry.MAGICAL_FUNGI_HELMET, ItemRegistry.MAGICAL_FUNGI_CHESTPLATE, ItemRegistry.MAGICAL_FUNGI_LEGGINGS, ItemRegistry.MAGICAL_FUNGI_BOOTS)) {
             Util.applyEffectIfNotPresent(playerEntity, StatusEffects.HEALTH_BOOST, 9999, 3);
         } else {
             Util.removeEffectIfPresent(playerEntity, StatusEffects.HEALTH_BOOST);
         }
-        info.cancel();
+        callbackInfo.cancel();
     }
 }

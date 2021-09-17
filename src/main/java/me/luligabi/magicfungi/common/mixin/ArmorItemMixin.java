@@ -30,8 +30,9 @@ public abstract class ArmorItemMixin {
     private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
     @Shadow @Final protected float knockbackResistance;
 
-    @Inject(method = "<init>", at = @At(value = "RETURN"))
-    private void constructor(ArmorMaterial material, EquipmentSlot slot, Item.Settings settings, CallbackInfo ci) {
+    @Inject(method = "<init>",
+            at = @At(value = "RETURN"))
+    private void constructor(ArmorMaterial material, EquipmentSlot slot, Item.Settings settings, CallbackInfo callbackInfo) {
         UUID uUID = MODIFIERS[slot.getEntitySlotId()];
 
         if (material == ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL) {
