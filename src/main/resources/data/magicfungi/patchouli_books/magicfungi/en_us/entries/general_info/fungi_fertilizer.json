@@ -2,7 +2,7 @@
   "name": "Fertilizing the Fungi",
   "icon": "magicfungi:fungi_fertilizer",
   "category": "magicfungi:general_info",
-  "sortnum": 1,
+  "sortnum": 2,
   "pages": [
     {
       "type": "text",

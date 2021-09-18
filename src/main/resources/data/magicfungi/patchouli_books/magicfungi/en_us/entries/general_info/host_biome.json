@@ -2,7 +2,7 @@
   "name": "The Host Biome",
   "icon": "magicfungi:host_grass_block",
   "category": "magicfungi:general_info",
-  "sortnum": 2,
+  "sortnum": 1,
   "pages": [
     {
       "type": "text",

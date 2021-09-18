@@ -19,7 +19,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3f;
 
 public class ArmorMushroomFeatureRenderer <T extends PlayerEntity> extends FeatureRenderer<T, PlayerEntityModel<T>> {
-    
+
     public ArmorMushroomFeatureRenderer(FeatureRendererContext<T, PlayerEntityModel<T>> featureRendererContext) {
         super(featureRendererContext);
     }
