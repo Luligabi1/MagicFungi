@@ -19,7 +19,7 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.math.Vec3f;
 
 public class ArmorMushroomFeatureRenderer <T extends PlayerEntity> extends FeatureRenderer<T, PlayerEntityModel<T>> {
-
+    
     public ArmorMushroomFeatureRenderer(FeatureRendererContext<T, PlayerEntityModel<T>> featureRendererContext) {
         super(featureRendererContext);
     }
@@ -33,24 +33,24 @@ public class ArmorMushroomFeatureRenderer <T extends PlayerEntity> extends Featu
             int m = LivingEntityRenderer.getOverlay(playerEntity, 0.0F);
             BakedModel bakedModel = blockRenderManager.getModel(blockState);
 
-            //TODO: Fix mushroom positions
             if(playerEntity.getEquippedStack(EquipmentSlot.HEAD).getItem() == ItemRegistry.MAGICAL_FUNGI_HELMET) {
                 matrixStack.push();
-                this.getContextModel().getHead().rotate(matrixStack);
+                this.getContextModel().head.rotate(matrixStack);
                 matrixStack.translate(0.0D, -0.699999988079071D, -0.20000000298023224D);
                 matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-78.0F));
                 matrixStack.scale(-1.0F, -1.0F, 1.0F);
-                matrixStack.translate(-0.25D, -0.20D, -0.25D);
+                matrixStack.translate(-0.75D, -0.20D, -0.25D);
                 this.renderMushroom(matrixStack, vertexConsumerProvider, i, bl, blockRenderManager, blockState, m, bakedModel);
                 matrixStack.pop();
             }
 
             if(playerEntity.getEquippedStack(EquipmentSlot.CHEST).getItem() == ItemRegistry.MAGICAL_FUNGI_CHESTPLATE) {
                 matrixStack.push();
+                this.getContextModel().leftArm.rotate(matrixStack);
                 matrixStack.translate(0.20000000298023224D, -0.3499999940395355D, 0.5D);
                 matrixStack.multiply(Vec3f.POSITIVE_Y.getDegreesQuaternion(-48.0F));
-                matrixStack.scale(-1.0F, -1.0F, 1.0F);
-                matrixStack.translate(-0.5D, -0.5D, -0.5D);
+                matrixStack.scale(-0.5F, -0.5F, 0.5F);
+                matrixStack.translate(0.35D, -0.35D, -1.25D);
                 this.renderMushroom(matrixStack, vertexConsumerProvider, i, bl, blockRenderManager, blockState, m, bakedModel);
                 matrixStack.pop();
             }
