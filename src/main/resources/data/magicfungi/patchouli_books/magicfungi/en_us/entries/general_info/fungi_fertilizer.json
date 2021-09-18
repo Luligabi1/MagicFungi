@@ -5,7 +5,9 @@
   "sortnum": 2,
   "pages": [
     {
-      "type": "text",
+      "type": "spotlight",
+      "item": "magicfungi:fungi_fertilizer",
+      "title": "Fertilizing the Fungi",
       "text": "Fungi Fertilizers are a special fertilizer to stimulate the surrounding areas to grow mushrooms in the dark. They can spawn varying types of magic fungi (except Morbus) in small patches. $(br)$(br)You might craft one by doing the following crafting:"
     },
     {

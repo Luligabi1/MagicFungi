@@ -5,7 +5,8 @@
   "sortnum": 3,
   "pages": [
     {
-      "type": "text",
+      "type": "spotlight",
+      "item": "magicfungi:vivifica_elixir",
       "text": "$(a)$(l)Vivifica Elixir $()is an infinite healing beverage made from $(a)Vivifica Essence$(). After using it, you'll receive $(c)Healing Effects$(), at the cost of a big cooldown."
     }
   ]
