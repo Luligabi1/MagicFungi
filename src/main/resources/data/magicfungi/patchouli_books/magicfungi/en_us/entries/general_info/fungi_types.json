@@ -7,37 +7,62 @@
     {
       "type": "spotlight",
       "item": "magicfungi:impetus_mushroom",
-      "title": "Impetus Mushroom",
-      "text": "$(c)$(l)Impetus: $()Used on $(c)$(l)offensive $()magic. Easier to look for on $(6)$(l)Savanna biomes$()."
+      "title": "Impetus",
+      "text": "$()Used on $(c)$(l)offensive $()magic. Easier to look for on $(6)$(l)Savanna biomes$()."
+    },
+    {
+      "type": "image",
+      "images": ["magicfungi:textures/guide_book/savanna.png"],
+      "title": " ",
+      "border":  true
     },
     {
       "type": "spotlight",
       "item": "magicfungi:clypeus_mushroom",
-      "title": "Clypeus Mushroom",
-      "text": "$(3)$(l)Clypeus: $()Used on $(3)$(l)defensive $()magic. Easier to find at $(b)$(l)Icy biomes$()."
+      "title": "Clypeus",
+      "text": "$()Used on $(3)$(l)defensive $()magic. Easier to find at $(b)$(l)Snowy Tundras$()."
+    },
+    {
+      "type": "image",
+      "images": ["magicfungi:textures/guide_book/snowy_tundra.png"],
+      "title": " ",
+      "border":  true
     },
     {
       "type": "spotlight",
       "item": "magicfungi:utilis_mushroom",
-      "title": "Utilis Mushroom",
-      "text": "$(d)$(l)Utilis: $()Used on $(d)$(l)utility $()magic. Easier to look for on $(5)$(l)Extreme Hills$()."
+      "title": "Utilis",
+      "text": "$()Used on $(d)$(l)utility $()magic. Easier to look for on $(5)$(l)Extreme Hills$()."
+    },
+    {
+      "type": "image",
+      "images": ["magicfungi:textures/guide_book/extreme_hills.png"],
+      "title": " ",
+      "border":  true
     },
     {
       "type": "spotlight",
       "item": "magicfungi:vivifica_mushroom",
-      "title": "Vivifica Mushroom",
-      "text": "$(a)$(l)Vivifica: $()Used on $(a)$(l)nature/pure $()magic. Easier to find at $(2)$(l)Jungle biomes$()."
+      "title": "Vivifica",
+      "text": "$()Used on $(a)$(l)nature/pure $()magic. Easier to find at $(2)$(l)Jungle biomes$()."
+    },
+    {
+      "type": "image",
+      "images": ["magicfungi:textures/guide_book/jungle.png"],
+      "title": " ",
+      "border":  true
     },
     {
       "type": "spotlight",
       "item": "magicfungi:morbus_mushroom",
-      "title": "Morbus Mushroom",
-      "text": "$(7)$(l)Morbus: $()Used on $(8)$(l)dark/unpure $()magic. Can only be found on the $(8)$(l)Host Biome$()."
+      "title": "Morbus",
+      "text": "$()Used on $(7)$(l)dark/unpure $()magic. Can only be found on the $(7)$(l)Host Biome$()."
     },
     {
       "type": "image",
       "images": ["magicfungi:textures/guide_book/host_biome.png"],
-      "title": "The Host Biome"
+      "title": " ",
+      "border":  true
     }
   ]
 }

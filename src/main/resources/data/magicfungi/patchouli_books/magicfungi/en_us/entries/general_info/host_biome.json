@@ -13,7 +13,8 @@
     {
       "type": "image",
       "images": ["magicfungi:textures/guide_book/host_biome.png"],
-      "title": "The Host Biome"
+      "title": " ",
+      "border":  true
     }
   ]
 }
