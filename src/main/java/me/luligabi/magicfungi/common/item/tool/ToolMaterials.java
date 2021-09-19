@@ -9,13 +9,13 @@ import java.util.function.Supplier;
 
 public enum ToolMaterials implements ToolMaterial {
 
-    IMPETUS(4, 3046, 10.5F, 5.5F, 15, () -> {
+    IMPETUS(4, 3046, 10.5F, 18.5F, 15, () -> {
         return Ingredient.ofItems(ItemRegistry.IMPETUS_ESSENCE);
     }),
     UTILIS(4, 3046, 10.5F, 5.5F, 15, () -> {
         return Ingredient.ofItems(ItemRegistry.UTILIS_ESSENCE);
     }),
-    MORBUS(4, 3046, 10.5F, 5.5F, 15, () -> {
+    MORBUS(4, 3046, 10.5F, 11.5F, 15, () -> {
         return Ingredient.ofItems(ItemRegistry.MORBUS_ESSENCE);
     });
 

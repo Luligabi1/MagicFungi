@@ -5,8 +5,13 @@
   "sortnum": 5,
   "pages": [
     {
+      "type": "spotlight",
+      "item": "magicfungi:parasitus_glyph",
+      "text": "$(8)$(l)Parasitus Glyph $(br)$(br)$()$(7)The selected mob turns into a host for a parasite that will slowly kill the creature, while healing you. $(br)$(br)$(8)$(l)Corrumpere Glyph$(br)$(br)$()$(7)Corrupts any non-modded creatures into their corrupted"
+    },
+    {
       "type": "text",
-      "text": "$(l)Parasitus Glyph $(br)$(br)$()The selected mob turns into a host for a parasite that will slowly kill the creature, while healing you. $(br)$(br)$(l)Corrumpere Glyph$(br)$(br)$()Corrupts any non-modded creatures into their corrupted counterpart (e.g: Hoglin -> Zoglin)."
+      "text": "$(7)counterpart (e.g: Hoglin -> Zoglin)$()"
     }
   ]
 }

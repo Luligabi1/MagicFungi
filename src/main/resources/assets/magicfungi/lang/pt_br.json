@@ -28,6 +28,8 @@
 
   "tooltip.magicfungi.spell_info.5": "Tipo de Ação: ",
 
+  "tooltip.magicfungi.extended_info": "Segure SHIFT para informações extras.",
+
   "actionType.magicfungi.player": "Jogador",
   "actionType.magicfungi.block": "Bloco",
   "actionType.magicfungi.world": "Mundo",
@@ -81,14 +83,30 @@
 
   "item.magicfungi.fertilis_spell": "Feitiço Fertilis",
 
-  "item.magicfungi.fungi_fertilizer": "Fertilizador Fungal",
-  "item.magicfungi.guide_book": "Livro de Micologia Mágica",
 
   "item.magicfungi.impetus_sword": "Espada Impetus",
   "item.magicfungi.clypeus_shield": "Escudo Clypeus",
   "item.magicfungi.utilis_pickaxe": "Picareta Utilis",
   "item.magicfungi.vivifica_elixir": "Elixir Vivifica",
   "item.magicfungi.morbus_scythe": "Foice Morbus",
+
+  "item.magicfungi.magical_fungi_helmet": "Capacete de Magia Fúngica",
+  "item.magicfungi.magical_fungi_chestplate": "Peitoral de Magia Fúngica",
+  "item.magicfungi.magical_fungi_leggings": "Calças de Magia Fúngica",
+  "item.magicfungi.magical_fungi_boots": "Botas de Magia Fúngica",
+
+
+  "tooltip.magicfungi.magical_fungi_armor.1": "Uma armadura especial que possui o poder da Magia Fúngica pura.",
+  "tooltip.magicfungi.magical_fungi_armor.2": "+8 corações permanentes enquanto usar a armadura completa.",
+
+
+  "item.magicfungi.magical_fungi_alloy": "Liga de Magia Fúngica",
+
+  "tooltip.magicfungi.alloy_info.1": "Uma liga metálica especial que une todas as formas de Magia Fúngica pura.",
+  "tooltip.magicfungi.alloy_info.2": "Tenta não pensar muito a respeito.",
+
+  "item.magicfungi.fungi_fertilizer": "Fertilizador Fúngica",
+  "item.magicfungi.guide_book": "Livro de Micologia Mágica",
 
   "item.magicfungi.impetus_mushroom_stew": "Ensopado de Cogumelo Impetus",
   "item.magicfungi.clypeus_mushroom_stew": "Ensopado de Cogumelo Clypeus",

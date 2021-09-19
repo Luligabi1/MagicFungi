@@ -5,8 +5,9 @@
   "sortnum": 4,
   "pages": [
     {
-      "type": "text",
-      "text": "$(l)Pudicitiam Glyph $(br)$(br)$()Heals any non-modded creatures into their healed counterpart (e.g: zombie villager -> villager)."
+      "type": "spotlight",
+      "item": "magicfungi:pudicitiam_glyph",
+      "text": "$(2)$(l)Pudicitiam Glyph $(br)$(br)$()$(a)Heals any non-modded creatures into their healed counterpart (e.g: zombie villager -> villager)."
     }
   ]
 }
