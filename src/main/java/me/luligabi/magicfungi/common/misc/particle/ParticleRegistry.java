@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.particle;
+package me.luligabi.magicfungi.common.misc.particle;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;

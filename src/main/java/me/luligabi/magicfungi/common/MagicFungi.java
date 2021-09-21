@@ -5,7 +5,9 @@ import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
 import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
-import me.luligabi.magicfungi.common.particle.ParticleRegistry;
+import me.luligabi.magicfungi.common.misc.gamerule.GameRuleRegistry;
+import me.luligabi.magicfungi.common.misc.particle.ParticleRegistry;
+import me.luligabi.magicfungi.common.misc.tag.TagRegistry;
 import me.luligabi.magicfungi.common.recipe.RecipeRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
@@ -27,6 +29,7 @@ public class MagicFungi implements ModInitializer {
         GlyphRegistry.init();
         SpellRegistry.init();
         ItemRegistry.init();
+        TagRegistry.init();
 
         ConfiguredFeatureRegistry.init();
         BiomeRegistry.init();
@@ -35,6 +38,7 @@ public class MagicFungi implements ModInitializer {
         ScreenHandlingRegistry.init();
 
         ParticleRegistry.init();
+        GameRuleRegistry.init();
     }
 
     public static final String MOD_ID = "magicfungi";
