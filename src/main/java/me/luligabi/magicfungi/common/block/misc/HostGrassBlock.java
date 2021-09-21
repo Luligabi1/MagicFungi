@@ -64,11 +64,17 @@ public class HostGrassBlock extends GrassBlock {
                                     !(world.getBlockState(blockPos).getBlock() instanceof AirBlock) &&
                                     !(world.getBlockState(blockPos).getBlock() instanceof FluidBlock) &&
                                     !(world.getBlockState(blockPos).getBlock() instanceof PlantBlock) &&
-                                    !(world.getBlockState(blockPos).getBlock() instanceof TallPlantBlock)) ||
-                                    world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
+                                    !(world.getBlockState(blockPos).getBlock() instanceof TallPlantBlock) &&
+                                    !(world.getBlockState(blockPos).getBlock() instanceof LeavesBlock) &&
+                                    !(world.getBlockState(blockPos).isTranslucent(world, blockPos)) &&
+                                    !(world.getBlockState(blockPos).hasBlockEntity()) ||
+                                    world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT))) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
                         world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
                     } // TODO: Host Dirt is replaced with Host Grass without being exposed to air on top.
                 }
+                if(world.getBlockState(pos.down()).getBlock() == Blocks.DIRT && random.nextBoolean()) { // Turn regular dirt into Host Dirt if exposed.
+                    world.setBlockState(pos.down(), BlockRegistry.HOST_DIRT.getDefaultState());
+                } // TODO: Make this work properly
             }
         } else {
             world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
