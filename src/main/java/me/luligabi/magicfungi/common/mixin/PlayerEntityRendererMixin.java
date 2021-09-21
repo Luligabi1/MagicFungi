@@ -20,7 +20,7 @@ public abstract class PlayerEntityRendererMixin extends LivingEntityRenderer<Abs
     }
 
     @Inject(method = "<init>",
-            at = @At(value = "RETURN"))
+            at = @At(value = "TAIL"))
     private void constructor(EntityRendererFactory.Context ctx, boolean slim, CallbackInfo callbackInfo) {
         PlayerEntityRenderer playerRenderer = ((PlayerEntityRenderer) (Object) this);
 
