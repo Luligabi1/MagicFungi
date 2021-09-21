@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.block.misc;
 
-import me.luligabi.magicfungi.common.particle.ParticleRegistry;
+import me.luligabi.magicfungi.common.misc.particle.ParticleRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;

@@ -1,18 +1,18 @@
 package me.luligabi.magicfungi.common.block.misc;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.misc.gamerule.GameRuleRegistry;
+import me.luligabi.magicfungi.common.misc.tag.TagRegistry;
+import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.FlowerFeature;
 
-import java.util.List;
 import java.util.Random;
 
 public class HostGrassBlock extends GrassBlock {
@@ -44,20 +44,8 @@ public class HostGrassBlock extends GrassBlock {
             }
 
             if (blockState2.isAir()) {
-                BlockState blockState4;
-                if (random.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = world.getBiome(blockPos2).getGenerationSettings().getFlowerFeatures();
-                    if (list.isEmpty()) {
-                        continue;
-                    }
-
-                    blockState4 = getFlowerState(random, blockPos2, list.get(0));
-                } else {
-                    blockState4 = blockState;
-                }
-
-                if (blockState4.canPlaceAt(world, blockPos2)) {
-                    world.setBlockState(blockPos2, blockState4, 3);
+                if (blockState.canPlaceAt(world, blockPos2)) {
+                    world.setBlockState(blockPos2, blockState, 3);
                 }
             }
         }
@@ -66,20 +54,24 @@ public class HostGrassBlock extends GrassBlock {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!canSurvive(state, world, pos)) {
-            world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
-        } else {
+        if (canSurvive(state, world, pos)) {
             if (world.getLightLevel(pos.up()) >= 9) {
                 BlockState blockState = this.getDefaultState();
-
                 for(int i = 0; i < 4; ++i) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                    if (world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT) && canSpread(blockState, world, blockPos)) {
+                    if (canSpread(blockState, world, blockPos) && isMorbusSpreadingActive(world) ?
+                            ((!world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_UNSPREADABLE) &&
+                                    !(world.getBlockState(blockPos).getBlock() instanceof AirBlock) &&
+                                    !(world.getBlockState(blockPos).getBlock() instanceof FluidBlock) &&
+                                    !(world.getBlockState(blockPos).getBlock() instanceof PlantBlock) &&
+                                    !(world.getBlockState(blockPos).getBlock() instanceof TallPlantBlock)) ||
+                                    world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
                         world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
-                    }
+                    } // TODO: Host Dirt is replaced with Host Grass without being exposed to air on top.
                 }
             }
-
+        } else {
+            world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
         }
     }
 
@@ -101,9 +93,9 @@ public class HostGrassBlock extends GrassBlock {
         return canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);
     }
 
-    private static <U extends FeatureConfig> BlockState getFlowerState(Random random, BlockPos pos, ConfiguredFeature<U, ?> flowerFeature) {
-        FlowerFeature<U> flowerFeature2 = (FlowerFeature<U>) flowerFeature.feature;
-        return flowerFeature2.getFlowerState(random, pos, flowerFeature.getConfig());
+    private boolean isMorbusSpreadingActive(World world) {
+        return world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING) &&
+                Util.getCurrentInGameDay(world) >= world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY);
     }
 
 }

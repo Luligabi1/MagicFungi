@@ -117,5 +117,10 @@
   "description.magicfungi.spell_discovery_bench": "A Mesa de Descoberta de Feitiços é uma mesa especial para a fabricação dos feitiços do mod Magic Fungi. Não é fabricado por meios comuns, mas usando um Glifo Exponentia em uma Mesa de Trabalho.",
 
   "biome.magicfungi.host_biome": "Bioma Hospedeiro",
+
+  "gamerule.doMorbusSpreading": "Espalhamento do Bioma Hospedeiro",
+  "gamerule.morbusSpreadStartingDay": "Dias até o Espalhamento do Bioma Hospedeiro",
+
+  "gamerule.magicfungi.category": "Magic Fungi",
   "itemGroup.magicfungi.item_group": "Magic Fungi"
 }

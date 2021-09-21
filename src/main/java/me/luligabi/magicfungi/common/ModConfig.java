@@ -62,6 +62,12 @@ public class ModConfig implements Config {
     @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
     public double hostBiomeSpawnRate = 0.2;
 
+    @Comment(value = "Whether Host Grass will start spreading towards non-grass blocks after X in-game days. This only affects the default gamerule value for this setting. To change this on already generated worlds, use /gamerule doMorbusSpread")
+    public boolean doMorbusSpread = true;
+
+    @Comment(value = "In-game days until Host Grass blocks start spreading beyond the Host Biome. This only affects the default gamerule value for this setting. To change this on already generated worlds, use /gamerule morbusSpreadStartingDay")
+    public int morbusSpreadStartingDay = 0;
+
     @Override
     public String getName() {
         return "magicfungi";
