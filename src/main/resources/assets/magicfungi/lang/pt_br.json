@@ -36,6 +36,15 @@
   "actionType.magicfungi.entity": "Entidade",
   "actionType.magicfungi.unknown": "Desconhecido",
 
+  "message.magicfungi.isMorbusEnabled": "Iminente: ",
+
+  "message.magicfungi.yes": "Sim",
+  "message.magicfungi.no": "Não",
+
+  "message.magicfungi.daysLeft.1": "Dias: ",
+  "message.magicfungi.daysLeft.2": "%d dias",
+  "message.magicfungi.daysLeft.3": "TÁ ACONTECENDO!",
+
 
   "block.magicfungi.glyph_carving_workbench": "Mesa de Entalhamento de Glifos",
   "title.magicfungi.glyph_carving": "Entalhamento de Glifos",
@@ -106,6 +115,10 @@
   "tooltip.magicfungi.alloy_info.2": "Tenta não pensar muito a respeito.",
 
   "item.magicfungi.fungi_fertilizer": "Fertilizador Fúngica",
+
+  "item.magicfungi.morbus_clock": "Relógio Morbus",
+  "tooltip.magicfungi.morbus_clock": "Um aparato místico que é capaz de prever o apocalipse.",
+
   "item.magicfungi.guide_book": "Livro de Micologia Mágica",
 
   "item.magicfungi.impetus_mushroom_stew": "Ensopado de Cogumelo Impetus",

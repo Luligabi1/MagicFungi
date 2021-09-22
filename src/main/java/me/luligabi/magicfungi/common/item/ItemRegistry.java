@@ -50,7 +50,10 @@ public class ItemRegistry {
 
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_alloy"), MAGICAL_FUNGI_ALLOY);
+
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fungi_fertilizer"), FUNGI_FERTILIZER);
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_clock"), MORBUS_CLOCK);
 
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_mushroom_stew"), IMPETUS_MUSHROOM_STEW);
@@ -107,6 +110,8 @@ public class ItemRegistry {
     public static final Item MAGICAL_FUNGI_ALLOY = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
+
+    public static final Item MORBUS_CLOCK = new MorbusClockItem(new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP));
 
 
     public static final Item IMPETUS_MUSHROOM_STEW = new MushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(

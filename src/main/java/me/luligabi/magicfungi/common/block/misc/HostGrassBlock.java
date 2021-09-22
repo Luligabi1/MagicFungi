@@ -99,9 +99,8 @@ public class HostGrassBlock extends GrassBlock {
         return canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);
     }
 
-    private boolean isMorbusSpreadingActive(World world) {
+    public static boolean isMorbusSpreadingActive(World world) {
         return world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING) &&
                 Util.getCurrentInGameDay(world) >= world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY);
     }
-
 }
