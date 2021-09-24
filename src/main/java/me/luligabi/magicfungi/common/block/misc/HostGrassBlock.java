@@ -72,9 +72,10 @@ public class HostGrassBlock extends GrassBlock {
                         world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
                     } // TODO: Host Dirt is replaced with Host Grass without being exposed to air on top.
                 }
-                if(world.getBlockState(pos.down()).getBlock() == Blocks.DIRT && random.nextBoolean()) { // Turn regular dirt into Host Dirt if exposed.
+                // Slowly turns blocks below in a range of 2 into Host Dirt.
+                if(world.getBlockState(pos.down()).getBlock() == Blocks.DIRT && random.nextBoolean()) {
                     world.setBlockState(pos.down(), BlockRegistry.HOST_DIRT.getDefaultState());
-                } // TODO: Make this work properly
+                }
             }
         } else {
             world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
