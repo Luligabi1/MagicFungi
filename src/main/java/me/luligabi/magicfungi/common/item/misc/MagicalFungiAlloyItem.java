@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.item;
+package me.luligabi.magicfungi.common.item.misc;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;

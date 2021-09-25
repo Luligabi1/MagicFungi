@@ -45,6 +45,8 @@
   "message.magicfungi.daysLeft.2": "%d dias",
   "message.magicfungi.daysLeft.3": "TÁ ACONTECENDO!",
 
+  "message.magicfungi.fate_design": "Você tenta mudar o rumo do destino, mas nada acontece.",
+
 
   "block.magicfungi.glyph_carving_workbench": "Mesa de Entalhamento de Glifos",
   "title.magicfungi.glyph_carving": "Entalhamento de Glifos",
@@ -71,10 +73,12 @@
 
 
   "item.magicfungi.pudicitiam_glyph": "Glifo Pudicitiam",
+  "item.magicfungi.sanctificare_glyph": "Glifo Sanctificare",
 
 
   "item.magicfungi.parasitus_glyph": "Glifo Parasitus",
   "item.magicfungi.corrumpere_glyph": "Glifo Corrumpere",
+  "item.magicfungi.maledictio_glyph": "Glifo Maledictio",
 
 
 
@@ -119,6 +123,9 @@
   "item.magicfungi.morbus_clock": "Relógio Morbus",
   "tooltip.magicfungi.morbus_clock": "Um aparato místico que é capaz de prever o apocalipse.",
 
+  "item.magicfungi.heart_of_vivifica": "Coração-de-Vivifica",
+  "item.magicfungi.heart_of_morbus": "Coração-de-Morbus",
+
   "item.magicfungi.guide_book": "Livro de Micologia Mágica",
 
   "item.magicfungi.impetus_mushroom_stew": "Ensopado de Cogumelo Impetus",
@@ -136,4 +143,5 @@
 
   "gamerule.magicfungi.category": "Magic Fungi",
   "itemGroup.magicfungi.item_group": "Magic Fungi"
+
 }

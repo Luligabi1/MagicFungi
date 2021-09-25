@@ -11,6 +11,7 @@ import me.luligabi.magicfungi.common.item.spell.vivifica.FertilisSpellItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class SpellRegistry {
@@ -33,17 +34,17 @@ public class SpellRegistry {
 
     // Impetus
     public static final Item IGNEI_SPELL = new IgneiSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
-    public static final Item SCINTILLAM_SPELL = new ScintillamSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
+    public static final Item SCINTILLAM_SPELL = new ScintillamSpellItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
 
 
     // Clypeus
     public static final Item CADERE_SPELL = new CadereSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
-    public static final Item GLACIES_SPELL = new GlaciesSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
+    public static final Item GLACIES_SPELL = new GlaciesSpellItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
 
 
     // Utilis
     public static final Item TRACTABILE_SPELL = new TractabileSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
-    public static final Item CIBUS_SPELL = new CibusSpellItem(new FabricItemSettings().maxCount(1).group(MagicFungi.ITEM_GROUP));
+    public static final Item CIBUS_SPELL = new CibusSpellItem(new FabricItemSettings().maxCount(1).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
 
 
     // Vivifica

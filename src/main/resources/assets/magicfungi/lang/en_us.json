@@ -46,6 +46,8 @@
   "message.magicfungi.daysLeft.2": "%d days",
   "message.magicfungi.daysLeft.3": "IT'S HAPPENING!",
 
+  "message.magicfungi.fate_design": "You attempt to change fate's design, but nothing happens.",
+
 
   "block.magicfungi.glyph_carving_workbench": "Glyph Carving Workbench",
   "title.magicfungi.glyph_carving": "Glyph Carving",
@@ -72,10 +74,11 @@
 
 
   "item.magicfungi.pudicitiam_glyph": "Pudicitiam Glyph",
-
+  "item.magicfungi.sanctificare_glyph": "Sanctificare Glyph",
 
   "item.magicfungi.parasitus_glyph": "Parasitus Glyph",
   "item.magicfungi.corrumpere_glyph": "Corrumpere Glyph",
+  "item.magicfungi.maledictio_glyph": "Maledictio Glyph",
 
 
 
@@ -120,6 +123,9 @@
   "item.magicfungi.morbus_clock": "Morbus Clock",
   "tooltip.magicfungi.morbus_clock": "A mystic apparatus that is able to predict the doomsday.",
 
+  "item.magicfungi.heart_of_vivifica": "Heart of Vivifica",
+  "item.magicfungi.heart_of_morbus": "Heart of Morbus",
+
   "item.magicfungi.guide_book": "Magic Mycology Book",
 
   "item.magicfungi.impetus_mushroom_stew": "Impetus Mushroom Stew",
@@ -137,4 +143,5 @@
 
   "gamerule.magicfungi.category": "Magic Fungi",
   "itemGroup.magicfungi.item_group": "Magic Fungi"
+
 }

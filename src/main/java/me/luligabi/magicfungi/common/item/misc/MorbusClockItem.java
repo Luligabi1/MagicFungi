@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.item;
+package me.luligabi.magicfungi.common.item.misc;
 
 import me.luligabi.magicfungi.common.misc.gamerule.GameRuleRegistry;
 import me.luligabi.magicfungi.common.util.Util;
