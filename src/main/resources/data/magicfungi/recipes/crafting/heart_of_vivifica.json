@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "MEM",
+    "EHE",
+    "MEM"
+  ],
+  "key": {
+    "M": {
+      "item": "magicfungi:vivifica_mushroom"
+    },
+    "E": {
+      "item": "magicfungi:vivifica_essence"
+    },
+    "H": {
+      "item": "minecraft:heart_of_the_sea"
+    }
+  },
+  "result": {
+    "item": "magicfungi:heart_of_vivifica",
+    "count": 1
+  }
+}

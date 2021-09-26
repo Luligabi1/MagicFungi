@@ -125,9 +125,11 @@
 
   "item.magicfungi.heart_of_vivifica": "Coração-de-Vivifica",
   "tooltip.magicfungi.heart_of_vivifica": "Um artefato ancião capaz de restaurar vida. Pode ser utilizado para eliminar o espalhamento de Morbus.",
+  "message.magicfungi.heart_of_vivifica": "Você se sente aliviado que suas ações podem ter de alguma forma melhorado o mundo.",
 
   "item.magicfungi.heart_of_morbus": "Coração-de-Morbus",
   "tooltip.magicfungi.heart_of_morbus": "Um artefato ancião que pode trazer maldições. Pode ser utilizado para reabilitar o espalhamento de Morbus.",
+  "message.magicfungi.heart_of_morbus": "Você se sente culpado que suas ações podem ter de alguma forma condenado o mundo.",
 
   "item.magicfungi.guide_book": "Livro de Micologia Mágica",
 

@@ -33,7 +33,8 @@ public class MorbusHeartItem extends Item {
             user.getEntityWorld().playSound(null,
                     user.getX(), user.getY(), user.getZ(),
                     SoundEvents.BLOCK_MOSS_BREAK, SoundCategory.NEUTRAL, 1F, 1F);
-            return TypedActionResult.consume(user.getStackInHand(hand)); // TODO: Add message when using.
+            user.sendMessage(new TranslatableText("message.magicfungi.heart_of_morbus").formatted(Formatting.GRAY, Formatting.ITALIC), false);
+            return TypedActionResult.consume(user.getStackInHand(hand));
         } else {
             user.sendMessage(new TranslatableText("message.magicfungi.fate_design").formatted(Formatting.GRAY, Formatting.ITALIC), false);
             return TypedActionResult.pass(user.getStackInHand(hand));
