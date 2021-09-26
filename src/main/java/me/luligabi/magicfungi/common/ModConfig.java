@@ -3,7 +3,7 @@ package me.luligabi.magicfungi.common;
 import draylar.omegaconfig.api.Comment;
 import draylar.omegaconfig.api.Config;
 
-public class ModConfig implements Config {
+public class ModConfig implements Config { //TODO: Add breaklines
 
     @Comment(value = "Cooldown for Ignei Spell usage.")
     public int igneiSpellCooldown = 12;
@@ -62,11 +62,14 @@ public class ModConfig implements Config {
     @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
     public double hostBiomeSpawnRate = 0.2;
 
-    @Comment(value = "Whether Host Grass will start spreading towards non-grass blocks after X in-game days. This only affects the default gamerule value for this setting. To change this on already generated worlds, use /gamerule doMorbusSpread")
+    @Comment(value = "Whether Host Grass will start spreading towards non-grass blocks after X in-game days. This only affects the default gamerule value for this setting. Keep in mind this can be overridden by Morbus corruption items. Check canUseMorbusCorruptionItems for further information. To change this on already generated worlds, use /gamerule doMorbusSpread")
     public boolean doMorbusSpread = true;
 
     @Comment(value = "In-game days until Host Grass blocks start spreading beyond the Host Biome. This only affects the default gamerule value for this setting. To change this on already generated worlds, use /gamerule morbusSpreadStartingDay")
     public int morbusSpreadStartingDay = 0;
+
+    @Comment(value = "Enables the usage of the Maledictio Glyph and Heart of Morbus. If you plan to use this mod on a public server, disable this to avoid griefing.")
+    public boolean canUseMorbusCorruptionItems = false;
 
     @Override
     public String getName() {

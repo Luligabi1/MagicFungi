@@ -114,7 +114,6 @@
 
 
   "item.magicfungi.magical_fungi_alloy": "Magical Fungi Alloy",
-
   "tooltip.magicfungi.alloy_info.1": "A special alloy uniting all forms of pure Fungi Magic.",
   "tooltip.magicfungi.alloy_info.2": "Try not to think too much about it.",
 
@@ -124,7 +123,11 @@
   "tooltip.magicfungi.morbus_clock": "A mystic apparatus that is able to predict the doomsday.",
 
   "item.magicfungi.heart_of_vivifica": "Heart of Vivifica",
+  "tooltip.magicfungi.heart_of_vivifica": "An ancient artifact that can restore life. Can be used to remove Morbus spreading.",
+
+
   "item.magicfungi.heart_of_morbus": "Heart of Morbus",
+  "tooltip.magicfungi.heart_of_morbus": "An ancient artifact that can bring curses. Can be used to reactivate Morbus spreading.",
 
   "item.magicfungi.guide_book": "Magic Mycology Book",
 
