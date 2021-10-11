@@ -9,8 +9,8 @@
 </p>
 <p align="center">
   <a href="https://opensource.org/licenses/Apache-2.0"><img src="https://shields.io/badge/license-Apache%202-brightgreen.svg"></a>
-    <a href="https://www.curseforge.com/minecraft/mc-mods/kibe"><img src="http://cf.way2muchnoise.eu/versions/magic-fungi_latest.svg"></a>
-  <a href="https://www.curseforge.com/minecraft/mc-mods/kibe"><img src="http://cf.way2muchnoise.eu/magic-fungi.svg"></a>
+    <a href="https://www.curseforge.com/minecraft/mc-mods/magic-fungi"><img src="http://cf.way2muchnoise.eu/versions/magic-fungi_latest.svg"></a>
+  <a href="https://www.curseforge.com/minecraft/mc-mods/magic-fungi"><img src="http://cf.way2muchnoise.eu/magic-fungi.svg"></a>
 </p>
 
 ## Features
