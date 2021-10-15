@@ -8,9 +8,10 @@
     },
     "description": {
       "translate": "advancements.magicfungi.glyph_workbench.description"
-    }
+    },
+    "frame": "goal"
   },
-  "parent": "magicfungi:magic_fungi",
+  "parent": "magicfungi:root",
   "criteria": {
     "checkInv": {
       "trigger": "minecraft:inventory_changed",

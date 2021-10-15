@@ -118,7 +118,7 @@
   "tooltip.magicfungi.alloy_info.1": "Uma liga metálica especial que une todas as formas de Magia Fúngica pura.",
   "tooltip.magicfungi.alloy_info.2": "Tenta não pensar muito a respeito.",
 
-  "item.magicfungi.fungi_fertilizer": "Fertilizador Fúngica",
+  "item.magicfungi.fungi_fertilizer": "Fertilizador Fúngico",
 
   "item.magicfungi.morbus_clock": "Relógio Morbus",
   "tooltip.magicfungi.morbus_clock": "Um aparato místico que é capaz de prever o apocalipse.",
@@ -147,6 +147,66 @@
   "gamerule.morbusSpreadStartingDay": "Dias até o Espalhamento do Bioma Hospedeiro",
 
   "gamerule.magicfungi.category": "Magic Fungi",
-  "itemGroup.magicfungi.item_group": "Magic Fungi"
+  "itemGroup.magicfungi.item_group": "Magic Fungi",
+
+  "advancements.magicfungi.magic_fungi": "Magic Fungi",
+  "advancements.magicfungi.magic_fungi.description": "Comece seus estudos de magia encontrando um cogumelo mágico",
+
+  "advancements.magicfungi.fungi_fertilizer": "Dedo Marrom",
+  "advancements.magicfungi.fungi_fertilizer.description": "Fabrique um Fertilizador Fúngico",
+
+  "advancements.magicfungi.mushroom_stew": "Culinária Fúngica",
+  "advancements.magicfungi.mushroom_stew.description": "Cozinhe um ensopado de cogumelo mágico",
+
+  "advancements.magicfungi.host_biome": "O Bioma Hospedeiro",
+  "advancements.magicfungi.host_biome.description": "Descubra as terras amaldiçoadas de Morbus",
+
+  "advancements.magicfungi.morbus_clock": "Próximo Evento: Apocalipse",
+  "advancements.magicfungi.morbus_clock.description": "Fabrique um Relógio Morbus",
+
+  "advancements.magicfungi.heart_of_vivifica": "Cure o Mundo",
+  "advancements.magicfungi.heart_of_vivifica.description": "Cure o mundo permanentemente com um Coração-de-Vivifica",
+
+  "advancements.magicfungi.heart_of_morbus": "Corrompa o Mundo",
+  "advancements.magicfungi.heart_of_morbus.description": "Corrompa o mundo permanentemente Coração-de-Morbus",
+
+
+  "advancements.magicfungi.glyph_workbench": "Entalhando Glifos",
+  "advancements.magicfungi.glyph_workbench.description": "Fabrique sua Mesa de Entalhamento de Glifos",
+
+  "advancements.magicfungi.utilis_glyphs": "Glifos de Utilidade",
+  "advancements.magicfungi.utilis_glyphs.description": "Entalhe seu primeiro Glifo Utilis",
+
+  "advancements.magicfungi.vivifica_glyphs": "Glifos de Natureza",
+  "advancements.magicfungi.vivifica_glyphs.description": "Entalhe seu primeiro Glifo Vivifica",
+
+  "advancements.magicfungi.morbus_glyphs": "Glifos de Doença",
+  "advancements.magicfungi.morbus_glyphs.description": "Entalhe seu primeiro Glifo Morbus",
+
+
+  "advancements.magicfungi.spell_workbench": "Descobrindo Feitiços",
+  "advancements.magicfungi.spell_workbench.description": "Obtenha sua Mesa de Descoberta de Feitiços",
+
+  "advancements.magicfungi.impetus_spells": "Feitiços de Ataque",
+  "advancements.magicfungi.impetus_spells.description": "Descubra seu primeiro Feitiço Impetus",
+
+  "advancements.magicfungi.clypeus_spells": "Feitiços de Defesa",
+  "advancements.magicfungi.clypeus_spells.description": "Descubra seu primeiro Feitiço Clypeus",
+
+  "advancements.magicfungi.utilis_spells": "Feitiços de Utilidade",
+  "advancements.magicfungi.utilis_spells.description": "Descubra seu primeiro Feitiço Utilis",
+
+  "advancements.magicfungi.vivifica_spells": "Feitiços da Natureza",
+  "advancements.magicfungi.vivifica_spells.description": "Descubra seu primeiro Feitiço Vivifica",
+
+
+  "advancements.magicfungi.essences": "O Essencial",
+  "advancements.magicfungi.essences.description": "Obtenha o poder bruto de um cogumelo mágico extraindo sua essência",
+
+  "advancements.magicfungi.relics": "Relíquias Anciãs",
+  "advancements.magicfungi.relics.description": "Reconstrua uma antiga relíquia de muitas eras atrás",
+
+  "advancements.magicfungi.fungi_armor": "Poder Desabrochante",
+  "advancements.magicfungi.fungi_armor.description": "Fabrique a armadura completa de Magia Fúngica"
 
 }

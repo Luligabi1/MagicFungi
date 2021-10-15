@@ -8,18 +8,17 @@
     },
     "description": {
       "translate": "advancements.magicfungi.host_biome.description"
-    }
+    },
+    "frame": "goal"
   },
-  "parent": "magicfungi:magic_fungi",
+  "parent": "magicfungi:root",
   "criteria": {
-    "checkInv": {
-      "trigger": "minecraft:inventory_changed",
+    "host_biome": {
+      "trigger": "minecraft:location",
       "conditions": {
-        "items": [
-          {
-            "items": ["minecraft:barrier"]
-          }
-        ]
+        "location": {
+          "biome": "magicfungi:host_biome"
+        }
       }
     }
   }

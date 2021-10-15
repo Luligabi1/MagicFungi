@@ -110,7 +110,7 @@
 
 
   "tooltip.magicfungi.magical_fungi_armor.1": "A special armor that harness the power of pure Fungi Magic.",
-  "tooltip.magicfungi.magical_fungi_armor.2": "Grants 8 permanent extra hearts while using full armor.",
+  "tooltip.magicfungi.magical_fungi_armor.2": "Grants 8 permanent extra hearts when using full armor set.",
 
 
   "item.magicfungi.magical_fungi_alloy": "Magical Fungi Alloy",
@@ -146,6 +146,67 @@
   "gamerule.morbusSpreadStartingDay": "Days until Host Biome Spreading",
 
   "gamerule.magicfungi.category": "Magic Fungi",
-  "itemGroup.magicfungi.item_group": "Magic Fungi"
+  "itemGroup.magicfungi.item_group": "Magic Fungi",
+
+
+  "advancements.magicfungi.magic_fungi": "Magic Fungi",
+  "advancements.magicfungi.magic_fungi.description": "Start your magic studies by finding a Magic Mushroom",
+
+  "advancements.magicfungi.fungi_fertilizer": "Brown Thumb",
+  "advancements.magicfungi.fungi_fertilizer.description": "Craft a Fungi Fertilizer",
+
+  "advancements.magicfungi.mushroom_stew": "Fungi Culinary",
+  "advancements.magicfungi.mushroom_stew.description": "Cook up a special fungi stew",
+
+  "advancements.magicfungi.host_biome": "The Host Biome",
+  "advancements.magicfungi.host_biome.description": "Discover the cursed lands of the Morbus",
+
+  "advancements.magicfungi.morbus_clock": "Tic-Toc-Doom",
+  "advancements.magicfungi.morbus_clock.description": "Craft a Morbus Clock",
+
+  "advancements.magicfungi.heart_of_vivifica": "Heal the World",
+  "advancements.magicfungi.heart_of_vivifica.description": "Heal the world permanently with a Heart of Vivifica",
+
+  "advancements.magicfungi.heart_of_morbus": "Corrupt the World",
+  "advancements.magicfungi.heart_of_morbus.description": "Corrupt the world permanently with a Heart of Morbus",
+
+
+  "advancements.magicfungi.glyph_workbench": "Glyph Carving",
+  "advancements.magicfungi.glyph_workbench.description": "Craft a Glyph Carving Workbench",
+
+  "advancements.magicfungi.utilis_glyphs": "Useful Glyphs",
+  "advancements.magicfungi.utilis_glyphs.description": "Carve your first Utilis Glyph",
+
+  "advancements.magicfungi.vivifica_glyphs": "Healing Glyphs",
+  "advancements.magicfungi.vivifica_glyphs.description": "Carve your first Vivifica Glyph",
+
+  "advancements.magicfungi.morbus_glyphs": "Withering Glyphs",
+  "advancements.magicfungi.morbus_glyphs.description": "Carve your first Morbus Glyph",
+
+
+  "advancements.magicfungi.spell_workbench": "Discovering Spells",
+  "advancements.magicfungi.spell_workbench.description": "Obtain a Spell Discovery Workbench",
+
+  "advancements.magicfungi.impetus_spells": "Attack Spells",
+  "advancements.magicfungi.impetus_spells.description": "Discover your first Impetus Spell",
+
+  "advancements.magicfungi.clypeus_spells": "Defense Spells",
+  "advancements.magicfungi.clypeus_spells.description": "Discover your first Clypeus Spell",
+
+  "advancements.magicfungi.utilis_spells": "Useful Spells",
+  "advancements.magicfungi.utilis_spells.description": "Discover your first Utilis Spell",
+
+  "advancements.magicfungi.vivifica_spells": "Healing Spells",
+  "advancements.magicfungi.vivifica_spells.description": "Discover your first Vivifica Spell",
+
+
+  "advancements.magicfungi.essences": "The Essentials",
+  "advancements.magicfungi.essences.description": "Harness the raw power of a Magic Mushroom by extracting its essence",
+
+  "advancements.magicfungi.relics": "Ancient Relics",
+  "advancements.magicfungi.relics.description": "Forge an old relic from many eons ago",
+
+  "advancements.magicfungi.fungi_armor": "Sprouting Power",
+  "advancements.magicfungi.fungi_armor.description": "Craft the full Magical Fungi armor set"
 
 }

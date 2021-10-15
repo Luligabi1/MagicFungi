@@ -8,7 +8,8 @@
     },
     "description": {
       "translate": "advancements.magicfungi.spell_workbench.description"
-    }
+    },
+    "frame": "goal"
   },
   "parent": "magicfungi:glyph_workbench",
   "criteria": {
