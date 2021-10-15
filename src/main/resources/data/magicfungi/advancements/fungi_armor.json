@@ -1,0 +1,36 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:magical_fungi_chestplate"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.fungi_armor"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.fungi_armor.description"
+    },
+    "frame": "challenge"
+  },
+  "parent": "magicfungi:relics",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["magicfungi:magical_fungi_helmet"]
+          },
+          {
+            "items": ["magicfungi:magical_fungi_chestplate"]
+          },
+          {
+            "items": ["magicfungi:magical_fungi_leggings"]
+          },
+          {
+            "items": ["magicfungi:magical_fungi_boots"]
+          }
+        ]
+      }
+    }
+  }
+}

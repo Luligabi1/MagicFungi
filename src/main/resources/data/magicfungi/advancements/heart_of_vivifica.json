@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:heart_of_vivifica"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.heart_of_vivifica"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.heart_of_vivifica.description"
+    },
+    "frame": "challenge"
+  },
+  "parent": "magicfungi:host_biome",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "magicfungi:heart_of_vivifica"
+          }
+        ]
+      }
+    }
+  }
+}

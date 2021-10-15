@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:host_grass_block"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.host_biome"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.host_biome.description"
+    }
+  },
+  "parent": "magicfungi:magic_fungi",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:barrier"]
+          }
+        ]
+      }
+    }
+  }
+}

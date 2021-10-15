@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "magicfungi:impetus_essence",
+    "magicfungi:clypeus_essence",
+    "magicfungi:utilis_essence",
+    "magicfungi:vivifica_essence",
+    "magicfungi:morbus_essence"
+  ]
+}

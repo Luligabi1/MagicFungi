@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:tractabile_spell"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.utilis_spells"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.utilis_spells.description"
+    }
+  },
+  "parent": "magicfungi:spell_workbench",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:utilis_spells"
+          }
+        ]
+      }
+    }
+  }
+}
