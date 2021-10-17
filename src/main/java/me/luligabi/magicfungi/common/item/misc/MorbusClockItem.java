@@ -44,6 +44,6 @@ public class MorbusClockItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.magicfungi.morbus_clock").formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
+        tooltip.add(new TranslatableText("tooltip.magicfungi.morbus_clock").formatted(Formatting.GRAY, Formatting.ITALIC));
     }
 }

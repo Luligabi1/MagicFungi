@@ -28,10 +28,12 @@ public class MagicalFungiAlloyItem extends Item {
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         tooltip.add(new TranslatableText("tooltip.magicfungi.alloy_info.1")
                 .formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
+        tooltip.add(new TranslatableText("tooltip.magicfungi.alloy_info.2")
+                .formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
         if(Screen.hasShiftDown()) {
             tooltip.add(new LiteralText("...")
                     .formatted(Formatting.GRAY, Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip.magicfungi.alloy_info.2")
+            tooltip.add(new TranslatableText("tooltip.magicfungi.alloy_info.3")
                     .formatted(Formatting.GRAY, Formatting.ITALIC));
         }
     }

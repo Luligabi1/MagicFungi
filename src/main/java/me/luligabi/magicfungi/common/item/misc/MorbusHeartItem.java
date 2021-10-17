@@ -43,6 +43,7 @@ public class MorbusHeartItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.magicfungi.heart_of_morbus").formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
+        tooltip.add(new TranslatableText("tooltip.magicfungi.heart_of_morbus.1").formatted(Formatting.GRAY, Formatting.ITALIC));
+        tooltip.add(new TranslatableText("tooltip.magicfungi.heart_of_morbus.2").formatted(Formatting.GRAY, Formatting.ITALIC));
     }
 }

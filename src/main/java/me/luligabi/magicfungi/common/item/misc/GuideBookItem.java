@@ -23,6 +23,7 @@ public class GuideBookItem extends Item {
             PatchouliAPI.get().openBookGUI((ServerPlayerEntity) user, new Identifier(MagicFungi.MOD_ID, MagicFungi.MOD_ID));
             return TypedActionResult.success(user.getStackInHand(hand));
         }
-        return TypedActionResult.consume(user.getStackInHand(hand));
+        return TypedActionResult.fail(user.getStackInHand(hand));
     }
+
 }

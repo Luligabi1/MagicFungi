@@ -109,26 +109,31 @@
   "item.magicfungi.magical_fungi_boots": "Botas de Magia Fúngica",
 
 
-  "tooltip.magicfungi.magical_fungi_armor.1": "Uma armadura especial que possui o poder da Magia Fúngica pura.",
-  "tooltip.magicfungi.magical_fungi_armor.2": "+8 corações permanentes enquanto usar a armadura completa.",
+  "tooltip.magicfungi.magical_fungi_armor.1": "Uma armadura especial que possui",
+  "tooltip.magicfungi.magical_fungi_armor.2": "o poder da Magia Fúngica pura.",
+  "tooltip.magicfungi.magical_fungi_armor.3": "Garante 8 corações permanentes enquanto",
+  "tooltip.magicfungi.magical_fungi_armor.4": "usar a armadura completa.",
 
 
   "item.magicfungi.magical_fungi_alloy": "Liga de Magia Fúngica",
 
-  "tooltip.magicfungi.alloy_info.1": "Uma liga metálica especial que une todas as formas de Magia Fúngica pura.",
-  "tooltip.magicfungi.alloy_info.2": "Tenta não pensar muito a respeito.",
+  "tooltip.magicfungi.alloy_info.1": "Uma liga metálica especial que une todas",
+  "tooltip.magicfungi.alloy_info.2": "as formas de Magia Fúngica pura.",
+  "tooltip.magicfungi.alloy_info.3": "Tenta não pensar muito a respeito.",
 
   "item.magicfungi.fungi_fertilizer": "Fertilizador Fúngico",
 
   "item.magicfungi.morbus_clock": "Relógio Morbus",
-  "tooltip.magicfungi.morbus_clock": "Um aparato místico que é capaz de prever o apocalipse.",
+  "tooltip.magicfungi.morbus_clock": "Um dispositivo especial capaz de prever o apocalipse.",
 
   "item.magicfungi.heart_of_vivifica": "Coração-de-Vivifica",
-  "tooltip.magicfungi.heart_of_vivifica": "Um artefato ancião capaz de restaurar vida. Pode ser utilizado para eliminar o espalhamento de Morbus.",
+  "tooltip.magicfungi.heart_of_vivifica.1": "Um artefato ancião capaz de restaurar vida.",
+  "tooltip.magicfungi.heart_of_vivifica.2": "Pode ser utilizado para parar o espalhamento de Morbus.",
   "message.magicfungi.heart_of_vivifica": "Você se sente aliviado que suas ações podem ter de alguma forma melhorado o mundo.",
 
   "item.magicfungi.heart_of_morbus": "Coração-de-Morbus",
-  "tooltip.magicfungi.heart_of_morbus": "Um artefato ancião que pode trazer maldições. Pode ser utilizado para reabilitar o espalhamento de Morbus.",
+  "tooltip.magicfungi.heart_of_morbus.1": "Um artefato ancião que pode trazer maldições.",
+  "tooltip.magicfungi.heart_of_morbus.2": "Pode ser utilizado para reabilitar o espalhamento de Morbus.",
   "message.magicfungi.heart_of_morbus": "Você se sente culpado que suas ações podem ter de alguma forma condenado o mundo.",
 
   "item.magicfungi.guide_book": "Livro de Micologia Mágica",

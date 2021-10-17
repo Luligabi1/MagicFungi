@@ -109,25 +109,30 @@
   "item.magicfungi.magical_fungi_boots": "Magical Fungi Boots",
 
 
-  "tooltip.magicfungi.magical_fungi_armor.1": "A special armor that harness the power of pure Fungi Magic.",
-  "tooltip.magicfungi.magical_fungi_armor.2": "Grants 8 permanent extra hearts when using full armor set.",
+  "tooltip.magicfungi.magical_fungi_armor.1": "A special armor that harness the",
+  "tooltip.magicfungi.magical_fungi_armor.2": "power of pure Fungi Magic.",
+  "tooltip.magicfungi.magical_fungi_armor.3": "Grants 8 permanent extra hearts",
+  "tooltip.magicfungi.magical_fungi_armor.4": "when using full armor set.",
 
 
   "item.magicfungi.magical_fungi_alloy": "Magical Fungi Alloy",
-  "tooltip.magicfungi.alloy_info.1": "A special alloy uniting all forms of pure Fungi Magic.",
-  "tooltip.magicfungi.alloy_info.2": "Try not to think too much about it.",
+  "tooltip.magicfungi.alloy_info.1": "A special alloy uniting all",
+  "tooltip.magicfungi.alloy_info.2": "forms of pure Fungi Magic.",
+  "tooltip.magicfungi.alloy_info.3": "Try not to think too much about it.",
 
   "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
 
   "item.magicfungi.morbus_clock": "Morbus Clock",
-  "tooltip.magicfungi.morbus_clock": "A mystic apparatus that is able to predict the doomsday.",
+  "tooltip.magicfungi.morbus_clock": "A special device able to predict the doomsday.",
 
   "item.magicfungi.heart_of_vivifica": "Heart of Vivifica",
-  "tooltip.magicfungi.heart_of_vivifica": "An ancient artifact that can restore life. Can be used to remove Morbus spreading.",
+  "tooltip.magicfungi.heart_of_vivifica.1": "An ancient artifact that can restore life.",
+  "tooltip.magicfungi.heart_of_vivifica.2": "Can be used to remove Morbus spreading.",
   "message.magicfungi.heart_of_vivifica": "You feel relieved that your actions might have somehow improved the world for the better.",
 
   "item.magicfungi.heart_of_morbus": "Heart of Morbus",
-  "tooltip.magicfungi.heart_of_morbus": "An ancient artifact that can bring curses. Can be used to reactivate Morbus spreading.",
+  "tooltip.magicfungi.heart_of_morbus.1": "An ancient artifact that can bring curses.",
+  "tooltip.magicfungi.heart_of_morbus.2": "Can be used to reactivate Morbus spreading.",
   "message.magicfungi.heart_of_morbus": "You feel guilty that your actions might have somehow doomed the world.",
 
   "item.magicfungi.guide_book": "Magic Mycology Book",
