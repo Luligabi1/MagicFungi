@@ -4,6 +4,7 @@ import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.crafting.GlyphCarvingBlock;
 import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
+import me.luligabi.magicfungi.common.block.misc.HostDirtBlock;
 import me.luligabi.magicfungi.common.block.misc.HostGrassBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -64,7 +65,7 @@ public class BlockRegistry {
 
 
     public static final Block HOST_GRASS_BLOCK = new HostGrassBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_BROWN).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
-    public static final Block HOST_DIRT = new Block(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
+    public static final Block HOST_DIRT = new HostDirtBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).ticksRandomly().strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
 
 
     public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));

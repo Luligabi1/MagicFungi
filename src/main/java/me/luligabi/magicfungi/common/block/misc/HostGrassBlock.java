@@ -1,7 +1,6 @@
 package me.luligabi.magicfungi.common.block.misc;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.misc.gamerule.GameRuleRegistry;
 import me.luligabi.magicfungi.common.misc.tag.TagRegistry;
 import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.block.*;
@@ -9,7 +8,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
@@ -59,23 +57,17 @@ public class HostGrassBlock extends GrassBlock {
                 BlockState blockState = this.getDefaultState();
                 for(int i = 0; i < 4; ++i) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                    if (canSpread(blockState, world, blockPos) && isMorbusSpreadingActive(world) ?
-                            ((!world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_UNSPREADABLE) &&
-                                    !(world.getBlockState(blockPos).getBlock() instanceof AirBlock) &&
-                                    !(world.getBlockState(blockPos).getBlock() instanceof FluidBlock) &&
-                                    !(world.getBlockState(blockPos).getBlock() instanceof PlantBlock) &&
-                                    !(world.getBlockState(blockPos).getBlock() instanceof TallPlantBlock) &&
-                                    !(world.getBlockState(blockPos).getBlock() instanceof LeavesBlock) &&
-                                    !(world.getBlockState(blockPos).isTranslucent(world, blockPos)) &&
-                                    !(world.getBlockState(blockPos).hasBlockEntity()) ||
-                                    world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT))) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
-                        world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
-                    } // TODO: Host Dirt is replaced with Host Grass without being exposed to air on top.
+                    if (canSpread(blockState, world, blockPos) && Util.isMorbusSpreadingActive(world)) {
+                        if(!world.getBlockState(blockPos).isAir() && world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_SPREADABLE)) {
+                            world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
+                        }
+                    }
                 }
-                // Slowly turns blocks below in a range of 2 into Host Dirt.
-                if(world.getBlockState(pos.down()).getBlock() == Blocks.DIRT && random.nextBoolean()) {
+                // Slowly turns the block below into Host Dirt. Check HostDirtBlock#randomTick for how the dirt spreads through itself.
+                if(world.getBlockState(pos.down()).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && random.nextBoolean()) {
                     world.setBlockState(pos.down(), BlockRegistry.HOST_DIRT.getDefaultState());
                 }
+                // TODO: Add plant -> Morbus Mushroom transformation system.
             }
         } else {
             world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
@@ -95,13 +87,8 @@ public class HostGrassBlock extends GrassBlock {
         }
     }
 
-    private boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
+    public boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.up();
         return canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);
-    }
-
-    public static boolean isMorbusSpreadingActive(World world) {
-        return world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING) &&
-                Util.getCurrentInGameDay(world) >= world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY);
     }
 }
