@@ -43,7 +43,7 @@
   "message.magicfungi.no": "No",
 
   "message.magicfungi.daysLeft.1": "Days: ",
-  "message.magicfungi.daysLeft.2": "%d days",
+  "message.magicfungi.daysLeft.2": "%d days left (Day %d)",
   "message.magicfungi.daysLeft.3": "IT'S HAPPENING!",
 
   "message.magicfungi.fate_design": "You attempt to change fate's design, but nothing happens.",

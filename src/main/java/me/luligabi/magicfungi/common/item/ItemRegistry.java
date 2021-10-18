@@ -19,36 +19,22 @@ public class ItemRegistry {
 
     public static void init() {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_essence"), IMPETUS_ESSENCE);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_essence"), CLYPEUS_ESSENCE);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_essence"), UTILIS_ESSENCE);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_essence"), VIVIFICA_ESSENCE);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_essence"), MORBUS_ESSENCE);
 
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_sword"), IMPETUS_SWORD);
-
         // Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_shield"), CLYPEUS_SHIELD);
         // UniqueItemRegistry.SHIELD.addItemToRegistry(CLYPEUS_SHIELD); // TODO: Re-add Clypeus Shield.
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_pickaxe"), UTILIS_PICKAXE);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_elixir"), VIVIFICA_ELIXIR);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_scythe"), MORBUS_SCYTHE);
 
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_helmet"), MAGICAL_FUNGI_HELMET);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_chestplate"), MAGICAL_FUNGI_CHESTPLATE);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_leggings"), MAGICAL_FUNGI_LEGGINGS);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_boots"), MAGICAL_FUNGI_BOOTS);
-
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_alloy"), MAGICAL_FUNGI_ALLOY);
 
@@ -57,18 +43,12 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_clock"), MORBUS_CLOCK);
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "heart_of_vivifica"), HEART_OF_VIVIFICA);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "heart_of_morbus"), HEART_OF_MORBUS);
 
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_mushroom_stew"), IMPETUS_MUSHROOM_STEW);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_mushroom_stew"), CLYPEUS_MUSHROOM_STEW);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_mushroom_stew"), UTILIS_MUSHROOM_STEW);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom_stew"), VIVIFICA_MUSHROOM_STEW);
-
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_stew"), MORBUS_MUSHROOM_STEW);
     }
 
@@ -76,7 +56,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "guide_book"), GUIDE_BOOK);
     }
 
-    public static final Item GUIDE_BOOK = new GuideBookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
+    public static final Item GUIDE_BOOK = new GuideBookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).group(MagicFungi.ITEM_GROUP));
 
 
     public static final Item IMPETUS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
@@ -116,7 +96,7 @@ public class ItemRegistry {
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MORBUS_CLOCK = new MorbusClockItem(new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP));
+    public static final Item MORBUS_CLOCK = new MorbusClockItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1).group(MagicFungi.ITEM_GROUP));
 
     public static final Item HEART_OF_VIVIFICA = new VivificaHeartItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).group(MagicFungi.ITEM_GROUP));
 

@@ -42,7 +42,7 @@
   "message.magicfungi.no": "Não",
 
   "message.magicfungi.daysLeft.1": "Dias: ",
-  "message.magicfungi.daysLeft.2": "%d dias",
+  "message.magicfungi.daysLeft.2": "%d dias restantes (Dia %d)",
   "message.magicfungi.daysLeft.3": "TÁ ACONTECENDO!",
 
   "message.magicfungi.fate_design": "Você tenta mudar o rumo do destino, mas nada acontece.",

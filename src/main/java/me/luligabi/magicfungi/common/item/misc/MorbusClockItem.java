@@ -32,11 +32,12 @@ public class MorbusClockItem extends Item {
             if (world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING)) {
                 long daysLeft = (world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY) - Util.getCurrentInGameDay(world));
 
-                TranslatableText daysLeftText = daysLeft > 0 ? new TranslatableText("message.magicfungi.daysLeft.2", daysLeft) : new TranslatableText("message.magicfungi.daysLeft.3");
+                TranslatableText daysLeftText = daysLeft > 0 ?
+                        new TranslatableText("message.magicfungi.daysLeft.2", daysLeft, world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY)) :
+                        new TranslatableText("message.magicfungi.daysLeft.3");
                 user.sendMessage(new TranslatableText("message.magicfungi.daysLeft.1").formatted(Formatting.DARK_GRAY, Formatting.BOLD)
                         .append(daysLeftText.formatted(daysLeft > 0 ? Formatting.GRAY : Formatting.DARK_RED, Formatting.BOLD)), false);
             }
-
             return TypedActionResult.success(user.getStackInHand(hand));
         }
         return TypedActionResult.fail(user.getStackInHand(hand));
