@@ -8,7 +8,7 @@
       "type": "spotlight",
       "item": "magicfungi:fertilis_spell",
       "title": "Vivifica Spells",
-      "text": "$(2)$(l)Fertilis Spell$(br)$(br)$()$(a)Stimulates the growth of nearby crops."
+      "text": "$(2)$(l)Fertilis Spell$(br2)$()$(a)Stimulates the growth of nearby crops."
     }
   ]
 }
