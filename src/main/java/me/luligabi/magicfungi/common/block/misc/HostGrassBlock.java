@@ -5,6 +5,8 @@ import me.luligabi.magicfungi.common.misc.tag.TagRegistry;
 import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
@@ -57,17 +59,28 @@ public class HostGrassBlock extends GrassBlock {
                 BlockState blockState = this.getDefaultState();
                 for(int i = 0; i < 4; ++i) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                    if (canSpread(blockState, world, blockPos) && Util.isMorbusSpreadingActive(world)) {
-                        if(!world.getBlockState(blockPos).isAir() && world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_SPREADABLE)) {
+                    if (canSpread(blockState, world, blockPos) && Util.isMorbusSpreadingActive(world) && !world.getBlockState(blockPos).isAir()) {
+                        if(world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_SPREADABLE) || (world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && !world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT) && world.isSkyVisible(blockPos.up()))) {
                             world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
                         }
                     }
                 }
                 // Slowly turns the block below into Host Dirt. Check HostDirtBlock#randomTick for how the dirt spreads through itself.
-                if(world.getBlockState(pos.down()).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && random.nextBoolean()) {
+                if(world.getBlockState(pos.down()).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && !world.getBlockState(pos.down()).isOf(BlockRegistry.HOST_DIRT) && random.nextBoolean()) {
                     world.setBlockState(pos.down(), BlockRegistry.HOST_DIRT.getDefaultState());
                 }
-                // TODO: Add plant -> Morbus Mushroom transformation system.
+
+                // Converts any PlantBlock planted to either a Morbus Mushroom or Wither Rose
+                BlockState blockStateUp = world.getBlockState(pos.up());
+                if(blockStateUp.getBlock() instanceof PlantBlock && random.nextBoolean()) {
+                    if(!(blockStateUp.isOf(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK)) && !(blockStateUp.isOf(Blocks.WITHER_ROSE)) && !(blockStateUp.getBlock() instanceof FernBlock)) {
+                        world.setBlockState(pos.up(), random.nextBoolean() ?
+                                BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK.getDefaultState() : Blocks.WITHER_ROSE.getDefaultState());
+                        world.playSound(null, pos.up().getX(), pos.up().getY(), pos.up().getZ(),
+                                SoundEvents.ENTITY_WITHER_AMBIENT, SoundCategory.BLOCKS, 0.8F, 0.8F);
+                    }
+                }
+
             }
         } else {
             world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
