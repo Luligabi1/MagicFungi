@@ -8,6 +8,7 @@ import net.minecraft.block.Blocks;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -16,7 +17,7 @@ public class SanctificareGlyphItem extends BaseGlyphItem {
     public SanctificareGlyphItem(Settings settings) {
         super(settings);
         setMushroomType(MushroomType.VIVIFICA);
-        //setSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CONVERTED);
+        setSound(SoundEvents.BLOCK_MOSS_BREAK);
         setActionType(ActionType.BLOCK);
     }
 
@@ -35,6 +36,7 @@ public class SanctificareGlyphItem extends BaseGlyphItem {
                         if(world.getBlockState(blockPos).getBlock() == BlockRegistry.HOST_DIRT) {
                             world.setBlockState(blockPos, Blocks.DIRT.getDefaultState());
                         }
+                        super.executeGlyph(playerEntity, itemStack);
                     }
                 }
             }

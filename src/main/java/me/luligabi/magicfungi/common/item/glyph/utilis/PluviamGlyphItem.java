@@ -31,6 +31,7 @@ public class PluviamGlyphItem extends BaseGlyphItem {
 
             world.spawnEntity(lightningEntity);
             ((ServerWorld) world).setWeather(world.random.nextInt() * 10, 0, false, false);
+            super.executeGlyph(playerEntity, itemStack);
         }
     }
 
