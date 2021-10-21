@@ -24,7 +24,7 @@ public class HostDirtBlock extends Block {
         for (int i = 0; i < 4; ++i) {
             BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
 
-            if (!world.getBlockState(blockPos).isAir() && world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && !world.getBlockState(blockPos).isOf(this)) {
+            if (world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && !world.getBlockState(blockPos).isAir()) {
                 world.setBlockState(blockPos, blockState);
             }
         }

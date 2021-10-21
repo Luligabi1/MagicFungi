@@ -59,14 +59,14 @@ public class HostGrassBlock extends GrassBlock {
                 BlockState blockState = this.getDefaultState();
                 for(int i = 0; i < 4; ++i) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                    if (canSpread(blockState, world, blockPos) && Util.isMorbusSpreadingActive(world) && !world.getBlockState(blockPos).isAir()) {
-                        if(world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_SPREADABLE) || (world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && !world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT) && world.isSkyVisible(blockPos.up()))) {
+                    if (canSpread(blockState, world, blockPos) && !world.getBlockState(blockPos).isAir()) {
+                        if(Util.isMorbusSpreadingActive(world) ? world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_SPREADABLE) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
                             world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
                         }
                     }
                 }
                 // Slowly turns the block below into Host Dirt. Check HostDirtBlock#randomTick for how the dirt spreads through itself.
-                if(world.getBlockState(pos.down()).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && !world.getBlockState(pos.down()).isOf(BlockRegistry.HOST_DIRT) && random.nextBoolean()) {
+                if(world.getBlockState(pos.down()).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && random.nextBoolean()) {
                     world.setBlockState(pos.down(), BlockRegistry.HOST_DIRT.getDefaultState());
                 }
 

@@ -3,6 +3,7 @@
   "values": [
     "minecraft:grass_block",
     "minecraft:podzol",
-    "minecraft:mycelium"
+    "minecraft:mycelium",
+    "magicfungi:host_dirt"
   ]
 }

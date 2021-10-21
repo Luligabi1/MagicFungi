@@ -3,7 +3,6 @@
   "values": [
     "minecraft:dirt",
     "minecraft:coarse_dirt",
-    "minecraft:rooted_dirt",
-    "magicfungi:host_dirt"
+    "minecraft:rooted_dirt"
   ]
 }
