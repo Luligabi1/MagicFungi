@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "a a",
+    "aNa",
+    "a a"
+  ],
+  "key": {
+    "a": {
+      "item": "magicfungi:magical_fungi_alloy"
+    },
+    "N": {
+      "item": "minecraft:netherite_chestplate"
+    }
+  },
+  "result": {
+    "item": "magicfungi:magical_fungi_chestplate",
+    "count": 1
+  }
+}

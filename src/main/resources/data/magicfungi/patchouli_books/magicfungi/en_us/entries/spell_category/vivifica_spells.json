@@ -5,8 +5,10 @@
   "sortnum": 4,
   "pages": [
     {
-      "type": "text",
-      "text": "$(l)Fertilis Spell$(br)$(br)$()Stimulates the growth of nearby crops."
+      "type": "spotlight",
+      "item": "magicfungi:fertilis_spell",
+      "title": "Vivifica Spells",
+      "text": "$(2)$(l)Fertilis Spell$(br)$(br)$()$(a)Stimulates the growth of nearby crops."
     }
   ]
 }

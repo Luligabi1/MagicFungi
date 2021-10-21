@@ -5,8 +5,10 @@
   "sortnum": 3,
   "pages": [
     {
-      "type": "text",
-      "text": "$(l)Tractabile Spell$(br)$(br)$()Opens the user's Ender Chest. $(br)$(br)$(l)Cibus Spell$(br)$(br)$()Slightly decreases the user's hunger."
+      "type": "spotlight",
+      "item": "magicfungi:tractabile_spell",
+      "title": "Utilis Spells",
+      "text": "$(5)$(l)Tractabile Spell$(br)$(br)$()$(d)Opens the user's Ender Chest. $(br)$(br)$(5)$(l)Cibus Spell$(br)$(br)$()$(d)Slightly decreases the user's hunger."
     }
   ]
 }

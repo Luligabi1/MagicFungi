@@ -5,8 +5,10 @@
   "sortnum": 1,
   "pages": [
     {
-      "type": "text",
-      "text": "$(l)Ignei Spell$(br)$(br)$()Spawns small fire charge where you're aiming at. $(br)$(br)$(l)Scintillam Spell$(br)$(br)$()Spawns a Ghast's fireball where you're aiming at."
+      "type": "spotlight",
+      "item": "magicfungi:ignei_spell",
+      "title": "Impetus Spells",
+      "text": "$(4)$(l)Ignei Spell$(br)$(br)$()$(c)Spawns small fire charge where you're aiming at. $(br)$(br)$(4)$(l)Scintillam Spell$(br)$(br)$()$(c)Spawns a Ghast's fireball where you're aiming at."
     }
   ]
 }

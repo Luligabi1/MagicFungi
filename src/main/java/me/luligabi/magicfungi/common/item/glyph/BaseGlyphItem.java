@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common.item.glyph;
 
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -83,9 +84,13 @@ public abstract class BaseGlyphItem extends Item implements GlyphExecutor {
                     .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
                 .append(new TranslatableText("tooltip.magicfungi.spell_info.2", mushroomType.getFancyName(), mushroomType.getStatsName())
                         .formatted(MushroomType.getLightColor(getMushroomType()))));
-        tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
-                .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
-                .append(actionType.getTranslatableText()
-                        .formatted(MushroomType.getLightColor(getMushroomType()))));
+        if(Screen.hasShiftDown()) {
+            tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
+                    .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
+                    .append(actionType.getTranslatableText()
+                            .formatted(MushroomType.getLightColor(getMushroomType()))));
+        } else {
+            tooltip.add(new TranslatableText("tooltip.magicfungi.extended_info").formatted(Formatting.GRAY, Formatting.ITALIC));
+        }
     }
 }

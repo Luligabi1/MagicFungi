@@ -2,11 +2,19 @@
   "name": "The Host Biome",
   "icon": "magicfungi:host_grass_block",
   "category": "magicfungi:general_info",
-  "sortnum": 2,
+  "sortnum": 1,
   "pages": [
     {
-      "type": "text",
+      "type": "spotlight",
+      "item": "magicfungi:host_grass_block",
+      "title": "The Host Biome",
       "text": "The $(l)Host Biome $()is the home of the Morbus Mushrooms, used for special, dark magic. $(br)Unlike the other mushrooms, the $(l)Morbus Mushroom $()can only be found here, where it slowly parasites the soil, making it infertile."
+    },
+    {
+      "type": "image",
+      "images": ["magicfungi:textures/guide_book/host_biome.png"],
+      "title": " ",
+      "border":  true
     }
   ]
 }

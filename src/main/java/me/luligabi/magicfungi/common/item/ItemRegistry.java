@@ -1,14 +1,15 @@
 package me.luligabi.magicfungi.common.item;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.item.armor.MagicalFungiArmorItem;
+import me.luligabi.magicfungi.common.item.armor.MagicalFungiArmorMaterial;
+import me.luligabi.magicfungi.common.item.tool.ToolMaterials;
 import me.luligabi.magicfungi.common.item.tool.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.FoodComponent;
-import net.minecraft.item.Item;
-import net.minecraft.item.Items;
-import net.minecraft.item.MushroomStewItem;
+import net.minecraft.item.*;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -39,6 +40,16 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_scythe"), MORBUS_SCYTHE);
 
 
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_helmet"), MAGICAL_FUNGI_HELMET);
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_chestplate"), MAGICAL_FUNGI_CHESTPLATE);
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_leggings"), MAGICAL_FUNGI_LEGGINGS);
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_boots"), MAGICAL_FUNGI_BOOTS);
+
+
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_alloy"), MAGICAL_FUNGI_ALLOY);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fungi_fertilizer"), FUNGI_FERTILIZER);
 
 
@@ -51,8 +62,6 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom_stew"), VIVIFICA_MUSHROOM_STEW);
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_stew"), MORBUS_MUSHROOM_STEW);
-
-
     }
 
     public static void initGuideBook() {
@@ -84,6 +93,18 @@ public class ItemRegistry {
 
     public static final Item MORBUS_SCYTHE = new MorbusScytheItem(ToolMaterials.MORBUS, 2, -1.2F, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
+
+    public static final ArmorMaterial MAGICAL_FUNGI_ARMOR_MATERIAL = new MagicalFungiArmorMaterial();
+    public static final Item MAGICAL_FUNGI_HELMET = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.HEAD, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+
+    public static final Item MAGICAL_FUNGI_CHESTPLATE = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.CHEST, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+
+    public static final Item MAGICAL_FUNGI_LEGGINGS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.LEGS, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+
+    public static final Item MAGICAL_FUNGI_BOOTS = new MagicalFungiArmorItem(ItemRegistry.MAGICAL_FUNGI_ARMOR_MATERIAL, EquipmentSlot.FEET, new Item.Settings().fireproof().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
+
+
+    public static final Item MAGICAL_FUNGI_ALLOY = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 

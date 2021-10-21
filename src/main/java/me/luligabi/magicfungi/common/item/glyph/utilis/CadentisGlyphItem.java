@@ -3,6 +3,7 @@ package me.luligabi.magicfungi.common.item.glyph.utilis;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.block.Block;
+import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
@@ -31,10 +32,14 @@ public class CadentisGlyphItem extends BlockItem {
                 .formatted(MushroomType.getDarkColor(mushroomType), Formatting.BOLD)
                 .append(new TranslatableText("tooltip.magicfungi.spell_info.2", mushroomType.getFancyName(), mushroomType.getStatsName())
                         .formatted(MushroomType.getLightColor(mushroomType))));
-        tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
-                .formatted(MushroomType.getDarkColor(mushroomType), Formatting.BOLD)
-                .append(ActionType.BLOCK.getTranslatableText()
-                        .formatted(MushroomType.getLightColor(mushroomType))));
+        if(Screen.hasShiftDown()) {
+            tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
+                    .formatted(MushroomType.getDarkColor(mushroomType), Formatting.BOLD)
+                    .append(ActionType.BLOCK.getTranslatableText()
+                            .formatted(MushroomType.getLightColor(mushroomType))));
+        } else {
+            tooltip.add(new TranslatableText("tooltip.magicfungi.extended_info").formatted(Formatting.GRAY, Formatting.ITALIC));
+        }
     }
 
 }
