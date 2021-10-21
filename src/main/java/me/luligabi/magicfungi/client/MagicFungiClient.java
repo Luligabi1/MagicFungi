@@ -3,7 +3,7 @@ package me.luligabi.magicfungi.client;
 import me.luligabi.magicfungi.client.screen.GlyphCarvingScreen;
 import me.luligabi.magicfungi.client.screen.SpellDiscoveryScreen;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.particle.ParticleRegistry;
+import me.luligabi.magicfungi.common.misc.particle.ParticleRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;

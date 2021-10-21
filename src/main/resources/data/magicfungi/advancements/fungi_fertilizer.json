@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:fungi_fertilizer"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.fungi_fertilizer"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.fungi_fertilizer.description"
+    }
+  },
+  "parent": "magicfungi:root",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["magicfungi:fungi_fertilizer"]
+          }
+        ]
+      }
+    }
+  }
+}

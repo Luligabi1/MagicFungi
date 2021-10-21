@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.item;
+package me.luligabi.magicfungi.common.item.misc;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.util.Util;

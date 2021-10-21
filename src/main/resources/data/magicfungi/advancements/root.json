@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:vivifica_mushroom"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.magic_fungi"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.magic_fungi.description"
+    },
+    "background": "magicfungi:textures/block/morbus_mushroom_block.png"
+  },
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:mod_mushrooms"
+          }
+        ]
+      }
+    }
+  }
+}

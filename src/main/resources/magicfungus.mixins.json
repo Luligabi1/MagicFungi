@@ -5,8 +5,9 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "ArmorItemMixin",
+    "LivingEntityRendererInvoker",
+    "LivingEntityRendererMixin",
     "PlayerEntityMixin",
-    "PlayerEntityRendererMixin",
     "PlayerInventoryAccessor",
     "ZombieVillagerEntityInvoker"
   ],

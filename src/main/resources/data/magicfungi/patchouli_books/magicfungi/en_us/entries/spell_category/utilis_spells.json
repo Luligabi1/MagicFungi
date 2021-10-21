@@ -8,7 +8,7 @@
       "type": "spotlight",
       "item": "magicfungi:tractabile_spell",
       "title": "Utilis Spells",
-      "text": "$(5)$(l)Tractabile Spell$(br)$(br)$()$(d)Opens the user's Ender Chest. $(br)$(br)$(5)$(l)Cibus Spell$(br)$(br)$()$(d)Slightly decreases the user's hunger."
+      "text": "$(5)$(l)Tractabile Spell$(br2)$()$(d)Opens the user's Ender Chest. $(br2)$(5)$(l)Cibus Spell$(br2)$()$(d)Slightly decreases the user's hunger."
     }
   ]
 }

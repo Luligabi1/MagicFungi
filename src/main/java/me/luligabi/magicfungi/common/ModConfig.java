@@ -57,10 +57,19 @@ public class ModConfig implements Config {
     public int morbusScytheEffectDuration = 8;
 
     @Comment(value = "Morbus Scythe's wither effect strength. 0 = I, 1 = II, etc.")
-    public int morbusScytheEffectStrength =0;
+    public int morbusScytheEffectStrength = 0;
 
     @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
     public double hostBiomeSpawnRate = 0.2;
+
+    @Comment(value = "Whether Host Grass will start spreading towards non-grass blocks after X in-game days. This only affects the default gamerule value for this setting, to change this on already generated worlds, use /gamerule doMorbusSpread. Keep in mind this can be overridden by Morbus corruption items. Check canUseMorbusCorruptionItems for further information.")
+    public boolean doMorbusSpread = false;
+
+    @Comment(value = "In-game days until Host Grass blocks start spreading beyond the Host Biome. This only affects the default gamerule value for this setting, to change this on already generated worlds, use /gamerule morbusSpreadStartingDay")
+    public int morbusSpreadStartingDay = 100;
+
+    @Comment(value = "Enables the usage of the Maledictio Glyph and Heart of Morbus. If you plan to use this mod on a public server, disable this to avoid griefing.")
+    public boolean canUseMorbusCorruptionItems = false;
 
     @Override
     public String getName() {

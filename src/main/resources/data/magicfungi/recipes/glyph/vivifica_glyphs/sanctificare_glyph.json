@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "magicfungi:vivifica_essence"
+  },
+  "inputB" : {
+    "item": "minecraft:grass_block"
+  },
+  "inputC" : {
+    "item": "minecraft:grass_block"
+  },
+  "inputD" : {
+    "item": "minecraft:stone"
+  },
+
+  "outputItem": "magicfungi:sanctificare_glyph",
+  "outputAmount": "1"
+}

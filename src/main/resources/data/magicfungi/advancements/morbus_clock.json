@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:morbus_clock"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.morbus_clock"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.morbus_clock.description"
+    }
+  },
+  "parent": "magicfungi:host_biome",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["magicfungi:morbus_clock"]
+          }
+        ]
+      }
+    }
+  }
+}

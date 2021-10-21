@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:pudicitiam_glyph"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.vivifica_glyphs"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.vivifica_glyphs.description"
+    }
+  },
+  "parent": "magicfungi:glyph_workbench",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:vivifica_glyphs"
+          }
+        ]
+      }
+    }
+  }
+}

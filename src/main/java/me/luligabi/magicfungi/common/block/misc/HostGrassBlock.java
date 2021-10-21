@@ -1,18 +1,18 @@
 package me.luligabi.magicfungi.common.block.misc;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.misc.tag.TagRegistry;
+import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
-import net.minecraft.world.gen.feature.ConfiguredFeature;
-import net.minecraft.world.gen.feature.FeatureConfig;
-import net.minecraft.world.gen.feature.FlowerFeature;
 
-import java.util.List;
 import java.util.Random;
 
 public class HostGrassBlock extends GrassBlock {
@@ -44,20 +44,8 @@ public class HostGrassBlock extends GrassBlock {
             }
 
             if (blockState2.isAir()) {
-                BlockState blockState4;
-                if (random.nextInt(8) == 0) {
-                    List<ConfiguredFeature<?, ?>> list = world.getBiome(blockPos2).getGenerationSettings().getFlowerFeatures();
-                    if (list.isEmpty()) {
-                        continue;
-                    }
-
-                    blockState4 = getFlowerState(random, blockPos2, list.get(0));
-                } else {
-                    blockState4 = blockState;
-                }
-
-                if (blockState4.canPlaceAt(world, blockPos2)) {
-                    world.setBlockState(blockPos2, blockState4, 3);
+                if (blockState.canPlaceAt(world, blockPos2)) {
+                    world.setBlockState(blockPos2, blockState, 3);
                 }
             }
         }
@@ -66,20 +54,36 @@ public class HostGrassBlock extends GrassBlock {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if (!canSurvive(state, world, pos)) {
-            world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
-        } else {
+        if (canSurvive(state, world, pos)) {
             if (world.getLightLevel(pos.up()) >= 9) {
                 BlockState blockState = this.getDefaultState();
-
                 for(int i = 0; i < 4; ++i) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
-                    if (world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT) && canSpread(blockState, world, blockPos)) {
-                        world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
+                    if (canSpread(blockState, world, blockPos) && !world.getBlockState(blockPos).isAir()) {
+                        if(Util.isMorbusSpreadingActive(world) ? world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_SPREADABLE) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
+                            world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
+                        }
                     }
                 }
-            }
+                // Slowly turns the block below into Host Dirt. Check HostDirtBlock#randomTick for how the dirt spreads through itself.
+                if(world.getBlockState(pos.down()).isIn(TagRegistry.MORBUS_DIRT_SPREADABLE) && random.nextBoolean()) {
+                    world.setBlockState(pos.down(), BlockRegistry.HOST_DIRT.getDefaultState());
+                }
 
+                // Converts any PlantBlock planted to either a Morbus Mushroom or Wither Rose
+                BlockState blockStateUp = world.getBlockState(pos.up());
+                if(blockStateUp.getBlock() instanceof PlantBlock && random.nextBoolean()) {
+                    if(!(blockStateUp.isOf(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK)) && !(blockStateUp.isOf(Blocks.WITHER_ROSE)) && !(blockStateUp.getBlock() instanceof FernBlock)) {
+                        world.setBlockState(pos.up(), random.nextBoolean() ?
+                                BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK.getDefaultState() : Blocks.WITHER_ROSE.getDefaultState());
+                        world.playSound(null, pos.up().getX(), pos.up().getY(), pos.up().getZ(),
+                                SoundEvents.ENTITY_WITHER_AMBIENT, SoundCategory.BLOCKS, 0.8F, 0.8F);
+                    }
+                }
+
+            }
+        } else {
+            world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
         }
     }
 
@@ -96,14 +100,8 @@ public class HostGrassBlock extends GrassBlock {
         }
     }
 
-    private boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
+    public boolean canSpread(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.up();
         return canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);
     }
-
-    private static <U extends FeatureConfig> BlockState getFlowerState(Random random, BlockPos pos, ConfiguredFeature<U, ?> flowerFeature) {
-        FlowerFeature<U> flowerFeature2 = (FlowerFeature<U>) flowerFeature.feature;
-        return flowerFeature2.getFlowerState(random, pos, flowerFeature.getConfig());
-    }
-
 }

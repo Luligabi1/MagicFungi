@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:host_grass_block"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.host_biome"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.host_biome.description"
+    },
+    "frame": "goal"
+  },
+  "parent": "magicfungi:root",
+  "criteria": {
+    "host_biome": {
+      "trigger": "minecraft:location",
+      "conditions": {
+        "location": {
+          "biome": "magicfungi:host_biome"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:utilis_pickaxe"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.relics"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.relics.description"
+    }
+  },
+  "parent": "magicfungi:essences",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:relics"
+          }
+        ]
+      }
+    }
+  }
+}

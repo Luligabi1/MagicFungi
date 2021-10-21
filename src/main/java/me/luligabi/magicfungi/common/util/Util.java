@@ -1,12 +1,14 @@
 package me.luligabi.magicfungi.common.util;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.misc.gamerule.GameRuleRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
+import net.minecraft.world.World;
 
 public class Util {
 
@@ -36,5 +38,14 @@ public class Util {
                 livingEntity.getEquippedStack(EquipmentSlot.CHEST).getItem() == chestplate &&
                 livingEntity.getEquippedStack(EquipmentSlot.LEGS).getItem() == leggings &&
                 livingEntity.getEquippedStack(EquipmentSlot.FEET).getItem() == boots;
+    }
+
+    public static long getCurrentInGameDay(World world) {
+        return world.getTimeOfDay()/24000L;
+    }
+
+    public static boolean isMorbusSpreadingActive(World world) {
+        return world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING) &&
+                Util.getCurrentInGameDay(world) >= world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY);
     }
 }

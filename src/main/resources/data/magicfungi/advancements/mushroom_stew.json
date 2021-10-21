@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:clypeus_mushroom_stew"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.mushroom_stew"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.mushroom_stew.description"
+    }
+  },
+  "parent": "magicfungi:root",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:stews"
+          }
+        ]
+      }
+    }
+  }
+}

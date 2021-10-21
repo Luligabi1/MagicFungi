@@ -1,0 +1,19 @@
+{
+  "type": "magicfungi:glyph_recipe",
+
+  "inputA" : {
+    "item": "magicfungi:morbus_essence"
+  },
+  "inputB" : {
+    "item": "magicfungi:host_grass_block"
+  },
+  "inputC" : {
+    "item": "magicfungi:host_grass_block"
+  },
+  "inputD" : {
+    "item": "minecraft:stone"
+  },
+
+  "outputItem": "magicfungi:maledictio_glyph",
+  "outputAmount": "1"
+}

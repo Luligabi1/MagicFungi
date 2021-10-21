@@ -10,17 +10,17 @@ import net.minecraft.client.render.block.BlockRenderManager;
 import net.minecraft.client.render.entity.LivingEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.model.PlayerEntityModel;
+import net.minecraft.client.render.entity.model.BipedEntityModel;
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.texture.SpriteAtlasTexture;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.EquipmentSlot;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.util.math.Vec3f;
 
-public class ArmorMushroomFeatureRenderer <T extends PlayerEntity> extends FeatureRenderer<T, PlayerEntityModel<T>> {
+public class ArmorMushroomFeatureRenderer <T extends LivingEntity> extends FeatureRenderer<T, BipedEntityModel<T>> {
 
-    public ArmorMushroomFeatureRenderer(FeatureRendererContext<T, PlayerEntityModel<T>> featureRendererContext) {
+    public ArmorMushroomFeatureRenderer(FeatureRendererContext<T, BipedEntityModel<T>> featureRendererContext) {
         super(featureRendererContext);
     }
 

@@ -1,8 +1,8 @@
 {
   "name": "The Host Biome",
   "icon": "magicfungi:host_grass_block",
-  "category": "magicfungi:general_info",
-  "sortnum": 1,
+  "category": "magicfungi:morbus_category",
+  "sortnum": 0,
   "pages": [
     {
       "type": "spotlight",

@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:glyph_carving_workbench"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.glyph_workbench"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.glyph_workbench.description"
+    },
+    "frame": "goal"
+  },
+  "parent": "magicfungi:root",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["magicfungi:glyph_carving_workbench"]
+          }
+        ]
+      }
+    }
+  }
+}

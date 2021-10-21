@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:spell_discovery_workbench"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.spell_workbench"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.spell_workbench.description"
+    },
+    "frame": "goal"
+  },
+  "parent": "magicfungi:glyph_workbench",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["magicfungi:spell_discovery_workbench"]
+          }
+        ]
+      }
+    }
+  }
+}

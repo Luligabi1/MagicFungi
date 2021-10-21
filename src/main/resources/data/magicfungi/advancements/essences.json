@@ -1,0 +1,27 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:impetus_essence"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.essences"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.essences.description"
+    },
+    "frame": "goal"
+  },
+  "parent": "magicfungi:spell_workbench",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:essences"
+          }
+        ]
+      }
+    }
+  }
+}

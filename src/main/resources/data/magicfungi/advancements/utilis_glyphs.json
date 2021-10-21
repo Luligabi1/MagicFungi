@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:cadentis_glyph"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.utilis_glyphs"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.utilis_glyphs.description"
+    }
+  },
+  "parent": "magicfungi:glyph_workbench",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:utilis_glyphs"
+          }
+        ]
+      }
+    }
+  }
+}
