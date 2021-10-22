@@ -1,18 +1,13 @@
 package me.luligabi.magicfungi.common.item.tool;
 
-import me.luligabi.magicfungi.common.item.ItemRegistry;
+import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricBannerShieldItem;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.item.ShieldItem;
 
-public class ClypeusShieldItem extends ShieldItem {
+public class ClypeusShieldItem extends FabricBannerShieldItem { // TODO: Add crafting and other JSON stuff back
 
-    public ClypeusShieldItem(Settings settings) {
-        super(settings);
-    }
-
-    @Override
-    public boolean canRepair(ItemStack stack, ItemStack ingredient) {
-        return ingredient.getItem() == ItemRegistry.CLYPEUS_ESSENCE;
+    public ClypeusShieldItem(Settings settings, int cooldownTicks, int enchantability, Item repairItem) {
+        super(settings, cooldownTicks, enchantability, repairItem);
     }
 
     @Override

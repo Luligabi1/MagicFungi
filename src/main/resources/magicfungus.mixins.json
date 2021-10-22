@@ -12,6 +12,7 @@
     "ZombieVillagerEntityInvoker"
   ],
   "client": [
+    "BuiltinModelItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
