@@ -5,6 +5,7 @@ import me.luligabi.magicfungi.common.block.crafting.GlyphCarvingBlock;
 import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
 import me.luligabi.magicfungi.common.block.misc.HostDirtBlock;
+import me.luligabi.magicfungi.common.block.misc.HostFernBlock;
 import me.luligabi.magicfungi.common.block.misc.HostGrassBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -30,6 +31,11 @@ public class BlockRegistry {
 
         initBlock("host_grass_block", HOST_GRASS_BLOCK);
         initBlock("host_dirt", HOST_DIRT);
+
+        // TODO: Add textures & potted versions
+        initBlock("host_grass", HOST_GRASS);
+        initBlock("host_fern", HOST_FERN);
+        initBlock("host_tall_grass", HOST_TALL_GRASS);
 
 
         initBlock("glyph_carving_workbench", GLYPH_CARVING_BLOCK);
@@ -67,6 +73,9 @@ public class BlockRegistry {
     public static final Block HOST_GRASS_BLOCK = new HostGrassBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_BROWN).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
     public static final Block HOST_DIRT = new HostDirtBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).ticksRandomly().strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
 
+    public static final Block HOST_GRASS = new HostFernBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block HOST_FERN = new HostFernBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block HOST_TALL_GRASS = new TallPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
     public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
     public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));

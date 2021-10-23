@@ -52,7 +52,7 @@ public class HostGrassBlock extends GrassBlock {
 
     }
 
-    @Override
+    @Override // TODO: Implement replacing of Grass, Tall Grass and Ferns to their Host counterpart.
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (canSurvive(state, world, pos)) {
             if (world.getLightLevel(pos.up()) >= 9) {
