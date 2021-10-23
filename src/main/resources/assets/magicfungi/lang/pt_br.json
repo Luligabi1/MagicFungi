@@ -59,6 +59,11 @@
   "block.magicfungi.host_grass_block": "Bloco de Grama Hospedeira",
   "block.magicfungi.host_dirt": "Terra Hospedeira",
 
+  "block.magicfungi.host_grass": "Grama Hospedeira",
+  "block.magicfungi.host_fern": "Samambaia Hospedeira",
+  "block.magicfungi.host_tall_grass": "Grama Hospedeira Alta",
+
+
   "item.magicfungi.impetus_essence": "Essência Impetus",
   "item.magicfungi.clypeus_essence": "Essência Clypeus",
   "item.magicfungi.utilis_essence": "Essência Utilis",

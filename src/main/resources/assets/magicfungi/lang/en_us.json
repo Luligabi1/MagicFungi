@@ -60,6 +60,11 @@
   "block.magicfungi.host_grass_block": "Host Grass Block",
   "block.magicfungi.host_dirt": "Host Dirt",
 
+  "block.magicfungi.host_grass": "Host Grass",
+  "block.magicfungi.host_fern": "Host Fern",
+  "block.magicfungi.host_tall_grass": "Host Tall Grass",
+
+
   "item.magicfungi.impetus_essence": "Impetus Essence",
   "item.magicfungi.clypeus_essence": "Clypeus Essence",
   "item.magicfungi.utilis_essence": "Utilis Essence",
