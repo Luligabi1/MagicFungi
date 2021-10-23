@@ -4,7 +4,7 @@ import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricBannerShieldIte
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ClypeusShieldItem extends FabricBannerShieldItem { // TODO: Add crafting and other JSON stuff back
+public class ClypeusShieldItem extends FabricBannerShieldItem {
 
     public ClypeusShieldItem(Settings settings, int cooldownTicks, int enchantability, Item repairItem) {
         super(settings, cooldownTicks, enchantability, repairItem);
