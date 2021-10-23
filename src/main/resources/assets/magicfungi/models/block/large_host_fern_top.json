@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "magicfungi:block/large_host_fern_top"
+  }
+}

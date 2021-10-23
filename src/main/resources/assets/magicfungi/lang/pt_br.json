@@ -60,8 +60,10 @@
   "block.magicfungi.host_dirt": "Terra Hospedeira",
 
   "block.magicfungi.host_grass": "Grama Hospedeira",
-  "block.magicfungi.host_fern": "Samambaia Hospedeira",
   "block.magicfungi.host_tall_grass": "Grama Hospedeira Alta",
+
+  "block.magicfungi.host_fern": "Samambaia Hospedeira",
+  "block.magicfungi.large_host_fern": "Samambaia Hospedeira Grande",
 
 
   "item.magicfungi.impetus_essence": "Essência Impetus",

@@ -40,11 +40,13 @@ public class MagicFungiClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_MORBUS_MUSHROOM, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_TALL_GRASS, RenderLayer.getCutout());
 
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_FERN, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_HOST_FERN, RenderLayer.getCutout());
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_TALL_GRASS, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.LARGE_HOST_FERN, RenderLayer.getCutout());
+
 
         ScreenRegistry.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
         ScreenRegistry.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);

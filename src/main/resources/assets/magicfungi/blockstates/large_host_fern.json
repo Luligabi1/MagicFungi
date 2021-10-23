@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "magicfungi:block/large_host_fern_bottom"
+    },
+    "half=upper": {
+      "model": "magicfungi:block/large_host_fern_top"
+    }
+  }
+}
