@@ -42,7 +42,7 @@ public class BlockRegistry {
         initBlock("host_grass_block", HOST_GRASS_BLOCK);
         initBlock("host_dirt", HOST_DIRT);
 
-        // TODO: Add textures & drop tables for these
+        // TODO: Add textures
         initBlock("host_grass", HOST_GRASS);
         initBlock("host_tall_grass", HOST_TALL_GRASS);
 
