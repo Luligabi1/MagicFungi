@@ -5,14 +5,13 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "ArmorItemMixin",
-    "LivingEntityRendererInvoker",
-    "LivingEntityRendererMixin",
     "PlayerEntityMixin",
     "PlayerInventoryAccessor",
     "ZombieVillagerEntityInvoker"
   ],
   "client": [
-    "BuiltinModelItemRendererMixin"
+    "BuiltinModelItemRendererMixin",
+    "MixinArmorFeatureRenderer"
   ],
   "injectors": {
     "defaultRequire": 1
