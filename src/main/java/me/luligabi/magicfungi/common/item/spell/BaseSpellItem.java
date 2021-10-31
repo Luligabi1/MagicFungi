@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell;
 
-import me.luligabi.magicfungi.common.mixin.PlayerInventoryAccessor;
+import me.luligabi.magicfungi.mixin.PlayerInventoryAccessor;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.client.gui.screen.Screen;

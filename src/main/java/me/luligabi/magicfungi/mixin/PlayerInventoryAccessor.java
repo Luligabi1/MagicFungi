@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.mixin;
+package me.luligabi.magicfungi.mixin;
 
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;

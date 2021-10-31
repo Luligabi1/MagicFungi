@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.mixin;
+package me.luligabi.magicfungi.mixin;
 
 import com.github.crimsondawn45.fabricshieldlib.initializers.FabricShieldLibClient;
 import me.luligabi.magicfungi.client.MagicFungiClient;
