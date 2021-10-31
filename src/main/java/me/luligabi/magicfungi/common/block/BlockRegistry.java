@@ -5,6 +5,7 @@ import me.luligabi.magicfungi.common.block.crafting.GlyphCarvingBlock;
 import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
 import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
 import me.luligabi.magicfungi.common.block.misc.HostDirtBlock;
+import me.luligabi.magicfungi.common.block.misc.HostFernBlock;
 import me.luligabi.magicfungi.common.block.misc.HostGrassBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -20,10 +21,20 @@ public class BlockRegistry {
 
     public static void init() {
         initBlock("impetus_mushroom", IMPETUS_MUSHROOM_PLANT_BLOCK);
+        initPotBlock("potted_impetus_mushroom", POTTED_IMPETUS_MUSHROOM);
+
         initBlock("clypeus_mushroom", CLYPEUS_MUSHROOM_PLANT_BLOCK);
+        initPotBlock("potted_clypeus_mushroom", POTTED_CLYPEUS_MUSHROOM);
+
         initBlock("utilis_mushroom", UTILIS_MUSHROOM_PLANT_BLOCK);
+        initPotBlock("potted_utilis_mushroom", POTTED_UTILIS_MUSHROOM);
+
         initBlock("vivifica_mushroom", VIVIFICA_MUSHROOM_PLANT_BLOCK);
+        initPotBlock("potted_vivifica_mushroom", POTTED_VIVIFICA_MUSHROOM);
+
         initBlock("morbus_mushroom", MORBUS_MUSHROOM_PLANT_BLOCK);
+        initPotBlock("potted_morbus_mushroom", POTTED_MORBUS_MUSHROOM);
+
 
         initBlock("morbus_mushroom_block", MORBUS_MUSHROOM_BLOCK);
 
@@ -31,18 +42,22 @@ public class BlockRegistry {
         initBlock("host_grass_block", HOST_GRASS_BLOCK);
         initBlock("host_dirt", HOST_DIRT);
 
+        // TODO: Add textures
+        initBlock("host_grass", HOST_GRASS);
+        initBlock("host_tall_grass", HOST_TALL_GRASS);
+
+        initBlock("host_fern", HOST_FERN);
+        initPotBlock("potted_host_fern", POTTED_HOST_FERN);
+
+        initBlock("large_host_fern", LARGE_HOST_FERN);
+
 
         initBlock("glyph_carving_workbench", GLYPH_CARVING_BLOCK);
         initBlock("spell_discovery_workbench", SPELL_DISCOVERY_BLOCK);
 
+
         // Block registered apart from the BlockItem, since it's a glyph.
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "cadentis_block"), CADENTIS_BLOCK);
-
-        initPotBlock("potted_impetus_mushroom", POTTED_IMPETUS_MUSHROOM);
-        initPotBlock("potted_clypeus_mushroom", POTTED_CLYPEUS_MUSHROOM);
-        initPotBlock("potted_utilis_mushroom", POTTED_UTILIS_MUSHROOM);
-        initPotBlock("potted_vivifica_mushroom", POTTED_VIVIFICA_MUSHROOM);
-        initPotBlock("potted_morbus_mushroom", POTTED_MORBUS_MUSHROOM);
     }
 
     private static void initBlock(String identifier, Block block) {
@@ -67,6 +82,12 @@ public class BlockRegistry {
     public static final Block HOST_GRASS_BLOCK = new HostGrassBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC, MapColor.TERRACOTTA_BROWN).ticksRandomly().strength(0.6F).sounds(BlockSoundGroup.GRASS));
     public static final Block HOST_DIRT = new HostDirtBlock(FabricBlockSettings.of(Material.SOIL, MapColor.DIRT_BROWN).ticksRandomly().strength(0.5F).sounds(BlockSoundGroup.GRAVEL));
 
+    public static final Block HOST_GRASS = new HostFernBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block HOST_TALL_GRASS = new TallPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+
+    public static final Block HOST_FERN = new HostFernBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block LARGE_HOST_FERN = new TallPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+
 
     public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
     public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
@@ -80,4 +101,5 @@ public class BlockRegistry {
     public static final Block POTTED_VIVIFICA_MUSHROOM = new FlowerPotBlock(VIVIFICA_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
     public static final Block POTTED_MORBUS_MUSHROOM = new FlowerPotBlock(MORBUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 
+    public static final Block POTTED_HOST_FERN = new FlowerPotBlock(HOST_FERN, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
 }

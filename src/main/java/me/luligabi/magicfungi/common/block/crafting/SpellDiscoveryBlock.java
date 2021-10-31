@@ -35,4 +35,6 @@ public class SpellDiscoveryBlock extends Block {
         return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) ->
                 new SpellDiscoveryScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), new TranslatableText("title.magicfungi.spell_discovery"));
     }
+
+    // TODO: Add particles when breaking without silk touch.
 }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "half=lower": {
+      "model": "magicfungi:block/host_tall_grass_bottom"
+    },
+    "half=upper": {
+      "model": "magicfungi:block/host_tall_grass_top"
+    }
+  }
+}

@@ -59,6 +59,13 @@
   "block.magicfungi.host_grass_block": "Bloco de Grama Hospedeira",
   "block.magicfungi.host_dirt": "Terra Hospedeira",
 
+  "block.magicfungi.host_grass": "Grama Hospedeira",
+  "block.magicfungi.host_tall_grass": "Grama Hospedeira Alta",
+
+  "block.magicfungi.host_fern": "Samambaia Hospedeira",
+  "block.magicfungi.large_host_fern": "Samambaia Hospedeira Grande",
+
+
   "item.magicfungi.impetus_essence": "Essência Impetus",
   "item.magicfungi.clypeus_essence": "Essência Clypeus",
   "item.magicfungi.utilis_essence": "Essência Utilis",
@@ -98,7 +105,26 @@
 
 
   "item.magicfungi.impetus_sword": "Espada Impetus",
+
   "item.magicfungi.clypeus_shield": "Escudo Clypeus",
+  "item.magicfungi.clypeus_shield.red": "Escudo Clypeus Vermelho",
+  "item.magicfungi.clypeus_shield.orange": "Escudo Clypeus Laranja",
+  "item.magicfungi.clypeus_shield.yellow": "Escudo Clypeus Amarelo",
+  "item.magicfungi.clypeus_shield.lime": "Escudo Clypeus Lima",
+  "item.magicfungi.clypeus_shield.green": "Escudo Clypeus Verde",
+  "item.magicfungi.clypeus_shield.light_blue": "Escudo Clypeus Azul Claro",
+  "item.magicfungi.clypeus_shield.cyan": "Escudo Clypeus Ciano",
+  "item.magicfungi.clypeus_shield.blue": "Escudo Clypeus Azul",
+  "item.magicfungi.clypeus_shield.purple": "Escudo Clypeus Roxo",
+  "item.magicfungi.clypeus_shield.magenta": "Escudo Clypeus Magenta",
+  "item.magicfungi.clypeus_shield.pink": "Escudo Clypeus Rosa",
+  "item.magicfungi.clypeus_shield.brown": "Escudo Clypeus Marrom",
+  "item.magicfungi.clypeus_shield.white": "Escudo Clypeus Branco",
+  "item.magicfungi.clypeus_shield.light_gray": "Escudo Clypeus Cinza Claro",
+  "item.magicfungi.clypeus_shield.gray": "Escudo Clypeus Cinza",
+  "item.magicfungi.clypeus_shield.dark_gray": "Escudo Clypeus Cinza-Escuro",
+  "item.magicfungi.clypeus_shield.black": "Escudo Clypeus Preto",
+
   "item.magicfungi.utilis_pickaxe": "Picareta Utilis",
   "item.magicfungi.vivifica_elixir": "Elixir Vivifica",
   "item.magicfungi.morbus_scythe": "Foice Morbus",
