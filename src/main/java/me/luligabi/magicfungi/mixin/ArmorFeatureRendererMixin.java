@@ -1,7 +1,7 @@
 package me.luligabi.magicfungi.mixin;
 
-import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.client.item.armor.ArmorMushroomRenderer;
+import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRenderer;
@@ -18,11 +18,11 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(ArmorFeatureRenderer.class)
-public abstract class MixinArmorFeatureRenderer extends FeatureRenderer<LivingEntity, BipedEntityModel<LivingEntity>> {
+public abstract class ArmorFeatureRendererMixin extends FeatureRenderer<LivingEntity, BipedEntityModel<LivingEntity>> {
 
     private static final ArmorMushroomRenderer ARMOR_MUSHROOM_RENDERER = new ArmorMushroomRenderer();
 
-    private MixinArmorFeatureRenderer(FeatureRendererContext<LivingEntity, BipedEntityModel<LivingEntity>> context) {
+    private ArmorFeatureRendererMixin(FeatureRendererContext<LivingEntity, BipedEntityModel<LivingEntity>> context) {
         super(context);
     }
 

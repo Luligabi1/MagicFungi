@@ -10,8 +10,8 @@
     "ZombieVillagerEntityInvoker"
   ],
   "client": [
-    "BuiltinModelItemRendererMixin",
-    "MixinArmorFeatureRenderer"
+    "ArmorFeatureRendererMixin",
+    "BuiltinModelItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1
