@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.mixin;
+package me.luligabi.magicfungi.mixin;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;

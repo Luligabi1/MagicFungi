@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.item.armor;
+package me.luligabi.magicfungi.client.item.armor;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
