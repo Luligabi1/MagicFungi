@@ -3,11 +3,9 @@ package me.luligabi.magicfungi.common.block;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.crafting.GlyphCarvingBlock;
 import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
-import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
-import me.luligabi.magicfungi.common.block.misc.HostDirtBlock;
-import me.luligabi.magicfungi.common.block.misc.HostFernBlock;
-import me.luligabi.magicfungi.common.block.misc.HostGrassBlock;
+import me.luligabi.magicfungi.common.block.misc.*;
 import me.luligabi.magicfungi.common.block.mushroom.*;
+import me.luligabi.magicfungi.common.item.misc.MagicalFungiAlloyBlockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
@@ -15,6 +13,7 @@ import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
 public class BlockRegistry {
@@ -58,6 +57,10 @@ public class BlockRegistry {
 
         // Block registered apart from the BlockItem, since it's a glyph.
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "cadentis_block"), CADENTIS_BLOCK);
+
+        // Magical Fungi Alloy Block (requires glint)
+        Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "magical_fungi_alloy_block"), MAGICAL_FUNGI_ALLOY_BLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_alloy_block"), new MagicalFungiAlloyBlockItem(MAGICAL_FUNGI_ALLOY_BLOCK, new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP)));
     }
 
     private static void initBlock(String identifier, Block block) {
@@ -93,7 +96,11 @@ public class BlockRegistry {
     public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
 
 
+    public static final Block MAGICAL_FUNGI_ALLOY_BLOCK = new MagicalFungiAlloyBlock(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 3).sounds(BlockSoundGroup.METAL));
+
+
     public static final Block CADENTIS_BLOCK = new CadentisBlock(FabricBlockSettings.of(Material.DECORATION, MapColor.CLEAR).noCollision().nonOpaque().luminance(15).sounds(BlockSoundGroup.AMETHYST_BLOCK));
+
 
     public static final Block POTTED_IMPETUS_MUSHROOM = new FlowerPotBlock(IMPETUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());
     public static final Block POTTED_CLYPEUS_MUSHROOM = new FlowerPotBlock(CLYPEUS_MUSHROOM_PLANT_BLOCK, AbstractBlock.Settings.of(Material.DECORATION).breakInstantly().nonOpaque());

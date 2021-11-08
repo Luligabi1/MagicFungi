@@ -117,6 +117,8 @@ public class MagicFungi implements ModInitializer {
 
                 // Misc
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY));
+                stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY_NUGGET));
+                stacks.add(new ItemStack(BlockRegistry.MAGICAL_FUNGI_ALLOY_BLOCK));
                 stacks.add(new ItemStack(ItemRegistry.FUNGI_FERTILIZER));
 
                 // Morbus Spreading Items
