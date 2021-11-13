@@ -22,50 +22,39 @@ public class ConfiguredFeatureRegistry {
 
     @SuppressWarnings("deprecation")
     public static void init() {
-        // Impetus
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, impetus.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.IMPETUS_MUSHROOM_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(1)));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, impetusSavanna.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.IMPETUS_MUSHROOM_CONFIG_SAVANNA).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(3)));
+        // Regular Magic Mushroom gen
+        registerMagicMushroomFeature(impetus, IMPETUS_MUSHROOM_CONFIG, impetusSavanna, IMPETUS_MUSHROOM_CONFIG_SAVANNA, Biome.Category.SAVANNA);
+        registerMagicMushroomFeature(clypeus, CLYPEUS_MUSHROOM_CONFIG, clypeusIcy, CLYPEUS_MUSHROOM_CONFIG_ICY, Biome.Category.ICY);
+        registerMagicMushroomFeature(utilis, UTILIS_MUSHROOM_CONFIG, utilisExtremeHills, UTILIS_MUSHROOM_CONFIG_EXTREME_HILLS, Biome.Category.EXTREME_HILLS);
+        registerMagicMushroomFeature(vivifica, VIVIFICA_MUSHROOM_CONFIG, vivificaJungle, VIVIFICA_MUSHROOM_CONFIG_JUNGLE, Biome.Category.JUNGLE);
 
-        BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION, impetus);
-        BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.SAVANNA), GenerationStep.Feature.VEGETAL_DECORATION, impetusSavanna);
 
-        // Clypeus
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, clypeus.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.CLYPEUS_MUSHROOM_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(1)));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, clypeusIcy.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.CLYPEUS_MUSHROOM_CONFIG_ICY).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(3)));
-
-        BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION, clypeus);
-        BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.ICY), GenerationStep.Feature.VEGETAL_DECORATION, clypeusIcy);
-
-        // Utilis
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, utilis.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.UTILIS_MUSHROOM_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(1)));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, utilisExtremeHills.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.UTILIS_MUSHROOM_CONFIG_EXTREME_HILLS).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(3)));
-
-        BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION, utilis);
-        BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.EXTREME_HILLS, Biome.Category.MUSHROOM), GenerationStep.Feature.VEGETAL_DECORATION, utilisExtremeHills);
-
-        // Vivifica
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, vivifica.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.VIVIFICA_MUSHROOM_CONFIG).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(2)));
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, vivificaJungle.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.VIVIFICA_MUSHROOM_CONFIG_JUNGLE).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(3)));
-
-        BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION, vivifica);
-        BiomeModifications.addFeature(BiomeSelectors.categories(Biome.Category.JUNGLE), GenerationStep.Feature.VEGETAL_DECORATION, vivificaJungle);
-
-        // Morbus
+        // Host Biome's Vegetal Decoration
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, morbusHost.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.MORBUS_MUSHROOM_CONFIG_HOST).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(2)));
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), GenerationStep.Feature.VEGETAL_DECORATION, morbusHost);
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, witherRoseHost.getValue(), Feature.RANDOM_PATCH.configure(ConfiguredFeatureRegistry.WITHER_ROSE_CONFIG_HOST).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(1)));
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), GenerationStep.Feature.VEGETAL_DECORATION, witherRoseHost);
 
-        // Huge Morbus
-        LARGE_MORBUS_MUSHROOM = Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MagicFungi.MOD_ID, "large_morbus_mushroom"), Feature.HUGE_RED_MUSHROOM.configure(new HugeMushroomFeatureConfig(new SimpleBlockStateProvider(LARGE_MORBUS), new SimpleBlockStateProvider(MUSHROOM_STEM), 2)));
+        // TODO: Add Morbus & Morbus Tall Grass gen here.
 
+        // Huge Morbus Mushroom
+        LARGE_MORBUS_MUSHROOM = Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MagicFungi.MOD_ID, "large_morbus_mushroom"), Feature.HUGE_RED_MUSHROOM.configure(new HugeMushroomFeatureConfig(new SimpleBlockStateProvider(LARGE_MORBUS), new SimpleBlockStateProvider(MUSHROOM_STEM), 2)));
         TALL_MORBUS_MUSHROOM = Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, new Identifier(MagicFungi.MOD_ID, "tall_morbus_mushroom"), Feature.HUGE_BROWN_MUSHROOM.configure(new HugeMushroomFeatureConfig(new SimpleBlockStateProvider(TALL_MORBUS), new SimpleBlockStateProvider(MUSHROOM_STEM), 3)));
 
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, hugeMorbusMushroom.getValue(), Feature.RANDOM_BOOLEAN_SELECTOR.configure(new RandomBooleanFeatureConfig(
                 () -> LARGE_MORBUS_MUSHROOM, () -> TALL_MORBUS_MUSHROOM)).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP));
 
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, hugeMorbusMushroom);
+    }
+
+    // TODO: Add config to disable generation / change generation odds.
+    private static void registerMagicMushroomFeature(RegistryKey<ConfiguredFeature<?, ?>> regular, RandomPatchFeatureConfig regularConfig, RegistryKey<ConfiguredFeature<?, ?>> biomeEnhanced, RandomPatchFeatureConfig biomeEnchancedConfig,  Biome.Category biomeCategory) {
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, regular.getValue(), Feature.RANDOM_PATCH.configure(regularConfig).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(1)));
+        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE, biomeEnhanced.getValue(), Feature.RANDOM_PATCH.configure(biomeEnchancedConfig).decorate(ConfiguredFeatures.Decorators.SQUARE_HEIGHTMAP_SPREAD_DOUBLE.repeat(3)));
+
+        BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION, regular);
+        BiomeModifications.addFeature(BiomeSelectors.categories(biomeCategory), GenerationStep.Feature.VEGETAL_DECORATION, biomeEnhanced);
     }
 
     // Impetus Mushroom - Regular
@@ -133,9 +122,7 @@ public class ConfiguredFeatureRegistry {
 
     // Huge Morbus Mushroom - Host Biome
     public static ConfiguredFeature<?, ?> TALL_MORBUS_MUSHROOM;
-
     public static ConfiguredFeature<?, ?> LARGE_MORBUS_MUSHROOM;
-
 
     public static final RegistryKey<ConfiguredFeature<?, ?>> hugeMorbusMushroom = RegistryKey.of(Registry.CONFIGURED_FEATURE_KEY,
             new Identifier(MagicFungi.MOD_ID, "huge_morbus_mushroom"));
