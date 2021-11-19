@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.misc.particle;
+package me.luligabi.magicfungi.common.misc;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -18,9 +18,8 @@ public class ParticleRegistry {
     }
 
     public static void clientInit() {
-        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) -> {
-            registry.register(new Identifier(MagicFungi.MOD_ID, "particle/utilis_flame"));
-        }));
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlasTexture, registry) ->
+                registry.register(new Identifier(MagicFungi.MOD_ID, "particle/utilis_flame"))));
 
         ParticleFactoryRegistry.getInstance().register(UTILIS_FLAME, FlameParticle.Factory::new);
     }

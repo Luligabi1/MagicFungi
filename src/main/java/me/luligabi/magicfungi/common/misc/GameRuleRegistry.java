@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.misc.gamerule;
+package me.luligabi.magicfungi.common.misc;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import net.fabricmc.fabric.api.gamerule.v1.CustomGameRuleCategory;

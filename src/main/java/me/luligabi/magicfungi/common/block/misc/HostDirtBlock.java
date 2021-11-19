@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.block.misc;
 
-import me.luligabi.magicfungi.common.misc.tag.TagRegistry;
+import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

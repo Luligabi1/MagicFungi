@@ -1,0 +1,11 @@
+{
+  "replace": false,
+  "values": [
+    "magicfungi:morbus_mushroom",
+    "minecraft:wither_rose",
+    "magicfungi:host_grass",
+    "magicfungi:host_tall_grass",
+    "magicfungi:host_fern",
+    "magicfungi:large_host_fern"
+  ]
+}
