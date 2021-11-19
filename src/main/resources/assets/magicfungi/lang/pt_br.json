@@ -142,6 +142,8 @@
 
 
   "item.magicfungi.magical_fungi_alloy": "Liga de Magia Fúngica",
+  "item.magicfungi.magical_fungi_nugget": "Pepita de Magia Fúngica",
+  "item.magicfungi.magical_fungi_alloy_block": "Bloco de Liga de Magia Fúngica.",
 
   "tooltip.magicfungi.alloy_info.1": "Uma liga metálica especial que une todas",
   "tooltip.magicfungi.alloy_info.2": "as formas de Magia Fúngica pura.",

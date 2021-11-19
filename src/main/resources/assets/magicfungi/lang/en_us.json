@@ -143,6 +143,9 @@
 
 
   "item.magicfungi.magical_fungi_alloy": "Magical Fungi Alloy",
+  "item.magicfungi.magical_fungi_nugget": "Magical Fungi Alloy Nugget",
+  "item.magicfungi.magical_fungi_alloy_block": "Magical Fungi Alloy Block",
+
   "tooltip.magicfungi.alloy_info.1": "A special alloy uniting all",
   "tooltip.magicfungi.alloy_info.2": "forms of pure Fungi Magic.",
   "tooltip.magicfungi.alloy_info.3": "Try not to think too much about it.",
