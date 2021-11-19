@@ -87,7 +87,7 @@ curseforge {
             displayName = RELEASE_NAME
             relations {
                 requiredDependency 'fabric-api'
-                embeddedLibrary 'patchouli-fabric'
+                requiredDependency 'patchouli-fabric'
                 embeddedLibrary 'fabric-shield-lib'
                 optionalDependency 'roughly-enough-items'
             }
