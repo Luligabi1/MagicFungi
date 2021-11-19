@@ -1,9 +1,6 @@
 {
   "replace": false,
   "values": [
-    "minecraft:grass_block",
-    "minecraft:podzol",
-    "minecraft:mycelium",
-    "magicfungi:host_dirt"
+    "minecraft:grass"
   ]
 }

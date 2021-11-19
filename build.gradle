@@ -36,10 +36,12 @@ dependencies {
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
     modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
-    include "vazkii.patchouli:Patchouli:${project.patchouli_version}"
 
     modImplementation "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
     include "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
+
+    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}-1.17"
+    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}-1.17"
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 }
@@ -85,7 +87,8 @@ curseforge {
             displayName = RELEASE_NAME
             relations {
                 requiredDependency 'fabric-api'
-                embeddedLibrary 'patchouli-fabric'
+                requiredDependency 'patchouli-fabric'
+                embeddedLibrary 'fabric-shield-lib'
                 optionalDependency 'roughly-enough-items'
             }
         }

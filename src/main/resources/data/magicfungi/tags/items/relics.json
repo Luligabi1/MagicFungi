@@ -2,6 +2,7 @@
   "replace": false,
   "values": [
     "magicfungi:impetus_sword",
+    {"id": "magicfungi:clypeus_shield", "required":  false},
     "magicfungi:utilis_pickaxe",
     "magicfungi:vivifica_elixir",
     "magicfungi:morbus_scythe"

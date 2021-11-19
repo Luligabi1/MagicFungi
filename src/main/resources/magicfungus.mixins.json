@@ -1,17 +1,17 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "me.luligabi.magicfungi.common.mixin",
+  "package": "me.luligabi.magicfungi.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
     "ArmorItemMixin",
-    "LivingEntityRendererInvoker",
-    "LivingEntityRendererMixin",
     "PlayerEntityMixin",
     "PlayerInventoryAccessor",
     "ZombieVillagerEntityInvoker"
   ],
   "client": [
+    "ArmorFeatureRendererMixin",
+    "BuiltinModelItemRendererMixin"
   ],
   "injectors": {
     "defaultRequire": 1

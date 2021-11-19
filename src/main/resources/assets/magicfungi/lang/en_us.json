@@ -60,6 +60,14 @@
   "block.magicfungi.host_grass_block": "Host Grass Block",
   "block.magicfungi.host_dirt": "Host Dirt",
 
+  "block.magicfungi.host_grass": "Host Grass",
+  "block.magicfungi.host_tall_grass": "Host Tall Grass",
+
+  "block.magicfungi.host_fern": "Host Fern",
+  "block.magicfungi.large_host_fern": "Large Host Fern",
+
+
+
   "item.magicfungi.impetus_essence": "Impetus Essence",
   "item.magicfungi.clypeus_essence": "Clypeus Essence",
   "item.magicfungi.utilis_essence": "Utilis Essence",
@@ -95,7 +103,26 @@
 
 
   "item.magicfungi.impetus_sword": "Impetus Sword",
+
   "item.magicfungi.clypeus_shield": "Clypeus Shield",
+  "item.magicfungi.clypeus_shield.red": "Red Clypeus Shield",
+  "item.magicfungi.clypeus_shield.orange": "Orange Clypeus Shield",
+  "item.magicfungi.clypeus_shield.yellow": "Yellow Clypeus Shield",
+  "item.magicfungi.clypeus_shield.lime": "Lime Clypeus Shield",
+  "item.magicfungi.clypeus_shield.green": "Green Clypeus Shield",
+  "item.magicfungi.clypeus_shield.light_blue": "Light Blue Clypeus Shield",
+  "item.magicfungi.clypeus_shield.cyan": "Cyan Clypeus Shield",
+  "item.magicfungi.clypeus_shield.blue": "Blue Clypeus Shield",
+  "item.magicfungi.clypeus_shield.purple": "Purple Clypeus Shield",
+  "item.magicfungi.clypeus_shield.magenta": "Magenta Clypeus Shield",
+  "item.magicfungi.clypeus_shield.pink": "Pink Clypeus Shield",
+  "item.magicfungi.clypeus_shield.brown": "Brown Clypeus Shield",
+  "item.magicfungi.clypeus_shield.white": "White Clypeus Shield",
+  "item.magicfungi.clypeus_shield.light_gray": "Light Gray Clypeus Shield",
+  "item.magicfungi.clypeus_shield.gray": "Gray Clypeus Shield",
+  "item.magicfungi.clypeus_shield.dark_gray": "Dark Gray Clypeus Shield",
+  "item.magicfungi.clypeus_shield.black": "Black Clypeus Shield",
+
   "item.magicfungi.utilis_pickaxe": "Utilis Pickaxe",
   "item.magicfungi.vivifica_elixir": "Vivifica Elixir",
   "item.magicfungi.morbus_scythe": "Morbus Scythe",
@@ -116,6 +143,9 @@
 
 
   "item.magicfungi.magical_fungi_alloy": "Magical Fungi Alloy",
+  "item.magicfungi.magical_fungi_nugget": "Magical Fungi Alloy Nugget",
+  "block.magicfungi.magical_fungi_alloy_block": "Magical Fungi Alloy Block",
+
   "tooltip.magicfungi.alloy_info.1": "A special alloy uniting all",
   "tooltip.magicfungi.alloy_info.2": "forms of pure Fungi Magic.",
   "tooltip.magicfungi.alloy_info.3": "Try not to think too much about it.",

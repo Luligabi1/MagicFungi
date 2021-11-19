@@ -1,13 +1,17 @@
 package me.luligabi.magicfungi.common.util;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.misc.gamerule.GameRuleRegistry;
+import me.luligabi.magicfungi.common.misc.GameRuleRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.item.Item;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvent;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Util {
@@ -47,5 +51,11 @@ public class Util {
     public static boolean isMorbusSpreadingActive(World world) {
         return world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING) &&
                 Util.getCurrentInGameDay(world) >= world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY);
+    }
+
+    public static void setBlockWithSound(World world, BlockPos pos, BlockState state, SoundEvent soundEvent, SoundCategory soundCategory, float volume, float pitch) {
+        world.setBlockState(pos.up(), state);
+        world.playSound(null, pos.up().getX(), pos.up().getY(), pos.up().getZ(),
+                soundEvent, soundCategory, volume, pitch);
     }
 }

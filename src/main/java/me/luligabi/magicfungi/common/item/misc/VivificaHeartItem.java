@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.item.misc;
 
-import me.luligabi.magicfungi.common.misc.gamerule.GameRuleRegistry;
+import me.luligabi.magicfungi.common.misc.GameRuleRegistry;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;

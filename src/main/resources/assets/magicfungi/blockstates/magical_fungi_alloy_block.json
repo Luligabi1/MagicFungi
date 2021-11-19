@@ -1,0 +1,9 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "magicfungi:block/magical_fungi_alloy_block"
+      }
+    ]
+  }
+}

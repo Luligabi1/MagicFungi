@@ -22,7 +22,7 @@ public class GlyphRegistry {
 
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "pluviam_glyph"), PLUVIAM_GLYPH);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "cadentis_glyph"), new CadentisGlyphItem(BlockRegistry.CADENTIS_BLOCK, new FabricItemSettings().maxCount(8).group(MagicFungi.ITEM_GROUP)));
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "cadentis_glyph"), CADENTIS_GLYPH);
 
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "pudicitiam_glyph"), PUDICITIAM_GLYPH);
@@ -40,7 +40,7 @@ public class GlyphRegistry {
 
     //Utilis
     public static final Item PLUVIAM_GLYPH = new PluviamGlyphItem(new FabricItemSettings().maxCount(8).group(MagicFungi.ITEM_GROUP));
-
+    public static final Item CADENTIS_GLYPH = new CadentisGlyphItem(BlockRegistry.CADENTIS_BLOCK, new FabricItemSettings().maxCount(8).group(MagicFungi.ITEM_GROUP));
 
     // Vivifica
     public static final Item PUDICITIAM_GLYPH = new PudicitiamGlyphItem(new FabricItemSettings().maxCount(8).group(MagicFungi.ITEM_GROUP));

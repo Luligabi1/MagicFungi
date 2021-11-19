@@ -1,7 +1,8 @@
 package me.luligabi.magicfungi.common.block.misc;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.misc.tag.TagRegistry;
+import me.luligabi.magicfungi.common.block.mushroom.MagicMushroomPlantBlock;
+import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
@@ -10,6 +11,7 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
@@ -52,7 +54,7 @@ public class HostGrassBlock extends GrassBlock {
 
     }
 
-    @Override
+    @Override // TODO: Implement replacing of Grass, Tall Grass and Ferns to their Host counterpart.
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
         if (canSurvive(state, world, pos)) {
             if (world.getLightLevel(pos.up()) >= 9) {
@@ -60,7 +62,7 @@ public class HostGrassBlock extends GrassBlock {
                 for(int i = 0; i < 4; ++i) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
                     if (canSpread(blockState, world, blockPos) && !world.getBlockState(blockPos).isAir()) {
-                        if(Util.isMorbusSpreadingActive(world) ? world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_SPREADABLE) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
+                        if(Util.isMorbusSpreadingActive(world) ? world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_BLOCK_SPREADABLE) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
                             world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
                         }
                     }
@@ -72,15 +74,9 @@ public class HostGrassBlock extends GrassBlock {
 
                 // Converts any PlantBlock planted to either a Morbus Mushroom or Wither Rose
                 BlockState blockStateUp = world.getBlockState(pos.up());
-                if(blockStateUp.getBlock() instanceof PlantBlock && random.nextBoolean()) {
-                    if(!(blockStateUp.isOf(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK)) && !(blockStateUp.isOf(Blocks.WITHER_ROSE)) && !(blockStateUp.getBlock() instanceof FernBlock)) {
-                        world.setBlockState(pos.up(), random.nextBoolean() ?
-                                BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK.getDefaultState() : Blocks.WITHER_ROSE.getDefaultState());
-                        world.playSound(null, pos.up().getX(), pos.up().getY(), pos.up().getZ(),
-                                SoundEvents.ENTITY_WITHER_AMBIENT, SoundCategory.BLOCKS, 0.8F, 0.8F);
-                    }
+                if(blockStateUp.getBlock() instanceof PlantBlock && !blockStateUp.isIn(TagRegistry.HOST_BIOME_VEGETATION) && random.nextBoolean()) {
+                    setToMorbusVariant(world, blockStateUp, pos);
                 }
-
             }
         } else {
             world.setBlockState(pos, BlockRegistry.HOST_DIRT.getDefaultState());
@@ -104,4 +100,42 @@ public class HostGrassBlock extends GrassBlock {
         BlockPos blockPos = pos.up();
         return canSurvive(state, world, pos) && !world.getFluidState(blockPos).isIn(FluidTags.WATER);
     }
+
+    /*
+     * Converts nature-blocks to their Morbus variant.
+     *
+     * Grass-like blocks -> Host Grass
+     * Fern-like blocks -> Host Fern
+     * Tall Grass-like blocks -> Host Tall Grass
+     * Large Fern-like blocks -> Large Host Fern
+     *
+     * Any flower/non-Magic Mushrooms -> Wither Rose
+     * Magic Mushrooms -> Morbus Mushroom
+     *
+     */
+    private void setToMorbusVariant(World world, BlockState blockState, BlockPos pos) {
+        if(blockState.isIn(TagRegistry.MORBUS_GRASS_SPREADABLE)) {
+            setMorbusVariantBlock(world, pos, BlockRegistry.HOST_GRASS.getDefaultState());
+        } else if(blockState.isIn(TagRegistry.MORBUS_FERN_SPREADABLE)) {
+            setMorbusVariantBlock(world, pos, BlockRegistry.HOST_FERN.getDefaultState());
+        } /*else if(blockState.isIn(TagRegistry.MORBUS_TALL_GRASS_SPREADABLE)) { // TODO: Complete this.
+
+            setMorbusVariantBlock(world, pos, BlockRegistry.HOST_TALL_GRASS.getDefaultState().with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+            world.setBlockState(pos.up(2), BlockRegistry.HOST_TALL_GRASS.getDefaultState().with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER));
+        } else if(blockState.isIn(TagRegistry.MORBUS_LARGE_FERN_SPREADABLE)) {
+            setMorbusVariantBlock(world, pos, BlockRegistry.LARGE_HOST_FERN.getDefaultState().with(TallPlantBlock.HALF, DoubleBlockHalf.LOWER));
+            world.setBlockState(pos.up(2), BlockRegistry.LARGE_HOST_FERN.getDefaultState().with(TallPlantBlock.HALF, DoubleBlockHalf.UPPER));
+        }*/ else if(blockState.getBlock() instanceof FlowerBlock ||
+                (blockState.getBlock() instanceof MushroomPlantBlock && !(blockState.getBlock() instanceof MagicMushroomPlantBlock))) {
+            setMorbusVariantBlock(world, pos, Blocks.WITHER_ROSE.getDefaultState());
+        } else if(blockState.getBlock() instanceof MagicMushroomPlantBlock && !blockState.isOf(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK)) {
+            setMorbusVariantBlock(world, pos, BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK.getDefaultState());
+        }
+    }
+
+    private void setMorbusVariantBlock(World world, BlockPos pos, BlockState state) {
+        Util.setBlockWithSound(world, pos, state, SoundEvents.ENTITY_WITHER_AMBIENT,
+                SoundCategory.BLOCKS, 0.6F, 0.8F);
+    }
+
 }

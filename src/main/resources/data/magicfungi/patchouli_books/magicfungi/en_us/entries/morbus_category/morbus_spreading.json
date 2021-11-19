@@ -12,7 +12,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "magicfungi:crafting/morbus_clock_1",
+      "recipe": "magicfungi:crafting/morbus_spreading/morbus_clock_1",
       "title": "Morbus Clock",
       "text": "With it, you can check if Morbus Spreading will happen on your world and if so, how many days until it'll happen.$(br)But enough predicting, let's talk about how to prevent the Morbus Spreading."
     },
@@ -24,7 +24,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "magicfungi:crafting/heart_of_vivifica",
+      "recipe": "magicfungi:crafting/morbus_spreading/heart_of_vivifica",
       "title": "Heart of Vivifica",
       "text": "Cures the soil from the Morbus spreading permanently, however, it won't remove the already existing damage (use the Sanctificare Glyph for that!)"
     },
@@ -36,7 +36,7 @@
     },
     {
       "type": "crafting",
-      "recipe": "magicfungi:crafting/heart_of_morbus",
+      "recipe": "magicfungi:crafting/morbus_spreading/heart_of_morbus",
       "title": "Heart of Morbus",
       "text": "Reverts the effects of the Heart of Vivifica, allowing the Morbus to spread once again.$(br2)$(4)$(l)WARNING: Both Morbus corrupting items might be disabled on your modpack."
     }

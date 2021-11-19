@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "magicfungi:magical_fungi_alloy"
+    }
+  ],
+  "result": {
+    "item": "magicfungi:magical_fungi_nugget",
+    "count": 9
+  }
+}
