@@ -1,6 +1,5 @@
 package me.luligabi.magicfungi.common;
 
-import draylar.omegaconfig.OmegaConfig;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
@@ -41,7 +40,8 @@ public class MagicFungi implements ModInitializer {
 
     public static final String MOD_ID = "magicfungi";
 
-    public static final ModConfig CONFIG = OmegaConfig.register(ModConfig.class);
+    // TODO: Fix OmegaConfig
+    public static final ModConfig CONFIG = new ModConfig()/*OmegaConfig.register(ModConfig.class)*/;
 
     public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.create(
             new Identifier(MOD_ID, "item_group"))

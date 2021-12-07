@@ -12,6 +12,8 @@ import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
+import me.shedaniel.rei.api.common.plugins.PluginManager;
+import me.shedaniel.rei.api.common.registry.ReloadStage;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import me.shedaniel.rei.plugin.client.BuiltinClientPlugin;
 import net.minecraft.text.Text;
@@ -43,11 +45,12 @@ public class ReiPlugin implements REIClientPlugin {
     public static final CategoryIdentifier<SpellRecipeDisplay> SPELL_DISCOVERY = CategoryIdentifier.of(MagicFungi.MOD_ID, "spell_discovery");
 
     @Override
-    public void postRegister() {
-        UnaryOperator<List<Text>> spellDiscoveryInformation = (List<Text> text) -> {
-            text.add(new TranslatableText("description.magicfungi.spell_discovery_bench"));
-            return text;};
+    public void postStage(PluginManager<REIClientPlugin> manager, ReloadStage stage) {
+            UnaryOperator<List<Text>> spellDiscoveryInformation = (List<Text> text) -> {
+                text.add(new TranslatableText("description.magicfungi.spell_discovery_bench"));
+                return text;};
 
-        BuiltinClientPlugin.getInstance().registerInformation(EntryStacks.of(BlockRegistry.SPELL_DISCOVERY_BLOCK), new TranslatableText(""), spellDiscoveryInformation);
+            BuiltinClientPlugin.getInstance().registerInformation(EntryStacks.of(BlockRegistry.SPELL_DISCOVERY_BLOCK), new TranslatableText(""), spellDiscoveryInformation);
     }
+
 }

@@ -1,10 +1,10 @@
 package me.luligabi.magicfungi.mixin;
 
 import net.minecraft.entity.mob.ZombieVillagerEntity;
+import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Invoker;
 
-import javax.annotation.Nullable;
 import java.util.UUID;
 
 @Mixin(ZombieVillagerEntity.class)

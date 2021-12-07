@@ -11,8 +11,6 @@ public class ClypeusShieldItem extends FabricBannerShieldItem {
     }
 
     @Override
-    public boolean hasGlint(ItemStack stack) {
-        return true;
-    }
+    public boolean hasGlint(ItemStack stack) { return true; }
 
 }

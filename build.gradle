@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.8-SNAPSHOT'
+    id 'fabric-loom' version '0.10-SNAPSHOT'
     id "com.matthewprenger.cursegradle" version '1.4.0'
     id "com.modrinth.minotaur" version '1.2.1'
     id 'maven-publish'
@@ -35,15 +35,15 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
-    modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
-
-    modImplementation "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
-    include "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
-
-    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}-1.17"
-    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}-1.17"
+    /*modImplementation "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
+    include "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"*/
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+
+    modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
+
+    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
 }
 
 processResources {
