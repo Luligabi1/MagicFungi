@@ -39,6 +39,7 @@ dependencies {
     include "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"*/
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
+    modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 
     modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
 
@@ -58,8 +59,8 @@ tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
 }
 
-minecraft {
-    accessWidener =  file("src/main/resources/magicfungi.accesswidener")
+loom {
+    accessWidenerPath = file("src/main/resources/magicfungi.accesswidener")
 }
 
 task sourcesJar(type: Jar, dependsOn: classes) {

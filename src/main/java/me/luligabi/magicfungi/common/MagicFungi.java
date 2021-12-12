@@ -10,7 +10,7 @@ import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.recipe.RecipeRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
-import me.luligabi.magicfungi.common.worldgen.feature.ConfiguredFeatureRegistry;
+import me.luligabi.magicfungi.common.worldgen.feature.PlacedFeatureRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.ItemGroup;
@@ -28,7 +28,7 @@ public class MagicFungi implements ModInitializer {
         ItemRegistry.init();
         TagRegistry.init();
 
-        ConfiguredFeatureRegistry.init();
+        PlacedFeatureRegistry.init();
         BiomeRegistry.init();
 
         RecipeRegistry.init();
