@@ -8,7 +8,6 @@ import me.luligabi.magicfungi.common.block.mushroom.*;
 import me.luligabi.magicfungi.common.item.misc.MagicalFungiAlloyBlockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
-import net.fabricmc.fabric.api.tool.attribute.v1.FabricToolTags;
 import net.minecraft.block.*;
 import net.minecraft.item.BlockItem;
 import net.minecraft.sound.BlockSoundGroup;
@@ -91,11 +90,11 @@ public class BlockRegistry {
     public static final Block LARGE_HOST_FERN = new TallPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BROWN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
 
-    public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 1).sounds(BlockSoundGroup.STONE));
-    public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).breakByTool(FabricToolTags.AXES, 1).sounds(BlockSoundGroup.WOOD));
+    public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().sounds(BlockSoundGroup.STONE));
+    public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).sounds(BlockSoundGroup.WOOD));
 
 
-    public static final Block MAGICAL_FUNGI_ALLOY_BLOCK = new MagicalFungiAlloyBlock(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool().breakByTool(FabricToolTags.PICKAXES, 3).sounds(BlockSoundGroup.METAL));
+    public static final Block MAGICAL_FUNGI_ALLOY_BLOCK = new MagicalFungiAlloyBlock(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL));
 
 
     public static final Block CADENTIS_BLOCK = new CadentisBlock(FabricBlockSettings.of(Material.DECORATION, MapColor.CLEAR).noCollision().nonOpaque().luminance(15).sounds(BlockSoundGroup.AMETHYST_BLOCK));

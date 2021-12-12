@@ -30,13 +30,14 @@
     ]
   },
   "mixins": [
-    "magicfungus.mixins.json"
+    "magicfungi.mixins.json"
   ],
   "accessWidener" : "magicfungi.accesswidener",
   "depends": {
+    "minecraft": "1.18.x",
     "fabricloader": ">=0.11.3",
     "fabric": "*",
-    "minecraft": "1.18.x"
+    "patchouli": "*"
   },
   "recommends": {
     "roughlyenoughitems": "*"
