@@ -8,7 +8,7 @@ public class BiomeRegistry {
         //Registry.register(BuiltinRegistries.BIOME, HOST_BIOME_KEY.getValue(), HOST_BIOME);
 
 
-        //OverworldBiomes.addContinentalBiome(HOST_BIOME_KEY, OverworldClimate.TEMPERATE, 0.2D); // TODO: Replace with MagicFungi.CONFIG.hostBiomeSpawnRate when OmegaConfig is fixed.
+        //OverworldBiomes.addContinentalBiome(HOST_BIOME_KEY, OverworldClimate.TEMPERATE, MagicFungi.CONFIG.hostBiomeSpawnRate);
     }
 
     /*public static final RegistryKey<Biome> HOST_BIOME_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MagicFungi.MOD_ID, "host_biome"));

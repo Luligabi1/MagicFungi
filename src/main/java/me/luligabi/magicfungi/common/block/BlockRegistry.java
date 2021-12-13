@@ -3,7 +3,10 @@ package me.luligabi.magicfungi.common.block;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.crafting.GlyphCarvingBlock;
 import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
-import me.luligabi.magicfungi.common.block.misc.*;
+import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
+import me.luligabi.magicfungi.common.block.misc.HostDirtBlock;
+import me.luligabi.magicfungi.common.block.misc.HostFernBlock;
+import me.luligabi.magicfungi.common.block.misc.HostGrassBlock;
 import me.luligabi.magicfungi.common.block.mushroom.*;
 import me.luligabi.magicfungi.common.item.misc.MagicalFungiAlloyBlockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -94,7 +97,7 @@ public class BlockRegistry {
     public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).sounds(BlockSoundGroup.WOOD));
 
 
-    public static final Block MAGICAL_FUNGI_ALLOY_BLOCK = new MagicalFungiAlloyBlock(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL));
+    public static final Block MAGICAL_FUNGI_ALLOY_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL));
 
 
     public static final Block CADENTIS_BLOCK = new CadentisBlock(FabricBlockSettings.of(Material.DECORATION, MapColor.CLEAR).noCollision().nonOpaque().luminance(15).sounds(BlockSoundGroup.AMETHYST_BLOCK));
