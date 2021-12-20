@@ -1,5 +1,22 @@
 {
   "variants": {
-    "": { "model": "magicfungi:block/cadentis_block" }
+    "mushroom_type=impetus": {
+      "model": "magicfungi:block/cadentis_block/cadentis_block_impetus"
+    },
+    "mushroom_type=clypeus": {
+      "model": "magicfungi:block/cadentis_block/cadentis_block_clypeus"
+    },
+    "mushroom_type=utilis": {
+      "model": "magicfungi:block/cadentis_block/cadentis_block_utilis"
+    },
+    "mushroom_type=vivifica": {
+      "model": "magicfungi:block/cadentis_block/cadentis_block_vivifica"
+    },
+    "mushroom_type=morbus": {
+      "model": "magicfungi:block/cadentis_block/cadentis_block_morbus"
+    },
+    "mushroom_type=incognita": {
+      "model": "magicfungi:block/cadentis_block/cadentis_block_incognita"
+    }
   }
 }
