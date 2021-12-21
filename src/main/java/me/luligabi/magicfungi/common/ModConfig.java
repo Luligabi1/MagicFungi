@@ -31,7 +31,6 @@ public class ModConfig implements Config {
     public int fertilisSpellCooldown = 170;
 
 
-
     @Comment(value = "Duration of Parasitus Glyph's effects.")
     public int parasitusGlyphEffectTime = 7;
 
@@ -60,8 +59,55 @@ public class ModConfig implements Config {
     @Comment(value = "Morbus Scythe's wither effect strength. 0 = I, 1 = II, etc.")
     public int morbusScytheEffectStrength = 0;
 
+
+    @Comment(value = "Whether Impetus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateImpetusMushrooms = true;
+
+    @Comment(value = "Whether Clypeus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateClypeusMushrooms = true;
+
+    @Comment(value = "Whether Impetus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateUtilisMushrooms = true;
+
+    @Comment(value = "Whether Vivifica Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateVivificaMushrooms = true;
+
+    /*@Comment(value = "Whether Morbus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateMorbusMushrooms = true;*/
+
+
+    @Comment(value = "Impetus Mushrooms' spawn ratio at normal circumstances.")
+    public int impetusRegularSpawnRatio = 12;
+
+    @Comment(value = "Impetus Mushrooms' spawn ratio on biomes with enhanced ratios (check the book guide for info on such biomes).")
+    public int impetusBiomeEnhancedSpawnRatio = 28;
+
+
+    @Comment(value = "Clypeus Mushrooms' spawn ratio at normal circumstances.")
+    public int clypeusRegularSpawnRatio = 12;
+
+    @Comment(value = "Clypeus Mushrooms' spawn ratio on biomes with enhanced ratios (check the book guide for info on such biomes).")
+    public int clypeusBiomeEnhancedSpawnRatio = 28;
+
+
+    @Comment(value = "Utilis Mushrooms' spawn ratio at normal circumstances.")
+    public int utilisRegularSpawnRatio = 12;
+
+    @Comment(value = "Utilis Mushrooms' spawn ratio on biomes with enhanced ratios (check the book guide for info on such biomes).")
+    public int utilisBiomeEnhancedSpawnRatio = 28;
+
+
+    @Comment(value = "Vivifica Mushrooms' spawn ratio at normal circumstances.")
+    public int vivificaRegularSpawnRatio = 12;
+
+    @Comment(value = "Vivifica Mushrooms' spawn ratio on biomes with enhanced ratios (check the book guide for info on such biomes).")
+    public int vivificaBiomeEnhancedSpawnRatio = 28;
+
+
     @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
     public double hostBiomeSpawnRate = 0.2;
+
+
 
     @Comment(value = "Whether Host Grass will start spreading towards non-grass blocks after X in-game days.\nThis only affects the default gamerule value for this setting.\nTo change this on already generated worlds, use /gamerule doMorbusSpread.\nKeep in mind this can be overridden by Morbus corruption items. Check canUseMorbusCorruptionItems for further information.")
     public boolean doMorbusSpread = false;

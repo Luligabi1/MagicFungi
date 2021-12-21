@@ -25,10 +25,10 @@ public class FeatureRegistry {
     //@SuppressWarnings("deprecation")
     public static void init() {
         // Regular Magic Mushroom gen
-        registerMagicMushroomFeature(IMPETUS_REGULAR_CONFIGURED_FEATURE, IMPETUS_REGULAR_PLACED_FEATURE, "impetus_regular", IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE, IMPETUS_BIOME_ENHANCED_PLACED_FEATURE, "impetus_savanna", Biome.Category.SAVANNA);
-        registerMagicMushroomFeature(CLYPEUS_REGULAR_CONFIGURED_FEATURE, CLYPEUS_REGULAR_PLACED_FEATURE, "clypeus_regular", CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE, CLYPEUS_BIOME_ENHANCED_PLACED_FEATURE, "clypeus_icy", Biome.Category.ICY);
-        registerMagicMushroomFeature(UTILIS_REGULAR_CONFIGURED_FEATURE, UTILIS_REGULAR_PLACED_FEATURE, "utilis_regular", UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE, UTILIS_BIOME_ENHANCED_PLACED_FEATURE, "utilis_mountains", Biome.Category.MOUNTAIN, Biome.Category.EXTREME_HILLS);
-        registerMagicMushroomFeature(VIVIFICA_REGULAR_CONFIGURED_FEATURE, VIVIFICA_REGULAR_PLACED_FEATURE, "vivifica_regular", VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE, VIVIFICA_BIOME_ENHANCED_PLACED_FEATURE, "vivifica_jungle", Biome.Category.JUNGLE);
+        registerMagicMushroomFeature(IMPETUS_REGULAR_CONFIGURED_FEATURE, IMPETUS_REGULAR_PLACED_FEATURE, "impetus_regular", IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE, IMPETUS_BIOME_ENHANCED_PLACED_FEATURE, "impetus_savanna", MagicFungi.CONFIG.canGenerateImpetusMushrooms, Biome.Category.SAVANNA);
+        registerMagicMushroomFeature(CLYPEUS_REGULAR_CONFIGURED_FEATURE, CLYPEUS_REGULAR_PLACED_FEATURE, "clypeus_regular", CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE, CLYPEUS_BIOME_ENHANCED_PLACED_FEATURE, "clypeus_icy", MagicFungi.CONFIG.canGenerateClypeusMushrooms, Biome.Category.ICY);
+        registerMagicMushroomFeature(UTILIS_REGULAR_CONFIGURED_FEATURE, UTILIS_REGULAR_PLACED_FEATURE, "utilis_regular", UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE, UTILIS_BIOME_ENHANCED_PLACED_FEATURE, "utilis_mountains", MagicFungi.CONFIG.canGenerateUtilisMushrooms,  Biome.Category.MOUNTAIN, Biome.Category.EXTREME_HILLS);
+        registerMagicMushroomFeature(VIVIFICA_REGULAR_CONFIGURED_FEATURE, VIVIFICA_REGULAR_PLACED_FEATURE, "vivifica_regular", VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE, VIVIFICA_BIOME_ENHANCED_PLACED_FEATURE, "vivifica_jungle", MagicFungi.CONFIG.canGenerateVivificaMushrooms, Biome.Category.JUNGLE);
 
 
         // Host Biome's Vegetal Decoration
@@ -51,8 +51,8 @@ public class FeatureRegistry {
         //BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), GenerationStep.Feature.TOP_LAYER_MODIFICATION, hugeMorbusMushroom);*/
     }
 
-    // TODO: Add config to disable generation / change generation odds.
-    private static void registerMagicMushroomFeature(ConfiguredFeature<?, ?> regularConfiguredFeature, PlacedFeature regularPlacedFeature, String regularIdentifier, ConfiguredFeature<?, ?> biomeEnhancedConfiguredFeature, PlacedFeature biomeEnhancedPlacedFeature, String biomeEnhancedIdentifier, Biome.Category... biomeCategory) {
+    private static void registerMagicMushroomFeature(ConfiguredFeature<?, ?> regularConfiguredFeature, PlacedFeature regularPlacedFeature, String regularIdentifier, ConfiguredFeature<?, ?> biomeEnhancedConfiguredFeature, PlacedFeature biomeEnhancedPlacedFeature, String biomeEnhancedIdentifier, boolean enabled, Biome.Category... biomeCategory) {
+        if(!enabled) return;
         // Regular feature registry
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
                 new Identifier(MagicFungi.MOD_ID, regularIdentifier), regularConfiguredFeature);
@@ -72,7 +72,7 @@ public class FeatureRegistry {
 
     // Impetus Mushroom
     public static final ConfiguredFeature<?, ?> IMPETUS_REGULAR_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, 12);
+            generateMushroomFeatureSupplier(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusRegularSpawnRatio);
 
     public static final PlacedFeature IMPETUS_REGULAR_PLACED_FEATURE = IMPETUS_REGULAR_CONFIGURED_FEATURE.withPlacement(
             SquarePlacementModifier.of(),
@@ -80,7 +80,7 @@ public class FeatureRegistry {
             BiomePlacementModifier.of());
 
     public static final ConfiguredFeature<?, ?> IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, 28);
+            generateMushroomFeatureSupplier(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusBiomeEnhancedSpawnRatio);
 
     public static final PlacedFeature IMPETUS_BIOME_ENHANCED_PLACED_FEATURE = IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE.withPlacement(
             SquarePlacementModifier.of(),
@@ -90,7 +90,7 @@ public class FeatureRegistry {
 
     // Clypeus Mushroom
     public static final ConfiguredFeature<?, ?> CLYPEUS_REGULAR_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, 12);
+            generateMushroomFeatureSupplier(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusRegularSpawnRatio);
 
     public static final PlacedFeature CLYPEUS_REGULAR_PLACED_FEATURE = CLYPEUS_REGULAR_CONFIGURED_FEATURE.withPlacement(
             SquarePlacementModifier.of(),
@@ -98,7 +98,7 @@ public class FeatureRegistry {
             BiomePlacementModifier.of());
 
     public static final ConfiguredFeature<?, ?> CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, 28);
+            generateMushroomFeatureSupplier(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusBiomeEnhancedSpawnRatio);
 
     public static final PlacedFeature CLYPEUS_BIOME_ENHANCED_PLACED_FEATURE = CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE.withPlacement(
             SquarePlacementModifier.of(),
@@ -108,7 +108,7 @@ public class FeatureRegistry {
 
     // Utilis Mushroom
     public static final ConfiguredFeature<?, ?> UTILIS_REGULAR_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, 12);
+            generateMushroomFeatureSupplier(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisRegularSpawnRatio);
 
     public static final PlacedFeature UTILIS_REGULAR_PLACED_FEATURE = UTILIS_REGULAR_CONFIGURED_FEATURE.withPlacement(
             SquarePlacementModifier.of(),
@@ -116,7 +116,7 @@ public class FeatureRegistry {
             BiomePlacementModifier.of());
 
     public static final ConfiguredFeature<?, ?> UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, 28);
+            generateMushroomFeatureSupplier(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisBiomeEnhancedSpawnRatio);
 
     public static final PlacedFeature UTILIS_BIOME_ENHANCED_PLACED_FEATURE = UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE.withPlacement(
             SquarePlacementModifier.of(),
@@ -125,7 +125,7 @@ public class FeatureRegistry {
 
     // Vivifica Mushroom
     public static final ConfiguredFeature<?, ?> VIVIFICA_REGULAR_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, 12);
+            generateMushroomFeatureSupplier(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRatio);
 
     public static final PlacedFeature VIVIFICA_REGULAR_PLACED_FEATURE = VIVIFICA_REGULAR_CONFIGURED_FEATURE.withPlacement(
             SquarePlacementModifier.of(),
@@ -133,7 +133,7 @@ public class FeatureRegistry {
             BiomePlacementModifier.of());
 
     public static final ConfiguredFeature<?, ?> VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, 28);
+            generateMushroomFeatureSupplier(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaBiomeEnhancedSpawnRatio);
 
     public static final PlacedFeature VIVIFICA_BIOME_ENHANCED_PLACED_FEATURE = VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE.withPlacement(
             SquarePlacementModifier.of(),
