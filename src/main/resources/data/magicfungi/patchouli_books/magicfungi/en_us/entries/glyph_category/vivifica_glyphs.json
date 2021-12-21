@@ -7,7 +7,11 @@
     {
       "type": "spotlight",
       "item": "magicfungi:pudicitiam_glyph",
-      "text": "$(2)$(l)Pudicitiam Glyph $(br2)$()$(a)Heals any non-modded creatures into their healed counterpart (e.g: zombie villager -> villager).$(br2)$(2)$(l)Sanctificare Glyph $(br2)$()$(a)Converts a small patch of Morbus into regular grass, cleaning small areas temporarily."
+      "text": "$(2)$(l)Pudicitiam Glyph $(br2)$()$(a)Heals any non-modded creatures into their healed counterpart (e.g: zombie villager -> villager).$(br2)$(2)$(l)Sanctificare Glyph $(br2)$()$(a)Converts a small patch of Morbus into regular grass,"
+    },
+    {
+      "type": "text",
+      "text": "$(a)cleaning small areas temporarily."
     }
   ]
 }
