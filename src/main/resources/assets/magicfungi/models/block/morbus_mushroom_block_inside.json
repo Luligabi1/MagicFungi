@@ -1,0 +1,7 @@
+{
+  "parent": "block/template_single_face",
+  "ambientocclusion": false,
+  "textures": {
+    "texture": "magicfungi:block/morbus_mushroom_block_inside"
+  }
+}

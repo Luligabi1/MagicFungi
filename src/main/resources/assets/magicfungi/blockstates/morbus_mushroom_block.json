@@ -63,7 +63,7 @@
         "north": "false"
       },
       "apply": {
-        "model": "minecraft:block/mushroom_block_inside"
+        "model": "magicfungi:block/morbus_mushroom_block_inside"
       }
     },
     {
@@ -71,7 +71,7 @@
         "east": "false"
       },
       "apply": {
-        "model": "minecraft:block/mushroom_block_inside",
+        "model": "magicfungi:block/morbus_mushroom_block_inside",
         "y": 90,
         "uvlock": false
       }
@@ -81,7 +81,7 @@
         "south": "false"
       },
       "apply": {
-        "model": "minecraft:block/mushroom_block_inside",
+        "model": "magicfungi:block/morbus_mushroom_block_inside",
         "y": 180,
         "uvlock": false
       }
@@ -91,7 +91,7 @@
         "west": "false"
       },
       "apply": {
-        "model": "minecraft:block/mushroom_block_inside",
+        "model": "magicfungi:block/morbus_mushroom_block_inside",
         "y": 270,
         "uvlock": false
       }
@@ -101,7 +101,7 @@
         "up": "false"
       },
       "apply": {
-        "model": "minecraft:block/mushroom_block_inside",
+        "model": "magicfungi:block/morbus_mushroom_block_inside",
         "x": 270,
         "uvlock": false
       }
@@ -111,7 +111,7 @@
         "down": "false"
       },
       "apply": {
-        "model": "minecraft:block/mushroom_block_inside",
+        "model": "magicfungi:block/morbus_mushroom_block_inside",
         "x": 90,
         "uvlock": false
       }
