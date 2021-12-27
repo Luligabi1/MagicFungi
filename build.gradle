@@ -19,7 +19,7 @@ def RELEASE_FILE = "${buildDir}/libs/${archivesBaseName}-${version}.jar"
 
 @SuppressWarnings('GrMethodMayBeStatic')
 def getChangeLog() {
-    return "- Fixed an error that prevented users from obtaining the health boost effect if not wearing a full Magical Fungi Armor."
+    return ""
 }
 
 repositories {
