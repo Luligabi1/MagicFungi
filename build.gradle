@@ -24,9 +24,10 @@ def getChangeLog() {
 
 repositories {
     mavenCentral()
-    maven { url 'https://maven.blamejared.com' }
-    maven { url "https://maven.shedaniel.me/" }
-    maven { url 'https://jitpack.io' }
+    maven { url "https://maven.blamejared.com" } // Patchouli
+    maven { url "https://maven.shedaniel.me/" } // REI
+    maven { url "https://jitpack.io" } // Omega Config, Fabric Shield Lib
+    maven { url 'https://maven.terraformersmc.com/releases/' } // Mod Menu
 }
 
 dependencies {
@@ -35,16 +36,25 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 
+    modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
+
+
     modImplementation "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
     include "com.github.Draylar.omega-config:omega-config-base:${project.omega_config_version}"
+
+    modImplementation "com.github.Draylar.omega-config:omega-config-gui:${project.omega_config_version}"
+    include "com.github.Draylar.omega-config:omega-config-base-gui:${project.omega_config_version}"
+
+
+    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
     modRuntimeOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"
 
-    modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
-
-    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
-    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+    modCompileOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
+    modRuntimeOnly "com.terraformersmc:modmenu:${project.modmenu_version}"
 }
 
 processResources {
@@ -89,7 +99,10 @@ curseforge {
             relations {
                 requiredDependency 'fabric-api'
                 requiredDependency 'patchouli-fabric'
+
+                embeddedLibrary 'omega-config'
                 embeddedLibrary 'fabric-shield-lib'
+
                 optionalDependency 'roughly-enough-items'
             }
         }

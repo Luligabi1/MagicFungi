@@ -3,6 +3,7 @@ package me.luligabi.magicfungi.common;
 
 import draylar.omegaconfig.api.Comment;
 import draylar.omegaconfig.api.Config;
+import org.jetbrains.annotations.Nullable;
 
 public class ModConfig implements Config {
 
@@ -119,5 +120,8 @@ public class ModConfig implements Config {
     public boolean canUseMorbusCorruptionItems = false;
 
     @Override
-    public String getName() { return "magicfungi"; }
+    public String getName() { return MagicFungi.MOD_ID; }
+
+    @Override
+    public @Nullable String getModid() { return MagicFungi.MOD_ID; }
 }

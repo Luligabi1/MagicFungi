@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.client;
 
+import draylar.omegaconfiggui.OmegaConfigGui;
 import me.luligabi.magicfungi.client.screen.GlyphCarvingScreen;
 import me.luligabi.magicfungi.client.screen.SpellDiscoveryScreen;
 import me.luligabi.magicfungi.common.MagicFungi;
@@ -58,6 +59,8 @@ public class MagicFungiClient implements ClientModInitializer {
             registry.register(new Identifier(MagicFungi.MOD_ID, "entity/clypeus_shield_base"));
             registry.register(new Identifier(MagicFungi.MOD_ID, "entity/clypeus_shield_base_nopattern"));
         });
+
+        OmegaConfigGui.registerConfigScreen(MagicFungi.CONFIG);
     }
 
     public static final EntityModelLayer CLYPEUS_SHIELD_MODEL_LAYER = new EntityModelLayer(new Identifier(MagicFungi.MOD_ID, "clypeus_shield"),"main");
