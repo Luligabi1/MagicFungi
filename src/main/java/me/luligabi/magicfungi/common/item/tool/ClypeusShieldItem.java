@@ -4,7 +4,7 @@ import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricBannerShieldIte
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class ClypeusShieldItem extends FabricBannerShieldItem {
+public class ClypeusShieldItem extends FabricBannerShieldItem { // TODO: Remove a bit of Morbus Corruption when blocking with Clypeus Shield
 
     public ClypeusShieldItem(Settings settings, int cooldownTicks, int enchantability, Item repairItem) {
         super(settings, cooldownTicks, enchantability, repairItem);

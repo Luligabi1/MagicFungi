@@ -1,6 +1,8 @@
 package me.luligabi.magicfungi.common.item.misc;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.misc.GameRuleRegistry;
+import me.luligabi.magicfungi.common.misc.component.MagicFungiComponents;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -17,9 +19,9 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class VivificaHeartItem extends Item {
+public class HeartOfVivificaItem extends Item {
 
-    public VivificaHeartItem(Settings settings) {
+    public HeartOfVivificaItem(Settings settings) {
         super(settings);
     }
 
@@ -33,6 +35,7 @@ public class VivificaHeartItem extends Item {
                     user.getX(), user.getY(), user.getZ(),
                     SoundEvents.BLOCK_MOSS_BREAK, SoundCategory.NEUTRAL, 1F, 1F);
             user.sendMessage(new TranslatableText("message.magicfungi.heart_of_vivifica").formatted(Formatting.GREEN, Formatting.ITALIC), false);
+            MagicFungiComponents.MORBUS_CORRUPTION.get(user).decreaseBy(MagicFungi.CONFIG.heartOfVivificaCorruptionDecrease);
             return TypedActionResult.consume(user.getStackInHand(hand));
         } else {
             user.sendMessage(new TranslatableText("message.magicfungi.fate_design").formatted(Formatting.GRAY, Formatting.ITALIC), false);

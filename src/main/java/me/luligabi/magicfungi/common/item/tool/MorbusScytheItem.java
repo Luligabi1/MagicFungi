@@ -1,9 +1,11 @@
 package me.luligabi.magicfungi.common.item.tool;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.misc.component.MagicFungiComponents;
 import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.HoeItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
@@ -19,6 +21,7 @@ public class MorbusScytheItem extends HoeItem {
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) { 
         Util.applyEffectIfNotPresent(target, StatusEffects.WITHER,
                 MagicFungi.CONFIG.morbusScytheEffectDuration, MagicFungi.CONFIG.morbusScytheEffectStrength);
+        if(attacker instanceof PlayerEntity) MagicFungiComponents.MORBUS_CORRUPTION.get(attacker).increaseBy(MagicFungi.CONFIG.morbusScytheCorruptionIncrease);
         return true;
     }
 

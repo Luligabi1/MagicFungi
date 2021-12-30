@@ -1,6 +1,8 @@
 package me.luligabi.magicfungi.common.item.tool;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
+import me.luligabi.magicfungi.common.misc.component.MagicFungiComponents;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -16,6 +18,16 @@ public class VivificaElixirItem extends Item {
     }
 
     @Override
+    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
+        if(user instanceof PlayerEntity) {
+            user.eatFood(world, stack);
+            ((PlayerEntity) user).getItemCooldownManager().set(this, 150*20);
+            MagicFungiComponents.MORBUS_CORRUPTION.get(user).decreaseBy(MagicFungi.CONFIG.vivificaElixirCorruptionDecrease);
+        }
+        return new ItemStack(ItemRegistry.VIVIFICA_ELIXIR);
+    }
+
+    @Override
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.DRINK;
     }
@@ -23,15 +35,6 @@ public class VivificaElixirItem extends Item {
     @Override
     public SoundEvent getEatSound() {
         return getDrinkSound();
-    }
-
-    @Override
-    public ItemStack finishUsing(ItemStack stack, World world, LivingEntity user) {
-        if(user instanceof PlayerEntity) {
-            user.eatFood(world, stack);
-            ((PlayerEntity) user).getItemCooldownManager().set(this, 150*20);
-        }
-        return new ItemStack(ItemRegistry.VIVIFICA_ELIXIR);
     }
 
     @Override

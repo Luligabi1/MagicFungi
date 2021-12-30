@@ -20,15 +20,20 @@ public class MorbusCorruptionComponent implements FloatComponent, AutoSyncedComp
 
     @Override
     public void setValue(float value) {
+        if(value > 100F || value < 0F) throw new IllegalArgumentException("Value must be between 0 and 100 range!");
         this.corruptionPercentage = value;
         MagicFungiComponents.MORBUS_CORRUPTION.sync(this.provider);
     }
 
     @Override
-    public float increaseBy(float increase) { return corruptionPercentage + increase; }
+    public float increaseBy(float increase) {
+        return Math.min(corruptionPercentage + increase, 100F);
+    }
 
     @Override
-    public float decreaseBy(float decrease) { return corruptionPercentage - decrease; }
+    public float decreaseBy(float decrease) {
+        return Math.max(corruptionPercentage - decrease, 0F);
+    }
 
     @Override
     public void readFromNbt(@NotNull NbtCompound tag) { corruptionPercentage = tag.getFloat("corruptionPercentage"); }

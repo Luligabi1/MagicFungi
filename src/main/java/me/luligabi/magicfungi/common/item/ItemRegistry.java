@@ -4,13 +4,16 @@ import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.armor.MagicalFungiArmorItem;
 import me.luligabi.magicfungi.common.item.armor.MagicalFungiArmorMaterial;
 import me.luligabi.magicfungi.common.item.misc.*;
-import me.luligabi.magicfungi.common.item.tool.ToolMaterials;
 import me.luligabi.magicfungi.common.item.tool.*;
+import me.luligabi.magicfungi.common.util.MushroomType;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
-import net.minecraft.item.*;
+import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.FoodComponent;
+import net.minecraft.item.Item;
+import net.minecraft.item.Items;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
@@ -42,8 +45,10 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fungi_fertilizer"), FUNGI_FERTILIZER);
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_clock"), MORBUS_CLOCK);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_radiometer"), MORBUS_RADIOMETER);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "heart_of_vivifica"), HEART_OF_VIVIFICA);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "heart_of_morbus"), HEART_OF_MORBUS);
+
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_mushroom_stew"), IMPETUS_MUSHROOM_STEW);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_mushroom_stew"), CLYPEUS_MUSHROOM_STEW);
@@ -66,7 +71,7 @@ public class ItemRegistry {
     public static final Item CLYPEUS_SHIELD = new ClypeusShieldItem(new FabricItemSettings().rarity(Rarity.RARE).maxDamage(3072).group(MagicFungi.ITEM_GROUP), 10, 15, CLYPEUS_ESSENCE);
     public static final Item UTILIS_PICKAXE = new UtilisPickaxeItem(ToolMaterials.UTILIS, 1, -2.8F, new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP));
     public static final Item VIVIFICA_ELIXIR = new VivificaElixirItem(new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP).maxCount(1).food(
-            (new FoodComponent.Builder()).hunger(9).saturationModifier(0.8F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 25*20, 2), 1.0F).alwaysEdible().build()));
+            (new FoodComponent.Builder()).hunger(9).saturationModifier(0.8F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 25*20, 2), 1.0F).alwaysEdible().build())); // TODO: Add config options to change time and duration of effects.
     public static final Item MORBUS_SCYTHE = new MorbusScytheItem(ToolMaterials.MORBUS, 2, -1.2F, new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP));
 
 
@@ -82,24 +87,25 @@ public class ItemRegistry {
 
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
-    public static final Item MORBUS_CLOCK = new MorbusClockItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1).group(MagicFungi.ITEM_GROUP));
-    public static final Item HEART_OF_VIVIFICA = new VivificaHeartItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).group(MagicFungi.ITEM_GROUP));
-    public static final Item HEART_OF_MORBUS = new MorbusHeartItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).group(MagicFungi.ITEM_GROUP));
+    public static final Item MORBUS_CLOCK = new MorbusClockItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).group(MagicFungi.ITEM_GROUP));
+    public static final Item MORBUS_RADIOMETER = new MorbusRadiometerItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).maxDamage(24).group(MagicFungi.ITEM_GROUP));
+    public static final Item HEART_OF_VIVIFICA = new HeartOfVivificaItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).group(MagicFungi.ITEM_GROUP));
+    public static final Item HEART_OF_MORBUS = new HeartOfMorbusItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).group(MagicFungi.ITEM_GROUP));
 
 
-    public static final Item IMPETUS_MUSHROOM_STEW = new StewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
-            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 10*20, 1), 1.0F).build()));
+    public static final Item IMPETUS_MUSHROOM_STEW = new MagicMushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 10*20, 1), 1.0F).build()), MushroomType.IMPETUS);
 
-    public static final Item CLYPEUS_MUSHROOM_STEW = new StewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
-            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 15*20, 1), 1.0F).build()));
+    public static final Item CLYPEUS_MUSHROOM_STEW = new MagicMushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 15*20, 1), 1.0F).build()), MushroomType.CLYPEUS);
 
-    public static final Item UTILIS_MUSHROOM_STEW = new StewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
-            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 12*20, 1), 1.0F).build()));
+    public static final Item UTILIS_MUSHROOM_STEW = new MagicMushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.HASTE, 12*20, 1), 1.0F).build()), MushroomType.UTILIS);
 
-    public static final Item VIVIFICA_MUSHROOM_STEW = new StewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
-            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 6*20, 1), 1.0F).build()));
+    public static final Item VIVIFICA_MUSHROOM_STEW = new MagicMushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.REGENERATION, 6*20, 1), 1.0F).build()), MushroomType.VIVIFICA);
 
-    public static final Item MORBUS_MUSHROOM_STEW = new StewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
-            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 6*20, 1), 1.0F).build()));
+    public static final Item MORBUS_MUSHROOM_STEW = new MagicMushroomStewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
+            (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.WITHER, 6*20, 1), 1.0F).build()), MushroomType.MORBUS);
 
 }

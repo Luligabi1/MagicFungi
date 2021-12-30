@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
-public class GlyphRegistry {
+public class GlyphRegistry { // TODO: Add Morbus Corruption system to all Glyphs
 
     public static void init() {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "exponentia_glyph"), EXPONENTIA_GLYPH);

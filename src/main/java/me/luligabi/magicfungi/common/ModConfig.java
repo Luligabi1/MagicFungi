@@ -119,6 +119,42 @@ public class ModConfig implements Config {
     @Comment(value = "Enables the usage of the Maledictio Glyph and Heart of Morbus.\nIf you plan to use this mod on a public server, disable this to avoid griefing.")
     public boolean canUseMorbusCorruptionItems = false;
 
+    // Morbus Corruption Increases/Decreases
+
+    //TODO: Add config to disable Morbus Corruption
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will decrease when attacking with an Impetus Sword.")
+    public float impetusSwordCorruptionDecrease = 0.25F;
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will decrease when defending with a Clypeus Shield.")
+    public float clypeusShieldCorruptionDecrease = 0.25F;
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will decrease when mining blocks with an Utilis Pickaxe.")
+    public float utilisPickaxeCorruptionDecrease = 0.05F;
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will decrease when drinking Vivifica Elixir.")
+    public float vivificaElixirCorruptionDecrease = 1.25F;
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will increase when attacking with a Morbus Scythe")
+    public float morbusScytheCorruptionIncrease = 0.75F;
+
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will decrease when using a Heart of Vivifica.")
+    public float heartOfVivificaCorruptionDecrease = 7.5F;
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will increase when using a Heart of Morbus.")
+    public float heartOfMorbusCorruptionIncrease = 7.5F;
+
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will increase when eating a non-Vivifica, non-Morbus Stew.")
+    public float magicMushroomStewCorruptionDecrease = 0.25F;
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will decrease when eating a Vivifica Stew.")
+    public float vivificaStewCorruptionDecrease = 0.8F;
+
+    @Comment(value = "Determines how much of the player's Morbus Corruption % will increase when eating a Morbus Stew.")
+    public float morbusStewCorruptionIncrease = 0.8F;
+
     @Override
     public String getName() { return MagicFungi.MOD_ID; }
 

@@ -7,7 +7,7 @@ import net.minecraft.util.Lazy;
 
 import java.util.function.Supplier;
 
-public enum ToolMaterials implements ToolMaterial {
+public enum ToolMaterials implements ToolMaterial { // TODO: Rebalance this considering Morbus Corruption
 
     IMPETUS(4, 3046, 10.5F, 18.5F, 15, () ->
             Ingredient.ofItems(ItemRegistry.IMPETUS_ESSENCE)),

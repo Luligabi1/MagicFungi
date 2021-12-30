@@ -14,7 +14,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
-public class SpellRegistry {
+public class SpellRegistry { // TODO: Add Morbus Corruption system to all Spells
 
     public static void init() {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "ignei_spell"), IGNEI_SPELL);
