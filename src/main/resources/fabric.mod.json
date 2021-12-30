@@ -27,12 +27,20 @@
     ],
     "rei_plugins": [
       "me.luligabi.magicfungi.client.compat.rei.ReiPlugin"
+    ],
+    "cardinal-components": [
+      "me.luligabi.magicfungi.common.misc.component.MagicFungiComponents"
     ]
   },
   "mixins": [
     "magicfungi.mixins.json"
   ],
   "accessWidener" : "magicfungi.accesswidener",
+  "custom": {
+    "cardinal-components": [
+      "magicfungi:morbus_corruption"
+    ]
+  },
   "depends": {
     "minecraft": "1.18.x",
     "fabricloader": ">=0.11.3",
