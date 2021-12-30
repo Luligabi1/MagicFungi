@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.block.crafting;
 
-import me.luligabi.magicfungi.common.screenhandler.SpellDiscoveryScreenHandler;
+import me.luligabi.magicfungi.common.screenhandler.spell.SpellDiscoveryScreenHandler;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.enchantment.EnchantmentHelper;

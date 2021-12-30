@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.block.crafting;
 
-import me.luligabi.magicfungi.common.screenhandler.GlyphCarvingScreenHandler;
+import me.luligabi.magicfungi.common.screenhandler.glyph.GlyphCarvingScreenHandler;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;

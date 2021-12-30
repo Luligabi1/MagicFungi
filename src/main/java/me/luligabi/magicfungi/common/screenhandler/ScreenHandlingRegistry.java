@@ -1,6 +1,8 @@
 package me.luligabi.magicfungi.common.screenhandler;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.screenhandler.glyph.GlyphCarvingScreenHandler;
+import me.luligabi.magicfungi.common.screenhandler.spell.SpellDiscoveryScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;

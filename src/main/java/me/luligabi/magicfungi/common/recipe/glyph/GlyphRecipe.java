@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.recipe.glyph;
 
-import me.luligabi.magicfungi.common.screenhandler.inventory.GlyphCraftingInventory;
+import me.luligabi.magicfungi.common.screenhandler.glyph.GlyphCraftingInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;

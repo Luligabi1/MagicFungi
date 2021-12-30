@@ -1,7 +1,6 @@
-package me.luligabi.magicfungi.common.screenhandler.slot;
+package me.luligabi.magicfungi.common.screenhandler.spell;
 
-import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
-import me.luligabi.magicfungi.common.screenhandler.inventory.GlyphCraftingInventory;
+import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -9,13 +8,13 @@ import net.minecraft.recipe.RecipeUnlocker;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.util.collection.DefaultedList;
 
-public class GlyphCarvingResultSlot extends Slot {
+public class SpellDiscoveryResultSlot extends Slot {
 
-    private final GlyphCraftingInventory input;
+    private final SpellCraftingInventory input;
     private final PlayerEntity player;
     private int amount;
 
-    public GlyphCarvingResultSlot(PlayerEntity player, GlyphCraftingInventory input, Inventory inventory, int index, int x, int y) {
+    public SpellDiscoveryResultSlot(PlayerEntity player, SpellCraftingInventory input, Inventory inventory, int index, int x, int y) {
         super(inventory, index, x, y);
         this.player = player;
         this.input = input;
@@ -59,7 +58,7 @@ public class GlyphCarvingResultSlot extends Slot {
     @Override
     public void onTakeItem(PlayerEntity player, ItemStack stack) {
         this.onCrafted(stack);
-        DefaultedList<ItemStack> defaultedList = player.world.getRecipeManager().getRemainingStacks(GlyphRecipe.Type.INSTANCE, this.input, player.world);
+        DefaultedList<ItemStack> defaultedList = player.world.getRecipeManager().getRemainingStacks(SpellRecipe.Type.INSTANCE, this.input, player.world);
 
         for(int i = 0; i < defaultedList.size(); ++i) {
             ItemStack itemStack = this.input.getStack(i);

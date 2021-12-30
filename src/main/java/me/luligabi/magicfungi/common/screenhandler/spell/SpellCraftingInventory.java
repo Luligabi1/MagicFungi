@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.screenhandler.inventory;
+package me.luligabi.magicfungi.common.screenhandler.spell;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
