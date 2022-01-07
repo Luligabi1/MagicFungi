@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item.misc;
 
 import me.luligabi.magicfungi.common.misc.component.MagicFungiComponents;
+import me.luligabi.magicfungi.common.util.MorbusCorruptionStatus;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -9,6 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.*;
@@ -38,11 +40,18 @@ public class MorbusRadiometerItem extends Item {
     }
 
     private void useRadiometer(PlayerEntity user, PlayerEntity target) { // TODO: Add better message to Radiometer
-        user.sendMessage(new TranslatableText(MagicFungiComponents.MORBUS_CORRUPTION.get(target).getValue() + ""), true); // TODO: Add option to have messages on actionBar or not
-        target.damage(DamageSource.sting(user), 0.5F);
+        float corruption = MagicFungiComponents.MORBUS_CORRUPTION.get(target).getValue();
+        MorbusCorruptionStatus status = MorbusCorruptionStatus.getStatus(corruption);
+        user.sendMessage(new TranslatableText("message.magicfungi.morbus_radiometer.1")
+                .formatted(status.getColor(), Formatting.BOLD)
+                .append(new TranslatableText("message.magicfungi.morbus_radiometer.2", corruption, status.getTranslatableText())
+                        .formatted(status.getColor())), true);
+        System.out.println(MagicFungiComponents.MORBUS_CORRUPTION.get(target).getValue());
+        target.damage(DamageSource.sting(user), 0.1F);
         target.getWorld().playSound(null, target.getBlockPos(), SoundEvents.ENCHANT_THORNS_HIT, SoundCategory.PLAYERS, 1.0F, 1.0F);
         user.getStackInHand(user.getActiveHand()).damage(1, user,
                 (entity) -> user.sendToolBreakStatus(user.getActiveHand()));
+        user.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
 

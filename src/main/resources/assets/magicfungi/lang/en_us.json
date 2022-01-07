@@ -152,20 +152,38 @@
 
   "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
 
+
+  "item.magicfungi.morbus_radiometer": "Morbus Radiometer",
+  "tooltip.magicfungi.morbus_radiometer": "A handmade test to check your Morbus Corruption rate.",
+  "message.magicfungi.morbus_radiometer.1": "Your Morbus Corruption rate is: ",
+  "message.magicfungi.morbus_radiometer.2": "%d (%d)",
+
+  "morbusCorruptionStatus.magicfungi.normal": "NORMAL",
+  "morbusCorruptionStatus.magicfungi.mildly_sick": "MILDLY SICK",
+  "morbusCorruptionStatus.magicfungi.concerning": "CONCERNING",
+  "morbusCorruptionStatus.magicfungi.seek_medical_attention": "SEEK MEDICAL ATTENTION",
+  "morbusCorruptionStatus.magicfungi.critical": "CRITICAL",
+  "morbusCorruptionStatus.magicfungi.corrupted": "CORRUPTED",
+
+
   "item.magicfungi.morbus_clock": "Morbus Clock",
   "tooltip.magicfungi.morbus_clock": "A special device able to predict the doomsday.",
+
 
   "item.magicfungi.heart_of_vivifica": "Heart of Vivifica",
   "tooltip.magicfungi.heart_of_vivifica.1": "An ancient artifact that can restore life.",
   "tooltip.magicfungi.heart_of_vivifica.2": "Can be used to remove Morbus spreading.",
   "message.magicfungi.heart_of_vivifica": "You feel relieved that your actions might have somehow improved the world for the better.",
 
+
   "item.magicfungi.heart_of_morbus": "Heart of Morbus",
   "tooltip.magicfungi.heart_of_morbus.1": "An ancient artifact that can bring curses.",
   "tooltip.magicfungi.heart_of_morbus.2": "Can be used to reactivate Morbus spreading.",
   "message.magicfungi.heart_of_morbus": "You feel guilty that your actions might have somehow doomed the world.",
 
+
   "item.magicfungi.guide_book": "Magic Mycology Book",
+
 
   "text.magicfungi.guide_book.landing_text": "Impetus, Clypeus, Utilis and Vivifica. These are all 4 known magic mushrooms researched by the greatest minds of long gone generations. Today, I start my journey to join such minds as I do my own research on the magic properties of these fungi.                                                   §lThis Book Belongs To:              §kGordon Morbus",
 

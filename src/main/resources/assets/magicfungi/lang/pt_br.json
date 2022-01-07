@@ -151,6 +151,19 @@
 
   "item.magicfungi.fungi_fertilizer": "Fertilizador Fúngico",
 
+
+  "item.magicfungi.morbus_radiometer": "Radiômetro Morbus",
+  "tooltip.magicfungi.morbus_radiometer": "Um teste feito à mão para checar sua taxa de Corrupção Morbus",
+  "message.magicfungi.morbus_radiometer.1": "Sua taxa de Corrupção Morbus é: ",
+
+  "morbusCorruptionStatus.magicfungi.normal": "NORMAL",
+  "morbusCorruptionStatus.magicfungi.mildly_sick": "UM POUCO DOENTE",
+  "morbusCorruptionStatus.magicfungi.concerning": "PREOCUPANTE",
+  "morbusCorruptionStatus.magicfungi.seek_medical_attention": "PROCURE ATENDIMENTO MÉDICO",
+  "morbusCorruptionStatus.magicfungi.critical": "CRÍTICO",
+  "morbusCorruptionStatus.magicfungi.corrupted": "CORROMPIDO",
+
+
   "item.magicfungi.morbus_clock": "Relógio Morbus",
   "tooltip.magicfungi.morbus_clock": "Um dispositivo especial capaz de prever o apocalipse.",
 
@@ -159,12 +172,15 @@
   "tooltip.magicfungi.heart_of_vivifica.2": "Pode ser utilizado para parar o espalhamento de Morbus.",
   "message.magicfungi.heart_of_vivifica": "Você se sente aliviado que suas ações podem ter de alguma forma melhorado o mundo.",
 
+
   "item.magicfungi.heart_of_morbus": "Coração-de-Morbus",
   "tooltip.magicfungi.heart_of_morbus.1": "Um artefato ancião que pode trazer maldições.",
   "tooltip.magicfungi.heart_of_morbus.2": "Pode ser utilizado para reabilitar o espalhamento de Morbus.",
   "message.magicfungi.heart_of_morbus": "Você se sente culpado que suas ações podem ter de alguma forma condenado o mundo.",
 
+
   "item.magicfungi.guide_book": "Livro de Micologia Mágica",
+
 
   "item.magicfungi.impetus_mushroom_stew": "Ensopado de Cogumelo Impetus",
   "item.magicfungi.clypeus_mushroom_stew": "Ensopado de Cogumelo Clypeus",
