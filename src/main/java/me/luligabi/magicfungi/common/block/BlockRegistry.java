@@ -73,11 +73,11 @@ public class BlockRegistry {
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, identifier), content);
     }
 
-    public static final Block IMPETUS_MUSHROOM_PLANT_BLOCK = new ImpetusMushroomPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_RED).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-    public static final Block CLYPEUS_MUSHROOM_PLANT_BLOCK = new ClypeusMushroomPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.CYAN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-    public static final Block UTILIS_MUSHROOM_PLANT_BLOCK = new UtilisMushroomPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.MAGENTA).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-    public static final Block VIVIFICA_MUSHROOM_PLANT_BLOCK = new VivificaMushroomPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.LIME).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
-    public static final Block MORBUS_MUSHROOM_PLANT_BLOCK = new MorbusMushroomPlantBlock(FabricBlockSettings.of(Material.REPLACEABLE_PLANT, MapColor.TERRACOTTA_BLACK).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block IMPETUS_MUSHROOM_PLANT_BLOCK = new ImpetusMushroomPlantBlock(FabricBlockSettings.of(Material.PLANT, MapColor.TERRACOTTA_RED).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block CLYPEUS_MUSHROOM_PLANT_BLOCK = new ClypeusMushroomPlantBlock(FabricBlockSettings.of(Material.PLANT, MapColor.CYAN).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block UTILIS_MUSHROOM_PLANT_BLOCK = new UtilisMushroomPlantBlock(FabricBlockSettings.of(Material.PLANT, MapColor.MAGENTA).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block VIVIFICA_MUSHROOM_PLANT_BLOCK = new VivificaMushroomPlantBlock(FabricBlockSettings.of(Material.PLANT, MapColor.LIME).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
+    public static final Block MORBUS_MUSHROOM_PLANT_BLOCK = new MorbusMushroomPlantBlock(FabricBlockSettings.of(Material.PLANT, MapColor.TERRACOTTA_BLACK).noCollision().breakInstantly().sounds(BlockSoundGroup.GRASS));
 
 
     public static final Block MORBUS_MUSHROOM_BLOCK = new MushroomBlock(FabricBlockSettings.of(Material.WOOD, MapColor.BLACK).strength(0.2F).sounds(BlockSoundGroup.WOOD));

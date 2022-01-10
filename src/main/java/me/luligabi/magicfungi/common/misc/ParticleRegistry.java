@@ -19,8 +19,6 @@ public class ParticleRegistry {
         Registry.register(Registry.PARTICLE_TYPE, new Identifier(MagicFungi.MOD_ID, "utilis_flame"), UTILIS_FLAME);
         Registry.register(Registry.PARTICLE_TYPE, new Identifier(MagicFungi.MOD_ID, "vivifica_flame"), VIVIFICA_FLAME);
         Registry.register(Registry.PARTICLE_TYPE, new Identifier(MagicFungi.MOD_ID, "morbus_flame"), MORBUS_FLAME);
-
-        Registry.register(Registry.PARTICLE_TYPE, new Identifier(MagicFungi.MOD_ID, "incognita_flame"), INCOGNITA_FLAME);
     }
 
     public static void clientInit() {
@@ -30,8 +28,6 @@ public class ParticleRegistry {
             registry.register(new Identifier(MagicFungi.MOD_ID, "particle/utilis_flame"));
             registry.register(new Identifier(MagicFungi.MOD_ID, "particle/vivifica_flame"));
             registry.register(new Identifier(MagicFungi.MOD_ID, "particle/morbus_flame"));
-
-            registry.register(new Identifier(MagicFungi.MOD_ID, "particle/incognita_flame"));
         }));
 
         ParticleFactoryRegistry.getInstance().register(IMPETUS_FLAME, FlameParticle.Factory::new);
@@ -39,8 +35,6 @@ public class ParticleRegistry {
         ParticleFactoryRegistry.getInstance().register(UTILIS_FLAME, FlameParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(VIVIFICA_FLAME, FlameParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(MORBUS_FLAME, FlameParticle.Factory::new);
-
-        ParticleFactoryRegistry.getInstance().register(INCOGNITA_FLAME, FlameParticle.Factory::new);
     }
 
     public static final DefaultParticleType IMPETUS_FLAME = FabricParticleTypes.simple();
@@ -48,7 +42,5 @@ public class ParticleRegistry {
     public static final DefaultParticleType UTILIS_FLAME = FabricParticleTypes.simple();
     public static final DefaultParticleType VIVIFICA_FLAME = FabricParticleTypes.simple();
     public static final DefaultParticleType MORBUS_FLAME = FabricParticleTypes.simple();
-
-    public static final DefaultParticleType INCOGNITA_FLAME = FabricParticleTypes.simple();
 
 }

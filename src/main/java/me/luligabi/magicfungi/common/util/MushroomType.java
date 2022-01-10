@@ -66,9 +66,10 @@ public enum MushroomType implements StringIdentifiable {
             case UTILIS -> ParticleRegistry.UTILIS_FLAME;
             case VIVIFICA -> ParticleRegistry.VIVIFICA_FLAME;
             case MORBUS -> ParticleRegistry.MORBUS_FLAME;
-            default -> ParticleRegistry.INCOGNITA_FLAME;
+            default -> throw new IllegalArgumentException("No particle effect available for this MushroomType!");
         };
     }
+
 
     @Override
     public String asString() {

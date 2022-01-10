@@ -55,7 +55,6 @@ public class Util {
 
     public static void setBlockWithSound(World world, BlockPos pos, BlockState state, SoundEvent soundEvent, SoundCategory soundCategory, float volume, float pitch) {
         world.setBlockState(pos.up(), state);
-        world.playSound(null, pos.up().getX(), pos.up().getY(), pos.up().getZ(),
-                soundEvent, soundCategory, volume, pitch);
+        world.playSound(null, pos.up(), soundEvent, soundCategory, volume, pitch);
     }
 }
