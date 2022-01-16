@@ -8,6 +8,7 @@
     "PlayerEntityMixin",
     "PlayerInventoryAccessor",
     "StatusEffectInstanceAccessor",
+    "VanillaSurfaceRulesInvoker",
     "VegetationPlacedFeaturesInvoker",
     "ZombieVillagerEntityInvoker"
   ],

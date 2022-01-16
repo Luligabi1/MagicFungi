@@ -24,6 +24,7 @@ def getChangeLog() {
 
 repositories {
     mavenCentral()
+    maven { url 'https://maven.minecraftforge.net/' } // Terrablender
     maven { url "https://maven.blamejared.com" } // Patchouli
     maven { url "https://maven.shedaniel.me/" } // REI
     maven { url "https://jitpack.io" } // Omega Config, Fabric Shield Lib
@@ -35,6 +36,9 @@ dependencies {
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+
+    modImplementation "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}"
+    modRuntimeOnly "com.github.glitchfiend:TerraBlender-fabric:${project.terrablender_version}"
 
     modImplementation "vazkii.patchouli:Patchouli:${project.patchouli_version}"
 
@@ -98,6 +102,7 @@ curseforge {
             displayName = RELEASE_NAME
             relations {
                 requiredDependency 'fabric-api'
+                requiredDependency 'terrablender-fabric'
                 requiredDependency 'patchouli-fabric'
 
                 embeddedLibrary 'omega-config'

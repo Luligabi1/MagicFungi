@@ -73,8 +73,8 @@ public class ModConfig implements Config {
     @Comment(value = "Whether Vivifica Mushrooms are generated naturally. This will not impact previously generated chunks.")
     public boolean  canGenerateVivificaMushrooms = true;
 
-    /*@Comment(value = "Whether Morbus Mushrooms are generated naturally. This will not impact previously generated chunks.")
-    public boolean  canGenerateMorbusMushrooms = true;*/
+    @Comment(value = "Whether Morbus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateMorbusMushrooms = true;
 
 
     @Comment(value = "Impetus Mushrooms' spawn ratio at normal circumstances.")
@@ -106,8 +106,13 @@ public class ModConfig implements Config {
 
 
     @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
-    public double hostBiomeSpawnRate = 0.2;
+    public int hostBiomeSpawnRate = 2;
 
+    @Comment(value = "Whether Wither Roses will be generated on the Host Biome.")
+    public boolean canGenerateWitherRoseHostBiome = true;
+
+    @Comment(value = "How often will Wither Roses generate on the Host Biome.")
+    public int hostBiomeWitherRoseSpawnRatio = 12;
 
 
     @Comment(value = "Whether Host Grass will start spreading towards non-grass blocks after X in-game days.\nThis only affects the default gamerule value for this setting.\nTo change this on already generated worlds, use /gamerule doMorbusSpread.\nKeep in mind this can be overridden by Morbus corruption items. Check canUseMorbusCorruptionItems for further information.")

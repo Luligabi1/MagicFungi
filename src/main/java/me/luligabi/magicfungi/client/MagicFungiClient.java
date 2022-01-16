@@ -17,7 +17,7 @@ import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.ShieldEntityModel;
-import net.minecraft.client.texture.SpriteAtlasTexture;
+import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -55,7 +55,7 @@ public class MagicFungiClient implements ClientModInitializer {
         ParticleRegistry.clientInit();
 
         EntityModelLayerRegistry.registerModelLayer(CLYPEUS_SHIELD_MODEL_LAYER, ShieldEntityModel::getTexturedModelData);
-        ClientSpriteRegistryCallback.event(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE).register((atlasTexture, registry) -> {
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register((atlasTexture, registry) -> {
             registry.register(new Identifier(MagicFungi.MOD_ID, "entity/clypeus_shield_base"));
             registry.register(new Identifier(MagicFungi.MOD_ID, "entity/clypeus_shield_base_nopattern"));
         });

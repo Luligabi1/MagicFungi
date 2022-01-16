@@ -11,7 +11,6 @@ import me.luligabi.magicfungi.common.misc.ParticleRegistry;
 import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.recipe.RecipeRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
-import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
 import me.luligabi.magicfungi.common.worldgen.feature.FeatureRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -33,7 +32,6 @@ public class MagicFungi implements ModInitializer {
 
         // Worldgen
         FeatureRegistry.init();
-        BiomeRegistry.init();
 
         // Recipe & UI
         RecipeRegistry.init();
