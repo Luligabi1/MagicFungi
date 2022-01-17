@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.worldgen.biome;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.worldgen.feature.FeatureRegistry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -9,7 +10,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import net.minecraft.world.gen.feature.OrePlacedFeatures;
+import net.minecraft.world.gen.feature.UndergroundPlacedFeatures;
 import terrablender.api.BiomeProviders;
 import terrablender.api.TerraBlenderApi;
 
@@ -33,12 +37,25 @@ public class BiomeRegistry implements TerraBlenderApi {
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
         //generationSettings.surfaceBuilder(HOST_BIOME_SURFACE_BUILDER);
 
-        //DefaultBiomeFeatures.add
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDungeons(generationSettings);
-        DefaultBiomeFeatures.addMineables(generationSettings);
+        DefaultBiomeFeatures.addAmethystGeodes(generationSettings);
+
+        // DefaultBiomes#addMineables, but with ORE_HOST_DIRT_PLACED_FEATURE replacing ORE_DIRT.
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, FeatureRegistry.ORE_HOST_DIRT_PLACED_FEATURE);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GRAVEL);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GRANITE_UPPER);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_GRANITE_LOWER);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_DIORITE_UPPER);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_DIORITE_LOWER);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_ANDESITE_UPPER);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_ANDESITE_LOWER);
+        generationSettings.feature(GenerationStep.Feature.UNDERGROUND_ORES, OrePlacedFeatures.ORE_TUFF);
+        generationSettings.feature(GenerationStep.Feature.VEGETAL_DECORATION, UndergroundPlacedFeatures.GLOW_LICHEN);
+
         DefaultBiomeFeatures.addDefaultOres(generationSettings);
         DefaultBiomeFeatures.addDefaultDisks(generationSettings);
+
 
         return (new Biome.Builder())
                 .precipitation(Biome.Precipitation.NONE)

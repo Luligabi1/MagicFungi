@@ -33,7 +33,7 @@ public class HostBiomeProvider extends BiomeProvider {
         addBiome(mapper,
             ParameterUtils.Temperature.NEUTRAL,
             ParameterUtils.Humidity.NEUTRAL,
-            ParameterUtils.Continentalness.MID_INLAND, // TODO: Test other values
+            ParameterUtils.Continentalness.FAR_INLAND, // TODO: Test other values
             ParameterUtils.Erosion.EROSION_0, // TODO: Test other values
             ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING,
             ParameterUtils.Depth.SURFACE,

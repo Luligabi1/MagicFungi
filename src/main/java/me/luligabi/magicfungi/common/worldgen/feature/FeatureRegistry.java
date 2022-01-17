@@ -3,6 +3,7 @@ package me.luligabi.magicfungi.common.worldgen.feature;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
+import me.luligabi.magicfungi.mixin.OrePlacedFeaturesInvoker;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.minecraft.block.Block;
@@ -17,13 +18,17 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.decorator.BiomePlacementModifier;
+import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
 import net.minecraft.world.gen.decorator.SquarePlacementModifier;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.DualNoiseBlockStateProvider;
 
 import java.util.List;
+
+import static net.minecraft.world.gen.feature.OreConfiguredFeatures.BASE_STONE_OVERWORLD;
 
 public class FeatureRegistry {
 
@@ -41,23 +46,20 @@ public class FeatureRegistry {
         registerHostBiomeFeature(WITHER_ROSE_CONFIGURED_FEATURE, WITHER_ROSE_PLACED_FEATURE, "wither_rose_host_biome", GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateWitherRoseHostBiome);
 
         //registerHostBiomeFeature(HUGE_MORBUS_VEGETATION_CONFIGURED_FEATURE, HUGE_MORBUS_VEGETATION_PLACED_FEATURE, "huge_morbus_vegetation", GenerationStep.Feature.VEGETAL_DECORATION, true);
+
+        registerFeature(ORE_HOST_DIRT_CONFIGURED_FEATURE, ORE_HOST_DIRT_PLACED_FEATURE, "ore_host_dirt");
     }
 
     private static void registerMagicMushroomFeature(ConfiguredFeature<?, ?> regularConfiguredFeature, PlacedFeature regularPlacedFeature, String regularIdentifier, ConfiguredFeature<?, ?> biomeEnhancedConfiguredFeature, PlacedFeature biomeEnhancedPlacedFeature, String biomeEnhancedIdentifier, boolean enabled, Biome.Category... biomeCategory) {
         if(!enabled) return;
+
         // Regular feature registry
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-                new Identifier(MagicFungi.MOD_ID, regularIdentifier), regularConfiguredFeature);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE,
-                new Identifier(MagicFungi.MOD_ID, regularIdentifier), regularPlacedFeature);
+        registerFeature(regularConfiguredFeature, regularPlacedFeature, regularIdentifier);
         BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION,
                 RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MagicFungi.MOD_ID, regularIdentifier)));
 
         // Biome Enhanced feature registry
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-                new Identifier(MagicFungi.MOD_ID, biomeEnhancedIdentifier), biomeEnhancedConfiguredFeature);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE,
-                new Identifier(MagicFungi.MOD_ID, biomeEnhancedIdentifier), biomeEnhancedPlacedFeature);
+        registerFeature(biomeEnhancedConfiguredFeature, biomeEnhancedPlacedFeature, biomeEnhancedIdentifier);
         BiomeModifications.addFeature(BiomeSelectors.categories(biomeCategory), GenerationStep.Feature.VEGETAL_DECORATION,
                 RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MagicFungi.MOD_ID, biomeEnhancedIdentifier)));
     }
@@ -65,12 +67,16 @@ public class FeatureRegistry {
     private static void registerHostBiomeFeature(ConfiguredFeature<?, ?> configuredFeature, PlacedFeature placedFeature, String identifier, GenerationStep.Feature genStep, boolean enabled) {
         if(!enabled) return;
 
+        registerFeature(configuredFeature, placedFeature, identifier);
+        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), genStep,
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MagicFungi.MOD_ID, identifier)));
+    }
+
+    private static void registerFeature(ConfiguredFeature<?, ?> configuredFeature, PlacedFeature placedFeature, String identifier) {
         Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
                 new Identifier(MagicFungi.MOD_ID, identifier), configuredFeature);
         Registry.register(BuiltinRegistries.PLACED_FEATURE,
                 new Identifier(MagicFungi.MOD_ID, identifier), placedFeature);
-        BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), genStep,
-                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MagicFungi.MOD_ID, identifier)));
     }
 
     // Impetus Mushroom
@@ -181,6 +187,17 @@ public class FeatureRegistry {
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
             BiomePlacementModifier.of());
+
+
+    // Host Dirt Ore Disk - Host Biome
+    public static final ConfiguredFeature<?, ?> ORE_HOST_DIRT_CONFIGURED_FEATURE = Feature.ORE.configure(
+            new OreFeatureConfig(BASE_STONE_OVERWORLD,
+            BlockRegistry.HOST_DIRT.getDefaultState(),
+            33));
+
+    public static final PlacedFeature ORE_HOST_DIRT_PLACED_FEATURE = ORE_HOST_DIRT_CONFIGURED_FEATURE.withPlacement(
+            OrePlacedFeaturesInvoker.modifiersWithCount(7,
+            HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(160))));
 
 
     private static ConfiguredFeature<?, ?> generateMushroomFeatureSupplier(Block block, int tries) {
