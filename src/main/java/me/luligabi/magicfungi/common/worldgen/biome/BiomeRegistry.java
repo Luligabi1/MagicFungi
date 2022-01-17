@@ -63,12 +63,12 @@ public class BiomeRegistry implements TerraBlenderApi {
                 .temperature(1.0F)
                 .downfall(0.0F)
                 .effects((new BiomeEffects.Builder())
-                        .grassColor(0x6a3d11)
-                        .foliageColor(0x4c2c0c)
-                        .waterColor(0x617b64) // TODO: Change water color
-                        .waterFogColor(0x232317) // TODO: Test water fog color
-                        .fogColor(0xc0d8ff)
-                        .skyColor(0x6eb1ff)
+                        .grassColor(0x6A3D11)
+                        .foliageColor(0x4C2C0C)
+                        .waterColor(0x37261A)
+                        .waterFogColor(0x433121)
+                        .fogColor(0xC0D8FF)
+                        .skyColor(0x6EB1FF)
                         .build())
                 .spawnSettings(spawnSettings.build())
                 .generationSettings(generationSettings.build())
