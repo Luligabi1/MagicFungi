@@ -14,6 +14,9 @@
     },
     "mushroom_type=morbus": {
       "model": "magicfungi:block/cadentis_block/cadentis_block_morbus"
+    },
+    "mushroom_type=incognita": {
+      "model": "magicfungi:block/cadentis_block/cadentis_block_morbus"
     }
   }
 }
