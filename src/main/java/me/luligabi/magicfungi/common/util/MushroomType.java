@@ -8,14 +8,14 @@ import net.minecraft.util.StringIdentifiable;
 
 public enum MushroomType implements StringIdentifiable {
 
-    IMPETUS(new TranslatableText("name.magicfungi.impetus"), new TranslatableText("name.magicfungi.impetus.stats"), "impetus"),
-    CLYPEUS(new TranslatableText("name.magicfungi.clypeus"), new TranslatableText("name.magicfungi.clypeus.stats"), "clypeus"),
-    UTILIS(new TranslatableText("name.magicfungi.utilis"), new TranslatableText("name.magicfungi.utilis.stats"), "utilis"),
-    VIVIFICA(new TranslatableText("name.magicfungi.vivifica"), new TranslatableText("name.magicfungi.vivifica.stats"), "vivifica"),
-    MORBUS(new TranslatableText("name.magicfungi.morbus"), new TranslatableText("name.magicfungi.morbus.stats"), "morbus"),
+    IMPETUS(new TranslatableText("mushroomType.magicfungi.impetus"), new TranslatableText("mushroomType.magicfungi.impetus.stats"), "impetus"),
+    CLYPEUS(new TranslatableText("mushroomType.magicfungi.clypeus"), new TranslatableText("mushroomType.magicfungi.clypeus.stats"), "clypeus"),
+    UTILIS(new TranslatableText("mushroomType.magicfungi.utilis"), new TranslatableText("mushroomType.magicfungi.utilis.stats"), "utilis"),
+    VIVIFICA(new TranslatableText("mushroomType.magicfungi.vivifica"), new TranslatableText("mushroomType.magicfungi.vivifica.stats"), "vivifica"),
+    MORBUS(new TranslatableText("mushroomType.magicfungi.morbus"), new TranslatableText("mushroomType.magicfungi.morbus.stats"), "morbus"),
 
     // Unknown
-    INCOGNITA(new TranslatableText("name.magicfungi.incognita"), new TranslatableText("name.magicfungi.incognita.stats"), "incognita");
+    INCOGNITA(new TranslatableText("mushroomType.magicfungi.incognita"), new TranslatableText("mushroomType.magicfungi.incognita.stats"), "incognita");
 
     private final TranslatableText fancyName;
     private final TranslatableText statsName;

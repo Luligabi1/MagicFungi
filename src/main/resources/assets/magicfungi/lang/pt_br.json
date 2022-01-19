@@ -5,19 +5,12 @@
   "block.magicfungi.vivifica_mushroom": "Cogumelo Vivifica",
   "block.magicfungi.morbus_mushroom": "Cogumelo Morbus",
 
-  "name.magicfungi.impetus": "Impetus",
-  "name.magicfungi.clypeus": "Clypeus",
-  "name.magicfungi.utilis": "Utilis",
-  "name.magicfungi.vivifica": "Vivifica",
-  "name.magicfungi.morbus": "Morbus",
-  "name.magicfungi.incognita": "Incognita",
-
-  "name.magicfungi.impetus.stats": "Ataque",
-  "name.magicfungi.clypeus.stats": "Defesa",
-  "name.magicfungi.utilis.stats": "Utilidade",
-  "name.magicfungi.vivifica.stats": "Cura",
-  "name.magicfungi.morbus.stats": "Doença",
-  "name.magicfungi.incognita.stats": "???",
+  "mushroomType.magicfungi.impetus.stats": "Ataque",
+  "mushroomType.magicfungi.clypeus.stats": "Defesa",
+  "mushroomType.magicfungi.utilis.stats": "Utilidade",
+  "mushroomType.magicfungi.vivifica.stats": "Vida",
+  "mushroomType.magicfungi.morbus.stats": "Doença",
+  "mushroomType.magicfungi.incognita.stats": "???",
 
 
   "tooltip.magicfungi.spell_info.1": "Tipo: ",
