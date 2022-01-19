@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.recipe.spell;
 
-import me.luligabi.magicfungi.common.screenhandler.inventory.SpellCraftingInventory;
+import me.luligabi.magicfungi.common.screenhandler.spell.SpellCraftingInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;

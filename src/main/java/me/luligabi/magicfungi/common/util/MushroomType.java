@@ -1,25 +1,30 @@
 package me.luligabi.magicfungi.common.util;
 
+import me.luligabi.magicfungi.common.misc.ParticleRegistry;
+import net.minecraft.particle.DefaultParticleType;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
+import net.minecraft.util.StringIdentifiable;
 
-public enum MushroomType {
+public enum MushroomType implements StringIdentifiable {
 
-    IMPETUS(new TranslatableText("name.magicfungi.impetus"), new TranslatableText("name.magicfungi.impetus.stats")),
-    CLYPEUS(new TranslatableText("name.magicfungi.clypeus"), new TranslatableText("name.magicfungi.clypeus.stats")),
-    UTILIS(new TranslatableText("name.magicfungi.utilis"), new TranslatableText("name.magicfungi.utilis.stats")),
-    VIVIFICA(new TranslatableText("name.magicfungi.vivifica"), new TranslatableText("name.magicfungi.vivifica.stats")),
-    MORBUS(new TranslatableText("name.magicfungi.morbus"), new TranslatableText("name.magicfungi.morbus.stats")),
+    IMPETUS(new TranslatableText("mushroomType.magicfungi.impetus"), new TranslatableText("mushroomType.magicfungi.impetus.stats"), "impetus"),
+    CLYPEUS(new TranslatableText("mushroomType.magicfungi.clypeus"), new TranslatableText("mushroomType.magicfungi.clypeus.stats"), "clypeus"),
+    UTILIS(new TranslatableText("mushroomType.magicfungi.utilis"), new TranslatableText("mushroomType.magicfungi.utilis.stats"), "utilis"),
+    VIVIFICA(new TranslatableText("mushroomType.magicfungi.vivifica"), new TranslatableText("mushroomType.magicfungi.vivifica.stats"), "vivifica"),
+    MORBUS(new TranslatableText("mushroomType.magicfungi.morbus"), new TranslatableText("mushroomType.magicfungi.morbus.stats"), "morbus"),
 
     // Unknown
-    INCOGNITA(new TranslatableText("name.magicfungi.incognita"), new TranslatableText("name.magicfungi.incognita.stats"));
+    INCOGNITA(new TranslatableText("mushroomType.magicfungi.incognita"), new TranslatableText("mushroomType.magicfungi.incognita.stats"), "incognita");
 
-    protected TranslatableText fancyName;
-    protected TranslatableText statsName;
+    private final TranslatableText fancyName;
+    private final TranslatableText statsName;
+    private final String id;
 
-    MushroomType(TranslatableText fancy, TranslatableText stats) {
-        fancyName = fancy;
-        statsName = stats;
+    MushroomType(TranslatableText fancyName, TranslatableText statsName, String id) {
+        this.fancyName = fancyName;
+        this.statsName = statsName;
+        this.id = id;
     }
 
     public TranslatableText getFancyName() {
@@ -29,6 +34,8 @@ public enum MushroomType {
     public TranslatableText getStatsName() {
         return statsName;
     }
+
+    public String getId() { return id; }
 
     public static Formatting getLightColor(MushroomType mushroomType) {
         return switch (mushroomType) {
@@ -50,5 +57,22 @@ public enum MushroomType {
             case MORBUS -> Formatting.DARK_GRAY;
             default -> Formatting.WHITE;
         };
+    }
+
+    public static DefaultParticleType getParticleEffect(MushroomType mushroomType) {
+        return switch (mushroomType) {
+            case IMPETUS -> ParticleRegistry.IMPETUS_FLAME;
+            case CLYPEUS -> ParticleRegistry.CLYPEUS_FLAME;
+            case UTILIS -> ParticleRegistry.UTILIS_FLAME;
+            case VIVIFICA -> ParticleRegistry.VIVIFICA_FLAME;
+            case MORBUS -> ParticleRegistry.MORBUS_FLAME;
+            default -> throw new IllegalArgumentException("No particle effect available for this MushroomType!");
+        };
+    }
+
+
+    @Override
+    public String asString() {
+        return getId();
     }
 }

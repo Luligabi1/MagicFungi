@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.client;
 
+import draylar.omegaconfiggui.OmegaConfigGui;
 import me.luligabi.magicfungi.client.screen.GlyphCarvingScreen;
 import me.luligabi.magicfungi.client.screen.SpellDiscoveryScreen;
 import me.luligabi.magicfungi.common.MagicFungi;
@@ -16,7 +17,7 @@ import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.ShieldEntityModel;
-import net.minecraft.client.texture.SpriteAtlasTexture;
+import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 
 @Environment(EnvType.CLIENT)
@@ -54,10 +55,12 @@ public class MagicFungiClient implements ClientModInitializer {
         ParticleRegistry.clientInit();
 
         EntityModelLayerRegistry.registerModelLayer(CLYPEUS_SHIELD_MODEL_LAYER, ShieldEntityModel::getTexturedModelData);
-        ClientSpriteRegistryCallback.event(SpriteAtlasTexture.BLOCK_ATLAS_TEXTURE).register((atlasTexture, registry) -> {
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register((atlasTexture, registry) -> {
             registry.register(new Identifier(MagicFungi.MOD_ID, "entity/clypeus_shield_base"));
             registry.register(new Identifier(MagicFungi.MOD_ID, "entity/clypeus_shield_base_nopattern"));
         });
+
+        OmegaConfigGui.registerConfigScreen(MagicFungi.CONFIG);
     }
 
     public static final EntityModelLayer CLYPEUS_SHIELD_MODEL_LAYER = new EntityModelLayer(new Identifier(MagicFungi.MOD_ID, "clypeus_shield"),"main");

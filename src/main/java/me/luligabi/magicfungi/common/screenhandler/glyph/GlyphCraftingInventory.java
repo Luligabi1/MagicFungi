@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.screenhandler.inventory;
+package me.luligabi.magicfungi.common.screenhandler.glyph;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;

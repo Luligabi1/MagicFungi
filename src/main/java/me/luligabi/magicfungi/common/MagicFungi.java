@@ -5,12 +5,12 @@ import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
 import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
+import me.luligabi.magicfungi.common.misc.CompostableRegistry;
 import me.luligabi.magicfungi.common.misc.GameRuleRegistry;
 import me.luligabi.magicfungi.common.misc.ParticleRegistry;
 import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.recipe.RecipeRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
-import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
 import me.luligabi.magicfungi.common.worldgen.feature.FeatureRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -24,19 +24,23 @@ public class MagicFungi implements ModInitializer {
     public void onInitialize() {
         BlockRegistry.init();
 
+        // Items & Tags
         GlyphRegistry.init();
         SpellRegistry.init();
         ItemRegistry.init();
         TagRegistry.init();
 
+        // Worldgen
         FeatureRegistry.init();
-        BiomeRegistry.init();
 
+        // Recipe & UI
         RecipeRegistry.init();
         ScreenHandlingRegistry.init();
 
+        // Misc
         ParticleRegistry.init();
         GameRuleRegistry.init();
+        CompostableRegistry.init();
     }
 
     public static final String MOD_ID = "magicfungi";

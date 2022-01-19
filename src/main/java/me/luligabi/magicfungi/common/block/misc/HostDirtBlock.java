@@ -1,7 +1,7 @@
 package me.luligabi.magicfungi.common.block.misc;
 
 import me.luligabi.magicfungi.common.misc.TagRegistry;
-import me.luligabi.magicfungi.common.util.Util;
+import me.luligabi.magicfungi.common.util.WorldUtil;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.server.world.ServerWorld;
@@ -18,7 +18,7 @@ public class HostDirtBlock extends Block {
 
     @Override
     public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
-        if(!Util.isMorbusSpreadingActive(world)) return;
+        if(!WorldUtil.isMorbusSpreadingActive(world)) return;
         if(!hasExposedSide(pos, world)) return;
         BlockState blockState = this.getDefaultState();
         for (int i = 0; i < 4; ++i) {

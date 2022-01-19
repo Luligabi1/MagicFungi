@@ -27,6 +27,9 @@
     ],
     "rei_plugins": [
       "me.luligabi.magicfungi.client.compat.rei.ReiPlugin"
+    ],
+    "terrablender": [
+      "me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry"
     ]
   },
   "mixins": [
@@ -37,6 +40,7 @@
     "minecraft": "1.18.x",
     "fabricloader": ">=0.11.3",
     "fabric": "*",
+    "terrablender": "*",
     "patchouli": "*"
   },
   "recommends": {

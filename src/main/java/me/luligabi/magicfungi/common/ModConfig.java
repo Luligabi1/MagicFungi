@@ -3,6 +3,7 @@ package me.luligabi.magicfungi.common;
 
 import draylar.omegaconfig.api.Comment;
 import draylar.omegaconfig.api.Config;
+import org.jetbrains.annotations.Nullable;
 
 public class ModConfig implements Config {
 
@@ -29,7 +30,6 @@ public class ModConfig implements Config {
 
     @Comment(value  = "Cooldown for Fertilis Spell usage.")
     public int fertilisSpellCooldown = 170;
-
 
 
     @Comment(value = "Duration of Parasitus Glyph's effects.")
@@ -60,8 +60,69 @@ public class ModConfig implements Config {
     @Comment(value = "Morbus Scythe's wither effect strength. 0 = I, 1 = II, etc.")
     public int morbusScytheEffectStrength = 0;
 
+    @Comment(value = "Magical Fungi Armor's Durability Multiplier. Changing this value on worlds where you already have Magical Fungi Armor is NOT recommended.")
+    public int magicalFungiArmorDurabilityMultiplier = 45;
+
+    @Comment(value = "Magical Fungi Armor's toughness. Armor Toughness defines how much damage is absorbed by the armor.")
+    public float magicalFungiArmorToughness = 3.5F;
+
+    @Comment(value = "Magical Fungi Armor's knockback resistance. Greater values are not recommended, as they may result in no knockback whatsoever.")
+    public float magicalFungiKnockBackResistance = 0.15F;
+
+
+    @Comment(value = "Whether Impetus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateImpetusMushrooms = true;
+
+    @Comment(value = "Whether Clypeus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateClypeusMushrooms = true;
+
+    @Comment(value = "Whether Impetus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateUtilisMushrooms = true;
+
+    @Comment(value = "Whether Vivifica Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateVivificaMushrooms = true;
+
+    @Comment(value = "Whether Morbus Mushrooms are generated naturally. This will not impact previously generated chunks.")
+    public boolean  canGenerateMorbusMushrooms = true;
+
+
+    @Comment(value = "Impetus Mushrooms' spawn ratio at normal circumstances.")
+    public int impetusRegularSpawnRatio = 12;
+
+    @Comment(value = "Impetus Mushrooms' spawn ratio on biomes with enhanced ratios (check the book guide for info on such biomes).")
+    public int impetusBiomeEnhancedSpawnRatio = 28;
+
+
+    @Comment(value = "Clypeus Mushrooms' spawn ratio at normal circumstances.")
+    public int clypeusRegularSpawnRatio = 12;
+
+    @Comment(value = "Clypeus Mushrooms' spawn ratio on biomes with enhanced ratios (check the book guide for info on such biomes).")
+    public int clypeusBiomeEnhancedSpawnRatio = 28;
+
+
+    @Comment(value = "Utilis Mushrooms' spawn ratio at normal circumstances.")
+    public int utilisRegularSpawnRatio = 12;
+
+    @Comment(value = "Utilis Mushrooms' spawn ratio on biomes with enhanced ratios (check the book guide for info on such biomes).")
+    public int utilisBiomeEnhancedSpawnRatio = 28;
+
+
+    @Comment(value = "Vivifica Mushrooms' spawn ratio at normal circumstances.")
+    public int vivificaRegularSpawnRatio = 12;
+
+    @Comment(value = "Vivifica Mushrooms' spawn ratio on biomes with enhanced ratios (check the book guide for info on such biomes).")
+    public int vivificaBiomeEnhancedSpawnRatio = 28;
+
+
     @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
-    public double hostBiomeSpawnRate = 0.2;
+    public int hostBiomeSpawnRate = 2;
+
+    @Comment(value = "Whether Wither Roses will be generated on the Host Biome.")
+    public boolean canGenerateWitherRoseHostBiome = true;
+
+    @Comment(value = "How often will Wither Roses generate on the Host Biome.")
+    public int hostBiomeWitherRoseSpawnRatio = 12;
+
 
     @Comment(value = "Whether Host Grass will start spreading towards non-grass blocks after X in-game days.\nThis only affects the default gamerule value for this setting.\nTo change this on already generated worlds, use /gamerule doMorbusSpread.\nKeep in mind this can be overridden by Morbus corruption items. Check canUseMorbusCorruptionItems for further information.")
     public boolean doMorbusSpread = false;
@@ -73,5 +134,8 @@ public class ModConfig implements Config {
     public boolean canUseMorbusCorruptionItems = false;
 
     @Override
-    public String getName() { return "magicfungi"; }
+    public String getName() { return MagicFungi.MOD_ID; }
+
+    @Override
+    public @Nullable String getModid() { return MagicFungi.MOD_ID; }
 }

@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.block.mushroom;
 
+import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.tag.BlockTags;
@@ -16,7 +17,9 @@ public abstract class MagicMushroomPlantBlock extends MushroomPlantBlock {
 
     protected static final VoxelShape SHAPE = Block.createCuboidShape(5.0D, 0.0D, 5.0D, 11.0D, 6.0D, 11.0D);
 
-    public MagicMushroomPlantBlock(Settings settings) {
+    private MushroomType mushroomType;
+
+    public MagicMushroomPlantBlock(Settings settings, MushroomType mushroomType) {
         super(settings, null);
     }
 
@@ -57,5 +60,7 @@ public abstract class MagicMushroomPlantBlock extends MushroomPlantBlock {
 
     @Override
     public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) { }
+
+    public MushroomType getMushroomType() { return mushroomType; }
 
 }

@@ -1,9 +1,8 @@
-package me.luligabi.magicfungi.common.screenhandler;
+package me.luligabi.magicfungi.common.screenhandler.spell;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
-import me.luligabi.magicfungi.common.screenhandler.inventory.GlyphCraftingInventory;
-import me.luligabi.magicfungi.common.screenhandler.slot.GlyphCarvingResultSlot;
+import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
+import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
@@ -22,38 +21,43 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<GlyphCraftingInventory> {
+public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<SpellCraftingInventory> {
 
-    private final GlyphCraftingInventory input;
+    private final SpellCraftingInventory input;
     private final CraftingResultInventory result;
     public final PlayerInventory playerInventory;
     private final ScreenHandlerContext context;
 
-    public GlyphCarvingScreenHandler(int syncId, PlayerInventory playerInventory) {
+    public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, ScreenHandlerContext.EMPTY);
     }
 
-    public GlyphCarvingScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
-        super(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, syncId);
+    public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
+        super(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, syncId);
         this.playerInventory = playerInventory;
-        this.input = new GlyphCraftingInventory(this);
+        this.input = new SpellCraftingInventory(this);
         this.result = new CraftingResultInventory();
         this.context = context;
 
-        checkSize(this.input, 5);
+        checkSize(this.input, 9);
         this.input.onOpen(playerInventory.player);
 
-        this.addSlot(new Slot(this.input, 0, 62 + 18, 56 + -2 * 18)); // inputA
-        this.addSlot(new Slot(this.input, 1, 62 + -1 * 18, 56)); // inputB
-        this.addSlot(new Slot(this.input, 2, 62 + 3 * 18, 56)); // inputC
-        this.addSlot(new Slot(this.input, 3, 62 + 18, 56 + 2 * 18)); // inputD
 
-        this.addSlot(new GlyphCarvingResultSlot(playerInventory.player, this.input, this.result, 4, 62 + 18, 56)); // Output
+        this.addSlot(new Slot(this.input, 0, 62, 56 + -2 * 18)); // inputA
+        this.addSlot(new Slot(this.input, 1, 62 + 2 * 18, 56 + -2 * 18)); // inputB
+        this.addSlot(new Slot(this.input, 2, 62 + -1 * 18, 56 + -1 * 18)); // inputC
+        this.addSlot(new Slot(this.input, 3, 62 + 3 * 18, 56 + -1 * 18)); // inputD
+        this.addSlot(new Slot(this.input, 4, 62 + -1 * 18, 56 + 18)); // inputE
+        this.addSlot(new Slot(this.input, 5, 62 + 3 * 18, 56 + 18)); // inputF
+        this.addSlot(new Slot(this.input, 6, 62, 56 + 2 * 18)); // inputG
+        this.addSlot(new Slot(this.input, 7, 62 + 2 * 18, 56 + 2 * 18)); // inputH
+
+        this.addSlot(new SpellDiscoveryResultSlot(playerInventory.player, this.input, this.result, 8, 62 + 18, 56)); // Output
 
         int m;
         int l;
 
-        // Inventory
+        // Player Inventory
         for (m = 0; m < 3; ++m) {
             for (l = 0; l < 9; ++l) {
                 this.addSlot(new Slot(playerInventory, l + m * 9 + 9, 8 + l * 18, 123 + m * 18));
@@ -66,21 +70,21 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
 
     }
 
-    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity, GlyphCraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
+    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity, SpellCraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
         if (!world.isClient) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) playerEntity;
             ItemStack itemStack = ItemStack.EMPTY;
-            Optional<GlyphRecipe> optional = world.getServer().getRecipeManager().getFirstMatch(GlyphRecipe.Type.INSTANCE, craftingInventory, world);
+            Optional<SpellRecipe> optional = world.getServer().getRecipeManager().getFirstMatch(SpellRecipe.Type.INSTANCE, craftingInventory, world);
             if (optional.isPresent()) {
-                GlyphRecipe glyphRecipe = optional.get();
-                if (resultInventory.shouldCraftRecipe(world, serverPlayerEntity, glyphRecipe)) {
-                    itemStack = glyphRecipe.craft(craftingInventory);
+                SpellRecipe spellRecipe = optional.get();
+                if (resultInventory.shouldCraftRecipe(world, serverPlayerEntity, spellRecipe)) {
+                    itemStack = spellRecipe.craft(craftingInventory);
                 }
             }
 
-            resultInventory.setStack(4, itemStack);
-            handler.setPreviousTrackedSlot(4, itemStack);
-            serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, handler.nextRevision(), 4, itemStack));
+            resultInventory.setStack(8, itemStack);
+            handler.setPreviousTrackedSlot(8, itemStack);
+            serverPlayerEntity.networkHandler.sendPacket(new ScreenHandlerSlotUpdateS2CPacket(handler.syncId, handler.nextRevision(), 8, itemStack));
         }
     }
 
@@ -100,24 +104,24 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
         if (slot != null && slot.hasStack()) {
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
-            if (index == 4) {
+            if (index == 8) {
                 this.context.run((world, pos) -> itemStack2.getItem().onCraft(itemStack2, world, player));
-                if (!this.insertItem(itemStack2, 10, 41, true)) {
+                if (!this.insertItem(itemStack2, 10, 45, true)) {
                     return ItemStack.EMPTY;
                 }
 
                 slot.onQuickTransfer(itemStack2, itemStack);
-            } else if (index >= 5 && index < 42) {
-                if (!this.insertItem(itemStack2, 0, 4, false)) {
+            } else if (index >= 9 && index < 46) {
+                if (!this.insertItem(itemStack2, 0, 8, false)) {
                     if (index < 37) {
-                        if (!this.insertItem(itemStack2, 37, 41, false)) {
+                        if (!this.insertItem(itemStack2, 37, 45, false)) {
                             return ItemStack.EMPTY;
                         }
-                    } else if (!this.insertItem(itemStack2, 5, 37, false)) {
+                    } else if (!this.insertItem(itemStack2, 9, 37, false)) {
                         return ItemStack.EMPTY;
                     }
                 }
-            } else if (!this.insertItem(itemStack2, 5, 41, false)) {
+            } else if (!this.insertItem(itemStack2, 9, 45, false)) {
                 return ItemStack.EMPTY;
             }
 
@@ -132,7 +136,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
             }
 
             slot.onTakeItem(player, itemStack2);
-            if (index == 4) {
+            if (index == 8) {
                 player.dropItem(itemStack2, false);
             }
         }
@@ -141,7 +145,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
     }
 
     @Override
-    public boolean canUse(PlayerEntity player) { return canUse(this.context, player, BlockRegistry.GLYPH_CARVING_BLOCK); }
+    public boolean canUse(PlayerEntity player) { return canUse(this.context, player, BlockRegistry.SPELL_DISCOVERY_BLOCK); }
 
     @Override
     public void populateRecipeFinder(RecipeMatcher finder) { this.input.provideRecipeInputs(finder); }
@@ -153,7 +157,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
     }
 
     @Override
-    public boolean matches(Recipe<? super GlyphCraftingInventory> recipe) { return recipe.matches(this.input, this.playerInventory.player.world); }
+    public boolean matches(Recipe<? super SpellCraftingInventory> recipe) { return recipe.matches(this.input, this.playerInventory.player.world); }
 
     @Override
     public int getCraftingResultSlotIndex() { return 8; }
@@ -165,7 +169,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
     public int getCraftingHeight() { return Integer.MAX_VALUE; }
 
     @Override
-    public int getCraftingSlotCount() { return 5; }
+    public int getCraftingSlotCount() { return 9; }
 
     @Override
     public RecipeBookCategory getCategory() { return null; }
@@ -175,4 +179,5 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
 
     @Override
     public boolean canInsertIntoSlot(ItemStack stack, Slot slot) { return slot.inventory != this.result && super.canInsertIntoSlot(stack, slot); }
+
 }

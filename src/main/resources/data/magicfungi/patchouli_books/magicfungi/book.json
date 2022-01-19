@@ -1,6 +1,6 @@
 {
   "name": "item.magicfungi.guide_book",
-  "landing_text": "",
+  "landing_text": "text.magicfungi.guide_book.landing_text",
   "version": 1,
   "subtitle": "Unravel the secrets of the fungus.",
   "model": "magicfungi:guide_book",
