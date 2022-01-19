@@ -60,6 +60,15 @@ public class ModConfig implements Config {
     @Comment(value = "Morbus Scythe's wither effect strength. 0 = I, 1 = II, etc.")
     public int morbusScytheEffectStrength = 0;
 
+    @Comment(value = "Magical Fungi Armor's Durability Multiplier. Changing this value on worlds where you already have Magical Fungi Armor is NOT recommended.")
+    public int magicalFungiArmorDurabilityMultiplier = 45;
+
+    @Comment(value = "Magical Fungi Armor's toughness. Armor Toughness defines how much damage is absorbed by the armor.")
+    public float magicalFungiArmorToughness = 3.5F;
+
+    @Comment(value = "Magical Fungi Armor's knockback resistance. Greater values are not recommended, as they may result in no knockback whatsoever.")
+    public float magicalFungiKnockBackResistance = 0.15F;
+
 
     @Comment(value = "Whether Impetus Mushrooms are generated naturally. This will not impact previously generated chunks.")
     public boolean  canGenerateImpetusMushrooms = true;
