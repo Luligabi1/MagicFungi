@@ -3,7 +3,7 @@ package me.luligabi.magicfungi.common.block.misc;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.block.mushroom.MagicMushroomPlantBlock;
 import me.luligabi.magicfungi.common.misc.TagRegistry;
-import me.luligabi.magicfungi.common.util.Util;
+import me.luligabi.magicfungi.common.util.WorldUtil;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -62,7 +62,7 @@ public class HostGrassBlock extends GrassBlock {
                 for(int i = 0; i < 4; ++i) {
                     BlockPos blockPos = pos.add(random.nextInt(3) - 1, random.nextInt(5) - 3, random.nextInt(3) - 1);
                     if (canSpread(blockState, world, blockPos) && !world.getBlockState(blockPos).isAir()) {
-                        if(Util.isMorbusSpreadingActive(world) ? world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_BLOCK_SPREADABLE) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
+                        if(WorldUtil.isMorbusSpreadingActive(world) ? world.getBlockState(blockPos).isIn(TagRegistry.MORBUS_GRASS_BLOCK_SPREADABLE) : world.getBlockState(blockPos).isOf(BlockRegistry.HOST_DIRT)) {
                             world.setBlockState(blockPos, blockState.with(SNOWY, world.getBlockState(blockPos.up()).isOf(Blocks.SNOW)));
                         }
                     }
@@ -134,7 +134,7 @@ public class HostGrassBlock extends GrassBlock {
     }
 
     private void setMorbusVariantBlock(World world, BlockPos pos, BlockState state) {
-        Util.setBlockWithSound(world, pos, state, SoundEvents.ENTITY_WITHER_AMBIENT,
+        WorldUtil.setBlockWithSound(world, pos, state, SoundEvents.ENTITY_WITHER_AMBIENT,
                 SoundCategory.BLOCKS, 0.6F, 0.8F);
     }
 

@@ -1,7 +1,7 @@
 package me.luligabi.magicfungi.common.item.misc;
 
 import me.luligabi.magicfungi.common.misc.GameRuleRegistry;
-import me.luligabi.magicfungi.common.util.Util;
+import me.luligabi.magicfungi.common.util.WorldUtil;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
@@ -30,7 +30,7 @@ public class MorbusClockItem extends Item {
                     .append(isEnabled.formatted(Formatting.GRAY)), false);
 
             if (world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING)) {
-                long daysLeft = (world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY) - Util.getCurrentInGameDay(world));
+                long daysLeft = (world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY) - WorldUtil.getCurrentInGameDay(world));
 
                 TranslatableText daysLeftText = daysLeft > 0 ?
                         new TranslatableText("message.magicfungi.daysLeft.2", daysLeft, world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY)) :
