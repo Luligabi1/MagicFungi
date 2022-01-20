@@ -25,32 +25,33 @@ public class MagicFungiClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_IMPETUS_MUSHROOM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+                BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_IMPETUS_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_CLYPEUS_MUSHROOM, RenderLayer.getCutout());
+                BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_CLYPEUS_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_UTILIS_MUSHROOM, RenderLayer.getCutout());
+                BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_UTILIS_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_VIVIFICA_MUSHROOM, RenderLayer.getCutout());
+                BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_VIVIFICA_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_MORBUS_MUSHROOM, RenderLayer.getCutout());
+                BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_MORBUS_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_GRASS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_TALL_GRASS, RenderLayer.getCutout());
+                BlockRegistry.HOST_GRASS,
+                BlockRegistry.HOST_TALL_GRASS,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_FERN, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_HOST_FERN, RenderLayer.getCutout());
+                BlockRegistry.HOST_FERN,
+                BlockRegistry.POTTED_HOST_FERN,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.LARGE_HOST_FERN, RenderLayer.getCutout());
-
+                BlockRegistry.LARGE_HOST_FERN);
 
         ScreenRegistry.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
         ScreenRegistry.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
+
 
         ParticleRegistry.clientInit();
 
