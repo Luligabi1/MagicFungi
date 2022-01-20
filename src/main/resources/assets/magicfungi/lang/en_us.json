@@ -150,6 +150,8 @@
   "tooltip.magicfungi.alloy_info.2": "forms of pure Fungi Magic.",
   "tooltip.magicfungi.alloy_info.3": "Try not to think too much about it.",
 
+  "item.magicfungi.morbus_leather": "Morbus Leather",
+
   "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
 
   "item.magicfungi.morbus_clock": "Morbus Clock",
@@ -176,6 +178,8 @@
   "item.magicfungi.morbus_mushroom_stew": "Morbus Mushroom Stew",
 
   "description.magicfungi.spell_discovery_bench": "Spell Discovery Workbench is a special crafting block for Magic Fungi's spells. It's not crafted by normal means, but via shift right-clicking a Crafting Table with an Exponentia Spell.",
+
+  "entity.magicfungi.morbus_mooshroom": "Morbus Mooshroom",
 
   "biome.magicfungi.host_biome": "Host Biome",
 

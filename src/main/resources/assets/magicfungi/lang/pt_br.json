@@ -142,6 +142,8 @@
   "tooltip.magicfungi.alloy_info.2": "as formas de Magia Fúngica pura.",
   "tooltip.magicfungi.alloy_info.3": "Tenta não pensar muito a respeito.",
 
+  "item.magicfungi.morbus_leather": "Couro Morbus",
+
   "item.magicfungi.fungi_fertilizer": "Fertilizador Fúngico",
 
   "item.magicfungi.morbus_clock": "Relógio Morbus",
@@ -166,6 +168,8 @@
   "item.magicfungi.morbus_mushroom_stew": "Ensopado de Cogumelo Morbus",
 
   "description.magicfungi.spell_discovery_bench": "A Mesa de Descoberta de Feitiços é uma mesa especial para a fabricação dos feitiços do mod Magic Fungi. Não é fabricado por meios comuns, mas usando um Glifo Exponentia em uma Mesa de Trabalho.",
+
+  "entity.magicfungi.morbus_mooshroom": "Coguvaca Morbus",
 
   "biome.magicfungi.host_biome": "Bioma Hospedeiro",
 

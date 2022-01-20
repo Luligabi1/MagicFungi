@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common;
 
 import draylar.omegaconfig.OmegaConfig;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.entity.EntityRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
 import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
@@ -38,6 +39,7 @@ public class MagicFungi implements ModInitializer {
         ScreenHandlingRegistry.init();
 
         // Misc
+        EntityRegistry.init();
         ParticleRegistry.init();
         GameRuleRegistry.init();
         CompostableRegistry.init();
@@ -123,6 +125,7 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY));
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY_NUGGET));
                 stacks.add(new ItemStack(BlockRegistry.MAGICAL_FUNGI_ALLOY_BLOCK));
+                stacks.add(new ItemStack(ItemRegistry.MORBUS_LEATHER));
                 stacks.add(new ItemStack(ItemRegistry.FUNGI_FERTILIZER));
 
                 // Morbus Spreading Items
@@ -136,6 +139,8 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.VIVIFICA_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_MUSHROOM_STEW));
+
+                // TODO: Add Morbus Mooshroom spawn egg
             })
             .build();
 

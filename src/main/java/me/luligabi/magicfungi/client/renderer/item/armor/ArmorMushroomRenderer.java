@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.client.item.armor;
+package me.luligabi.magicfungi.client.renderer.item.armor;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
@@ -13,10 +13,7 @@ import net.minecraft.util.math.Vec3f;
 
 public class ArmorMushroomRenderer  {
 
-    private static BlockState RED_MUSHROOM_STATE = Blocks.RED_MUSHROOM.getDefaultState();
-
     public void renderHelmet(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, LivingEntity playerEntity, int light, BipedEntityModel<LivingEntity> contextModel) {
-        BlockRenderManager blockRenderManager = MinecraftClient.getInstance().getBlockRenderManager();
         matrixStack.push();
         contextModel.head.rotate(matrixStack);
         matrixStack.translate(0.0D, -0.699999988079071D, -0.20000000298023224D);
@@ -28,7 +25,6 @@ public class ArmorMushroomRenderer  {
     }
 
     public void renderChestplate(MatrixStack matrixStack, VertexConsumerProvider vertexConsumerProvider, LivingEntity playerEntity, int light, BipedEntityModel<LivingEntity> contextModel) {
-        BlockRenderManager blockRenderManager = MinecraftClient.getInstance().getBlockRenderManager();
         matrixStack.push();
         contextModel.leftArm.rotate(matrixStack);
         matrixStack.translate(0.20000000298023224D, -0.3499999940395355D, 0.5D);
@@ -39,4 +35,6 @@ public class ArmorMushroomRenderer  {
         matrixStack.pop();
     }
 
+    private final BlockRenderManager blockRenderManager = MinecraftClient.getInstance().getBlockRenderManager();
+    private static final BlockState RED_MUSHROOM_STATE = Blocks.RED_MUSHROOM.getDefaultState();
 }
