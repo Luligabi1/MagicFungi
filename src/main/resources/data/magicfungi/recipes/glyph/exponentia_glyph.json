@@ -2,7 +2,7 @@
   "type": "magicfungi:glyph_recipe",
 
   "inputA" : {
-    "tag": "magicfungi:mod_mushrooms"
+    "tag": "magicfungi:mushrooms"
   },
   "inputB" : {
     "item": "minecraft:paper"
