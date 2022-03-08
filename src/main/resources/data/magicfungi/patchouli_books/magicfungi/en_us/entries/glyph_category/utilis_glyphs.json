@@ -5,10 +5,14 @@
   "sortnum": 3,
   "pages": [
     {
-      "type": "spotlight",
-      "item": "magicfungi:pluviam_glyph",
-      "title": "Utilis Glyphs",
-      "text": "$(5)$(l)Pluviam Glyph $(br)$(br)$()$(d)Instantly removes any sort of bad weather on the world. $(br)$(br)$()$(5)$(l)Cadentis Glyph$(br)$(br)$()$(d)Creates a small, purple flame light source where placed."
+      "type": "magicfungi:glyph_carving",
+      "recipe": "magicfungi:glyph/utilis_glyphs/pluviam_glyph",
+      "text": "Instantly clears any sort of bad weather on the world."
+    },
+    {
+      "type": "magicfungi:glyph_carving",
+      "recipe": "magicfungi:glyph/utilis_glyphs/cadentis_glyph",
+      "text": "Creates a small, purple flame where it's placed. TIP: You can recolor the flame by right-clicking it with the other types of Magic Fungi!"
     }
   ]
 }

@@ -7,8 +7,10 @@ import net.minecraft.recipe.Recipe;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
+// TODO This will need to be refactored at some point, but I don't want to :(
 public class GlyphRecipe implements Recipe<GlyphCraftingInventory> {
 
     private final Ingredient inputA;
@@ -17,6 +19,7 @@ public class GlyphRecipe implements Recipe<GlyphCraftingInventory> {
     private final Ingredient inputD;
     private final ItemStack outputStack;
     private final Identifier identifier;
+    private final DefaultedList<Ingredient> inputs;
 
 
     public GlyphRecipe(Ingredient inputA, Ingredient inputB, Ingredient inputC, Ingredient inputD, ItemStack outputStack, Identifier identifier) {
@@ -26,6 +29,11 @@ public class GlyphRecipe implements Recipe<GlyphCraftingInventory> {
         this.inputD = inputD;
         this.outputStack = outputStack;
         this.identifier = identifier;
+        inputs = DefaultedList.of();
+        inputs.add(inputA);
+        inputs.add(inputB);
+        inputs.add(inputC);
+        inputs.add(inputD);
     }
 
     public Ingredient getInputA() { return inputA; }
@@ -35,6 +43,8 @@ public class GlyphRecipe implements Recipe<GlyphCraftingInventory> {
     public Ingredient getInputC() { return inputC; }
 
     public Ingredient getInputD() { return inputD; }
+
+    public DefaultedList<Ingredient> getInputs() { return inputs; }
 
     @Override
     public boolean matches(GlyphCraftingInventory inventory, World world) {
