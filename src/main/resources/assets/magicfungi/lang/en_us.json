@@ -28,7 +28,7 @@
 
   "tooltip.magicfungi.spell_info.5": "Action Type: ",
 
-  "tooltip.magicfungi.extended_info": "Hold SHIFT for extended information.",
+  "tooltip.magicfungi.extended_info": "Hold SHIFT for more information",
 
   "actionType.magicfungi.player": "Player",
   "actionType.magicfungi.block": "Block",
@@ -167,15 +167,18 @@
   "tooltip.magicfungi.heart_of_morbus.2": "Can be used to reactivate Morbus spreading.",
   "message.magicfungi.heart_of_morbus": "You feel guilty that your actions might have somehow doomed the world.",
 
-  "item.magicfungi.guide_book": "Magic Mycology Book",
-
-  "text.magicfungi.guide_book.landing_text": "Impetus, Clypeus, Utilis and Vivifica. These are all 4 known magic mushrooms researched by the greatest minds of long gone generations. Today, I start my journey to join such minds as I do my own research on the magic properties of these fungi.                                                   §lThis Book Belongs To:              §kGordon Morbus",
-
   "item.magicfungi.impetus_mushroom_stew": "Impetus Mushroom Stew",
   "item.magicfungi.clypeus_mushroom_stew": "Clypeus Mushroom Stew",
   "item.magicfungi.utilis_mushroom_stew": "Utilis Mushroom Stew",
   "item.magicfungi.vivifica_mushroom_stew": "Vivifica Mushroom Stew",
   "item.magicfungi.morbus_mushroom_stew": "Morbus Mushroom Stew",
+
+  "item.magicfungi.guide_book": "Magic Mycology Book",
+  "text.magicfungi.guide_book.landing_text": "Impetus, Clypeus, Utilis and Vivifica. Long ago, an unnamed meteor collided with our planet, spreading these alien fungi into the local fauna. After centuries of research, humanity is able to harness the magical properties of the fungi for Magic. This guide has the objective of teaching tested and safe magic. §4§lSelf-driven research is not recommended.§r                                                   §lThis Book Belongs To:",
+
+  "item.magicfungi.research_log": "G. M.'s Research Log",
+  "text.magicfungi.research_log.landing_text": "Impetus, Clypeus, Utilis §mand§r, Vivifica §4and Morbus§r.  Long ago, an unnamed meteor collided with our planet, spreading these alien fungi into the local fauna. After centuries of research, humanity is able to harness the magical properties of the fungi for Magic. This guide has the objective of teaching tested and safe magic. §4§lSelf-driven research is not recommended.§r                                                  §lThis Book Belongs To:              §kGordon Morbus",
+
 
   "description.magicfungi.spell_discovery_bench": "Spell Discovery Workbench is a special crafting block for Magic Fungi's spells. It's not crafted by normal means, but via shift right-clicking a Crafting Table with an Exponentia Spell.",
 
