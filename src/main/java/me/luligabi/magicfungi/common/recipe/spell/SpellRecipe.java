@@ -10,6 +10,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
+// TODO more refactoring yay
 public class SpellRecipe implements Recipe<SpellCraftingInventory> {
 
     private final Ingredient inputA;
@@ -22,6 +23,8 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
     private final Ingredient inputH;
     private final ItemStack outputStack;
     private final Identifier identifier;
+    private final DefaultedList<Ingredient> inputs;
+
 
     public SpellRecipe(Ingredient inputA, Ingredient inputB, Ingredient inputC, Ingredient inputD, Ingredient inputE, Ingredient inputF, Ingredient inputG, Ingredient inputH, ItemStack outputStack, Identifier identifier) {
         this.inputA = inputA;
@@ -34,6 +37,16 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
         this.inputH = inputH;
         this.outputStack = outputStack;
         this.identifier = identifier;
+
+        inputs = DefaultedList.of();
+        inputs.add(inputA);
+        inputs.add(inputB);
+        inputs.add(inputC);
+        inputs.add(inputD);
+        inputs.add(inputE);
+        inputs.add(inputF);
+        inputs.add(inputG);
+        inputs.add(inputH);
     }
 
     public Ingredient getInputA() { return inputA; }
@@ -76,17 +89,6 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
     }
 
     public DefaultedList<Ingredient> getInputs() {
-        DefaultedList<Ingredient> inputs = DefaultedList.of();
-
-        inputs.add(0, getInputA());
-        inputs.add(1, getInputB());
-        inputs.add(2, getInputC());
-        inputs.add(3, getInputD());
-        inputs.add(4, getInputE());
-        inputs.add(5, getInputF());
-        inputs.add(6, getInputG());
-        inputs.add(7, getInputH());
-
         return inputs;
     }
 
