@@ -179,8 +179,42 @@
   "item.magicfungi.research_log": "G. M.'s Research Log",
   "text.magicfungi.research_log.landing_text": "Impetus, Clypeus, Utilis §mand§r, Vivifica §4and Morbus§r.  Long ago, an unnamed meteor collided with our planet, spreading these alien fungi into the local fauna. After centuries of research, humanity is able to harness the magical properties of the fungi for Magic. This guide has the objective of teaching tested and safe magic. §4§lSelf-driven research is not recommended.§r                                                  §lThis Book Belongs To:              §kGordon Morbus",
 
+  "__comment": "REI/Patchouli descriptions",
+  "description.magicfungi.impetus_mushroom": "One of the five Magic Mushrooms, representing §caggressiveness§r and the wish to §cattack§r. Can be found on any overworld biome, but is more frequently seen on §cSavannas§r.",
+  "description.magicfungi.clypeus_mushroom": "One of the five Magic Mushrooms, representing §bprotectiveness§r and the wish to §bdefend§r. Can be found on any overworld biome, but is more frequently seen on §bTundras§r.",
+  "description.magicfungi.utilis_mushroom": "One of the five Magic Mushrooms, representing §dversatility§r and the wish to be §dhelpful§r. Can be found on any overworld biome, but is more frequently seen on §dMountains§r.",
+  "description.magicfungi.vivifica_mushroom": "One of the five Magic Mushrooms, representing §anature§r and the wish to §aheal§r. Can be found on any overworld biome, but is more frequently seen on §aJungles§r.",
+  "description.magicfungi.morbus_mushroom": "One of the five Magic Mushrooms, representing §8disease§r and the wish to §8corrupt§r. Can be found exclusively on the §8Host Biome§r.",
 
-  "description.magicfungi.spell_discovery_bench": "Spell Discovery Workbench is a special crafting block for Magic Fungi's spells. It's not crafted by normal means, but via shift right-clicking a Crafting Table with an Exponentia Spell.",
+  "description.magicfungi.glyph_carving_workbench": "A special crafting block used to carve glyphs.",
+  "description.magicfungi.spell_discovery_workbench": "A special crafting block used to discover spells. It's not crafted by normal means, but via using an Exponentia Spell on a Crafting Table.",
+
+  "description.magicfungi.exponentia_glyph": "A glyph used to transform a Crafting Table into a Spell Discovery Workbench.",
+
+  "description.magicfungi.pluviam_glyph": "Clears any sort of bad weather in the world.",
+  "description.magicfungi.cadentis_glyph": "Creates a small, purple flame where it's placed. TIP: You can recolor the flame by interactingw with it with the other types of Magic Mushrooms!",
+
+  "description.magicfungi.pudicitiam_glyph": "Heals creatures into their healed counterpart (e.g: zombie villager -> villager).",
+  "description.magicfungi.sanctificare_glyph": "Converts a small patch of Host Grass into regular grass.",
+
+  "description.magicfungi.parasitus_glyph": "Parasites a creature, slowly killing it. Its lost health will be passed into you.",
+  "description.magicfungi.corrumpere_glyph": "Corrupts creatures into their corrupt counterpart (e.g: Hoglin -> Zoglin).",
+  "description.magicfungi.maledictio_glyph": "Converts a small patch of regular grass into Host Grass.",
+
+
+  "description.magicfungi.ignei_spell": "Summons a small fire charge towards the direction the user's looking at.",
+  "description.magicfungi.scintillam_spell": "Summons a fireball towards the direction user's looking at.",
+
+  "description.magicfungi.cadere_spell": "Grants slow falling for a few seconds, useful to avoid having fractures over big falls.",
+  "description.magicfungi.glacies_spell": "Grants a special ice protection to the user, at the cost of becoming slower.",
+
+  "description.magicfungi.tractabile_spell": "Instantly opens the user's Ender Chest.",
+  "description.magicfungi.cibus_spell": "Satiates the user's hunger.",
+
+  "description.magicfungi.fertilis_spell": "Stimulates the growth of nearby crops.",
+
+  "description.magicfungi.guide_book": "A guide book covering all the basic content of Magic Mycology. You should receive it when first creating the world. If not, you can craft one by combining a book and any Magic Mushroom.",
+
 
   "entity.magicfungi.morbus_mooshroom": "Morbus Mooshroom",
 

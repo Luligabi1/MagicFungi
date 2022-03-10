@@ -7,12 +7,12 @@
     {
       "type": "magicfungi:glyph_carving",
       "recipe": "magicfungi:glyph/utilis_glyphs/pluviam_glyph",
-      "text": "Instantly clears any sort of bad weather on the world."
+      "text": "description.magicfungi.pluviam_glyph"
     },
     {
       "type": "magicfungi:glyph_carving",
       "recipe": "magicfungi:glyph/utilis_glyphs/cadentis_glyph",
-      "text": "Creates a small, purple flame where it's placed. TIP: You can recolor the flame by right-clicking it with the other types of Magic Fungi!"
+      "text": "description.magicfungi.cadentis_glyph"
     }
   ]
 }

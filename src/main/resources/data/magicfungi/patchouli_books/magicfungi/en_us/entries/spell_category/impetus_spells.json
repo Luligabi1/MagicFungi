@@ -7,12 +7,12 @@
     {
       "type": "magicfungi:spell_discovery",
       "recipe": "magicfungi:spell/impetus_spells/ignei_spell",
-      "text": "Summons a small fire charge towards the direction you're aiming at."
+      "text": "description.magicfungi.ignei_spell"
     },
     {
       "type": "magicfungi:spell_discovery",
       "recipe": "magicfungi:spell/impetus_spells/scintillam_spell",
-      "text": "Summons a Ghast's fireball towards the direction you're aiming at."
+      "text": "description.magicfungi.scintillam_spell"
     }
   ]
 }

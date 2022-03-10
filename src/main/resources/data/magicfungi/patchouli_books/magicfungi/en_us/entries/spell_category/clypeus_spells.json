@@ -7,12 +7,12 @@
     {
       "type": "magicfungi:spell_discovery",
       "recipe": "magicfungi:spell/clypeus_spells/cadere_spell",
-      "text": "Grants slow falling for a few seconds, useful for avoiding taking damage over big falls."
+      "text": "description.magicfungi.cadere_spell"
     },
     {
       "type": "magicfungi:spell_discovery",
       "recipe": "magicfungi:spell/clypeus_spells/glacies_spell",
-      "text": "Grants a special ice protection to the user, at the cost of being slower."
+      "text": "description.magicfungi.glacies_spell"
     }
   ]
 }

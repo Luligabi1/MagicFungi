@@ -7,12 +7,12 @@
     {
       "type": "magicfungi:spell_discovery",
       "recipe": "magicfungi:spell/utilis_spells/tractabile_spell",
-      "text": "Instantly opens the user's Ender Chest."
+      "text": "description.magicfungi.tractabile_spell"
     },
     {
       "type": "magicfungi:spell_discovery",
       "recipe": "magicfungi:spell/utilis_spells/cibus_spell",
-      "text": "Slightly decreases the user's hunger."
+      "text": "description.magicfungi.cibus_spell"
     }
   ]
 }

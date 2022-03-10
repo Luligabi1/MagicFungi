@@ -7,7 +7,7 @@
     {
       "type": "magicfungi:spell_discovery",
       "recipe": "magicfungi:spell/vivifica_spells/fertilis_spell",
-      "text": "Stimulates the growth of nearby crops."
+      "text": "description.magicfungi.fertilis_spell"
     }
   ]
 }
