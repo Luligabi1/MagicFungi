@@ -1,0 +1,18 @@
+{
+  "name": "Morbus Glyphs",
+  "icon": "magicfungi:parasitus_glyph",
+  "category": "magicfungi:1928",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "magicfungi:glyph_carving",
+      "recipe": "magicfungi:glyph/morbus_glyphs/parasitus_glyph",
+      "text": "description.magicfungi.parasitus_glyph"
+    },
+    {
+      "type": "magicfungi:glyph_carving",
+      "recipe": "magicfungi:glyph/morbus_glyphs/corrumpere_glyph",
+      "text": "description.magicfungi.corrumpere_glyph"
+    }
+  ]
+}

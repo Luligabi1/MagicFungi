@@ -8,11 +8,6 @@
       "type": "magicfungi:glyph_carving",
       "recipe": "magicfungi:glyph/vivifica_glyphs/pudicitiam_glyph",
       "text": "Heals any non-modded creatures into their healed counterpart (e.g: zombie villager -> villager)."
-    },
-    {
-      "type": "magicfungi:glyph_carving",
-      "recipe": "magicfungi:glyph/vivifica_glyphs/sanctificare_glyph",
-      "text": "Converts a small patch of Host Grass into regular grass."
     }
   ]
 }

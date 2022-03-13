@@ -1,0 +1,10 @@
+{
+  "name": "item.magicfungi.research_log",
+  "landing_text": "text.magicfungi.research_log.landing_text",
+  "version": 1,
+  "model": "magicfungi:research_log",
+  "show_progress": false,
+  "dont_generate_book": true,
+  "i18n": true,
+  "custom_book_item ": "magicfungi:research_log"
+}

@@ -103,13 +103,14 @@ public class MagicFungi implements ModInitializer {
                 // Vivifica Spells
                 stacks.add(new ItemStack(SpellRegistry.FERTILIS_SPELL));
 
-                // Essences & Relics
+                // Essences
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.VIVIFICA_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_ESSENCE));
 
+                // Relics
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_SWORD));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_SHIELD));
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_PICKAXE));
@@ -128,7 +129,8 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_LEATHER));
                 stacks.add(new ItemStack(ItemRegistry.FUNGI_FERTILIZER));
 
-                // Morbus Spreading Items
+                // Morbus Items
+                stacks.add(new ItemStack(ItemRegistry.RESEARCH_LOG));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_CLOCK));
                 stacks.add(new ItemStack(ItemRegistry.HEART_OF_VIVIFICA));
                 stacks.add(new ItemStack(ItemRegistry.HEART_OF_MORBUS));

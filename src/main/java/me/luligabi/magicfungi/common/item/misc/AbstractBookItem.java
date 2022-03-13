@@ -1,6 +1,5 @@
 package me.luligabi.magicfungi.common.item.misc;
 
-import me.luligabi.magicfungi.common.MagicFungi;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -11,19 +10,21 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 import vazkii.patchouli.api.PatchouliAPI;
 
-public class GuideBookItem extends Item {
+public class AbstractBookItem extends Item {
 
-    public GuideBookItem(Settings settings) {
+    public AbstractBookItem(Settings settings, Identifier identifier) {
         super(settings);
+        this.identifier = identifier;
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(!world.isClient()) {
-            PatchouliAPI.get().openBookGUI((ServerPlayerEntity) user, new Identifier(MagicFungi.MOD_ID, MagicFungi.MOD_ID));
+            PatchouliAPI.get().openBookGUI((ServerPlayerEntity) user, identifier);
             return TypedActionResult.success(user.getStackInHand(hand));
         }
         return TypedActionResult.fail(user.getStackInHand(hand));
     }
 
+    private final Identifier identifier;
 }

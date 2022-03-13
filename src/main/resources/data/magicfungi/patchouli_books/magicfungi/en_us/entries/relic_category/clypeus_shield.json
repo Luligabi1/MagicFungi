@@ -5,8 +5,8 @@
   "sortnum": 1,
   "pages": [
     {
-      "type": "spotlight",
-      "item": "magicfungi:clypeus_shield",
+      "type": "magicfungi:glyph_carving",
+      "recipe": "magicfungi:glyph/relics/clypeus_shield",
       "text": "$(3)$(l)Clypeus Shield $()is a special shield made from $(3)Clypeus Essence$(). Has additional durability and lower cooldown times."
     }
   ]

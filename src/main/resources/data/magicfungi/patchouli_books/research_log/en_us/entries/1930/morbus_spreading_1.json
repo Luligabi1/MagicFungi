@@ -1,0 +1,30 @@
+{
+  "name": "Morbus Spreading I",
+  "icon": "magicfungi:morbus_clock",
+  "category": "magicfungi:1930",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "magicfungi:morbus_clock",
+      "title": "Morbus Spreading",
+      "text": "$(l)Research Report #6$()$(br2)On the course of my time on the Host Biome, there has been a subtle increase of its size with each year. With the current rates, it's probable it'll eventually become epidemic. Due to these breakthroughs, I've invested the past few weeks working on the $(l)Morbus Clock$():"
+    },
+    {
+      "type": "crafting",
+      "recipe": "magicfungi:crafting/morbus_spreading/morbus_clock_1",
+      "title": "Morbus Clock",
+      "text": "It's able to accurately predict how many days until this supposed epidemic, which I'll call the $(l)Morbus Spreading$(). If I'm able to revert the effect, it's also able to tell whether it'll still happen or not. These glyphs should also help handle the situation:"
+    },
+    {
+      "type": "magicfungi:glyph_carving",
+      "recipe": "magicfungi:glyph/vivifica_glyphs/sanctificare_glyph",
+      "text": "description.magicfungi.sanctificare_glyph"
+    },
+    {
+      "type": "magicfungi:glyph_carving",
+      "recipe": "magicfungi:glyph/morbus_glyphs/maledictio_glyph",
+      "text": "description.magicfungi.maledictio_glyph"
+    }
+  ]
+}

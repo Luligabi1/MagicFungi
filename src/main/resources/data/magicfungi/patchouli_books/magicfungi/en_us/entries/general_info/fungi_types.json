@@ -14,7 +14,7 @@
       "type": "image",
       "images": ["magicfungi:textures/guide_book/savanna.png"],
       "title": " ",
-      "border":  true
+      "border": true
     },
     {
       "type": "spotlight",
@@ -26,7 +26,7 @@
       "type": "image",
       "images": ["magicfungi:textures/guide_book/snowy_tundra.png"],
       "title": " ",
-      "border":  true
+      "border": true
     },
     {
       "type": "spotlight",
@@ -38,7 +38,7 @@
       "type": "image",
       "images": ["magicfungi:textures/guide_book/extreme_hills.png"],
       "title": " ",
-      "border":  true
+      "border": true
     },
     {
       "type": "spotlight",
@@ -50,19 +50,7 @@
       "type": "image",
       "images": ["magicfungi:textures/guide_book/jungle.png"],
       "title": " ",
-      "border":  true
-    },
-    {
-      "type": "spotlight",
-      "item": "magicfungi:morbus_mushroom",
-      "title": "Morbus",
-      "text": "$()Used on $(7)$(l)dark/unpure $()magic. Can only be found on the $(7)$(l)Host Biome$()."
-    },
-    {
-      "type": "image",
-      "images": ["magicfungi:textures/guide_book/host_biome.png"],
-      "title": " ",
-      "border":  true
+      "border": true
     }
   ]
 }

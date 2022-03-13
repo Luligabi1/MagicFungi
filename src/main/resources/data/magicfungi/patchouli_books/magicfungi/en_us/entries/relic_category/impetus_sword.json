@@ -5,8 +5,8 @@
   "sortnum": 0,
   "pages": [
     {
-      "type": "spotlight",
-      "item": "magicfungi:impetus_sword",
+      "type": "magicfungi:glyph_carving",
+      "recipe": "magicfungi:glyph/relics/impetus_sword",
       "text": "$(4)$(l)Impetus Sword $()is a special sword made from $(4)Impetus Essence$(). Sets hit entities on $(c)fire$()."
     }
   ]
