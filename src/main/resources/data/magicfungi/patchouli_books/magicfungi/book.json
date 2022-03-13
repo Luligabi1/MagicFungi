@@ -6,5 +6,5 @@
   "show_progress": false,
   "dont_generate_book": true,
   "i18n": true,
-  "custom_book_item ": "magicfungi:guide_book"
+  "custom_book_item": "magicfungi:guide_book"
 }

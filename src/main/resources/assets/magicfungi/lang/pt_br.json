@@ -274,15 +274,6 @@
   "advancements.magicfungi.relics.description": "Reconstrua uma antiga relíquia de muitas eras atrás",
 
   "advancements.magicfungi.fungi_armor": "Poder Desabrochante",
-  "advancements.magicfungi.fungi_armor.description": "Fabrique a armadura completa de Magia Fúngica",
-  "mushroomType.magicfungi.impetus": "Impetus",
-  "mushroomType.magicfungi.clypeus": "Clypeus",
-  "mushroomType.magicfungi.utilis": "Utilis",
-  "mushroomType.magicfungi.vivifica": "Vivifica",
-  "mushroomType.magicfungi.morbus": "Morbus",
-  "mushroomType.magicfungi.incognita": "Incognita",
-  "text.magicfungi.guide_book.landing_text": "Impetus, Clypeus, Utilis and Vivifica. Long ago, an unnamed meteor collided with our planet, spreading these alien fungi into the local fauna. After centuries of research, humanity is able to harness the magical properties of the fungi for Magic. This guide has the objective of teaching tested and safe magic. §4§lSelf-driven research is not recommended.§r                                                   §lThis Book Belongs To:",
-  "item.magicfungi.research_log": "G. M.'s Research Log",
-  "text.magicfungi.research_log.landing_text": "Impetus, Clypeus, Utilis §mand§r, Vivifica §4and Morbus§r.  Long ago, an unnamed meteor collided with our planet, spreading these alien fungi into the local fauna. After centuries of research, humanity is able to harness the magical properties of the fungi for Magic. This guide has the objective of teaching tested and safe magic. §4§lSelf-driven research is not recommended.§r                                                  §lThis Book Belongs To:              §kGordon Morbus"
+  "advancements.magicfungi.fungi_armor.description": "Fabrique a armadura completa de Magia Fúngica"
 
 }

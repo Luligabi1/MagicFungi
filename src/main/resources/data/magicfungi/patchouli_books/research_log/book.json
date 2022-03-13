@@ -3,8 +3,10 @@
   "landing_text": "text.magicfungi.research_log.landing_text",
   "version": 1,
   "model": "magicfungi:research_log",
+  "book_texture": "magicfungi:textures/gui/patchouli/book_research_log.png",
   "show_progress": false,
   "dont_generate_book": true,
   "i18n": true,
-  "custom_book_item ": "magicfungi:research_log"
+  "custom_book_item": "magicfungi:research_log",
+  "nameplate_color": "96ADAF"
 }
