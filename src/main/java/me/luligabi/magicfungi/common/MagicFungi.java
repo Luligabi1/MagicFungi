@@ -127,7 +127,7 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY_NUGGET));
                 stacks.add(new ItemStack(BlockRegistry.MAGICAL_FUNGI_ALLOY_BLOCK));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_LEATHER));
-                stacks.add(new ItemStack(ItemRegistry.FUNGI_FERTILIZER));
+
 
                 // Morbus Items
                 stacks.add(new ItemStack(ItemRegistry.RESEARCH_LOG));
@@ -135,14 +135,16 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.HEART_OF_VIVIFICA));
                 stacks.add(new ItemStack(ItemRegistry.HEART_OF_MORBUS));
 
-                // Stews
+                // Fungi Fertilizer & Stews
+                stacks.add(new ItemStack(ItemRegistry.FUNGI_FERTILIZER));
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.VIVIFICA_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_MUSHROOM_STEW));
 
-                // TODO: Add Morbus Mooshroom spawn egg
+                // Spawn Eggs
+                stacks.add(new ItemStack(EntityRegistry.MORBUS_MOOSHROOM_SPAWN_EGG));
             })
             .build();
 
