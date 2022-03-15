@@ -5,13 +5,12 @@ import net.minecraft.block.BlockState;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
-import net.minecraft.entity.mob.Angerable;
-import net.minecraft.entity.mob.HostileEntity;
-import net.minecraft.entity.mob.MobEntity;
+import net.minecraft.entity.mob.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
@@ -39,7 +38,6 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
     }
 
     private static final TrackedData<Boolean> WARNING;
-    private static final float MAX_RANGE = 6.0F;
     private int warningSoundCooldown;
     private static final UniformIntProvider ANGER_TIME_RANGE;
     private int angerTime;
@@ -53,10 +51,16 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
         this.goalSelector.add(1, new AttackGoal());
         this.goalSelector.add(1, new MorbusMooshroomEscapeDangerGoal());
         this.goalSelector.add(5, new WanderAroundGoal(this, 1.0D));
-        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, MAX_RANGE));
+        this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, new MorbusMooshroomRevengeGoal());
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, 25, true, false, livingEntity -> !(livingEntity instanceof MorbusMooshroomEntity))); // TODO: Check if entity to-be-attacked isn't a wither (skeleton)
+        this.targetSelector.add(2, new ActiveTargetGoal<>(this, MobEntity.class, 25, true, false, livingEntity ->
+                !(livingEntity instanceof MorbusMooshroomEntity) &&
+                !(livingEntity instanceof WaterCreatureEntity) &&
+                !(livingEntity instanceof FlyingEntity) &&
+                !(livingEntity instanceof WitherEntity) &&
+                !(livingEntity instanceof WitherSkeletonEntity) &&
+                !(livingEntity instanceof EndermanEntity)));
         this.targetSelector.add(3, new UniversalAngerGoal<>(this, false));
     }
 

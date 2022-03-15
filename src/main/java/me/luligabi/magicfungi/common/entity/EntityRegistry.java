@@ -17,7 +17,7 @@ import net.minecraft.util.registry.Registry;
 public class EntityRegistry {
 
     public static void init() {
-        FabricDefaultAttributeRegistry.register(MORBUS_MOOSHROOM, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 52).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.5).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.20000000298023224).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 24));
+        FabricDefaultAttributeRegistry.register(MORBUS_MOOSHROOM, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 52).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.5).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.20000000298023224).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 14));
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mooshroom_spawn_egg"), MORBUS_MOOSHROOM_SPAWN_EGG);
     }
 
