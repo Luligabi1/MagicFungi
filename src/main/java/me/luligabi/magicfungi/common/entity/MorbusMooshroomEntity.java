@@ -1,8 +1,13 @@
 package me.luligabi.magicfungi.common.entity;
 
+import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
+import me.luligabi.magicfungi.common.misc.TagRegistry;
 import net.minecraft.block.BlockState;
-import net.minecraft.entity.*;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.SpawnReason;
 import net.minecraft.entity.ai.goal.*;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.boss.WitherEntity;
@@ -13,6 +18,8 @@ import net.minecraft.entity.data.TrackedDataHandlerRegistry;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
+import net.minecraft.entity.passive.AnimalEntity;
+import net.minecraft.entity.passive.PassiveEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsage;
@@ -26,18 +33,16 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
-import net.minecraft.world.LocalDifficulty;
-import net.minecraft.world.ServerWorldAccess;
 import net.minecraft.world.World;
+import net.minecraft.world.WorldAccess;
+import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.Random;
 import java.util.UUID;
 
-public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
+public class MorbusMooshroomEntity extends AnimalEntity implements Monster, Angerable {
 
-    public MorbusMooshroomEntity(EntityType<? extends HostileEntity> entityType, World world) {
-        super(entityType, world);
-    }
 
     private static final TrackedData<Boolean> WARNING;
     private int warningSoundCooldown;
@@ -45,6 +50,10 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
     private int angerTime;
     @Nullable
     private UUID targetUuid;
+
+    public MorbusMooshroomEntity(EntityType<? extends AnimalEntity> entityType, World world) {
+        super(entityType, world);
+    }
 
     @Override
     protected void initGoals() {
@@ -56,7 +65,7 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, new MorbusMooshroomRevengeGoal());
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, MobEntity.class, 25, true, false, livingEntity ->
+        this.targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, 25, true, false, livingEntity ->
                 !(livingEntity instanceof MorbusMooshroomEntity) &&
                 !(livingEntity instanceof WaterCreatureEntity) &&
                 !(livingEntity instanceof FlyingEntity) &&
@@ -77,6 +86,15 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
     public void writeCustomDataToNbt(NbtCompound nbt) {
         super.writeCustomDataToNbt(nbt);
         this.writeAngerToNbt(nbt);
+    }
+
+    @Override
+    public float getPathfindingFavor(BlockPos pos, WorldView world) {
+        return world.getBlockState(pos.down()).isOf(BlockRegistry.HOST_GRASS_BLOCK) ? 10.0F : world.getDimension().getBrightness(world.getLightLevel(pos)) - 0.5F;
+    }
+
+    public static boolean canSpawn(EntityType<MorbusMooshroomEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random) {
+        return world.getBlockState(pos.down()).isIn(TagRegistry.MORBUS_MOOSHROOMS_SPAWNABLE_ON) && world.getBaseLightLevel(pos, 0) > 8;
     }
 
     @Override
@@ -138,6 +156,12 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
 
     }
 
+    @Nullable
+    @Override // No children :)
+    public PassiveEntity createChild(ServerWorld world, PassiveEntity entity) {
+        return null;
+    }
+
     @Override
     protected void initDataTracker() {
         super.initDataTracker();
@@ -167,7 +191,6 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
         return bl;
     }
 
-
     public void setWarning(boolean warning) {
         this.dataTracker.set(WARNING, warning);
     }
@@ -177,15 +200,11 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
         return 0.98F;
     }
 
-    @Override
-    public EntityData initialize(ServerWorldAccess world, LocalDifficulty difficulty, SpawnReason spawnReason, @Nullable EntityData entityData, @Nullable NbtCompound entityNbt) {
-        return super.initialize(world, difficulty, spawnReason, entityData, entityNbt);
-    }
-
     static {
         WARNING = DataTracker.registerData(MorbusMooshroomEntity.class, TrackedDataHandlerRegistry.BOOLEAN);
         ANGER_TIME_RANGE = TimeHelper.betweenSeconds(20, 39);
     }
+
 
     private class AttackGoal extends MeleeAttackGoal {
 
@@ -258,6 +277,11 @@ public class MorbusMooshroomEntity extends HostileEntity implements Angerable {
     @Override
     public boolean canHaveStatusEffect(StatusEffectInstance effect) {
         return super.canHaveStatusEffect(effect) && effect.getEffectType() != StatusEffects.WITHER;
+    }
+
+    @Override
+    protected boolean isDisallowedInPeaceful() {
+        return false;
     }
 
     @Override

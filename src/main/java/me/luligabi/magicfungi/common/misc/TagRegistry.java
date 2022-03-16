@@ -21,6 +21,7 @@ public class TagRegistry {
         MORBUS_LARGE_FERN_SPREADABLE = TagFactory.BLOCK.create(new Identifier(MagicFungi.MOD_ID, "morbus_large_fern_spreadable"));
 
         HOST_BIOME_VEGETATION = TagFactory.BLOCK.create(new Identifier(MagicFungi.MOD_ID, "host_biome_vegetation"));
+        MORBUS_MOOSHROOMS_SPAWNABLE_ON = TagFactory.BLOCK.create(new Identifier(MagicFungi.MOD_ID, "morbus_mooshrooms_spawnable_on"));
     }
 
     public static Tag<Item> MOD_MUSHROOMS;
@@ -34,5 +35,6 @@ public class TagRegistry {
     public static Tag<Block> MORBUS_LARGE_FERN_SPREADABLE;
 
     public static Tag<Block> HOST_BIOME_VEGETATION;
+    public static Tag<Block> MORBUS_MOOSHROOMS_SPAWNABLE_ON;
 
 }
