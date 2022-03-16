@@ -15,6 +15,7 @@ import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.decoration.ArmorStandEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.mob.*;
@@ -65,13 +66,14 @@ public class MorbusMooshroomEntity extends AnimalEntity implements Monster, Ange
         this.goalSelector.add(6, new LookAtEntityGoal(this, PlayerEntity.class, 6.0F));
         this.goalSelector.add(7, new LookAroundGoal(this));
         this.targetSelector.add(1, new MorbusMooshroomRevengeGoal());
-        this.targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, 25, true, false, livingEntity ->
+        this.targetSelector.add(2, new ActiveTargetGoal<>(this, LivingEntity.class, 15, true, false, livingEntity ->
                 !(livingEntity instanceof MorbusMooshroomEntity) &&
                 !(livingEntity instanceof WaterCreatureEntity) &&
                 !(livingEntity instanceof FlyingEntity) &&
                 !(livingEntity instanceof WitherEntity) &&
                 !(livingEntity instanceof WitherSkeletonEntity) &&
-                !(livingEntity instanceof EndermanEntity)));
+                !(livingEntity instanceof EndermanEntity) &&
+                !(livingEntity instanceof ArmorStandEntity)));
         this.targetSelector.add(3, new UniversalAngerGoal<>(this, false));
     }
 
