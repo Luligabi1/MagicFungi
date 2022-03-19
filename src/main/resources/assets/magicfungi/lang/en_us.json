@@ -55,6 +55,10 @@
   "block.magicfungi.spell_discovery_workbench": "Spell Discovery Workbench",
   "title.magicfungi.spell_discovery": "Spell Discovery",
 
+  "block.magicfungi.essence_extractor": "Essence Extractor",
+  "title.magicfungi.essence_extractor": "Essence Extraction",
+  "tooltip.magicfungi.essence_extractor.catalyst_fuel": "Catalyst Fuel left: %d",
+
   "block.magicfungi.morbus_mushroom_block": "Morbus Mushroom Block",
 
   "block.magicfungi.host_grass_block": "Host Grass Block",

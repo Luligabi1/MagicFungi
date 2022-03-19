@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.screenhandler.essence;
 
 import me.luligabi.magicfungi.common.misc.TagRegistry;
+import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -10,7 +11,6 @@ import net.minecraft.item.Items;
 import net.minecraft.screen.ArrayPropertyDelegate;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
-import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.screen.slot.Slot;
 
 public class EssenceExtractorScreenHandler extends ScreenHandler {
@@ -19,13 +19,13 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
     private final PropertyDelegate propertyDelegate;
 
     public EssenceExtractorScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(5), new ArrayPropertyDelegate(2));
+        this(syncId, playerInventory, new SimpleInventory(5), new ArrayPropertyDelegate(3));
     }
 
     public EssenceExtractorScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
-        super(ScreenHandlerType.BREWING_STAND, syncId);
+        super(ScreenHandlingRegistry.ESSENCE_EXTRACTOR_SCREEN_HANDLER, syncId);
         checkSize(inventory, 5);
-        checkDataCount(propertyDelegate, 2);
+        checkDataCount(propertyDelegate, 3);
         this.inventory = inventory;
         this.propertyDelegate = propertyDelegate;
         this.addSlot(new EssenceSlot(inventory, 0, 56, 51));
@@ -108,6 +108,10 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
 
     public int getFuel() {
         return this.propertyDelegate.get(1);
+    }
+
+    public int getFuelType() {
+        return this.propertyDelegate.get(2);
     }
 
     public int getBrewTime() {

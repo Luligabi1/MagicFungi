@@ -58,7 +58,7 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
             }
 
             public int size() {
-                return 2;
+                return 3;
             }
         };
     }
@@ -106,8 +106,8 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
 
     public static void tick(World world, BlockPos pos, BlockState state, EssenceExtractorBlockEntity blockEntity) {
         ItemStack itemStack = blockEntity.inventory.get(4);
-        if (blockEntity.fuel <= 0 && !itemStack.isEmpty()) {
-            blockEntity.fuel = 2;
+        if (blockEntity.fuel <= 18 && !itemStack.isEmpty()) {
+            blockEntity.fuel += 2;
             blockEntity.fuelType = blockEntity.checkFuelType(itemStack);
             itemStack.decrement(1);
             markDirty(world, pos, state);

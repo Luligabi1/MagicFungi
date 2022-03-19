@@ -48,6 +48,10 @@
   "block.magicfungi.spell_discovery_workbench": "Mesa de Descoberta de Feitiços",
   "title.magicfungi.spell_discovery": "Descoberta de Feitiços",
 
+  "block.magicfungi.essence_extractor": "Extrator de Essência",
+  "title.magicfungi.essence_extractor": "Extração de Essência",
+  "tooltip.magicfungi.essence_extractor.catalyst_fuel": "Combustível de Catalisador restante: %d",
+
   "block.magicfungi.morbus_mushroom_block": "Bloco de Cogumelo Morbus",
 
   "block.magicfungi.host_grass_block": "Bloco de Grama Hospedeira",

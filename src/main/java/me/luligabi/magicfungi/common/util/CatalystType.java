@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.util;
 
+import net.minecraft.util.Formatting;
 import net.minecraft.util.StringIdentifiable;
 
 /**
@@ -10,24 +11,30 @@ import net.minecraft.util.StringIdentifiable;
  */
 public enum CatalystType implements StringIdentifiable {
 
-    IMPETUS("impetus"),
-    CLYPEUS("clypeus"),
-    UTILIS("utilis"),
-    VIVIFICA("vivifica"),
-    MORBUS("morbus"),
+    IMPETUS("impetus", Formatting.RED),
+    CLYPEUS("clypeus", Formatting.AQUA),
+    UTILIS("utilis", Formatting.LIGHT_PURPLE),
+    VIVIFICA("vivifica", Formatting.GREEN),
+    MORBUS("morbus", Formatting.GRAY),
 
-    EMPTY("empty");
+    EMPTY("empty", Formatting.WHITE);
 
 
     private final String id;
+    private final Formatting color;
 
-    CatalystType(String id) {
+    CatalystType(String id, Formatting color) {
         this.id = id;
+        this.color = color;
     }
 
     @Override
     public String asString() {
         return id;
+    }
+
+    public Formatting getColor() {
+        return color;
     }
 
 }
