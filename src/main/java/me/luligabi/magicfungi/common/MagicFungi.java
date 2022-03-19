@@ -104,6 +104,7 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(SpellRegistry.FERTILIS_SPELL));
 
                 // Essences
+                stacks.add(new ItemStack(BlockRegistry.ESSENCE_EXTRACTOR_BLOCK));
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_ESSENCE));

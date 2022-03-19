@@ -5,6 +5,7 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "ArmorItemMixin",
+    "BrewingStandScreenAccessor",
     "OrePlacedFeaturesInvoker",
     "PlayerEntityMixin",
     "PlayerInventoryAccessor",

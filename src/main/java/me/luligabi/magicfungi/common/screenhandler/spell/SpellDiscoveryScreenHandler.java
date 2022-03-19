@@ -3,6 +3,7 @@ package me.luligabi.magicfungi.common.screenhandler.spell;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
+import me.luligabi.magicfungi.common.screenhandler.SimpleCraftingInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
@@ -21,9 +22,9 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<SpellCraftingInventory> {
+public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<SimpleCraftingInventory> {
 
-    private final SpellCraftingInventory input;
+    private final SimpleCraftingInventory input;
     private final CraftingResultInventory result;
     public final PlayerInventory playerInventory;
     private final ScreenHandlerContext context;
@@ -35,7 +36,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Spe
     public SpellDiscoveryScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, syncId);
         this.playerInventory = playerInventory;
-        this.input = new SpellCraftingInventory(this);
+        this.input = new SimpleCraftingInventory(this, 9);
         this.result = new CraftingResultInventory();
         this.context = context;
 
@@ -70,7 +71,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Spe
 
     }
 
-    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity, SpellCraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
+    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity, SimpleCraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
         if (!world.isClient) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) playerEntity;
             ItemStack itemStack = ItemStack.EMPTY;
@@ -157,7 +158,7 @@ public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<Spe
     }
 
     @Override
-    public boolean matches(Recipe<? super SpellCraftingInventory> recipe) { return recipe.matches(this.input, this.playerInventory.player.world); }
+    public boolean matches(Recipe<? super SimpleCraftingInventory> recipe) { return recipe.matches(this.input, this.playerInventory.player.world); }
 
     @Override
     public int getCraftingResultSlotIndex() { return 8; }

@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.screenhandler.spell;
+package me.luligabi.magicfungi.common.screenhandler;
 
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
@@ -9,13 +9,14 @@ import net.minecraft.recipe.RecipeMatcher;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.util.collection.DefaultedList;
 
-public class SpellCraftingInventory implements Inventory, RecipeInputProvider {
+public class SimpleCraftingInventory implements Inventory, RecipeInputProvider {
 
-    DefaultedList<ItemStack> stacks = DefaultedList.ofSize(9, ItemStack.EMPTY);
+    DefaultedList<ItemStack> stacks;
     ScreenHandler screenHandler;
 
-    public SpellCraftingInventory(ScreenHandler screenHandler) {
+    public SimpleCraftingInventory(ScreenHandler screenHandler, int size) {
         this.screenHandler = screenHandler;
+        stacks = DefaultedList.ofSize(size, ItemStack.EMPTY);
     }
 
     @Override
@@ -37,7 +38,7 @@ public class SpellCraftingInventory implements Inventory, RecipeInputProvider {
     public ItemStack removeStack(int slot, int amount) {
         ItemStack itemStack = Inventories.splitStack(this.stacks, slot, amount);
 
-        if(!itemStack.isEmpty()) {
+        if (!itemStack.isEmpty()) {
             this.screenHandler.onContentChanged(this);
         }
         return itemStack;
@@ -55,7 +56,8 @@ public class SpellCraftingInventory implements Inventory, RecipeInputProvider {
     }
 
     @Override
-    public void markDirty() { }
+    public void markDirty() {
+    }
 
     @Override
     public boolean canPlayerUse(PlayerEntity player) {

@@ -1,0 +1,11 @@
+{
+  "type": "magicfungi:essence_extraction",
+
+  "input" : {
+    "item": "magicfungi:impetus_mushroom"
+  },
+  "catalystType": "impetus",
+
+  "outputItem": "magicfungi:impetus_essence",
+  "outputAmount": "1"
+}

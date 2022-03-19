@@ -1,6 +1,8 @@
 package me.luligabi.magicfungi.common.recipe;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipe;
+import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipeSerializer;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipeSerializer;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
@@ -16,5 +18,9 @@ public class RecipeRegistry {
 
         Registry.register(Registry.RECIPE_SERIALIZER, SpellRecipeSerializer.ID, SpellRecipeSerializer.INSTANCE);
         Registry.register(Registry.RECIPE_TYPE, new Identifier(MagicFungi.MOD_ID, SpellRecipe.Type.ID), SpellRecipe.Type.INSTANCE);
+
+        Registry.register(Registry.RECIPE_SERIALIZER, EssenceRecipeSerializer.ID, EssenceRecipeSerializer.INSTANCE);
+        Registry.register(Registry.RECIPE_TYPE, new Identifier(MagicFungi.MOD_ID, EssenceRecipe.Type.ID), EssenceRecipe.Type.INSTANCE);
     }
+
 }
