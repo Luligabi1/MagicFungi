@@ -51,7 +51,9 @@ public class MagicFungiClient implements ClientModInitializer {
                 BlockRegistry.HOST_FERN,
                 BlockRegistry.POTTED_HOST_FERN,
 
-                BlockRegistry.LARGE_HOST_FERN);
+                BlockRegistry.LARGE_HOST_FERN,
+
+                BlockRegistry.ESSENCE_EXTRACTOR_BLOCK);
 
         ScreenRegistry.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
         ScreenRegistry.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
