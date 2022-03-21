@@ -2,6 +2,8 @@ package me.luligabi.magicfungi.client.compat.rei;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
+import me.luligabi.magicfungi.client.compat.rei.essence.EssenceDisplayCategory;
+import me.luligabi.magicfungi.client.compat.rei.essence.EssenceRecipeDisplay;
 import me.luligabi.magicfungi.client.compat.rei.glyph.GlyphDisplayCategory;
 import me.luligabi.magicfungi.client.compat.rei.glyph.GlyphRecipeDisplay;
 import me.luligabi.magicfungi.client.compat.rei.spell.SpellDisplayCategory;
@@ -11,6 +13,7 @@ import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
 import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
+import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipe;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
@@ -35,14 +38,16 @@ public class ReiPlugin implements REIClientPlugin {
 
         registry.add(new SpellDisplayCategory());
         registry.addWorkstations(SPELL_DISCOVERY, EntryStacks.of(BlockRegistry.SPELL_DISCOVERY_BLOCK));
+
+        registry.add(new EssenceDisplayCategory());
+        registry.addWorkstations(ESSENCE_EXTRACTION, EntryStacks.of(BlockRegistry.ESSENCE_EXTRACTOR_BLOCK));
     }
 
     @Override
     public void registerDisplays(DisplayRegistry registry) {
         registry.registerFiller(GlyphRecipe.class, GlyphRecipeDisplay::new);
-
         registry.registerFiller(SpellRecipe.class, SpellRecipeDisplay::new);
-
+        registry.registerFiller(EssenceRecipe.class, EssenceRecipeDisplay::new);
 
         Map<ItemConvertible, String> reiInformationMap = Maps.newHashMap((new ImmutableMap.Builder<ItemConvertible, String>())
                 .put(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, "description.magicfungi.impetus_mushroom")
@@ -91,7 +96,7 @@ public class ReiPlugin implements REIClientPlugin {
     }
 
     public static final CategoryIdentifier<GlyphRecipeDisplay> GLYPH_CARVING = CategoryIdentifier.of(MagicFungi.MOD_ID, "glyph_carving");
-
     public static final CategoryIdentifier<SpellRecipeDisplay> SPELL_DISCOVERY = CategoryIdentifier.of(MagicFungi.MOD_ID, "spell_discovery");
+    public static final CategoryIdentifier<EssenceRecipeDisplay> ESSENCE_EXTRACTION = CategoryIdentifier.of(MagicFungi.MOD_ID, "essence_extraction");
 
 }
