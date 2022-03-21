@@ -5,18 +5,19 @@ import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.screenhandler.essence.EssenceExtractorScreenHandler;
 import me.luligabi.magicfungi.common.util.CatalystType;
 import me.luligabi.magicfungi.mixin.BrewingStandScreenAccessor;
+import me.luligabi.magicfungi.mixin.HandledScreenAccessor;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 
 public class EssenceExtractorScreen extends HandledScreen<EssenceExtractorScreenHandler> {
 
-    //private static final Identifier TEXTURE = new Identifier("textures/gui/container/brewing_stand.png");
     private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/essence_extractor.png");
 
     public EssenceExtractorScreen(EssenceExtractorScreenHandler handler, PlayerInventory inventory, Text title) {
@@ -25,7 +26,8 @@ public class EssenceExtractorScreen extends HandledScreen<EssenceExtractorScreen
 
     protected void init() {
         super.init();
-        this.titleX = (this.backgroundWidth - this.textRenderer.getWidth(this.title)) / 2;
+        titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
+        ((HandledScreenAccessor) this).setPlayerInventoryTitle(playerInventoryTitle.shallowCopy().formatted(Formatting.WHITE));
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
@@ -79,4 +81,5 @@ public class EssenceExtractorScreen extends HandledScreen<EssenceExtractorScreen
             default -> 128;
         };
     }
+
 }

@@ -6,6 +6,7 @@
   "mixins": [
     "ArmorItemMixin",
     "BrewingStandScreenAccessor",
+    "HandledScreenAccessor",
     "OrePlacedFeaturesInvoker",
     "PlayerEntityMixin",
     "PlayerInventoryAccessor",

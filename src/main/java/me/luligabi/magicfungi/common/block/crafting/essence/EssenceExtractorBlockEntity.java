@@ -20,6 +20,7 @@ import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
@@ -83,6 +84,11 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
 
     protected Text getContainerName() {
         return new TranslatableText("block.magicfungi.essence_extractor");
+    }
+
+    @Override
+    public Text getDisplayName() {
+        return this.getName().shallowCopy().formatted(Formatting.WHITE);
     }
 
     public int size() {
