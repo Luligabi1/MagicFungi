@@ -17,6 +17,7 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
 
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
+    private final Slot ingredientSlot;
 
     public EssenceExtractorScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory, new SimpleInventory(5), new ArrayPropertyDelegate(3));
@@ -31,7 +32,7 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
         this.addSlot(new EssenceSlot(inventory, 0, 56, 51));
         this.addSlot(new EssenceSlot(inventory, 1, 79, 58));
         this.addSlot(new EssenceSlot(inventory, 2, 102, 51));
-        this.addSlot(new Slot(inventory, 3, 79, 17));
+        this.ingredientSlot = this.addSlot(new Slot(inventory, 3, 79, 17));
         this.addSlot(new CatalystSlot(inventory, 4, 17, 17));
         this.addProperties(propertyDelegate);
 
@@ -52,23 +53,23 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
         return this.inventory.canPlayerUse(player);
     }
 
-    /*public ItemStack transferSlot(PlayerEntity player, int index) {
+    public ItemStack transferSlot(PlayerEntity player, int index) {
         ItemStack itemStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasStack()) {
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
             if ((index < 0 || index > 2) && index != 3 && index != 4) {
-                if (BrewingStandScreenHandler.FuelSlot.matches(itemStack)) {
+                if (EssenceExtractorScreenHandler.CatalystSlot.matches(itemStack)) {
                     if (this.insertItem(itemStack2, 4, 5, false) || this.ingredientSlot.canInsert(itemStack2) && !this.insertItem(itemStack2, 3, 4, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (EssenceExtractorScreenHandler.EssenceSlot.matches(itemStack)) {
+                    if (!this.insertItem(itemStack2, 0, 3, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (this.ingredientSlot.canInsert(itemStack2)) {
                     if (!this.insertItem(itemStack2, 3, 4, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (BrewingStandScreenHandler.PotionSlot.matches(itemStack) && itemStack.getCount() == 1) {
-                    if (!this.insertItem(itemStack2, 0, 3, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (index >= 5 && index < 32) {
@@ -104,7 +105,7 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
         }
 
         return itemStack;
-    }*/
+    }
 
     public int getFuel() {
         return this.propertyDelegate.get(1);
@@ -118,18 +119,23 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
         return this.propertyDelegate.get(0);
     }
 
-    static class EssenceSlot extends Slot {
+
+    private static class EssenceSlot extends Slot {
 
         public EssenceSlot(Inventory inventory, int index, int x, int y) {
             super(inventory, index, x, y);
         }
 
         public boolean canInsert(ItemStack stack) {
-            return stack.isOf(Items.GLASS_BOTTLE);
+            return matches(stack);
         }
 
         public int getMaxItemCount() {
             return 1;
+        }
+
+        public static boolean matches(ItemStack stack) {
+            return stack.isOf(Items.GLASS_BOTTLE);
         }
 
     }
@@ -142,15 +148,19 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
         }
 
         public boolean canInsert(ItemStack stack) {
+            return matches(stack);
+        }
+
+        public int getMaxItemCount() {
+            return 64;
+        }
+
+        public static boolean matches(ItemStack stack) {
             return stack.isIn(TagRegistry.IMPETUS_CATALYST) ||
                     stack.isIn(TagRegistry.CLYPEUS_CATALYST) ||
                     stack.isIn(TagRegistry.UTILIS_CATALYST) ||
                     stack.isIn(TagRegistry.VIVIFICA_CATALYST) ||
                     stack.isIn(TagRegistry.MORBUS_CATALYST);
-        }
-
-        public int getMaxItemCount() {
-            return 64;
         }
 
     }
