@@ -70,7 +70,9 @@ public class EssenceExtractorBlock extends BrewingStandBlock {
                 ItemScatterer.spawn(world, pos, (EssenceExtractorBlockEntity) blockEntity);
             }
 
-            super.onStateReplaced(state, world, pos, newState, moved);
+            if (state.hasBlockEntity()) {
+                world.removeBlockEntity(pos);
+            }
         }
     }
 
