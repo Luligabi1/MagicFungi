@@ -2,7 +2,7 @@
   "name": "Clypeus Shield",
   "icon": "magicfungi:clypeus_shield",
   "category": "magicfungi:relic_category",
-  "sortnum": 1,
+  "sortnum": 2,
   "pages": [
     {
       "type": "magicfungi:glyph_carving",

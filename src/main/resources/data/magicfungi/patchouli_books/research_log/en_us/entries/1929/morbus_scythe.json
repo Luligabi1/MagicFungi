@@ -8,12 +8,11 @@
       "type": "spotlight",
       "title": "Morbus Scythe",
       "item": "magicfungi:morbus_scythe",
-      "text": "$(l)Experiment Index: $()#53$(br2)$(l)Experiment Proposal: $()Create a relic similar to those already known, but with the use of the Morbus' special properties. $(br2)$(l)Experiment Results: $()Success."
+      "text": "$(l)Experiment Index: $()#53$(br2)$(l)Experiment Proposal: $()Using the power of the Morbus Essence, create a relic similar to those already known, but with the use of the Morbus' special properties. $(br2)$(l)Experiment Results: $()Success."
     },
     {
       "type": "magicfungi:glyph_carving",
       "recipe": "magicfungi:glyph/relics/morbus_scythe",
-
       "text": "A special scythe made using the properties observed on $(l)Morbus Essence$().$(br)Those damaged by it are immediately prone to mild intoxication. Long-term effects have yet to be studied."
     }
   ]

@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "minecraft:scute"
+    "minecraft:scute",
+    "magicfungi:heart_of_vivifica"
   ]
 }

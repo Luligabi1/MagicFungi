@@ -5,7 +5,6 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.REIRuntime;
@@ -24,6 +23,8 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static me.luligabi.magicfungi.common.util.CatalystType.*;
 
 public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisplay> {
 
@@ -70,35 +71,35 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
             case IMPETUS -> {
                 if(impetusCatalystList == null) {
                     impetusCatalystList = new ArrayList<>();
-                    TagRegistry.IMPETUS_CATALYST.values().forEach(item -> impetusCatalystList.add(EntryStacks.of(new ItemStack(item))));
+                    IMPETUS.getTag().values().forEach(item -> impetusCatalystList.add(EntryStacks.of(new ItemStack(item))));
                 }
                 return impetusCatalystList;
             }
             case CLYPEUS -> {
                 if(clypeusCatalystList == null) {
                     clypeusCatalystList = new ArrayList<>();
-                    TagRegistry.CLYPEUS_CATALYST.values().forEach(item -> clypeusCatalystList.add(EntryStacks.of(new ItemStack(item))));
+                    CLYPEUS.getTag().values().forEach(item -> clypeusCatalystList.add(EntryStacks.of(new ItemStack(item))));
                 }
                 return clypeusCatalystList;
             }
             case UTILIS -> {
                 if(utilisCatalystList == null) {
                     utilisCatalystList = new ArrayList<>();
-                    TagRegistry.UTILIS_CATALYST.values().forEach(item -> utilisCatalystList.add(EntryStacks.of(new ItemStack(item))));
+                    UTILIS.getTag().values().forEach(item -> utilisCatalystList.add(EntryStacks.of(new ItemStack(item))));
                 }
                 return utilisCatalystList;
             }
             case VIVIFICA -> {
                 if(vivificaCatalystList == null) {
                     vivificaCatalystList = new ArrayList<>();
-                    TagRegistry.VIVIFICA_CATALYST.values().forEach(item -> vivificaCatalystList.add(EntryStacks.of(new ItemStack(item))));
+                    VIVIFICA.getTag().values().forEach(item -> vivificaCatalystList.add(EntryStacks.of(new ItemStack(item))));
                 }
                 return vivificaCatalystList;
             }
             case MORBUS -> {
                 if(morbusCatalystList == null) {
                     morbusCatalystList = new ArrayList<>();
-                    TagRegistry.MORBUS_CATALYST.values().forEach(item -> morbusCatalystList.add(EntryStacks.of(new ItemStack(item))));
+                    MORBUS.getTag().values().forEach(item -> morbusCatalystList.add(EntryStacks.of(new ItemStack(item))));
                 }
                 return morbusCatalystList;
             }
@@ -114,6 +115,7 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
             case UTILIS -> 37;
             case VIVIFICA -> 41;
             case MORBUS -> 45;
+
             default -> 128;
         };
     }
@@ -123,6 +125,7 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
     private List<EntryStack<ItemStack>> utilisCatalystList;
     private List<EntryStack<ItemStack>> vivificaCatalystList;
     private List<EntryStack<ItemStack>> morbusCatalystList;
+
 
     private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/rei/essence_extractor.png");
     private static final Identifier TEXTURE_DARK = new Identifier(MagicFungi.MOD_ID, "textures/gui/rei/essence_extractor_dark.png");
