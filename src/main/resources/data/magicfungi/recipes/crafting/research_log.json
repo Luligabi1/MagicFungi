@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " M ",
+    "MGM",
+    " M "
+  ],
+  "key": {
+    "M": {
+      "item": "magicfungi:morbus_leather"
+    },
+    "G": {
+      "item": "magicfungi:guide_book"
+    }
+  },
+  "result": {
+    "item": "magicfungi:research_log",
+    "count": 1
+  }
+}

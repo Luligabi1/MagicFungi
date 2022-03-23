@@ -1,0 +1,18 @@
+{
+  "name": "Morbus Essence",
+  "icon": "magicfungi:morbus_essence",
+  "category": "magicfungi:1929",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "magicfungi:essence_extractor",
+      "text": "$(l)Experiment Index: $()#49$(br2)$(l)Experiment Proposal: $()Achieve greater magic by extracting the Morbus' Essence. $(br2)$(l)Experiment Results: $()Success."
+    },
+    {
+      "type": "magicfungi:essence_extraction",
+      "recipe": "magicfungi:essence/morbus_essence",
+      "text": "The pure essence of the $(8)$(l)Morbus Mushroom$(). $()Its catalyst is a $(8)$(l)Wither Skeleton Skull$(). I'm not confident on the meaning of this catalyst as of this moment."
+    }
+  ]
+}

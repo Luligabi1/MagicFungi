@@ -39,8 +39,10 @@ public class ItemRegistry {
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_alloy"), MAGICAL_FUNGI_ALLOY);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_nugget"), MAGICAL_FUNGI_ALLOY_NUGGET);
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_leather"), MORBUS_LEATHER);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fungi_fertilizer"), FUNGI_FERTILIZER);
 
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "research_log"), RESEARCH_LOG);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_clock"), MORBUS_CLOCK);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "heart_of_vivifica"), HEART_OF_VIVIFICA);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "heart_of_morbus"), HEART_OF_MORBUS);
@@ -52,7 +54,7 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_stew"), MORBUS_MUSHROOM_STEW);
     }
 
-    public static final Item GUIDE_BOOK = new GuideBookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).group(MagicFungi.ITEM_GROUP));
+    public static final Item GUIDE_BOOK = new AbstractBookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).group(MagicFungi.ITEM_GROUP), new Identifier(MagicFungi.MOD_ID, MagicFungi.MOD_ID));
 
 
     public static final Item IMPETUS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
@@ -79,9 +81,11 @@ public class ItemRegistry {
 
     public static final Item MAGICAL_FUNGI_ALLOY = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
     public static final Item MAGICAL_FUNGI_ALLOY_NUGGET = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
-
+    public static final Item MORBUS_LEATHER = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
     public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
+
+    public static final Item RESEARCH_LOG = new AbstractBookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).group(MagicFungi.ITEM_GROUP), new Identifier(MagicFungi.MOD_ID, "research_log"));
     public static final Item MORBUS_CLOCK = new MorbusClockItem(new FabricItemSettings().rarity(Rarity.RARE).maxCount(1).group(MagicFungi.ITEM_GROUP));
     public static final Item HEART_OF_VIVIFICA = new VivificaHeartItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).group(MagicFungi.ITEM_GROUP));
     public static final Item HEART_OF_MORBUS = new MorbusHeartItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).group(MagicFungi.ITEM_GROUP));

@@ -11,6 +11,7 @@ import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -35,7 +36,7 @@ public class GlyphCarvingBlock extends Block {
 
     public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) ->
-                new GlyphCarvingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), new TranslatableText("title.magicfungi.glyph_carving"));
+                new GlyphCarvingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), new TranslatableText("title.magicfungi.glyph_carving").formatted(Formatting.WHITE));
     }
 
 }

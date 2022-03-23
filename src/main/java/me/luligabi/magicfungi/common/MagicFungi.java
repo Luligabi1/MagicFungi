@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common;
 
 import draylar.omegaconfig.OmegaConfig;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.entity.EntityRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
 import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
@@ -38,6 +39,7 @@ public class MagicFungi implements ModInitializer {
         ScreenHandlingRegistry.init();
 
         // Misc
+        EntityRegistry.init();
         ParticleRegistry.init();
         GameRuleRegistry.init();
         CompostableRegistry.init();
@@ -66,10 +68,9 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(BlockRegistry.HOST_TALL_GRASS));
                 stacks.add(new ItemStack(BlockRegistry.HOST_FERN));
                 stacks.add(new ItemStack(BlockRegistry.LARGE_HOST_FERN));
-                stacks.add(new ItemStack(BlockRegistry.GLYPH_CARVING_BLOCK));
-                stacks.add(new ItemStack(BlockRegistry.SPELL_DISCOVERY_BLOCK));
 
                 // Glyphs
+                stacks.add(new ItemStack(BlockRegistry.GLYPH_CARVING_BLOCK));
                 stacks.add(new ItemStack(GlyphRegistry.EXPONENTIA_GLYPH));
 
                 // Utilis Glyphs
@@ -87,6 +88,8 @@ public class MagicFungi implements ModInitializer {
 
 
                 // Impetus Spells
+                stacks.add(new ItemStack(BlockRegistry.SPELL_DISCOVERY_BLOCK));
+
                 stacks.add(new ItemStack(SpellRegistry.IGNEI_SPELL));
                 stacks.add(new ItemStack(SpellRegistry.SCINTILLAM_SPELL));
 
@@ -101,13 +104,15 @@ public class MagicFungi implements ModInitializer {
                 // Vivifica Spells
                 stacks.add(new ItemStack(SpellRegistry.FERTILIS_SPELL));
 
-                // Essences & Relics
+                // Essences
+                stacks.add(new ItemStack(BlockRegistry.ESSENCE_EXTRACTOR_BLOCK));
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.VIVIFICA_ESSENCE));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_ESSENCE));
 
+                // Relics
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_SWORD));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_SHIELD));
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_PICKAXE));
@@ -123,19 +128,25 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY));
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY_NUGGET));
                 stacks.add(new ItemStack(BlockRegistry.MAGICAL_FUNGI_ALLOY_BLOCK));
-                stacks.add(new ItemStack(ItemRegistry.FUNGI_FERTILIZER));
+                stacks.add(new ItemStack(ItemRegistry.MORBUS_LEATHER));
 
-                // Morbus Spreading Items
+
+                // Morbus Items
+                stacks.add(new ItemStack(ItemRegistry.RESEARCH_LOG));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_CLOCK));
                 stacks.add(new ItemStack(ItemRegistry.HEART_OF_VIVIFICA));
                 stacks.add(new ItemStack(ItemRegistry.HEART_OF_MORBUS));
 
-                // Stews
+                // Fungi Fertilizer & Stews
+                stacks.add(new ItemStack(ItemRegistry.FUNGI_FERTILIZER));
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.VIVIFICA_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_MUSHROOM_STEW));
+
+                // Spawn Eggs
+                stacks.add(new ItemStack(EntityRegistry.MORBUS_MOOSHROOM_SPAWN_EGG));
             })
             .build();
 

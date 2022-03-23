@@ -1,10 +1,13 @@
 package me.luligabi.magicfungi.client;
 
 import draylar.omegaconfiggui.OmegaConfigGui;
+import me.luligabi.magicfungi.client.renderer.entity.MorbusMooshroomEntityRenderer;
+import me.luligabi.magicfungi.client.screen.EssenceExtractorScreen;
 import me.luligabi.magicfungi.client.screen.GlyphCarvingScreen;
 import me.luligabi.magicfungi.client.screen.SpellDiscoveryScreen;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.entity.EntityRegistry;
 import me.luligabi.magicfungi.common.misc.ParticleRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import net.fabricmc.api.ClientModInitializer;
@@ -12,6 +15,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
+import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.minecraft.client.render.RenderLayer;
@@ -25,32 +29,37 @@ public class MagicFungiClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_IMPETUS_MUSHROOM, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlocks(RenderLayer.getCutout(),
+                BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_IMPETUS_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_CLYPEUS_MUSHROOM, RenderLayer.getCutout());
+                BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_CLYPEUS_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_UTILIS_MUSHROOM, RenderLayer.getCutout());
+                BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_UTILIS_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_VIVIFICA_MUSHROOM, RenderLayer.getCutout());
+                BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_VIVIFICA_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_MORBUS_MUSHROOM, RenderLayer.getCutout());
+                BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK,
+                BlockRegistry.POTTED_MORBUS_MUSHROOM,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_GRASS, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_TALL_GRASS, RenderLayer.getCutout());
+                BlockRegistry.HOST_GRASS,
+                BlockRegistry.HOST_TALL_GRASS,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.HOST_FERN, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.POTTED_HOST_FERN, RenderLayer.getCutout());
+                BlockRegistry.HOST_FERN,
+                BlockRegistry.POTTED_HOST_FERN,
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.LARGE_HOST_FERN, RenderLayer.getCutout());
+                BlockRegistry.LARGE_HOST_FERN,
 
+                BlockRegistry.ESSENCE_EXTRACTOR_BLOCK);
 
         ScreenRegistry.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
         ScreenRegistry.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
+        ScreenRegistry.register(ScreenHandlingRegistry.ESSENCE_EXTRACTOR_SCREEN_HANDLER, EssenceExtractorScreen::new);
+
+        EntityRendererRegistry.register(EntityRegistry.MORBUS_MOOSHROOM, MorbusMooshroomEntityRenderer::new);
 
         ParticleRegistry.clientInit();
 

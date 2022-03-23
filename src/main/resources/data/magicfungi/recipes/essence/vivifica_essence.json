@@ -1,0 +1,11 @@
+{
+  "type": "magicfungi:essence_extraction",
+
+  "input" : {
+    "item": "magicfungi:vivifica_mushroom"
+  },
+  "catalystType": "vivifica",
+
+  "outputItem": "magicfungi:vivifica_essence",
+  "outputAmount": "1"
+}

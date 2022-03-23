@@ -19,7 +19,7 @@ public class GlyphRecipeSerializer implements RecipeSerializer<GlyphRecipe> {
 
     public static final GlyphRecipeSerializer INSTANCE = new GlyphRecipeSerializer();
 
-    public static final Identifier ID = new Identifier(MagicFungi.MOD_ID, "glyph_recipe");
+    public static final Identifier ID = new Identifier(MagicFungi.MOD_ID, "glyph_carving");
 
     @Override // Turns json into Recipe
     public GlyphRecipe read(Identifier recipeId, JsonObject json) {

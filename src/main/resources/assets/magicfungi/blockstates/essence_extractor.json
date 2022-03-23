@@ -1,0 +1,57 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "magicfungi:block/essence_extractor/essence_extractor"
+      }
+    },
+    {
+      "when": {
+        "has_bottle_0": "true"
+      },
+      "apply": {
+        "model": "magicfungi:block/essence_extractor/essence_extractor_bottle0"
+      }
+    },
+    {
+      "when": {
+        "has_bottle_1": "true"
+      },
+      "apply": {
+        "model": "magicfungi:block/essence_extractor/essence_extractor_bottle1"
+      }
+    },
+    {
+      "when": {
+        "has_bottle_2": "true"
+      },
+      "apply": {
+        "model": "magicfungi:block/essence_extractor/essence_extractor_bottle2"
+      }
+    },
+    {
+      "when": {
+        "has_bottle_0": "false"
+      },
+      "apply": {
+        "model": "magicfungi:block/essence_extractor/essence_extractor_empty0"
+      }
+    },
+    {
+      "when": {
+        "has_bottle_1": "false"
+      },
+      "apply": {
+        "model": "magicfungi:block/essence_extractor/essence_extractor_empty1"
+      }
+    },
+    {
+      "when": {
+        "has_bottle_2": "false"
+      },
+      "apply": {
+        "model": "magicfungi:block/essence_extractor/essence_extractor_empty2"
+      }
+    }
+  ]
+}

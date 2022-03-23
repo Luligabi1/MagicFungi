@@ -2,10 +2,10 @@
   "type": "minecraft:crafting_shapeless",
   "ingredients": [
     {
-      "tag": "magicfungi:all_mushrooms"
+      "item": "minecraft:book"
     },
     {
-      "item": "minecraft:book"
+      "tag": "c:mushrooms"
     }
   ],
   "result": {

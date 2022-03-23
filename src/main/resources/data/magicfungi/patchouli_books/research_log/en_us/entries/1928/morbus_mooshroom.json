@@ -1,0 +1,22 @@
+{
+  "name": "Morbus' Moo",
+  "icon": "magicfungi:morbus_leather",
+  "category": "magicfungi:1928",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "magicfungi:morbus_leather",
+      "title": "Morbus' Moo",
+      "text": "$(l)Research Report #3$()$(br2)Yet another finding exclusive to the $(l:1928/host_biome)Host Biome$(): the $(l)Morbus Mooshrooms$(). They're the only living thing that roams this place... most likely due to its territorial behavior, attacking anything that gets near them. It's tough to harm one, given how rigid their cowhide is.",
+      "link_recipe": true
+    },
+    {
+      "type": "entity",
+      "entity": "magicfungi:morbus_mooshroom",
+      "scale": 0.625,
+      "offset": 0.3,
+      "text": "I wonder if those mushrooms on their back are natural or even part of a harmonious relationship...?"
+    }
+  ]
+}

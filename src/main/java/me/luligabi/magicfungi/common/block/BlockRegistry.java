@@ -3,6 +3,8 @@ package me.luligabi.magicfungi.common.block;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.crafting.GlyphCarvingBlock;
 import me.luligabi.magicfungi.common.block.crafting.SpellDiscoveryBlock;
+import me.luligabi.magicfungi.common.block.crafting.essence.EssenceExtractorBlock;
+import me.luligabi.magicfungi.common.block.crafting.essence.EssenceExtractorBlockEntity;
 import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
 import me.luligabi.magicfungi.common.block.misc.HostDirtBlock;
 import me.luligabi.magicfungi.common.block.misc.HostFernBlock;
@@ -11,7 +13,9 @@ import me.luligabi.magicfungi.common.block.mushroom.*;
 import me.luligabi.magicfungi.common.item.misc.MagicalFungiAlloyBlockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
+import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
 import net.minecraft.block.*;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
 import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
@@ -56,6 +60,10 @@ public class BlockRegistry {
         initBlock("spell_discovery_workbench", SPELL_DISCOVERY_BLOCK);
 
 
+        initBlock("essence_extractor", ESSENCE_EXTRACTOR_BLOCK);
+        ESSENCE_EXTRACTOR_BLOCK_ENTITY_TYPE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MagicFungi.MOD_ID, "essence_extractor"), FabricBlockEntityTypeBuilder.create(EssenceExtractorBlockEntity::new, ESSENCE_EXTRACTOR_BLOCK).build(null));
+
+
         // Block registered apart from the BlockItem, since it's a glyph.
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "cadentis_block"), CADENTIS_BLOCK);
 
@@ -95,6 +103,9 @@ public class BlockRegistry {
 
     public static final Block GLYPH_CARVING_BLOCK = new GlyphCarvingBlock(FabricBlockSettings.of(Material.STONE).strength(1.5F).requiresTool().sounds(BlockSoundGroup.STONE));
     public static final Block SPELL_DISCOVERY_BLOCK = new SpellDiscoveryBlock(FabricBlockSettings.of(Material.WOOD).strength(2.5F).sounds(BlockSoundGroup.WOOD));
+
+    public static final Block ESSENCE_EXTRACTOR_BLOCK = new EssenceExtractorBlock(FabricBlockSettings.of(Material.METAL).requiresTool().strength(0.5F).luminance((state) -> 1).nonOpaque());
+    public static BlockEntityType<EssenceExtractorBlockEntity> ESSENCE_EXTRACTOR_BLOCK_ENTITY_TYPE;
 
 
     public static final Block MAGICAL_FUNGI_ALLOY_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL));

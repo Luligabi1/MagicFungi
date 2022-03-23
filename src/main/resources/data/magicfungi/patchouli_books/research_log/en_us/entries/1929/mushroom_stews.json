@@ -1,0 +1,14 @@
+{
+  "name": "Morbus Culinary",
+  "icon": "magicfungi:morbus_mushroom_stew",
+  "category": "magicfungi:1929",
+  "sortnum": 2,
+  "pages": [
+    {
+      "type": "spotlight",
+      "title": "Morbus Culinary",
+      "item": "magicfungi:morbus_mushroom_stew",
+      "text": "$(l)Experiment Index: $()#57$(br2)$(l)Experiment Proposal: $()Cooking with Morbus fungus and check what (if any) side effects there might be. Due to previous 'incidents', the dog shall be the test subject. $(br2)$(l)Experiment Results: $()He's gone."
+    }
+  ]
+}

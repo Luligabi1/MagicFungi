@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.mixin;
 
-import me.luligabi.magicfungi.client.item.armor.ArmorMushroomRenderer;
+import me.luligabi.magicfungi.client.renderer.item.armor.ArmorMushroomRenderer;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.entity.feature.ArmorFeatureRenderer;

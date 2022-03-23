@@ -1,0 +1,57 @@
+{
+  "processor": "me.luligabi.magicfungi.client.compat.patchouli.SpellDiscoveryProcessor",
+
+  "components": [
+    {
+      "type": "patchouli:image",
+      "image": "magicfungi:textures/gui/patchouli/spell_discovery.png",
+      "width": 120,
+      "height": 100,
+      "texture_width": 128,
+      "y": 6
+    },
+    {
+      "type": "patchouli:header",
+      "text": "#header",
+      "maxWidth": 10,
+      "x": -1,
+      "y": -3
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "y": 106,
+      "x": 2
+    },
+    {
+      "type": "patchouli:item", "item": "#input0", "x": 35, "y": 10
+    },
+    {
+      "type": "patchouli:item", "item": "#input1", "x": 63, "y": 10
+    },
+    {
+      "type": "patchouli:item", "item": "#input2", "x": 12, "y": 33
+    },
+    {
+      "type": "patchouli:item", "item": "#input3", "x": 86, "y": 33
+    },
+    {
+      "type": "patchouli:item", "item": "#input4", "x": 12, "y": 61
+    },
+    {
+      "type": "patchouli:item", "item": "#input5", "x": 86, "y": 61
+    },
+    {
+      "type": "patchouli:item", "item": "#input6", "x": 35, "y": 84
+    },
+    {
+      "type": "patchouli:item", "item": "#input7", "x": 63, "y": 84
+    },
+    {
+      "type": "patchouli:item", "item": "#output", "x": 49, "y": 47, "link_recipe": true
+    },
+    {
+      "type": "patchouli:item", "item": "magicfungi:spell_discovery_workbench", "x": 86, "y": 84
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "type": "magicfungi:essence_extraction",
+
+  "input" : {
+    "item": "magicfungi:utilis_mushroom"
+  },
+  "catalystType": "utilis",
+
+  "outputItem": "magicfungi:utilis_essence",
+  "outputAmount": "1"
+}

@@ -19,7 +19,7 @@ public class SpellRecipeSerializer implements RecipeSerializer<SpellRecipe> {
 
     public static final SpellRecipeSerializer INSTANCE = new SpellRecipeSerializer();
 
-    public static final Identifier ID = new Identifier(MagicFungi.MOD_ID, "spell_recipe");
+    public static final Identifier ID = new Identifier(MagicFungi.MOD_ID, "spell_discovery");
 
     @Override // Turns json into Recipe
     public SpellRecipe read(Identifier recipeId, JsonObject json) {
