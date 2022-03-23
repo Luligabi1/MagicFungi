@@ -68,10 +68,9 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(BlockRegistry.HOST_TALL_GRASS));
                 stacks.add(new ItemStack(BlockRegistry.HOST_FERN));
                 stacks.add(new ItemStack(BlockRegistry.LARGE_HOST_FERN));
-                stacks.add(new ItemStack(BlockRegistry.GLYPH_CARVING_BLOCK));
-                stacks.add(new ItemStack(BlockRegistry.SPELL_DISCOVERY_BLOCK));
 
                 // Glyphs
+                stacks.add(new ItemStack(BlockRegistry.GLYPH_CARVING_BLOCK));
                 stacks.add(new ItemStack(GlyphRegistry.EXPONENTIA_GLYPH));
 
                 // Utilis Glyphs
@@ -89,6 +88,8 @@ public class MagicFungi implements ModInitializer {
 
 
                 // Impetus Spells
+                stacks.add(new ItemStack(BlockRegistry.SPELL_DISCOVERY_BLOCK));
+
                 stacks.add(new ItemStack(SpellRegistry.IGNEI_SPELL));
                 stacks.add(new ItemStack(SpellRegistry.SCINTILLAM_SPELL));
 

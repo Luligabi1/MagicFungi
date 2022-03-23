@@ -56,10 +56,10 @@ public class ReiPlugin implements REIClientPlugin {
                 .put(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, "description.magicfungi.vivifica_mushroom")
                 .put(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK, "description.magicfungi.morbus_mushroom")
 
-                .put(BlockRegistry.GLYPH_CARVING_BLOCK, "description.magicfungi.glyph_carving_workbench")
-                .put(BlockRegistry.SPELL_DISCOVERY_BLOCK, "description.magicfungi.spell_discovery_workbench")
 
                 // Glyphs
+                .put(BlockRegistry.GLYPH_CARVING_BLOCK, "description.magicfungi.glyph_carving_workbench")
+
                 .put(GlyphRegistry.EXPONENTIA_GLYPH, "description.magicfungi.exponentia_glyph")
 
                 .put(GlyphRegistry.PLUVIAM_GLYPH, "description.magicfungi.pluviam_glyph")
@@ -73,6 +73,8 @@ public class ReiPlugin implements REIClientPlugin {
                 .put(GlyphRegistry.MALEDICTIO_GLYPH, "description.magicfungi.maledictio_glyph")
 
                 // Spells
+                .put(BlockRegistry.SPELL_DISCOVERY_BLOCK, "description.magicfungi.spell_discovery_workbench")
+
                 .put(SpellRegistry.IGNEI_SPELL, "description.magicfungi.ignei_spell")
                 .put(SpellRegistry.SCINTILLAM_SPELL, "description.magicfungi.scintillam_spell")
 
@@ -84,8 +86,24 @@ public class ReiPlugin implements REIClientPlugin {
 
                 .put(SpellRegistry.FERTILIS_SPELL, "description.magicfungi.fertilis_spell")
 
+                // Essences
+                .put(BlockRegistry.ESSENCE_EXTRACTOR_BLOCK, "description.magicfungi.essence_extractor")
+
+                .put(ItemRegistry.IMPETUS_ESSENCE, "description.magicfungi.impetus_essence")
+                .put(ItemRegistry.CLYPEUS_ESSENCE, "description.magicfungi.clypeus_essence")
+                .put(ItemRegistry.UTILIS_ESSENCE, "description.magicfungi.utilis_essence")
+                .put(ItemRegistry.VIVIFICA_ESSENCE, "description.magicfungi.vivifica_essence")
+                .put(ItemRegistry.MORBUS_ESSENCE, "description.magicfungi.morbus_essence")
+
+                // Morbus Items
+                .put(ItemRegistry.MORBUS_CLOCK, "description.magicfungi.morbus_clock")
+                .put(ItemRegistry.HEART_OF_VIVIFICA, "description.magicfungi.morbus_essence")
+                .put(ItemRegistry.HEART_OF_MORBUS, "description.magicfungi.morbus_essence")
+
                 // Misc
                 .put(ItemRegistry.GUIDE_BOOK, "description.magicfungi.guide_book")
+                .put(ItemRegistry.RESEARCH_LOG, "description.magicfungi.research_log")
+
                 .build());
 
         for(Map.Entry<ItemConvertible, String> entry : reiInformationMap.entrySet()) {

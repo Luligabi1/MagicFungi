@@ -208,7 +208,21 @@
 
   "description.magicfungi.fertilis_spell": "Estimula o crescimento de plantações próximas.",
 
+
+  "description.magicfungi.essence_extractor": "Bloco usado para extrair a essência pura dos Cogumelos Mágicos.",
+
+  "description.magicfungi.impetus_essence": "A essência pura do Cogumelo Impetus. Seu catalisador é o Pó de Blaze.",
+  "description.magicfungi.clypeus_essence": "A essência pura do Cogumelo Clypeus. Seu catalisador são os Cristais de Prismarinho.",
+  "description.magicfungi.utilis_essence": "A essência pura do Cogumelo Utilis. Seu catalisador é a Fruta do Coro Cozida.",
+  "description.magicfungi.vivifica_essence": "A essência pura do Cogumelo Vivifica. Seu catalisador é a Escama de Tartaruga.",
+  "description.magicfungi.morbus_essence": "A essência pura do Cogumelo Morbus. Seu catalisador é o Crânio de Esqueleto Wither.",
+
+  "description.magicfungi.morbus_clock": "Um aparelho capaz de calcular quando o espalhamento ocorrerá.",
+  "description.magicfungi.heart_of_vivifica": "Um artefato mágico capaz de evitar o espalhamento.",
+  "description.magicfungi.heart_of_morbus": "Um artefato capaz de retomar o espalhamento.",
+
   "description.magicfungi.guide_book": "Um guia cobrindo todo o conteúdo básico da Micologia Mágica. Você deve receber um quando primeiro criar o mundo. Se não, você pode fabricar um ao combinar um livro e qualquer um dos Cogumelos Mágicos.",
+  "description.magicfungi.research_log": "Um registo de pesquisa antiquado feito por um autor desconhecido a respeito do Bioma Hospedeiro. Maior parte de suas páginas foram perdidas ao tempo, mas algumas delas ainda são legíveis.",
 
 
   "entity.magicfungi.morbus_mooshroom": "Coguvaca Morbus",

@@ -190,8 +190,8 @@
   "description.magicfungi.vivifica_mushroom": "One of the five Magic Mushrooms, representing §anature§r and the wish to §aheal§r. Can be found on any overworld biome, but is more frequently seen on §aJungles§r.",
   "description.magicfungi.morbus_mushroom": "One of the five Magic Mushrooms, representing §8disease§r and the wish to §8corrupt§r. Can be found exclusively on the §8Host Biome§r.",
 
+
   "description.magicfungi.glyph_carving_workbench": "A special crafting block used to carve glyphs.",
-  "description.magicfungi.spell_discovery_workbench": "A special crafting block used to discover spells. It's not crafted by normal means, but via using an Exponentia Spell on a Crafting Table.",
 
   "description.magicfungi.exponentia_glyph": "A glyph used to transform a Crafting Table into a Spell Discovery Workbench.",
 
@@ -206,6 +206,8 @@
   "description.magicfungi.maledictio_glyph": "Converts a small patch of regular grass into Host Grass.",
 
 
+  "description.magicfungi.spell_discovery_workbench": "A special crafting block used to discover spells. It's not crafted by normal means, but via using an Exponentia Spell on a Crafting Table.",
+
   "description.magicfungi.ignei_spell": "Summons a small fire charge towards the direction the user's looking at.",
   "description.magicfungi.scintillam_spell": "Summons a fireball towards the direction user's looking at.",
 
@@ -217,7 +219,21 @@
 
   "description.magicfungi.fertilis_spell": "Stimulates the growth of nearby crops.",
 
+
+  "description.magicfungi.essence_extractor": "A block used to extract the Magic Fungi's pure essences.",
+
+  "description.magicfungi.impetus_essence": "Impetus Mushroom's pure essence. Its catalyst is Blaze Powder.",
+  "description.magicfungi.clypeus_essence": "Clypeus Mushroom's pure essence. Its catalyst is Prismarine Crystals.",
+  "description.magicfungi.utilis_essence": "Utilis Mushroom's pure essence. Its catalyst is Popped Chorus Fruit.",
+  "description.magicfungi.vivifica_essence": "Vivifica Mushroom's pure essence. Its catalyst is Scute.",
+  "description.magicfungi.morbus_essence": "Morbus Mushroom's pure essence. Its catalyst is Wither Skeleton Skull.",
+
+  "description.magicfungi.morbus_clock": "A device able to calculate when the Morbus Spreading will happen.",
+  "description.magicfungi.heart_of_vivifica": "A magic artifact capable of preventing the Morbus Spreading.",
+  "description.magicfungi.heart_of_morbus": "A magic artifact capable of resuming the Morbus Spreading.",
+
   "description.magicfungi.guide_book": "A guide book covering all the basic content of Magic Mycology. You should receive it when first creating the world. If not, you can craft one by combining a book and any Magic Mushroom.",
+  "description.magicfungi.research_log": "An ancient research log of an unknown author about the Host Biome. Most of the pages have been lost to the ages, but some of them are still well preserved.",
 
 
   "entity.magicfungi.morbus_mooshroom": "Morbus Mooshroom",
