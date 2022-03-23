@@ -15,7 +15,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
@@ -64,10 +63,6 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
         };
     }
 
-
-    private static final int[] TOP_SLOTS = new int[]{3};
-    private static final int[] BOTTOM_SLOTS = new int[]{0, 1, 2, 3};
-    private static final int[] SIDE_SLOTS = new int[]{0, 1, 2, 4};
     /*
        Catalysts are stored on the NBT under an integer, with the purpose of taking advantage of the PropertyDelegate.
        As primitive types cannot be null, we use CatalystType#EMPTY (5 on the values array) instead.
@@ -173,14 +168,14 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
     }
 
     private static boolean canCraft(EssenceExtractorBlockEntity blockEntity, World world, int fuelType) {
-        ItemStack itemStack = blockEntity.inventory.get(3);
+        ItemStack inputStack = blockEntity.inventory.get(3);
         Optional<EssenceRecipe> recipeOptional = createRecipeOptional(blockEntity, world);
-        if(itemStack.isEmpty() ||recipeOptional.isEmpty()) return false;
+        if(inputStack.isEmpty() ||recipeOptional.isEmpty()) return false;
 
         if(blockEntity.hasCheckedCatalyst) {
             for (int i = 0; i < 3; ++i) {
-                ItemStack itemStack2 = blockEntity.inventory.get(i);
-                if (!itemStack2.isEmpty()) {
+                ItemStack outputStacks = blockEntity.inventory.get(i);
+                if (!outputStacks.isEmpty()) {
                     return true;
                 }
             }
@@ -198,7 +193,12 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
         if(recipeOptional.isEmpty()) return;
 
         for(int i = 0; i < 3; ++i) {
-            blockEntity.inventory.set(i, recipeOptional.get().getOutput());
+            ItemStack outputStack = blockEntity.inventory.get(i);
+            if(outputStack.isOf(Items.GLASS_BOTTLE)) {
+                blockEntity.inventory.set(i, recipeOptional.get().getOutput());
+            } else if(outputStack.isItemEqual(recipeOptional.get().getOutput()) && outputStack.isStackable()) {
+                outputStack.increment(1);
+            }
         }
 
         itemStack.decrement(1);
@@ -261,29 +261,31 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
     }
 
     public boolean isValid(int slot, ItemStack stack) {
-        if (slot == 3) {
-            return BrewingRecipeRegistry.isValidIngredient(stack);
-        } else if (slot == 4) {
-            return stack.isOf(Items.BLAZE_POWDER);
-        } else {
-            return (stack.isOf(Items.POTION) || stack.isOf(Items.SPLASH_POTION) || stack.isOf(Items.LINGERING_POTION) || stack.isOf(Items.GLASS_BOTTLE)) && this.getStack(slot).isEmpty();
-        }
+        return switch(slot) {
+            case 3 -> true; // input slots
+            case 4 -> EssenceExtractorScreenHandler.isCatalyst(stack); // catalyst slot
+            default -> inventory.get(slot).isEmpty() && stack.isOf(Items.GLASS_BOTTLE); // bottle slots
+        };
     }
 
     public int[] getAvailableSlots(Direction side) {
         return switch(side.getId()) {
-            case 0 -> BOTTOM_SLOTS;
-            case 1 -> TOP_SLOTS;
-            default -> SIDE_SLOTS;
+            case 0 -> new int[]{0, 1, 2}; // DOWN - bottle slots
+            case 1 -> new int[]{3}; // UP - input slot
+            default -> new int[]{4, 0, 1, 2}; // SIDES - catalyst slot, bottle slots
         };
     }
 
     public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
-        return this.isValid(slot, stack);
+        return isValid(slot, stack);
     }
 
-    public boolean canExtract(int slot, ItemStack stack, Direction dir) {
-        return slot != 3 || stack.isOf(Items.GLASS_BOTTLE);
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        return switch(side.getId()) {
+            case 0 -> brewTime <= 0 && inventory.get(3).isEmpty() && !stack.isOf(Items.GLASS_BOTTLE); // Extract downward if nothing is being brewed, the input slot is empty and the extracted is not a glass bottle.
+            case 1 -> brewTime <= 0; // Extract upward if nothing is being brewed.
+            default -> false; // Never extract from sides
+        };
     }
 
     public void clear() {

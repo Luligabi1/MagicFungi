@@ -156,13 +156,17 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
         }
 
         public static boolean matches(ItemStack stack) {
-            return stack.isIn(TagRegistry.IMPETUS_CATALYST) ||
-                    stack.isIn(TagRegistry.CLYPEUS_CATALYST) ||
-                    stack.isIn(TagRegistry.UTILIS_CATALYST) ||
-                    stack.isIn(TagRegistry.VIVIFICA_CATALYST) ||
-                    stack.isIn(TagRegistry.MORBUS_CATALYST);
+            return isCatalyst(stack);
         }
 
     }
 
+
+    public static boolean isCatalyst(ItemStack stack) {
+        return stack.isIn(TagRegistry.IMPETUS_CATALYST) ||
+                stack.isIn(TagRegistry.CLYPEUS_CATALYST) ||
+                stack.isIn(TagRegistry.UTILIS_CATALYST) ||
+                stack.isIn(TagRegistry.VIVIFICA_CATALYST) ||
+                stack.isIn(TagRegistry.MORBUS_CATALYST);
+    }
 }
