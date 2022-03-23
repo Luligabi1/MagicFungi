@@ -35,8 +35,8 @@ public class EssenceExtractorScreen extends HandledScreen<EssenceExtractorScreen
         super.render(matrices, mouseX, mouseY, delta);
         drawMouseoverTooltip(matrices, mouseX, mouseY);
 
-        if(handler.getFuelType() >= 0 && handler.getFuelType() <= 4) {
-            if((mouseX >= x+58 && mouseX <= x+78) && (mouseY >= y+42 && mouseY <= y+48)) {
+        if(handler.getFuel() > 0 && handler.getFuelType() <= 4) {
+            if((mouseX >= x+59 && mouseX <= x+78) && (mouseY >= y+43 && mouseY <= y+48)) {
                 renderTooltip(matrices, new TranslatableText("tooltip.magicfungi.essence_extractor.catalyst_fuel", handler.getFuel())
                         .formatted(CatalystType.values()[handler.getFuelType()].getColor()), mouseX, mouseY);
             }
@@ -47,25 +47,26 @@ public class EssenceExtractorScreen extends HandledScreen<EssenceExtractorScreen
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
-        int i = (width - backgroundWidth) / 2;
-        int j = (height - backgroundHeight) / 2;
-        this.drawTexture(matrices, i, j, 0, 0, backgroundWidth, backgroundHeight);
-        int k = handler.getFuel();
-        int l = MathHelper.clamp((18 * k + 20 - 1) / 20, 0, 18);
-        if (l > 0) {
-            this.drawTexture(matrices, i + 60, j + 44, 176, getFuelBarTypeYCoordinate(), l, 4);
+        int x = (width - backgroundWidth) / 2;
+        int y = (height - backgroundHeight) / 2;
+        this.drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+
+        int fuel = handler.getFuel();
+        int fuelBarLength = MathHelper.clamp((18 * fuel + 20 - 1) / 20, 0, 18);
+        if (fuelBarLength > 0) {
+            this.drawTexture(matrices, x + 60, y + 44, 176, getFuelBarTypeYCoordinate(), fuelBarLength, 4);
         }
 
-        int m = handler.getBrewTime();
-        if (m > 0) {
-            int n = Math.round(28.0F * (1.0F - m / 400.0F));
-            if (n > 0) {
-                this.drawTexture(matrices, i + 97, j + 16, 176, 0, 9, n);
+        int brewTime = handler.getBrewTime();
+        if (brewTime > 0) {
+            int brewTimeProgress = Math.round(28.0F * (1.0F - brewTime / 400.0F));
+            if (brewTimeProgress > 0) {
+                this.drawTexture(matrices, x + 97, y + 16, 176, 0, 9, brewTimeProgress);
             }
 
-            n = BrewingStandScreenAccessor.getBubbleProgress()[m / 2 % 7];
-            if (n > 0) {
-                this.drawTexture(matrices, i + 63, j + 14 + 29 - n, 185, 29 - n, 12, n);
+            brewTimeProgress = BrewingStandScreenAccessor.getBubbleProgress()[brewTime / 2 % 7];
+            if (brewTimeProgress > 0) {
+                this.drawTexture(matrices, x + 63, y + 14 + 29 - brewTimeProgress, 185, 29 - brewTimeProgress, 12, brewTimeProgress);
             }
         }
 
