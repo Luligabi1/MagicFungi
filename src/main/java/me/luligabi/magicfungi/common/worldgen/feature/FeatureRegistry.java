@@ -12,16 +12,16 @@ import net.minecraft.block.Blocks;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.dynamic.Range;
 import net.minecraft.util.math.noise.DoublePerlinNoiseSampler;
-import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
-import net.minecraft.world.gen.decorator.BiomePlacementModifier;
-import net.minecraft.world.gen.decorator.HeightRangePlacementModifier;
-import net.minecraft.world.gen.decorator.SquarePlacementModifier;
 import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 import net.minecraft.world.gen.stateprovider.DualNoiseBlockStateProvider;
 
@@ -29,181 +29,218 @@ import java.util.List;
 
 import static net.minecraft.world.gen.feature.OreConfiguredFeatures.BASE_STONE_OVERWORLD;
 
+@SuppressWarnings("unused")
 public class FeatureRegistry {
 
-    //@SuppressWarnings("deprecation")
     public static void init() {
         // Regular Magic Mushroom gen
-        registerMagicMushroomFeature(IMPETUS_REGULAR_CONFIGURED_FEATURE, IMPETUS_REGULAR_PLACED_FEATURE, "impetus_regular", IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE, IMPETUS_BIOME_ENHANCED_PLACED_FEATURE, "impetus_savanna", MagicFungi.CONFIG.canGenerateImpetusMushrooms, Biome.Category.SAVANNA);
-        registerMagicMushroomFeature(CLYPEUS_REGULAR_CONFIGURED_FEATURE, CLYPEUS_REGULAR_PLACED_FEATURE, "clypeus_regular", CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE, CLYPEUS_BIOME_ENHANCED_PLACED_FEATURE, "clypeus_icy", MagicFungi.CONFIG.canGenerateClypeusMushrooms, Biome.Category.ICY);
-        registerMagicMushroomFeature(UTILIS_REGULAR_CONFIGURED_FEATURE, UTILIS_REGULAR_PLACED_FEATURE, "utilis_regular", UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE, UTILIS_BIOME_ENHANCED_PLACED_FEATURE, "utilis_mountains", MagicFungi.CONFIG.canGenerateUtilisMushrooms,  Biome.Category.MOUNTAIN, Biome.Category.EXTREME_HILLS);
-        registerMagicMushroomFeature(VIVIFICA_REGULAR_CONFIGURED_FEATURE, VIVIFICA_REGULAR_PLACED_FEATURE, "vivifica_regular", VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE, VIVIFICA_BIOME_ENHANCED_PLACED_FEATURE, "vivifica_jungle", MagicFungi.CONFIG.canGenerateVivificaMushrooms, Biome.Category.JUNGLE);
+        addMagicMushroomFeature(FeatureRegistry.IMPETUS_ID, FeatureRegistry.IMPETUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateImpetusMushrooms, Biome.Category.SAVANNA);
+        addMagicMushroomFeature(FeatureRegistry.CLYPEUS_ID, FeatureRegistry.CLYPEUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateClypeusMushrooms, Biome.Category.ICY);
+        addMagicMushroomFeature(FeatureRegistry.UTILIS_ID, FeatureRegistry.UTILIS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateUtilisMushrooms,  Biome.Category.MOUNTAIN, Biome.Category.EXTREME_HILLS);
+        addMagicMushroomFeature(FeatureRegistry.VIVIFICA_ID, FeatureRegistry.VIVIFICA_ENHANCED_ID, MagicFungi.CONFIG.canGenerateVivificaMushrooms, Biome.Category.JUNGLE);
 
-        registerHostBiomeFeature(MORBUS_CONFIGURED_FEATURE, MORBUS_PLACED_FEATURE, "morbus_host_biome", GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateMorbusMushrooms);
+        addHostBiomeFeature(FeatureRegistry.MORBUS_ID, GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateMorbusMushrooms);
 
         // TODO: Add Morbus & Morbus Tall Grass gen here.
-        registerHostBiomeFeature(WITHER_ROSE_CONFIGURED_FEATURE, WITHER_ROSE_PLACED_FEATURE, "wither_rose_host_biome", GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateWitherRoseHostBiome);
+        addHostBiomeFeature(FeatureRegistry.WITHER_ROSE_ID, GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateWitherRoseHostBiome);
 
-        registerHostBiomeFeature(MORBUS_MUSHROOM_VEGETATION_CONFIGURED_FEATURE, MORBUS_MUSHROOM_VEGETATION_PLACED_FEATURE, "morbus_vegetation", GenerationStep.Feature.TOP_LAYER_MODIFICATION, true);
+        addHostBiomeFeature(FeatureRegistry.MORBUS_MUSHROOM_VEGETATION_ID, GenerationStep.Feature.TOP_LAYER_MODIFICATION, true);
 
-        registerFeature(ORE_HOST_DIRT_CONFIGURED_FEATURE, ORE_HOST_DIRT_PLACED_FEATURE, "ore_host_dirt");
+        //registerFeature(ORE_HOST_DIRT_CONFIGURED_FEATURE, ORE_HOST_DIRT_PLACED_FEATURE, "ore_host_dirt");
     }
 
-    private static void registerMagicMushroomFeature(ConfiguredFeature<?, ?> regularConfiguredFeature, PlacedFeature regularPlacedFeature, String regularIdentifier, ConfiguredFeature<?, ?> biomeEnhancedConfiguredFeature, PlacedFeature biomeEnhancedPlacedFeature, String biomeEnhancedIdentifier, boolean enabled, Biome.Category... biomeCategory) {
+    private static void addMagicMushroomFeature(String regularIdentifier, String biomeEnhancedIdentifier, boolean enabled, Biome.Category... biomeCategory) {
         if(!enabled) return;
-
         // Regular feature registry
-        registerFeature(regularConfiguredFeature, regularPlacedFeature, regularIdentifier);
         BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION,
-                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MagicFungi.MOD_ID, regularIdentifier)));
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(regularIdentifier)));
 
-        // Biome Enhanced feature registry
-        registerFeature(biomeEnhancedConfiguredFeature, biomeEnhancedPlacedFeature, biomeEnhancedIdentifier);
+        // Biome Enhanced feature
         BiomeModifications.addFeature(BiomeSelectors.categories(biomeCategory), GenerationStep.Feature.VEGETAL_DECORATION,
-                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MagicFungi.MOD_ID, biomeEnhancedIdentifier)));
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(biomeEnhancedIdentifier)));
     }
 
-    private static void registerHostBiomeFeature(ConfiguredFeature<?, ?> configuredFeature, PlacedFeature placedFeature, String identifier, GenerationStep.Feature genStep, boolean enabled) {
+    private static void addHostBiomeFeature(String identifier, GenerationStep.Feature genStep, boolean enabled) {
         if(!enabled) return;
-
-        registerFeature(configuredFeature, placedFeature, identifier);
         BiomeModifications.addFeature(BiomeSelectors.includeByKey(BiomeRegistry.HOST_BIOME_KEY), genStep,
-                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(MagicFungi.MOD_ID, identifier)));
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(identifier)));
     }
-
-    private static void registerFeature(ConfiguredFeature<?, ?> configuredFeature, PlacedFeature placedFeature, String identifier) {
-        Registry.register(BuiltinRegistries.CONFIGURED_FEATURE,
-                new Identifier(MagicFungi.MOD_ID, identifier), configuredFeature);
-        Registry.register(BuiltinRegistries.PLACED_FEATURE,
-                new Identifier(MagicFungi.MOD_ID, identifier), placedFeature);
-    }
-
 
     // Impetus Mushroom
-    private static final ConfiguredFeature<?, ?> IMPETUS_REGULAR_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusRegularSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> IMPETUS_REGULAR_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusRegularSpawnRatio, FeatureRegistry.IMPETUS_ID);
 
-    private static final PlacedFeature IMPETUS_REGULAR_PLACED_FEATURE = IMPETUS_REGULAR_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> IMPETUS_REGULAR_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.IMPETUS_ID, IMPETUS_REGULAR_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
 
-    private static final ConfiguredFeature<?, ?> IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusBiomeEnhancedSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusBiomeEnhancedSpawnRatio, FeatureRegistry.IMPETUS_ENHANCED_ID);
 
-    private static final PlacedFeature IMPETUS_BIOME_ENHANCED_PLACED_FEATURE = IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> IMPETUS_BIOME_ENHANCED_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.IMPETUS_ENHANCED_ID, IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
 
+    private static final String IMPETUS_ID = "impetus_mushroom";
+    private static final String IMPETUS_ENHANCED_ID = "impetus_mushroom_enhanced";
 
     // Clypeus Mushroom
-    private static final ConfiguredFeature<?, ?> CLYPEUS_REGULAR_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusRegularSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLYPEUS_REGULAR_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusRegularSpawnRatio, FeatureRegistry.CLYPEUS_ID);
 
-    private static final PlacedFeature CLYPEUS_REGULAR_PLACED_FEATURE = CLYPEUS_REGULAR_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> CLYPEUS_REGULAR_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.CLYPEUS_ID, CLYPEUS_REGULAR_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
 
-    private static final ConfiguredFeature<?, ?> CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusBiomeEnhancedSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusBiomeEnhancedSpawnRatio, FeatureRegistry.CLYPEUS_ENHANCED_ID);
 
-    private static final PlacedFeature CLYPEUS_BIOME_ENHANCED_PLACED_FEATURE = CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> CLYPEUS_BIOME_ENHANCED_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.CLYPEUS_ENHANCED_ID, CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
 
+
+    private static final String CLYPEUS_ID = "clypeus_mushroom";
+    private static final String CLYPEUS_ENHANCED_ID = "clypeus_mushroom_enhanced";
 
     // Utilis Mushroom
-    private static final ConfiguredFeature<?, ?> UTILIS_REGULAR_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisRegularSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> UTILIS_REGULAR_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisRegularSpawnRatio, FeatureRegistry.UTILIS_ID);
 
-    private static final PlacedFeature UTILIS_REGULAR_PLACED_FEATURE = UTILIS_REGULAR_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> UTILIS_REGULAR_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.UTILIS_ID, UTILIS_REGULAR_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
 
-    private static final ConfiguredFeature<?, ?> UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisBiomeEnhancedSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE =
+    generateMushroomFeatureSupplier(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisBiomeEnhancedSpawnRatio, FeatureRegistry.UTILIS_ENHANCED_ID);
 
-    private static final PlacedFeature UTILIS_BIOME_ENHANCED_PLACED_FEATURE = UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> UTILIS_BIOME_ENHANCED_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.UTILIS_ENHANCED_ID, UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
+
+
+    private static final String UTILIS_ID = "utilis_mushroom";
+    private static final String UTILIS_ENHANCED_ID = "utilis_mushroom_enhanced";
 
     // Vivifica Mushroom
-    private static final ConfiguredFeature<?, ?> VIVIFICA_REGULAR_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> VIVIFICA_REGULAR_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRatio, FeatureRegistry.VIVIFICA_ID);
 
-    private static final PlacedFeature VIVIFICA_REGULAR_PLACED_FEATURE = VIVIFICA_REGULAR_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> VIVIFICA_REGULAR_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.VIVIFICA_ID, VIVIFICA_REGULAR_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
 
-    private static final ConfiguredFeature<?, ?> VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaBiomeEnhancedSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaBiomeEnhancedSpawnRatio, FeatureRegistry.VIVIFICA_ENHANCED_ID);
 
-    private static final PlacedFeature VIVIFICA_BIOME_ENHANCED_PLACED_FEATURE = VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> VIVIFICA_BIOME_ENHANCED_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.VIVIFICA_ENHANCED_ID, VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
+
+
+    private static final String VIVIFICA_ID = "vivifica_mushroom";
+    private static final String VIVIFICA_ENHANCED_ID = "vivifica_mushroom_enhanced";
 
     // Morbus Mushroom - Host Biome
-    private static final ConfiguredFeature<?, ?> MORBUS_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MORBUS_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRatio, FeatureRegistry.MORBUS_ID);
 
-    private static final PlacedFeature MORBUS_PLACED_FEATURE = MORBUS_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> MORBUS_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.MORBUS_ID, MORBUS_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
 
+
+    private static final String MORBUS_ID = "morbus_mushroom";
 
     // Wither Rose - Host Biome
-    private static final ConfiguredFeature<?, ?> WITHER_ROSE_CONFIGURED_FEATURE =
-            generateMushroomFeatureSupplier(Blocks.WITHER_ROSE, MagicFungi.CONFIG.hostBiomeWitherRoseSpawnRatio);
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WITHER_ROSE_CONFIGURED_FEATURE =
+            generateMushroomFeatureSupplier(Blocks.WITHER_ROSE, MagicFungi.CONFIG.hostBiomeWitherRoseSpawnRatio, FeatureRegistry.WITHER_ROSE_ID);
 
-    private static final PlacedFeature WITHER_ROSE_PLACED_FEATURE = WITHER_ROSE_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> WITHER_ROSE_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.WITHER_ROSE_ID, WITHER_ROSE_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
 
+
+    private static final String WITHER_ROSE_ID = "wither_rose_host_biome";
 
     // Morbus Mushroom Vegetation - Host Biome
-    private static final ConfiguredFeature<?, ?> LARGE_MORBUS_MUSHROOM = Feature.HUGE_RED_MUSHROOM.configure(new HugeMushroomFeatureConfig(
+    private static final RegistryEntry<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> LARGE_MORBUS_MUSHROOM = ConfiguredFeatures.register("large_morbus_mushroom", Feature.HUGE_RED_MUSHROOM,
+            new HugeMushroomFeatureConfig(
             BlockStateProvider.of(WorldUtil.LARGE_MORBUS),
-            BlockStateProvider.of(WorldUtil.MUSHROOM_STEM), 2));
+            BlockStateProvider.of(WorldUtil.MUSHROOM_STEM), 2)
+    );
 
-    private static final ConfiguredFeature<?, ?> TALL_MORBUS_MUSHROOM = Feature.HUGE_BROWN_MUSHROOM.configure(new HugeMushroomFeatureConfig(
+    private static final RegistryEntry<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> TALL_MORBUS_MUSHROOM = ConfiguredFeatures.register("tall_morbus_mushroom", Feature.HUGE_BROWN_MUSHROOM,
+            new HugeMushroomFeatureConfig(
             BlockStateProvider.of(WorldUtil.TALL_MORBUS),
-            BlockStateProvider.of(WorldUtil.MUSHROOM_STEM), 3));
+            BlockStateProvider.of(WorldUtil.MUSHROOM_STEM), 3)
+    );
 
 
-    private static final ConfiguredFeature<?, ?> MORBUS_MUSHROOM_VEGETATION_CONFIGURED_FEATURE = Feature.RANDOM_BOOLEAN_SELECTOR.configure(new RandomBooleanFeatureConfig(
-            FeatureRegistry.LARGE_MORBUS_MUSHROOM::withPlacement,
-            FeatureRegistry.TALL_MORBUS_MUSHROOM::withPlacement));
+    private static final RegistryEntry<ConfiguredFeature<RandomBooleanFeatureConfig, ?>> MORBUS_MUSHROOM_VEGETATION_CONFIGURED_FEATURE = ConfiguredFeatures.register(FeatureRegistry.MORBUS_MUSHROOM_VEGETATION_ID, Feature.RANDOM_BOOLEAN_SELECTOR,
+            new RandomBooleanFeatureConfig(
+            PlacedFeatures.createEntry(FeatureRegistry.LARGE_MORBUS_MUSHROOM),
+            PlacedFeatures. createEntry(FeatureRegistry.TALL_MORBUS_MUSHROOM)
+    ));
 
-    private static final PlacedFeature MORBUS_MUSHROOM_VEGETATION_PLACED_FEATURE = MORBUS_MUSHROOM_VEGETATION_CONFIGURED_FEATURE.withPlacement(
+    private static final RegistryEntry<PlacedFeature> MORBUS_MUSHROOM_VEGETATION_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.MORBUS_MUSHROOM_VEGETATION_ID, MORBUS_MUSHROOM_VEGETATION_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
             PlacedFeatures.MOTION_BLOCKING_HEIGHTMAP,
-            BiomePlacementModifier.of());
+            BiomePlacementModifier.of()
+    );
+
+    private static final String MORBUS_MUSHROOM_VEGETATION_ID = "morbus_mushroom_vegetation";
 
 
     // Host Dirt Ore Disk - Host Biome
-    private static final ConfiguredFeature<?, ?> ORE_HOST_DIRT_CONFIGURED_FEATURE = Feature.ORE.configure(
-            new OreFeatureConfig(BASE_STONE_OVERWORLD,
-            BlockRegistry.HOST_DIRT.getDefaultState(),
-            33));
+    private static final RegistryEntry<ConfiguredFeature<OreFeatureConfig, ?>> ORE_HOST_DIRT_CONFIGURED_FEATURE = ConfiguredFeatures.register(FeatureRegistry.HOST_DIRT_ORE_DISK_ID, Feature.ORE,
+            new OreFeatureConfig(
+                    BASE_STONE_OVERWORLD,
+                    BlockRegistry.HOST_DIRT.getDefaultState(),
+                    33
+            )
+    );
 
-    public static final PlacedFeature ORE_HOST_DIRT_PLACED_FEATURE = ORE_HOST_DIRT_CONFIGURED_FEATURE.withPlacement(
+    public static final RegistryEntry<PlacedFeature> ORE_HOST_DIRT_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.HOST_DIRT_ORE_DISK_ID, ORE_HOST_DIRT_CONFIGURED_FEATURE,
             OrePlacedFeaturesInvoker.modifiersWithCount(7,
-            HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(160))));
+                    HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(160)))
+    );
+
+    private static final String HOST_DIRT_ORE_DISK_ID = "host_dirt_ore_disk";
 
 
-    private static ConfiguredFeature<?, ?> generateMushroomFeatureSupplier(Block block, int tries) {
-        return Feature.FLOWER.configure(new RandomPatchFeatureConfig(tries, 8, 3, () -> Feature.SIMPLE_BLOCK.configure(new SimpleBlockFeatureConfig(new DualNoiseBlockStateProvider(
-                new Range<>(1, 3), new DoublePerlinNoiseSampler.NoiseParameters(-10, 1.0D), 1.0F, 2345L,
-                new DoublePerlinNoiseSampler.NoiseParameters(-3, 1.0D), 1.0F, List.of(block.getDefaultState())))).withInAirFilter()));
+    private static RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> generateMushroomFeatureSupplier(Block block, int tries, String id) {
+        RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> noiseSampleConfiguredFeature = ConfiguredFeatures.register(id + "_noise_sample", Feature.SIMPLE_BLOCK,
+                new SimpleBlockFeatureConfig(new DualNoiseBlockStateProvider(new Range<>(1, 3),
+                new DoublePerlinNoiseSampler.NoiseParameters(-10, 1.0D), 1.0F, 2345L,
+                new DoublePerlinNoiseSampler.NoiseParameters(-3, 1.0D), 1.0F, List.of(block.getDefaultState())))
+        );
+
+        RegistryEntry<PlacedFeature> noiseSamplePlacedFeature = PlacedFeatures.register(id + "_noise_sample", noiseSampleConfiguredFeature);
+
+        return ConfiguredFeatures.register(id, Feature.FLOWER,
+                new RandomPatchFeatureConfig(tries, 8, 3, noiseSamplePlacedFeature)
+        );
     }
 
 
