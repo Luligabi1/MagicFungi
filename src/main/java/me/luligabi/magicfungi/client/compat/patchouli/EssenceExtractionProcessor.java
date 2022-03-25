@@ -1,11 +1,13 @@
 package me.luligabi.magicfungi.client.compat.patchouli;
 
+import com.mojang.logging.LogUtils;
 import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipe;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemConvertible;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 import org.jetbrains.annotations.NotNull;
 import vazkii.patchouli.api.IComponentProcessor;
 import vazkii.patchouli.api.IVariable;
@@ -19,6 +21,7 @@ public class EssenceExtractionProcessor implements IComponentProcessor {
     private EssenceRecipe recipe;
     private String text;
 
+    @SuppressWarnings("ConstantConditions")
     @Override
     public void setup(IVariableProvider variables) {
         String recipeId = variables.get("recipe").asString();
@@ -32,7 +35,10 @@ public class EssenceExtractionProcessor implements IComponentProcessor {
         switch(key) {
             case "input" -> { return IVariable.from(recipe.getInput()); }
             case "catalyst" -> {
-                List<ItemConvertible> catalystList = new ArrayList<>(recipe.getCatalystType().getTag().values());
+                List<ItemConvertible> catalystList = new ArrayList<>();
+                Registry.ITEM.getEntryList(recipe.getCatalystType().getTag()).ifPresentOrElse(
+                        registryEntries -> registryEntries.forEach(itemRegistryEntry -> catalystList.add(itemRegistryEntry.value())),
+                        () -> LogUtils.getLogger().error("Catalyst tag is empty!"));
 
                 return IVariable.from(Ingredient.ofItems(catalystList.toArray(new ItemConvertible[0])));
             }

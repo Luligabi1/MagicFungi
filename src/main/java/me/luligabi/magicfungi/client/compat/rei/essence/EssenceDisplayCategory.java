@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.client.compat.rei.essence;
 
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.logging.LogUtils;
 import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
@@ -15,11 +16,14 @@ import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.entry.EntryStack;
 import me.shedaniel.rei.api.common.util.EntryStacks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tag.TagKey;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.registry.Registry;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,6 +33,7 @@ import static me.luligabi.magicfungi.common.util.CatalystType.*;
 public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisplay> {
 
 
+    @SuppressWarnings("UnstableApiUsage")
     @Override
     public List<Widget> setupDisplay(EssenceRecipeDisplay display, Rectangle bounds) {
         Point startPoint = new Point(bounds.getCenterX() - 52, bounds.getCenterY() - 29);
@@ -65,42 +70,26 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
     }
 
 
-    // oh this'll be a bitch to port to 1.18.2+
     private List<EntryStack<ItemStack>> getCatalyst(EssenceRecipeDisplay display) {
         switch(display.catalystType) {
             case IMPETUS -> {
-                if(impetusCatalystList == null) {
-                    impetusCatalystList = new ArrayList<>();
-                    IMPETUS.getTag().values().forEach(item -> impetusCatalystList.add(EntryStacks.of(new ItemStack(item))));
-                }
+                addToCatalystList(IMPETUS.getTag(), impetusCatalystList);
                 return impetusCatalystList;
             }
             case CLYPEUS -> {
-                if(clypeusCatalystList == null) {
-                    clypeusCatalystList = new ArrayList<>();
-                    CLYPEUS.getTag().values().forEach(item -> clypeusCatalystList.add(EntryStacks.of(new ItemStack(item))));
-                }
+                addToCatalystList(CLYPEUS.getTag(), clypeusCatalystList);
                 return clypeusCatalystList;
             }
             case UTILIS -> {
-                if(utilisCatalystList == null) {
-                    utilisCatalystList = new ArrayList<>();
-                    UTILIS.getTag().values().forEach(item -> utilisCatalystList.add(EntryStacks.of(new ItemStack(item))));
-                }
+                addToCatalystList(UTILIS.getTag(), utilisCatalystList);
                 return utilisCatalystList;
             }
             case VIVIFICA -> {
-                if(vivificaCatalystList == null) {
-                    vivificaCatalystList = new ArrayList<>();
-                    VIVIFICA.getTag().values().forEach(item -> vivificaCatalystList.add(EntryStacks.of(new ItemStack(item))));
-                }
+                addToCatalystList(VIVIFICA.getTag(), vivificaCatalystList);
                 return vivificaCatalystList;
             }
             case MORBUS -> {
-                if(morbusCatalystList == null) {
-                    morbusCatalystList = new ArrayList<>();
-                    MORBUS.getTag().values().forEach(item -> morbusCatalystList.add(EntryStacks.of(new ItemStack(item))));
-                }
+                addToCatalystList(MORBUS.getTag(), morbusCatalystList);
                 return morbusCatalystList;
             }
             default -> throw new UnsupportedOperationException("Catalyst Type outside valid options!");
@@ -120,11 +109,19 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
         };
     }
 
-    private List<EntryStack<ItemStack>> impetusCatalystList;
-    private List<EntryStack<ItemStack>> clypeusCatalystList;
-    private List<EntryStack<ItemStack>> utilisCatalystList;
-    private List<EntryStack<ItemStack>> vivificaCatalystList;
-    private List<EntryStack<ItemStack>> morbusCatalystList;
+    private void addToCatalystList(TagKey<Item> tagKey, List<EntryStack<ItemStack>> catalystList) {
+        if(catalystList.isEmpty()) {
+            Registry.ITEM.getEntryList(tagKey).ifPresentOrElse(
+                    registryEntries -> registryEntries.forEach(itemRegistryEntry -> catalystList.add(EntryStacks.of(new ItemStack(itemRegistryEntry.value())))),
+                    () -> LogUtils.getLogger().error("Catalyst tag is empty!"));
+        } else throw new IllegalStateException("Attempted to add to list with components!");
+    }
+
+    private final List<EntryStack<ItemStack>> impetusCatalystList = new ArrayList<>();
+    private final List<EntryStack<ItemStack>> clypeusCatalystList = new ArrayList<>();
+    private final List<EntryStack<ItemStack>> utilisCatalystList = new ArrayList<>();
+    private final List<EntryStack<ItemStack>> vivificaCatalystList = new ArrayList<>();
+    private final List<EntryStack<ItemStack>> morbusCatalystList = new ArrayList<>();
 
 
     private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/rei/essence_extractor.png");

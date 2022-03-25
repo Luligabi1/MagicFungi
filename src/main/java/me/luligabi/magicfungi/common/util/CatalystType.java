@@ -2,7 +2,7 @@ package me.luligabi.magicfungi.common.util;
 
 import me.luligabi.magicfungi.common.misc.TagRegistry;
 import net.minecraft.item.Item;
-import net.minecraft.tag.Tag;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.StringIdentifiable;
 
@@ -24,10 +24,10 @@ public enum CatalystType implements StringIdentifiable {
 
 
     private final String id;
-    private final Tag<Item> tag;
+    private final TagKey<Item> tag;
     private final Formatting color;
 
-    CatalystType(String id, Tag<Item> tag, Formatting color) {
+    CatalystType(String id, TagKey<Item> tag, Formatting color) {
         this.id = id;
         this.tag = tag;
         this.color = color;
@@ -38,7 +38,7 @@ public enum CatalystType implements StringIdentifiable {
         return id;
     }
 
-    public Tag<Item> getTag() {
+    public TagKey<Item> getTag() {
         return tag;
     }
 
