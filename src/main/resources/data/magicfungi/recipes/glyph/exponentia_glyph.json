@@ -1,8 +1,8 @@
 {
-  "type": "magicfungi:glyph_recipe",
+  "type": "magicfungi:glyph_carving",
 
   "inputA" : {
-    "tag": "magicfungi:mod_mushrooms"
+    "tag": "magicfungi:mushrooms"
   },
   "inputB" : {
     "item": "minecraft:paper"

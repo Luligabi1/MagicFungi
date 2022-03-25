@@ -1,0 +1,11 @@
+{
+  "type": "magicfungi:essence_extraction",
+
+  "input" : {
+    "item": "magicfungi:morbus_mushroom"
+  },
+  "catalystType": "morbus",
+
+  "outputItem": "magicfungi:morbus_essence",
+  "outputAmount": "1"
+}

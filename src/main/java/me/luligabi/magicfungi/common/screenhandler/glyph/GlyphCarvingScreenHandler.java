@@ -3,6 +3,7 @@ package me.luligabi.magicfungi.common.screenhandler.glyph;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
+import me.luligabi.magicfungi.common.screenhandler.SimpleCraftingInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.CraftingResultInventory;
@@ -21,9 +22,9 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<GlyphCraftingInventory> {
+public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<SimpleCraftingInventory> {
 
-    private final GlyphCraftingInventory input;
+    private final SimpleCraftingInventory input;
     private final CraftingResultInventory result;
     public final PlayerInventory playerInventory;
     private final ScreenHandlerContext context;
@@ -35,7 +36,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
     public GlyphCarvingScreenHandler(int syncId, PlayerInventory playerInventory, ScreenHandlerContext context) {
         super(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, syncId);
         this.playerInventory = playerInventory;
-        this.input = new GlyphCraftingInventory(this);
+        this.input = new SimpleCraftingInventory(this, 5);
         this.result = new CraftingResultInventory();
         this.context = context;
 
@@ -65,7 +66,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
 
     }
 
-    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity, GlyphCraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
+    protected static void updateResult(ScreenHandler handler, World world, PlayerEntity playerEntity, SimpleCraftingInventory craftingInventory, CraftingResultInventory resultInventory) {
         if (!world.isClient) {
             ServerPlayerEntity serverPlayerEntity = (ServerPlayerEntity) playerEntity;
             ItemStack itemStack = ItemStack.EMPTY;
@@ -152,7 +153,7 @@ public class GlyphCarvingScreenHandler extends AbstractRecipeScreenHandler<Glyph
     }
 
     @Override
-    public boolean matches(Recipe<? super GlyphCraftingInventory> recipe) { return recipe.matches(this.input, this.playerInventory.player.world); }
+    public boolean matches(Recipe<? super SimpleCraftingInventory> recipe) { return recipe.matches(this.input, this.playerInventory.player.world); }
 
     @Override
     public int getCraftingResultSlotIndex() { return 8; }

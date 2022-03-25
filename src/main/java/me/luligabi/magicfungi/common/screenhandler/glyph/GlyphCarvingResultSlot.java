@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.screenhandler.glyph;
 
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
+import me.luligabi.magicfungi.common.screenhandler.SimpleCraftingInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -10,11 +11,11 @@ import net.minecraft.util.collection.DefaultedList;
 
 public class GlyphCarvingResultSlot extends Slot {
 
-    private final GlyphCraftingInventory input;
+    private final SimpleCraftingInventory input;
     private final PlayerEntity player;
     private int amount;
 
-    public GlyphCarvingResultSlot(PlayerEntity player, GlyphCraftingInventory input, Inventory inventory, int index, int x, int y) {
+    public GlyphCarvingResultSlot(PlayerEntity player, SimpleCraftingInventory input, Inventory inventory, int index, int x, int y) {
         super(inventory, index, x, y);
         this.player = player;
         this.input = input;

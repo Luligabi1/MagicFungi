@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/brewing_stand_empty0",
+  "textures": {
+    "stand": "magicfungi:block/essence_extractor",
+    "particle": "magicfungi:block/essence_extractor"
+  }
+}

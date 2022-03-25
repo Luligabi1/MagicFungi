@@ -1,0 +1,21 @@
+{
+  "name": "The Host Biome",
+  "icon": "magicfungi:host_grass_block",
+  "category": "magicfungi:1928",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "magicfungi:host_grass_block",
+      "title": "The Host Biome",
+      "text": "$(l)Research Report #1$()$(br2)The $(l)Host Biome$(): The name given to this medium-sized patch of land on the Southern Hemisphere. Here, trees are replaced by large, sparsely placed mushrooms. The humidity in the air is very low, and yet, the grass is always moist and muddy."
+    },
+    {
+      "type": "image",
+      "images": ["magicfungi:textures/research_log/host_biome.png"],
+      "title": " ",
+      "text": "The Host Biome, as seen on the day of my arrival.",
+      "border": true
+    }
+  ]
+}

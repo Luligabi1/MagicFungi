@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.recipe.spell;
 
-import me.luligabi.magicfungi.common.screenhandler.spell.SpellCraftingInventory;
+import me.luligabi.magicfungi.common.screenhandler.SimpleCraftingInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.Recipe;
@@ -10,7 +10,8 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
 
-public class SpellRecipe implements Recipe<SpellCraftingInventory> {
+// TODO more refactoring yay
+public class SpellRecipe implements Recipe<SimpleCraftingInventory> {
 
     private final Ingredient inputA;
     private final Ingredient inputB;
@@ -22,6 +23,8 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
     private final Ingredient inputH;
     private final ItemStack outputStack;
     private final Identifier identifier;
+    private final DefaultedList<Ingredient> inputs;
+
 
     public SpellRecipe(Ingredient inputA, Ingredient inputB, Ingredient inputC, Ingredient inputD, Ingredient inputE, Ingredient inputF, Ingredient inputG, Ingredient inputH, ItemStack outputStack, Identifier identifier) {
         this.inputA = inputA;
@@ -34,6 +37,16 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
         this.inputH = inputH;
         this.outputStack = outputStack;
         this.identifier = identifier;
+
+        inputs = DefaultedList.of();
+        inputs.add(inputA);
+        inputs.add(inputB);
+        inputs.add(inputC);
+        inputs.add(inputD);
+        inputs.add(inputE);
+        inputs.add(inputF);
+        inputs.add(inputG);
+        inputs.add(inputH);
     }
 
     public Ingredient getInputA() { return inputA; }
@@ -53,7 +66,7 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
     public Ingredient getInputH() { return inputH; }
 
     @Override
-    public boolean matches(SpellCraftingInventory inventory, World world) {
+    public boolean matches(SimpleCraftingInventory inventory, World world) {
         if (inventory.size() < 8) return false;
         return inputA.test(inventory.getStack(0)) &&
                 inputB.test(inventory.getStack(1)) &&
@@ -66,7 +79,7 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
     }
 
     @Override
-    public ItemStack craft(SpellCraftingInventory inventory) {
+    public ItemStack craft(SimpleCraftingInventory inventory) {
         return outputStack.copy();
     }
 
@@ -76,17 +89,6 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
     }
 
     public DefaultedList<Ingredient> getInputs() {
-        DefaultedList<Ingredient> inputs = DefaultedList.of();
-
-        inputs.add(0, getInputA());
-        inputs.add(1, getInputB());
-        inputs.add(2, getInputC());
-        inputs.add(3, getInputD());
-        inputs.add(4, getInputE());
-        inputs.add(5, getInputF());
-        inputs.add(6, getInputG());
-        inputs.add(7, getInputH());
-
         return inputs;
     }
 
@@ -109,7 +111,7 @@ public class SpellRecipe implements Recipe<SpellCraftingInventory> {
         private Type() {}
         public static final Type INSTANCE = new Type();
 
-        public static final String ID = "spell_recipe";
+        public static final String ID = "spell_discovery";
     }
 
     @Override

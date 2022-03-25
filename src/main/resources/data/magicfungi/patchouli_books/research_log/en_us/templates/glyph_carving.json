@@ -1,0 +1,45 @@
+{
+  "processor": "me.luligabi.magicfungi.client.compat.patchouli.GlyphCarvingProcessor",
+
+  "components": [
+    {
+      "type": "patchouli:image",
+      "image": "magicfungi:textures/gui/patchouli/glyph_carving.png",
+      "width": 120,
+      "height": 100,
+      "texture_width": 128,
+      "y": 6
+    },
+    {
+      "type": "patchouli:header",
+      "text": "#header",
+      "maxWidth": 10,
+      "x": -1,
+      "y": -3
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "y": 88,
+      "x": 2
+    },
+    {
+      "type": "patchouli:item", "item": "#input0", "x": 49, "y": 10
+    },
+    {
+      "type": "patchouli:item", "item": "#input1", "x": 21, "y": 38
+    },
+    {
+      "type": "patchouli:item", "item": "#input2", "x": 77, "y": 38
+    },
+    {
+      "type": "patchouli:item", "item": "#input3", "x": 49, "y": 66
+    },
+    {
+      "type": "patchouli:item", "item": "#output", "x": 49, "y": 38, "link_recipe": true
+    },
+    {
+      "type": "patchouli:item", "item": "magicfungi:glyph_carving_workbench", "x": 77, "y": 66
+    }
+  ]
+}

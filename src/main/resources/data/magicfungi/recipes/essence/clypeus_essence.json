@@ -1,0 +1,11 @@
+{
+  "type": "magicfungi:essence_extraction",
+
+  "input" : {
+    "item": "magicfungi:clypeus_mushroom"
+  },
+  "catalystType": "clypeus",
+
+  "outputItem": "magicfungi:clypeus_essence",
+  "outputAmount": "1"
+}

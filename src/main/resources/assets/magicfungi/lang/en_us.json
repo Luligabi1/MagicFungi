@@ -28,7 +28,7 @@
 
   "tooltip.magicfungi.spell_info.5": "Action Type: ",
 
-  "tooltip.magicfungi.extended_info": "Hold SHIFT for extended information.",
+  "tooltip.magicfungi.extended_info": "Hold SHIFT for more information",
 
   "actionType.magicfungi.player": "Player",
   "actionType.magicfungi.block": "Block",
@@ -54,6 +54,10 @@
 
   "block.magicfungi.spell_discovery_workbench": "Spell Discovery Workbench",
   "title.magicfungi.spell_discovery": "Spell Discovery",
+
+  "block.magicfungi.essence_extractor": "Essence Extractor",
+  "title.magicfungi.essence_extractor": "Essence Extraction",
+  "tooltip.magicfungi.essence_extractor.catalyst_fuel": "Catalyst Fuel left: %d",
 
   "block.magicfungi.morbus_mushroom_block": "Morbus Mushroom Block",
 
@@ -150,6 +154,8 @@
   "tooltip.magicfungi.alloy_info.2": "forms of pure Fungi Magic.",
   "tooltip.magicfungi.alloy_info.3": "Try not to think too much about it.",
 
+  "item.magicfungi.morbus_leather": "Morbus Leather",
+
   "item.magicfungi.fungi_fertilizer": "Fungi Fertilizer",
 
   "item.magicfungi.morbus_clock": "Morbus Clock",
@@ -165,17 +171,73 @@
   "tooltip.magicfungi.heart_of_morbus.2": "Can be used to reactivate Morbus spreading.",
   "message.magicfungi.heart_of_morbus": "You feel guilty that your actions might have somehow doomed the world.",
 
-  "item.magicfungi.guide_book": "Magic Mycology Book",
-
-  "text.magicfungi.guide_book.landing_text": "Impetus, Clypeus, Utilis and Vivifica. These are all 4 known magic mushrooms researched by the greatest minds of long gone generations. Today, I start my journey to join such minds as I do my own research on the magic properties of these fungi.                                                   §lThis Book Belongs To:              §kGordon Morbus",
-
   "item.magicfungi.impetus_mushroom_stew": "Impetus Mushroom Stew",
   "item.magicfungi.clypeus_mushroom_stew": "Clypeus Mushroom Stew",
   "item.magicfungi.utilis_mushroom_stew": "Utilis Mushroom Stew",
   "item.magicfungi.vivifica_mushroom_stew": "Vivifica Mushroom Stew",
   "item.magicfungi.morbus_mushroom_stew": "Morbus Mushroom Stew",
 
-  "description.magicfungi.spell_discovery_bench": "Spell Discovery Workbench is a special crafting block for Magic Fungi's spells. It's not crafted by normal means, but via shift right-clicking a Crafting Table with an Exponentia Spell.",
+  "item.magicfungi.guide_book": "Magic Mycology Book",
+  "text.magicfungi.guide_book.landing_text": "Impetus, Clypeus, Utilis and Vivifica. Long ago, an unnamed meteor collided with our planet, spreading these alien fungi into the local fauna. After centuries of research, humanity is able to harness the magical properties of the fungi for Magic.$(br2)§l- §rThaís Utilis",
+
+  "item.magicfungi.research_log": "G.M.'s Research Log",
+  "text.magicfungi.research_log.landing_text": "Impetus, Clypeus, Utilis and Vivifica. These are all 4 known magic mushrooms researched by the greatest minds of long gone generations. Today, I and Test Subject-D0G travel to do our own research on the magic properties of the forbidden fungi.$(br2)§l- §r§kGordon Morbus",
+
+  "__comment": "REI/Patchouli descriptions",
+  "description.magicfungi.impetus_mushroom": "One of the five Magic Mushrooms, representing §caggressiveness§r and the wish to §cattack§r. Can be found on any overworld biome, but is more frequently seen on §cSavannas§r.",
+  "description.magicfungi.clypeus_mushroom": "One of the five Magic Mushrooms, representing §bprotectiveness§r and the wish to §bdefend§r. Can be found on any overworld biome, but is more frequently seen on §bTundras§r.",
+  "description.magicfungi.utilis_mushroom": "One of the five Magic Mushrooms, representing §dversatility§r and the wish to be §dhelpful§r. Can be found on any overworld biome, but is more frequently seen on §dMountains§r.",
+  "description.magicfungi.vivifica_mushroom": "One of the five Magic Mushrooms, representing §anature§r and the wish to §aheal§r. Can be found on any overworld biome, but is more frequently seen on §aJungles§r.",
+  "description.magicfungi.morbus_mushroom": "One of the five Magic Mushrooms, representing §8disease§r and the wish to §8corrupt§r. Can be found exclusively on the §8Host Biome§r.",
+
+
+  "description.magicfungi.glyph_carving_workbench": "A special crafting block used to carve glyphs.",
+
+  "description.magicfungi.exponentia_glyph": "A glyph used to transform a Crafting Table into a Spell Discovery Workbench.",
+
+  "description.magicfungi.pluviam_glyph": "Clears any sort of bad weather in the world.",
+  "description.magicfungi.cadentis_glyph": "Creates a small, purple flame where it's placed. TIP: You can recolor the flame by interactingw with it with the other types of Magic Mushrooms!",
+
+  "description.magicfungi.pudicitiam_glyph": "Heals creatures into their healed counterpart (e.g: zombie villager -> villager).",
+  "description.magicfungi.sanctificare_glyph": "Converts a small patch of Host Grass into regular grass.",
+
+  "description.magicfungi.parasitus_glyph": "Parasites a creature, slowly killing it. Its lost health will be passed into you.",
+  "description.magicfungi.corrumpere_glyph": "Corrupts creatures into their corrupt counterpart (e.g: Hoglin -> Zoglin).",
+  "description.magicfungi.maledictio_glyph": "Converts a small patch of regular grass into Host Grass.",
+
+
+  "description.magicfungi.spell_discovery_workbench": "A special crafting block used to discover spells. It's not crafted by normal means, but via using an Exponentia Spell on a Crafting Table.",
+
+  "description.magicfungi.ignei_spell": "Summons a small fire charge towards the direction the user's looking at.",
+  "description.magicfungi.scintillam_spell": "Summons a fireball towards the direction user's looking at.",
+
+  "description.magicfungi.cadere_spell": "Grants slow falling for a few seconds, useful to avoid having fractures over big falls.",
+  "description.magicfungi.glacies_spell": "Grants a special ice protection to the user, at the cost of becoming slower.",
+
+  "description.magicfungi.tractabile_spell": "Instantly opens the user's Ender Chest.",
+  "description.magicfungi.cibus_spell": "Satiates the user's hunger.",
+
+  "description.magicfungi.fertilis_spell": "Stimulates the growth of nearby crops.",
+
+
+  "description.magicfungi.essence_extractor": "A block used to extract the Magic Fungi's pure essences.",
+
+  "description.magicfungi.impetus_essence": "Impetus Mushroom's pure essence. Its catalyst is Blaze Powder.",
+  "description.magicfungi.clypeus_essence": "Clypeus Mushroom's pure essence. Its catalyst is Prismarine Crystals.",
+  "description.magicfungi.utilis_essence": "Utilis Mushroom's pure essence. Its catalyst is Popped Chorus Fruit.",
+  "description.magicfungi.vivifica_essence": "Vivifica Mushroom's pure essence. Its catalyst is Scute.",
+  "description.magicfungi.morbus_essence": "Morbus Mushroom's pure essence. Its catalyst is Wither Skeleton Skull.",
+
+  "description.magicfungi.morbus_clock": "A device able to calculate when the Morbus Spreading will happen.",
+  "description.magicfungi.heart_of_vivifica": "A magic artifact capable of preventing the Morbus Spreading.",
+  "description.magicfungi.heart_of_morbus": "A magic artifact capable of resuming the Morbus Spreading.",
+
+  "description.magicfungi.guide_book": "A guide book covering all the basic content of Magic Mycology. You should receive it when first creating the world. If not, you can craft one by combining a book and any Magic Mushroom.",
+  "description.magicfungi.research_log": "An ancient research log of an unknown author about the Host Biome. Most of the pages have been lost to the ages, but some of them are still well preserved.",
+
+
+  "entity.magicfungi.morbus_mooshroom": "Morbus Mooshroom",
+  "item.magicfungi.morbus_mooshroom_spawn_egg": "Morbus Mooshroom Spawn Egg",
 
   "biome.magicfungi.host_biome": "Host Biome",
 

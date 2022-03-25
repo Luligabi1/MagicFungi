@@ -1,0 +1,20 @@
+{
+  "name": "Morbus Spreading II",
+  "icon": "magicfungi:heart_of_morbus",
+  "category": "magicfungi:1930",
+  "sortnum": 1,
+  "pages": [
+    {
+      "type": "crafting",
+      "recipe": "magicfungi:crafting/morbus_spreading/heart_of_vivifica",
+      "title": "Heart of Vivifica",
+      "text": "Cures the soil from the Morbus spreading permanently."
+    },
+    {
+      "type": "crafting",
+      "recipe": "magicfungi:crafting/morbus_spreading/heart_of_morbus",
+      "title": "Heart of Morbus",
+      "text": "Reverts the effects of the Heart of Vivifica, allowing the Morbus to spread once again."
+    }
+  ]
+}

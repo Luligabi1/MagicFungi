@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " U ",
+    "UBU",
+    "DDD"
+  ],
+  "key": {
+    "U": {
+      "item": "magicfungi:utilis_mushroom"
+    },
+    "B": {
+      "item": "minecraft:brewing_stand"
+    },
+    "D": {
+      "item": "minecraft:deepslate"
+    }
+  },
+  "result": {
+    "item": "magicfungi:essence_extractor",
+    "count": 1
+  }
+}

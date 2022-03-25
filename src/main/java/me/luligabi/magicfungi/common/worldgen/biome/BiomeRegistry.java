@@ -1,7 +1,10 @@
 package me.luligabi.magicfungi.common.worldgen.biome;
 
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.entity.EntityRegistry;
 import me.luligabi.magicfungi.common.worldgen.feature.FeatureRegistry;
+import net.minecraft.entity.EntityType;
+import net.minecraft.entity.SpawnGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.util.registry.Registry;
@@ -32,10 +35,14 @@ public class BiomeRegistry implements TerraBlenderApi {
 
     private static Biome createHostBiome() {
         SpawnSettings.Builder spawnSettings = new SpawnSettings.Builder();
-        DefaultBiomeFeatures.addMonsters(spawnSettings, 95, 5, 100, false);
+        spawnSettings.spawn(SpawnGroup.CREATURE, new SpawnSettings.SpawnEntry(EntityRegistry.MORBUS_MOOSHROOM, 3, 1, 1));
+        spawnSettings.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE, 20, 2, 3));
+        spawnSettings.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.SKELETON, 15, 1, 2));
+        spawnSettings.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ENDERMAN, 10, 1, 2));
+        spawnSettings.spawn(SpawnGroup.MONSTER, new SpawnSettings.SpawnEntry(EntityType.ZOMBIE_VILLAGER, 5, 1, 1));
+        DefaultBiomeFeatures.addCaveMobs(spawnSettings);
 
         GenerationSettings.Builder generationSettings = new GenerationSettings.Builder();
-        //generationSettings.surfaceBuilder(HOST_BIOME_SURFACE_BUILDER);
 
         DefaultBiomeFeatures.addLandCarvers(generationSettings);
         DefaultBiomeFeatures.addDungeons(generationSettings);

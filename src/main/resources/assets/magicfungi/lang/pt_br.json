@@ -21,13 +21,14 @@
 
   "tooltip.magicfungi.spell_info.5": "Tipo de Ação: ",
 
-  "tooltip.magicfungi.extended_info": "Segure SHIFT para informações extras.",
+  "tooltip.magicfungi.extended_info": "Segure SHIFT para mais informações",
 
   "actionType.magicfungi.player": "Jogador",
   "actionType.magicfungi.block": "Bloco",
   "actionType.magicfungi.world": "Mundo",
   "actionType.magicfungi.entity": "Entidade",
   "actionType.magicfungi.unknown": "Desconhecido",
+
 
   "message.magicfungi.isMorbusEnabled": "Iminente: ",
 
@@ -46,6 +47,10 @@
 
   "block.magicfungi.spell_discovery_workbench": "Mesa de Descoberta de Feitiços",
   "title.magicfungi.spell_discovery": "Descoberta de Feitiços",
+
+  "block.magicfungi.essence_extractor": "Extrator de Essência",
+  "title.magicfungi.essence_extractor": "Extração de Essência",
+  "tooltip.magicfungi.essence_extractor.catalyst_fuel": "Combustível de Catalisador restante: %d",
 
   "block.magicfungi.morbus_mushroom_block": "Bloco de Cogumelo Morbus",
 
@@ -142,6 +147,8 @@
   "tooltip.magicfungi.alloy_info.2": "as formas de Magia Fúngica pura.",
   "tooltip.magicfungi.alloy_info.3": "Tenta não pensar muito a respeito.",
 
+  "item.magicfungi.morbus_leather": "Couro Morbus",
+
   "item.magicfungi.fungi_fertilizer": "Fertilizador Fúngico",
 
   "item.magicfungi.morbus_clock": "Relógio Morbus",
@@ -159,13 +166,67 @@
 
   "item.magicfungi.guide_book": "Livro de Micologia Mágica",
 
+  "item.magicfungi.research_log": "Registro de Pesquisa de G.M.",
+
   "item.magicfungi.impetus_mushroom_stew": "Ensopado de Cogumelo Impetus",
   "item.magicfungi.clypeus_mushroom_stew": "Ensopado de Cogumelo Clypeus",
   "item.magicfungi.utilis_mushroom_stew": "Ensopado de Cogumelo Utilis",
   "item.magicfungi.vivifica_mushroom_stew": "Ensopado de Cogumelo Vivifica",
   "item.magicfungi.morbus_mushroom_stew": "Ensopado de Cogumelo Morbus",
 
-  "description.magicfungi.spell_discovery_bench": "A Mesa de Descoberta de Feitiços é uma mesa especial para a fabricação dos feitiços do mod Magic Fungi. Não é fabricado por meios comuns, mas usando um Glifo Exponentia em uma Mesa de Trabalho.",
+  "__comment": "Descrições do REI/Patchouli",
+  "description.magicfungi.impetus_mushroom": "Um dos cinco Cogumelos Mágicos, representando §cagressividade§r e o desejo de §catacar§r. Pode ser encontrado em qualquer bioma da superfície, mas é mais frequente em §cSavanas§r.",
+  "description.magicfungi.clypeus_mushroom": "Um dos cinco Cogumelos Mágicos, representando §bprotectiveness§r e o desejo de §bdefender§r. Pode ser encontrado em qualquer bioma da superfície, mas é mais frequente em §bTundras§r.",
+  "description.magicfungi.utilis_mushroom": "Um dos cinco Cogumelos Mágicos, representando §dversatility§r e o desejo de §dajudar§r. Pode ser encontrado em qualquer bioma da superfície, mas é mais frequente em §dMontanhas§r.",
+  "description.magicfungi.vivifica_mushroom": "Um dos cinco Cogumelos Mágicos, representando a §anatureza§r e o desejo de §acurar§r. Pode ser encontrado em qualquer bioma da superfície, mas é mais frequente em §aSelvas§r.",
+  "description.magicfungi.morbus_mushroom": "Um dos cinco Cogumelos Mágicos, representando §8doenças§r e o desejo de §8corromper§r. Pode ser encontrado exclusivamente no §8Bioma Hospedeiro§r.",
+
+  "description.magicfungi.glyph_carving_workbench": "Um bloco de fabricação especial usado para entalhar glifos.",
+  "description.magicfungi.spell_discovery_workbench": "Um bloco de fabricação especial usado para descobrir feitiços. Não é fabricado de maneira comum, mas usando um Feitiço Exponentia em uma Bancada de Trabalho.",
+
+  "description.magicfungi.exponentia_glyph": "Um glifo usado para transformar uma Bancada de Trabalho em uma Mesa de Descoberta de Feitiços.",
+
+  "description.magicfungi.pluviam_glyph": "Limpa o céu de qualquer mau clima no mundo.",
+  "description.magicfungi.cadentis_glyph": "Cria uma pequena chama aonde é colocado. Dica: Você pode recolorir a chama ao interagir com ela com outros Cogumelos Mágicos!",
+
+  "description.magicfungi.pudicitiam_glyph": "Cura criaturas para suas versões normais (ex.: Aldeão Zumbi -> Aldeão).",
+  "description.magicfungi.sanctificare_glyph": "Converte um pequeno trecho de Grama Hospedeira para grama normal.",
+
+  "description.magicfungi.parasitus_glyph": "Parasita uma criatura, lentamente a matando. A vida perdida da criatura será dada a você.",
+  "description.magicfungi.corrumpere_glyph": "Corrompe criaturas para suas versões corrompidas (ex.: Hoglin -> Zoglin).",
+  "description.magicfungi.maledictio_glyph": "Converte um pequeno trecho de grama normal para Grama Hospedeira.",
+
+
+  "description.magicfungi.ignei_spell": "Sumona uma pequena chama na direção em que o usuário está olhando.",
+  "description.magicfungi.scintillam_spell": "Sumona uma bola de fogo na direção em que o usuário está olhando.",
+
+  "description.magicfungi.cadere_spell": "Garante o efeito de queda lenta por alguns segundos, sendo útil para evitar fraturas em grandes quedas.",
+  "description.magicfungi.glacies_spell": "Garante um revestimento especial de gelo ao usuário, no custo de torná-lo mais devagar.",
+
+  "description.magicfungi.tractabile_spell": "Abre instantaneamente o Baú do End do usuário.",
+  "description.magicfungi.cibus_spell": "Sacia a fome do usuário.",
+
+  "description.magicfungi.fertilis_spell": "Estimula o crescimento de plantações próximas.",
+
+
+  "description.magicfungi.essence_extractor": "Bloco usado para extrair a essência pura dos Cogumelos Mágicos.",
+
+  "description.magicfungi.impetus_essence": "A essência pura do Cogumelo Impetus. Seu catalisador é o Pó de Blaze.",
+  "description.magicfungi.clypeus_essence": "A essência pura do Cogumelo Clypeus. Seu catalisador são os Cristais de Prismarinho.",
+  "description.magicfungi.utilis_essence": "A essência pura do Cogumelo Utilis. Seu catalisador é a Fruta do Coro Cozida.",
+  "description.magicfungi.vivifica_essence": "A essência pura do Cogumelo Vivifica. Seu catalisador é a Escama de Tartaruga.",
+  "description.magicfungi.morbus_essence": "A essência pura do Cogumelo Morbus. Seu catalisador é o Crânio de Esqueleto Wither.",
+
+  "description.magicfungi.morbus_clock": "Um aparelho capaz de calcular quando o espalhamento ocorrerá.",
+  "description.magicfungi.heart_of_vivifica": "Um artefato mágico capaz de evitar o espalhamento.",
+  "description.magicfungi.heart_of_morbus": "Um artefato capaz de retomar o espalhamento.",
+
+  "description.magicfungi.guide_book": "Um guia cobrindo todo o conteúdo básico da Micologia Mágica. Você deve receber um quando primeiro criar o mundo. Se não, você pode fabricar um ao combinar um livro e qualquer um dos Cogumelos Mágicos.",
+  "description.magicfungi.research_log": "Um registo de pesquisa antiquado feito por um autor desconhecido a respeito do Bioma Hospedeiro. Maior parte de suas páginas foram perdidas ao tempo, mas algumas delas ainda são legíveis.",
+
+
+  "entity.magicfungi.morbus_mooshroom": "Coguvaca Morbus",
+  "item.magicfungi.morbus_mooshroom_spawn_egg": "Invocar Coguvaca Morbus",
 
   "biome.magicfungi.host_biome": "Bioma Hospedeiro",
 

@@ -1,5 +1,5 @@
 {
-  "type": "magicfungi:spell_recipe",
+  "type": "magicfungi:spell_discovery",
 
   "inputA" : {
     "item": "minecraft:obsidian"

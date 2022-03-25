@@ -2,11 +2,13 @@ package me.luligabi.magicfungi.client.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.mixin.HandledScreenAccessor;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 public class GlyphCarvingScreen extends HandledScreen<ScreenHandler> {
@@ -15,6 +17,17 @@ public class GlyphCarvingScreen extends HandledScreen<ScreenHandler> {
 
     public GlyphCarvingScreen(ScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+    }
+
+    @Override
+    protected void init() {
+        super.init();
+        backgroundHeight = 205;
+        x = width / 2 - backgroundWidth / 2;
+        y = height / 2 - backgroundHeight / 2;
+        playerInventoryTitleY = 112;
+        ((HandledScreenAccessor) this).setPlayerInventoryTitle(playerInventoryTitle.shallowCopy().formatted(Formatting.WHITE));
+        titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
     }
 
     @Override
@@ -31,13 +44,4 @@ public class GlyphCarvingScreen extends HandledScreen<ScreenHandler> {
         drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
 
-    @Override
-    protected void init() {
-        super.init();
-        backgroundHeight = 205;
-        x = width / 2 -backgroundWidth / 2;
-        y = height / 2 - backgroundHeight / 2;
-        playerInventoryTitleY = 112;
-        titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
-    }
 }

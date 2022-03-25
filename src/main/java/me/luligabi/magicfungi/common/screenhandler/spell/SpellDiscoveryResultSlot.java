@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.screenhandler.spell;
 
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
+import me.luligabi.magicfungi.common.screenhandler.SimpleCraftingInventory;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
@@ -10,11 +11,11 @@ import net.minecraft.util.collection.DefaultedList;
 
 public class SpellDiscoveryResultSlot extends Slot {
 
-    private final SpellCraftingInventory input;
+    private final SimpleCraftingInventory input;
     private final PlayerEntity player;
     private int amount;
 
-    public SpellDiscoveryResultSlot(PlayerEntity player, SpellCraftingInventory input, Inventory inventory, int index, int x, int y) {
+    public SpellDiscoveryResultSlot(PlayerEntity player, SimpleCraftingInventory input, Inventory inventory, int index, int x, int y) {
         super(inventory, index, x, y);
         this.player = player;
         this.input = input;
