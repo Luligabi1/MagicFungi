@@ -17,6 +17,9 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
 
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
+    private final Slot inputSlot0;
+    private final Slot inputSlot1;
+    private final Slot inputSlot2;
     private final Slot ingredientSlot;
 
     public EssenceExtractorScreenHandler(int syncId, PlayerInventory playerInventory) {
@@ -29,9 +32,9 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
         checkDataCount(propertyDelegate, 3);
         this.inventory = inventory;
         this.propertyDelegate = propertyDelegate;
-        this.addSlot(new EssenceSlot(inventory, 0, 56, 51));
-        this.addSlot(new EssenceSlot(inventory, 1, 79, 58));
-        this.addSlot(new EssenceSlot(inventory, 2, 102, 51));
+        this.inputSlot0 = this.addSlot(new EssenceSlot(inventory, 0, 56, 51));
+        this.inputSlot1 = this.addSlot(new EssenceSlot(inventory, 1, 79, 58));
+        this.inputSlot2 = this.addSlot(new EssenceSlot(inventory, 2, 102, 51));
         this.ingredientSlot = this.addSlot(new Slot(inventory, 3, 79, 17));
         this.addSlot(new CatalystSlot(inventory, 4, 17, 17));
         this.addProperties(propertyDelegate);
@@ -64,11 +67,19 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
                     if (this.insertItem(itemStack2, 4, 5, false) || this.ingredientSlot.canInsert(itemStack2) && !this.insertItem(itemStack2, 3, 4, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (EssenceExtractorScreenHandler.EssenceSlot.matches(itemStack)) {
-                    if (!this.insertItem(itemStack2, 0, 3, false)) {
+                } else if (essenceSlotTransfer(inputSlot0, itemStack2)) {
+                    if (!this.insertItem(itemStack2, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (this.ingredientSlot.canInsert(itemStack2)) {
+                } else if (essenceSlotTransfer(inputSlot1, itemStack2)) {
+                    if (!this.insertItem(itemStack2, 1, 2, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (essenceSlotTransfer(inputSlot2, itemStack2)) {
+                    if (!this.insertItem(itemStack2, 2, 3, false)) {
+                        return ItemStack.EMPTY;
+                    }
+                } else if (this.ingredientSlot.canInsert(itemStack2) && !itemStack2.isOf(Items.GLASS_BOTTLE)) {
                     if (!this.insertItem(itemStack2, 3, 4, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -168,5 +179,9 @@ public class EssenceExtractorScreenHandler extends ScreenHandler {
                 stack.isIn(TagRegistry.UTILIS_CATALYST) ||
                 stack.isIn(TagRegistry.VIVIFICA_CATALYST) ||
                 stack.isIn(TagRegistry.MORBUS_CATALYST);
+    }
+
+    private boolean essenceSlotTransfer(Slot slot, ItemStack stack) {
+        return !slot.hasStack() && slot.canInsert(stack);
     }
 }

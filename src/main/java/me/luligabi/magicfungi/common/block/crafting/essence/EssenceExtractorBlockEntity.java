@@ -293,7 +293,6 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
     }
 
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
-
         return new EssenceExtractorScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
     }
 
