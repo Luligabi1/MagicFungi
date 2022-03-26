@@ -114,7 +114,7 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
             Registry.ITEM.getEntryList(tagKey).ifPresentOrElse(
                     registryEntries -> registryEntries.forEach(itemRegistryEntry -> catalystList.add(EntryStacks.of(new ItemStack(itemRegistryEntry.value())))),
                     () -> LogUtils.getLogger().error("Catalyst tag is empty!"));
-        } else throw new IllegalStateException("Attempted to add to list with components!");
+        }
     }
 
     private final List<EntryStack<ItemStack>> impetusCatalystList = new ArrayList<>();
