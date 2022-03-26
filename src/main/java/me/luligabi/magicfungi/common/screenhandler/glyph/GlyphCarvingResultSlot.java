@@ -7,6 +7,8 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.recipe.RecipeUnlocker;
 import net.minecraft.screen.slot.Slot;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.collection.DefaultedList;
 
 public class GlyphCarvingResultSlot extends Slot {
@@ -81,6 +83,9 @@ public class GlyphCarvingResultSlot extends Slot {
             }
         }
 
+        if(!player.world.isClient()) {
+            player.world.playSound(null, player.getBlockPos(), SoundEvents.UI_STONECUTTER_TAKE_RESULT, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        }
     }
 
 }
