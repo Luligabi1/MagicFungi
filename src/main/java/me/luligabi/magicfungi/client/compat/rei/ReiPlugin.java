@@ -97,8 +97,8 @@ public class ReiPlugin implements REIClientPlugin {
 
                 // Morbus Items
                 .put(ItemRegistry.MORBUS_CLOCK, "description.magicfungi.morbus_clock")
-                .put(ItemRegistry.HEART_OF_VIVIFICA, "description.magicfungi.morbus_essence")
-                .put(ItemRegistry.HEART_OF_MORBUS, "description.magicfungi.morbus_essence")
+                .put(ItemRegistry.HEART_OF_VIVIFICA, "description.magicfungi.heart_of_vivifica")
+                .put(ItemRegistry.HEART_OF_MORBUS, "description.magicfungi.heart_of_morbus")
 
                 // Misc
                 .put(ItemRegistry.GUIDE_BOOK, "description.magicfungi.guide_book")
@@ -106,11 +106,11 @@ public class ReiPlugin implements REIClientPlugin {
 
                 .build());
 
-        for(Map.Entry<ItemConvertible, String> entry : reiInformationMap.entrySet()) {
-            DefaultInformationDisplay info = DefaultInformationDisplay.createFromEntry(EntryStacks.of(entry.getKey()), new LiteralText(""));
-            info.line(new TranslatableText(entry.getValue()));
+        reiInformationMap.forEach((itemConvertible, text) -> {
+            DefaultInformationDisplay info = DefaultInformationDisplay.createFromEntry(EntryStacks.of(itemConvertible), new LiteralText(""));
+            info.line(new TranslatableText(text));
             registry.add(info);
-        }
+        });
     }
 
     public static final CategoryIdentifier<GlyphRecipeDisplay> GLYPH_CARVING = CategoryIdentifier.of(MagicFungi.MOD_ID, "glyph_carving");
