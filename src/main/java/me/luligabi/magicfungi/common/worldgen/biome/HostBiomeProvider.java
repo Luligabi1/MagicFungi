@@ -5,44 +5,56 @@ import com.mojang.datafixers.util.Pair;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.mixin.VanillaSurfaceRulesInvoker;
 import net.minecraft.block.Blocks;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.biome.source.util.MultiNoiseUtil;
 import net.minecraft.world.gen.YOffset;
 import net.minecraft.world.gen.noise.NoiseParametersKeys;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
-import terrablender.api.BiomeProvider;
-import terrablender.api.GenerationSettings;
 import terrablender.api.ParameterUtils;
-import terrablender.worldgen.TBClimate;
+import terrablender.api.Region;
+import terrablender.api.RegionType;
+import terrablender.api.SurfaceRuleManager;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public class HostBiomeProvider extends BiomeProvider {
+public class HostBiomeProvider extends Region {
 
-    public HostBiomeProvider(Identifier name, int weight) {
-        super(name, weight);
+
+    public HostBiomeProvider(int weight) {
+        super(BiomeRegistry.HOST_BIOME_PROVIDER_ID, RegionType.OVERWORLD, weight);
     }
 
     @Override
-    public void addOverworldBiomes(Registry<Biome> registry, Consumer<Pair<TBClimate.ParameterPoint, RegistryKey<Biome>>> mapper) {
+    public void addBiomes(Registry<Biome> registry, Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper) {
         addBiome(mapper,
-            ParameterUtils.Temperature.NEUTRAL,
-            ParameterUtils.Humidity.NEUTRAL,
-            ParameterUtils.Continentalness.FAR_INLAND,
-            ParameterUtils.Erosion.EROSION_0,
-            ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING,
-            ParameterUtils.Depth.SURFACE,
-            1.0F,
-            BiomeRegistry.HOST_BIOME_KEY);
+                ParameterUtils.Temperature.NEUTRAL,
+                ParameterUtils.Humidity.NEUTRAL,
+                ParameterUtils.Continentalness.FAR_INLAND,
+                ParameterUtils.Erosion.EROSION_0,
+                ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING,
+                ParameterUtils.Depth.SURFACE,
+                1.0F,
+                BiomeRegistry.HOST_BIOME_KEY);
+        /*addBiomeSimilar(mapper, BiomeKeys.PLAINS, BiomeKeys.PLAINS);
+        addBiomeSimilar(mapper, BiomeKeys.MEADOW, BiomeKeys.MEADOW);
+        addBiomeSimilar(mapper, BiomeKeys.WINDSWEPT_HILLS, BiomeKeys.WINDSWEPT_HILLS);
+        addBiomeSimilar(mapper, BiomeKeys.DESERT, BiomeKeys.DESERT);
+        addBiomeSimilar(mapper, BiomeKeys.RIVER, BiomeKeys.RIVER);
+
+        addBiomeSimilar(mapper, BiomeKeys.FOREST, BiomeKeys.FOREST);
+        addBiomeSimilar(mapper, BiomeKeys.BIRCH_FOREST, BiomeKeys.BIRCH_FOREST);
+        addBiomeSimilar(mapper, BiomeKeys.SAVANNA, BiomeKeys.SAVANNA);
+        addBiomeSimilar(mapper, BiomeKeys.SWAMP, BiomeKeys.SWAMP);*/
     }
 
-    @Override
-    public Optional<MaterialRules.MaterialRule> getOverworldSurfaceRules() { return Optional.of(createHostBiomeSurfaceRule()); }
+
+
+    public Optional<MaterialRules.MaterialRule> getOverworldSurfaceRules() { return Optional.of(MaterialRules.condition(MaterialRules.biome(BiomeRegistry.HOST_BIOME_KEY), createHostBiomeSurfaceRule())); }
 
 
     public static MaterialRules.MaterialRule createHostBiomeSurfaceRule() {
@@ -62,7 +74,7 @@ public class HostBiomeProvider extends BiomeProvider {
         MaterialRules.MaterialRule atOrAboveWaterLevelRules = MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(BiomeKeys.SNOWY_SLOPES), MaterialRules.condition(isSteep, STONE)), MaterialRules.condition(MaterialRules.biome(BiomeKeys.JAGGED_PEAKS), MaterialRules.condition(isSteep, STONE)), surfacerules$rulesource3, MaterialRules.condition(MaterialRules.biome(BiomeKeys.WINDSWEPT_SAVANNA), MaterialRules.sequence(MaterialRules.condition(surfaceNoiseAbove(1.75D), STONE))), MaterialRules.condition(MaterialRules.biome(BiomeKeys.WINDSWEPT_GRAVELLY_HILLS), MaterialRules.sequence(MaterialRules.condition(surfaceNoiseAbove(2.0D), stoneLinedGravel), MaterialRules.condition(surfaceNoiseAbove(1.0D), STONE), MaterialRules.condition(surfaceNoiseAbove(-1.0D), grassSurface), stoneLinedGravel)), grassSurface);
         MaterialRules.MaterialRule surfaceRules = MaterialRules.sequence(MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(BiomeKeys.WOODED_BADLANDS), MaterialRules.condition(above97, grassSurface)), MaterialRules.condition(MaterialRules.biome(BiomeKeys.SWAMP), MaterialRules.condition(above62, MaterialRules.condition(MaterialRules.not(above63_0), MaterialRules.condition(MaterialRules.noiseThreshold(NoiseParametersKeys.SURFACE_SWAMP, 0.0D), WATER)))))), MaterialRules.condition(MaterialRules.biome(BiomeKeys.BADLANDS, BiomeKeys.ERODED_BADLANDS, BiomeKeys.WOODED_BADLANDS), MaterialRules.sequence(MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, stoneLinedGravel))), MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, MaterialRules.condition(isAtOrAboveWaterLevel, MaterialRules.sequence(MaterialRules.condition(isFrozenOcean, MaterialRules.condition(isHole, MaterialRules.sequence(MaterialRules.condition(isAboveWaterLevel, AIR), WATER))), atOrAboveWaterLevelRules))), MaterialRules.condition(surfacerules$conditionsource8, MaterialRules.sequence(MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, MaterialRules.condition(isFrozenOcean, MaterialRules.condition(isHole, WATER))), MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH, surfacerules$rulesource6))), MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, MaterialRules.sequence(MaterialRules.condition(MaterialRules.biome(BiomeKeys.FROZEN_PEAKS, BiomeKeys.JAGGED_PEAKS), STONE), stoneLinedGravel)));
 
-        List<MaterialRules.MaterialRule> afterBedrockRules = GenerationSettings.getAfterBedrockOverworldSurfaceRules();
+        List<MaterialRules.MaterialRule> afterBedrockRules = SurfaceRuleManager.getDefaultSurfaceRuleAdditionsForStage(SurfaceRuleManager.RuleCategory.OVERWORLD, SurfaceRuleManager.RuleStage.AFTER_BEDROCK);
 
         ImmutableList.Builder<MaterialRules.MaterialRule> builder;
         if (!afterBedrockRules.isEmpty()) {
@@ -73,7 +85,7 @@ public class HostBiomeProvider extends BiomeProvider {
         }
 
         builder = ImmutableList.builder();
-        builder.addAll(GenerationSettings.getBeforeBedrockOverworldSurfaceRules());
+        builder.addAll(SurfaceRuleManager.getDefaultSurfaceRuleAdditionsForStage(SurfaceRuleManager.RuleCategory.OVERWORLD, SurfaceRuleManager.RuleStage.BEFORE_BEDROCK));
 
         builder.add(MaterialRules.condition(MaterialRules.verticalGradient("bedrock_floor", YOffset.getBottom(), YOffset.aboveBottom(5)), BEDROCK));
 

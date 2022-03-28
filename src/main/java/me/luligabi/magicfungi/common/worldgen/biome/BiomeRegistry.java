@@ -17,7 +17,8 @@ import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import net.minecraft.world.gen.feature.OrePlacedFeatures;
 import net.minecraft.world.gen.feature.UndergroundPlacedFeatures;
-import terrablender.api.BiomeProviders;
+import terrablender.api.Regions;
+import terrablender.api.SurfaceRuleManager;
 import terrablender.api.TerraBlenderApi;
 
 public class BiomeRegistry implements TerraBlenderApi {
@@ -26,7 +27,9 @@ public class BiomeRegistry implements TerraBlenderApi {
     public void onTerraBlenderInitialized() {
         Registry.register(BuiltinRegistries.BIOME, HOST_BIOME_KEY.getValue(), HOST_BIOME);
 
-        BiomeProviders.register(new Identifier(MagicFungi.MOD_ID, "host_biome_provider"), new HostBiomeProvider(new Identifier(MagicFungi.MOD_ID, "host_biome_provider"), MagicFungi.CONFIG.hostBiomeSpawnRate));
+        HostBiomeProvider hostBiomeProvider = new HostBiomeProvider(MagicFungi.CONFIG.hostBiomeSpawnRate);
+        Regions.register(HOST_BIOME_PROVIDER_ID, hostBiomeProvider);
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MagicFungi.MOD_ID, hostBiomeProvider.getOverworldSurfaceRules().orElseThrow());
     }
 
     public static final RegistryKey<Biome> HOST_BIOME_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MagicFungi.MOD_ID, "host_biome"));
@@ -81,4 +84,6 @@ public class BiomeRegistry implements TerraBlenderApi {
                 .generationSettings(generationSettings.build())
                 .build();
     }
+
+    public static final Identifier HOST_BIOME_PROVIDER_ID = new Identifier(MagicFungi.MOD_ID, "host_biome_provider");
 }

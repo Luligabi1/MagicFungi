@@ -114,8 +114,8 @@ public class ModConfig implements Config {
     public int vivificaBiomeEnhancedSpawnRatio = 28;
 
 
-    @Comment(value = "Spawnrate for generation of the Host Biome. Increase if using any biome overhaul-styled mods, as otherwise the biome will be exceedingly rare.")
-    public int hostBiomeSpawnRate = 2;
+    @Comment(value = "Spawnrate for generation of the Host Biome.")
+    public int hostBiomeSpawnRate = 1;
 
     @Comment(value = "Whether Wither Roses will be generated on the Host Biome.")
     public boolean canGenerateWitherRoseHostBiome = true;
