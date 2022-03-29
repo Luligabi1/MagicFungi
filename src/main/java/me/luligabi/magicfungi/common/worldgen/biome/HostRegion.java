@@ -17,15 +17,16 @@ import terrablender.api.ParameterUtils;
 import terrablender.api.Region;
 import terrablender.api.RegionType;
 import terrablender.api.SurfaceRuleManager;
+import terrablender.worldgen.RegionUtils;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.function.Consumer;
 
-public class HostBiomeProvider extends Region {
+public class HostRegion extends Region {
 
 
-    public HostBiomeProvider(int weight) {
+    public HostRegion(int weight) {
         super(BiomeRegistry.HOST_BIOME_PROVIDER_ID, RegionType.OVERWORLD, weight);
     }
 
@@ -33,28 +34,18 @@ public class HostBiomeProvider extends Region {
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper) {
         addBiome(mapper,
                 ParameterUtils.Temperature.NEUTRAL,
-                ParameterUtils.Humidity.NEUTRAL,
+                ParameterUtils.Humidity.WET,
                 ParameterUtils.Continentalness.FAR_INLAND,
                 ParameterUtils.Erosion.EROSION_0,
-                ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING,
+                ParameterUtils.Weirdness.VALLEY,
                 ParameterUtils.Depth.SURFACE,
-                1.0F,
+                0.1F,
                 BiomeRegistry.HOST_BIOME_KEY);
-        /*addBiomeSimilar(mapper, BiomeKeys.PLAINS, BiomeKeys.PLAINS);
-        addBiomeSimilar(mapper, BiomeKeys.MEADOW, BiomeKeys.MEADOW);
-        addBiomeSimilar(mapper, BiomeKeys.WINDSWEPT_HILLS, BiomeKeys.WINDSWEPT_HILLS);
-        addBiomeSimilar(mapper, BiomeKeys.DESERT, BiomeKeys.DESERT);
-        addBiomeSimilar(mapper, BiomeKeys.RIVER, BiomeKeys.RIVER);
-
-        addBiomeSimilar(mapper, BiomeKeys.FOREST, BiomeKeys.FOREST);
-        addBiomeSimilar(mapper, BiomeKeys.BIRCH_FOREST, BiomeKeys.BIRCH_FOREST);
-        addBiomeSimilar(mapper, BiomeKeys.SAVANNA, BiomeKeys.SAVANNA);
-        addBiomeSimilar(mapper, BiomeKeys.SWAMP, BiomeKeys.SWAMP);*/
     }
 
 
 
-    public Optional<MaterialRules.MaterialRule> getOverworldSurfaceRules() { return Optional.of(MaterialRules.condition(MaterialRules.biome(BiomeRegistry.HOST_BIOME_KEY), createHostBiomeSurfaceRule())); }
+    public Optional<MaterialRules.MaterialRule> getHostBiomeSurface() { return Optional.of(MaterialRules.condition(MaterialRules.biome(BiomeRegistry.HOST_BIOME_KEY), createHostBiomeSurfaceRule())); }
 
 
     public static MaterialRules.MaterialRule createHostBiomeSurfaceRule() {
@@ -108,4 +99,11 @@ public class HostBiomeProvider extends Region {
 
     private static final MaterialRules.MaterialRule WATER = VanillaSurfaceRulesInvoker.block(Blocks.WATER);
 
+
+
+    @SuppressWarnings("RedundantStringFormatCall")
+    private void debugPrintBiomeParameters(RegistryKey<Biome> biome) {
+        List<MultiNoiseUtil.NoiseHypercube> points = RegionUtils.getVanillaParameterPoints(biome).stream().collect(ImmutableList.toImmutableList());
+        points.forEach((point) -> System.out.println(String.format("[%s] Temperature: %s // Humidity: %s // Continentalness:%s // Erosion: %s // Depth: %s // Weirdness: %s // Offset: %s", biome.getValue(), point.temperature().toString(), point.humidity().toString(), point.continentalness().toString(), point.erosion().toString(), point.depth().toString(), point.weirdness().toString(), point.offset())));
+    }
 }

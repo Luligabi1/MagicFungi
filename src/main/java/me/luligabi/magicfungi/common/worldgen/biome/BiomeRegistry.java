@@ -27,9 +27,9 @@ public class BiomeRegistry implements TerraBlenderApi {
     public void onTerraBlenderInitialized() {
         Registry.register(BuiltinRegistries.BIOME, HOST_BIOME_KEY.getValue(), HOST_BIOME);
 
-        HostBiomeProvider hostBiomeProvider = new HostBiomeProvider(MagicFungi.CONFIG.hostBiomeSpawnRate);
+        HostRegion hostBiomeProvider = new HostRegion(MagicFungi.CONFIG.hostBiomeSpawnRate);
         Regions.register(HOST_BIOME_PROVIDER_ID, hostBiomeProvider);
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MagicFungi.MOD_ID, hostBiomeProvider.getOverworldSurfaceRules().orElseThrow());
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MagicFungi.MOD_ID, hostBiomeProvider.getHostBiomeSurface().orElseThrow());
     }
 
     public static final RegistryKey<Biome> HOST_BIOME_KEY = RegistryKey.of(Registry.BIOME_KEY, new Identifier(MagicFungi.MOD_ID, "host_biome"));
