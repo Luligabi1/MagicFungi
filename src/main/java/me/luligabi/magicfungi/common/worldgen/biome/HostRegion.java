@@ -17,7 +17,6 @@ import terrablender.api.ParameterUtils;
 import terrablender.api.Region;
 import terrablender.api.RegionType;
 import terrablender.api.SurfaceRuleManager;
-import terrablender.worldgen.RegionUtils;
 
 import java.util.List;
 import java.util.Optional;
@@ -41,12 +40,23 @@ public class HostRegion extends Region {
                 ParameterUtils.Depth.SURFACE,
                 0.1F,
                 BiomeRegistry.HOST_BIOME_KEY);
+
+        /*this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
+            /*List<MultiNoiseUtil.NoiseHypercube> frozenPeaksPoints = new ParameterUtils.ParameterPointListBuilder()
+                    .temperature(ParameterUtils.Temperature.NEUTRAL)
+                    .humidity(ParameterUtils.Humidity.ARID)
+                    .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.COAST, ParameterUtils.Continentalness.MID_INLAND), ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
+                    .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2, ParameterUtils.Erosion.EROSION_3, ParameterUtils.Erosion.EROSION_4, ParameterUtils.Erosion.EROSION_5, ParameterUtils.Erosion.EROSION_6)
+                    .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
+                    .weirdness(ParameterUtils.Weirdness.VALLEY, ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.PEAK_VARIANT, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING)
+                    .offset(0.0F)
+                    .build();
+
+            frozenPeaksPoints.forEach(point -> builder.replaceBiome(point, BiomeRegistry.HOST_BIOME_KEY));
+        });*/
     }
 
-
-
     public Optional<MaterialRules.MaterialRule> getHostBiomeSurface() { return Optional.of(MaterialRules.condition(MaterialRules.biome(BiomeRegistry.HOST_BIOME_KEY), createHostBiomeSurfaceRule())); }
-
 
     public static MaterialRules.MaterialRule createHostBiomeSurfaceRule() {
         MaterialRules.MaterialCondition above97 = MaterialRules.aboveY(YOffset.fixed(97), 2);
@@ -99,11 +109,4 @@ public class HostRegion extends Region {
 
     private static final MaterialRules.MaterialRule WATER = VanillaSurfaceRulesInvoker.block(Blocks.WATER);
 
-
-
-    @SuppressWarnings("RedundantStringFormatCall")
-    private void debugPrintBiomeParameters(RegistryKey<Biome> biome) {
-        List<MultiNoiseUtil.NoiseHypercube> points = RegionUtils.getVanillaParameterPoints(biome).stream().collect(ImmutableList.toImmutableList());
-        points.forEach((point) -> System.out.println(String.format("[%s] Temperature: %s // Humidity: %s // Continentalness:%s // Erosion: %s // Depth: %s // Weirdness: %s // Offset: %s", biome.getValue(), point.temperature().toString(), point.humidity().toString(), point.continentalness().toString(), point.erosion().toString(), point.depth().toString(), point.weirdness().toString(), point.offset())));
-    }
 }
