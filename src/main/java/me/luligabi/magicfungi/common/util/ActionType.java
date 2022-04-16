@@ -4,10 +4,10 @@ import net.minecraft.text.TranslatableText;
 
 public enum ActionType {
 
-    PLAYER(new TranslatableText("actionType.magicfungi.player")),
     BLOCK(new TranslatableText("actionType.magicfungi.block")),
-    WORLD(new TranslatableText("actionType.magicfungi.world")), // Used if action might affect both entities and blocks.
     ENTITY(new TranslatableText("actionType.magicfungi.entity")),
+    PLAYER(new TranslatableText("actionType.magicfungi.player")),
+    WORLD(new TranslatableText("actionType.magicfungi.world")), // Used if action might affect both entities and blocks.
     UNKNOWN(new TranslatableText("actionType.magicfungi.unknown"));
 
 
