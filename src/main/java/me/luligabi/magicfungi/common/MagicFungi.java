@@ -6,10 +6,7 @@ import me.luligabi.magicfungi.common.entity.EntityRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
 import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
-import me.luligabi.magicfungi.common.misc.CompostableRegistry;
-import me.luligabi.magicfungi.common.misc.GameRuleRegistry;
-import me.luligabi.magicfungi.common.misc.ParticleRegistry;
-import me.luligabi.magicfungi.common.misc.TagRegistry;
+import me.luligabi.magicfungi.common.misc.*;
 import me.luligabi.magicfungi.common.recipe.RecipeRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import me.luligabi.magicfungi.common.worldgen.feature.FeatureRegistry;
@@ -42,6 +39,9 @@ public class MagicFungi implements ModInitializer {
         EntityRegistry.init();
         ParticleRegistry.init();
         GameRuleRegistry.init();
+        if(CONFIG.addModContentToTrades) {
+            TradeOfferRegistry.init();
+        }
         CompostableRegistry.init();
     }
 

@@ -7,6 +7,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ModConfig implements Config {
 
+    // Spells
     @Comment(value = "Cooldown for Ignei Spell usage.")
     public int igneiSpellCooldown = 12;
 
@@ -47,7 +48,7 @@ public class ModConfig implements Config {
     @Comment(value = "Saturation given by Cibus Spell.")
     public float cibusSpellSaturationModifier = 0.8F;
 
-
+    // Fungic Relics
     @Comment(value = "Utilis Pickaxe's haste effect duration in seconds.")
     public int utilisPickaxeEffectDuration = 4;
 
@@ -69,7 +70,7 @@ public class ModConfig implements Config {
     @Comment(value = "Magical Fungi Armor's knockback resistance. Greater values are not recommended, as they may result in no knockback whatsoever.")
     public float magicalFungiKnockBackResistance = 0.15F;
 
-
+    // Worldgen
     @Comment(value = "Whether Impetus Mushrooms are generated naturally. This will not impact previously generated chunks.")
     public boolean  canGenerateImpetusMushrooms = true;
 
@@ -123,7 +124,7 @@ public class ModConfig implements Config {
     @Comment(value = "How often will Wither Roses generate on the Host Biome.")
     public int hostBiomeWitherRoseSpawnRatio = 12;
 
-
+    // Morbus Spreading
     @Comment(value = "Whether Host Grass will start spreading towards non-grass blocks after X in-game days.\nThis only affects the default gamerule value for this setting.\nTo change this on already generated worlds, use /gamerule doMorbusSpread.\nKeep in mind this can be overridden by Morbus corruption items. Check canUseMorbusCorruptionItems for further information.")
     public boolean doMorbusSpread = false;
 
@@ -132,6 +133,11 @@ public class ModConfig implements Config {
 
     @Comment(value = "Enables the usage of the Maledictio Glyph and Heart of Morbus.\nIf you plan to use this mod on a public server, disable this to avoid griefing.")
     public boolean canUseMorbusCorruptionItems = false;
+
+
+    // Misc.
+    @Comment(value = "Whether trades including Magic Fungi's content will be available on certain types of Villagers and Wandering Traders.")
+    public boolean addModContentToTrades = true;
 
     @Override
     public String getName() { return MagicFungi.MOD_ID; }
