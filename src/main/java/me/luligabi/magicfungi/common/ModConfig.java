@@ -136,6 +136,9 @@ public class ModConfig implements Config {
 
 
     // Misc.
+    @Comment(value = "Whether part of Magic Fungi's content might be found on vanilla structures' chests.")
+    public boolean addModContentToChests = true;
+
     @Comment(value = "Whether trades including Magic Fungi's content will be available on certain types of Villagers and Wandering Traders.")
     public boolean addModContentToTrades = true;
 

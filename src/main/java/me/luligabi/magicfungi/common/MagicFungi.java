@@ -9,6 +9,7 @@ import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
 import me.luligabi.magicfungi.common.misc.*;
 import me.luligabi.magicfungi.common.recipe.RecipeRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
+import me.luligabi.magicfungi.common.worldgen.LootTableRegistry;
 import me.luligabi.magicfungi.common.worldgen.feature.FeatureRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
@@ -30,6 +31,9 @@ public class MagicFungi implements ModInitializer {
 
         // Worldgen
         FeatureRegistry.init();
+        if(CONFIG.addModContentToChests) {
+            LootTableRegistry.init();
+        }
 
         // Recipe & UI
         RecipeRegistry.init();
