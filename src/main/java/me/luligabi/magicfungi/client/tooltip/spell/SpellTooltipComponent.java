@@ -1,21 +1,19 @@
 package me.luligabi.magicfungi.client.tooltip.spell;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.client.tooltip.MagicItemTooltipComponent;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.gui.DrawableHelper;
-import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.LiteralText;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Matrix4f;
 
 import java.awt.*;
 
-public class SpellTooltipComponent implements TooltipComponent {
+public class SpellTooltipComponent implements MagicItemTooltipComponent {
 
     public SpellTooltipComponent(SpellTooltipData tooltipData) {
         this.tooltipData = tooltipData;
@@ -34,11 +32,8 @@ public class SpellTooltipComponent implements TooltipComponent {
     public void drawItems(TextRenderer textRenderer, int x, int y, MatrixStack matrices, ItemRenderer itemRenderer, int z) {
         RenderSystem.setShaderColor(r, g, b, 1.0F);
 
-        RenderSystem.setShaderTexture(0, getMushroomTypeTexture());
-        DrawableHelper.drawTexture(matrices, x, y-3, z, 0F, 0F, 18, 18, 18, 18);
-
-        RenderSystem.setShaderTexture(0, getActionTypeTexture());
-        DrawableHelper.drawTexture(matrices, x + 44, y-3, z, 0F, 0F, 18, 18, 18, 18);
+        drawMushroomType(matrices, x, y, z, tooltipData.mushroomType);
+        drawActionType(matrices, x, y, z, tooltipData.actionType, false);
     }
 
     @Override
@@ -50,33 +45,6 @@ public class SpellTooltipComponent implements TooltipComponent {
     @Override
     public int getWidth(TextRenderer textRenderer) {
         return 61;
-    }
-
-    @Override
-    public int getHeight() {
-        return 17;
-    }
-
-
-    private Identifier getMushroomTypeTexture() {
-        return switch(tooltipData.mushroomType) {
-            case IMPETUS -> new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/mushroom/impetus.png");
-            case CLYPEUS ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/mushroom/clypeus.png");
-            case UTILIS ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/mushroom/utilis.png");
-            case VIVIFICA ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/mushroom/vivifica.png");
-            case MORBUS ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/mushroom/morbus.png");
-            case INCOGNITA ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/mushroom/incognita.png");
-        };
-    }
-
-    private Identifier getActionTypeTexture() {
-        return switch(tooltipData.actionType) {
-            case BLOCK ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/action/block.png");
-            case ENTITY ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/action/entity.png");
-            case PLAYER -> new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/action/player.png");
-            case WORLD ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/action/world.png");
-            case UNKNOWN ->  new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/action/unknown.png");
-        };
     }
 
 }
