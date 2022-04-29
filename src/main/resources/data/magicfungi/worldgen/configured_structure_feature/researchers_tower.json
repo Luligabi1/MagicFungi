@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:village",
+  "config": {
+    "start_pool": "magicfungi:researchers_tower",
+    "size": 1
+  },
+  "biomes": "magicfungi:host_biome",
+  "adapt_noise": true,
+  "spawn_overrides": {}
+}
