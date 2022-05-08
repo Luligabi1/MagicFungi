@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.client;
 
 import draylar.omegaconfiggui.OmegaConfigGui;
 import me.luligabi.magicfungi.client.renderer.entity.MorbusMooshroomEntityRenderer;
+import me.luligabi.magicfungi.client.screen.MorbusClockScreen;
 import me.luligabi.magicfungi.client.tooltip.glyph.GlyphTooltipComponent;
 import me.luligabi.magicfungi.client.tooltip.glyph.GlyphTooltipData;
 import me.luligabi.magicfungi.client.tooltip.spell.SpellTooltipComponent;
@@ -23,6 +24,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
+import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.ShieldEntityModel;
@@ -60,9 +62,11 @@ public class MagicFungiClient implements ClientModInitializer {
 
                 BlockRegistry.ESSENCE_EXTRACTOR_BLOCK);
 
-        ScreenRegistry.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
-        ScreenRegistry.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
-        ScreenRegistry.register(ScreenHandlingRegistry.ESSENCE_EXTRACTOR_SCREEN_HANDLER, EssenceExtractorScreen::new);
+        HandledScreens.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
+        HandledScreens.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
+        HandledScreens.register(ScreenHandlingRegistry.ESSENCE_EXTRACTOR_SCREEN_HANDLER, EssenceExtractorScreen::new);
+
+        HandledScreens.register(ScreenHandlingRegistry.MORBUS_CLOCK_SCREEN_HANDLER, MorbusClockScreen::new);
 
         EntityRendererRegistry.register(EntityRegistry.MORBUS_MOOSHROOM, MorbusMooshroomEntityRenderer::new);
 
