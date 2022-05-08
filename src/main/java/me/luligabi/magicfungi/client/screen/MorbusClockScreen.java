@@ -40,7 +40,7 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        renderCountdown(31, matrices);
+        renderCountdown(0, matrices);
     }
 
     @Override
@@ -59,12 +59,18 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
             renderNumberSlot(10, 3, matrices);
         } else { // If no special conditions are met, render actual countdown value.
             int length = (int) Math.ceil(Math.log10(countdown + 1));
-            // TODO: Render zero on slot if number is lower on that digit.
             if(length >= 3) {
                 renderNumberSlot((countdown / 100) % 10, 3, matrices);
             }
             if(length >= 2) {
+                if(length == 2) {
+                    renderNumberSlot(0, 3, matrices);
+                }
                 renderNumberSlot((countdown / 10) % 10, 2, matrices);
+            }
+            if(length == 1) {
+                renderNumberSlot(0, 3, matrices);
+                renderNumberSlot(0, 2, matrices);
             }
             renderNumberSlot(countdown % 10, 1, matrices);
         }
