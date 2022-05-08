@@ -40,6 +40,7 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        renderCheckMark(false, matrices);
         renderCountdown(0, matrices);
     }
 
@@ -47,6 +48,17 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
     protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {}
 
 
+
+    private void renderCheckMark(boolean isImminent, MatrixStack matrices) {
+        int x = this.x;
+        int y = this.y;
+
+        if(isImminent) {
+            drawTexture(matrices, x + 81, y + 49, textureIndex.get(11).x, textureIndex.get(11).y, 14, 12);
+        } else {
+            drawTexture(matrices, x + 81, y + 48, textureIndex.get(12).x, textureIndex.get(12).y, 14, 14);
+        }
+    }
 
     private void renderCountdown(int countdown, MatrixStack matrices) {
         if(countdown > 999) { // Render as '999' if value can't be shown on 3 digits.
