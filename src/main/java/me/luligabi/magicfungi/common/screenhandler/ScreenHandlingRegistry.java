@@ -9,7 +9,6 @@ import net.fabricmc.fabric.api.screenhandler.v1.ScreenHandlerRegistry;
 import net.minecraft.screen.ScreenHandlerType;
 import net.minecraft.util.Identifier;
 
-// TODO: Refactor the rest of the registries to follow this pattern
 public class ScreenHandlingRegistry {
 
 

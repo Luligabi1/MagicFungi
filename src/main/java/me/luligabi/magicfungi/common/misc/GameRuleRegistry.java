@@ -10,13 +10,9 @@ import net.minecraft.world.GameRules;
 
 public class GameRuleRegistry {
 
-    public static void init() {
-        DO_MORBUS_SPREADING = register("doMorbusSpreading",
-                GameRuleFactory.createBooleanRule(MagicFungi.CONFIG.doMorbusSpread));
 
-        MORBUS_SPREADING_DAY = register("morbusSpreadStartingDay",
-                GameRuleFactory.createIntRule(MagicFungi.CONFIG.morbusSpreadStartingDay, 0));
-    }
+    public static final GameRules.Key<GameRules.BooleanRule> DO_MORBUS_SPREADING = register("doMorbusSpreading", GameRuleFactory.createBooleanRule(MagicFungi.CONFIG.doMorbusSpread));
+    public static final GameRules.Key<GameRules.IntRule> MORBUS_SPREADING_DAY = register("morbusSpreadStartingDay", GameRuleFactory.createIntRule(MagicFungi.CONFIG.morbusSpreadStartingDay, 0));
 
     private static <T extends GameRules.Rule<T>> GameRules.Key<T> register(String name, GameRules.Type<T> type) {
         return net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry.register(name,
@@ -24,7 +20,12 @@ public class GameRuleRegistry {
                 type);
     }
 
-    public static GameRules.Key<GameRules.BooleanRule> DO_MORBUS_SPREADING;
-    public static GameRules.Key<GameRules.IntRule> MORBUS_SPREADING_DAY;
+    public static void init() {
+        // NO-OP
+    }
+
+    private GameRuleRegistry() {
+        // NO-OP
+    }
 
 }

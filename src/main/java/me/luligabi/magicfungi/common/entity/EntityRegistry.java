@@ -18,10 +18,6 @@ import net.minecraft.world.Heightmap;
 
 public class EntityRegistry {
 
-    public static void init() {
-        FabricDefaultAttributeRegistry.register(MORBUS_MOOSHROOM, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 52).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.5).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.20000000298023224).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 14));
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mooshroom_spawn_egg"), MORBUS_MOOSHROOM_SPAWN_EGG);
-    }
 
     public static final EntityType<MorbusMooshroomEntity> MORBUS_MOOSHROOM =
             Registry.register(Registry.ENTITY_TYPE, new Identifier(MagicFungi.MOD_ID, "morbus_mooshroom"),
@@ -32,5 +28,14 @@ public class EntityRegistry {
 
     public static final Item MORBUS_MOOSHROOM_SPAWN_EGG = new SpawnEggItem(MORBUS_MOOSHROOM, 0x251412, 0xA9C1C3, new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
+
+    public static void init() {
+        FabricDefaultAttributeRegistry.register(MORBUS_MOOSHROOM, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 52).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.5).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.20000000298023224).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 14));
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mooshroom_spawn_egg"), MORBUS_MOOSHROOM_SPAWN_EGG);
+    }
+
+    private EntityRegistry() {
+        // NO-OP
+    }
 
 }
