@@ -4,18 +4,21 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.screenhandler.misc.MorbusClockScreenHandler;
+import net.minecraft.client.gui.screen.ScreenTexts;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
 
+// TODO: Replace testing values with the actual values.
 public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
 
-    private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/morbus_clock.png");
 
     public MorbusClockScreen(MorbusClockScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
@@ -25,14 +28,15 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
     protected void init() {
         super.init();
         backgroundHeight = 205;
-        x = width / 2 - backgroundWidth / 2;
-        y = height / 2 - backgroundHeight / 2;
+        /*x = width / 2 - backgroundWidth / 2;
+        y = height / 2 - backgroundHeight / 2;*/
     }
 
     @Override
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         renderBackground(matrices);
         super.render(matrices, mouseX, mouseY, delta);
+        drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
 
     @Override
@@ -48,11 +52,39 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
     protected void drawForeground(MatrixStack matrices, int mouseX, int mouseY) {}
 
 
+    @Override
+    protected void drawMouseoverTooltip(MatrixStack matrices, int x, int y) {
+        super.drawMouseoverTooltip(matrices, x, y);
+
+        renderLimitedTooltipAt(
+                List.of(new TranslatableText("message.magicfungi.morbus_clock.imminent")
+                            .formatted(Formatting.DARK_RED, Formatting.BOLD)
+                        .append((false ? ((TranslatableText) ScreenTexts.YES) : ((TranslatableText) ScreenTexts.NO))
+                            .formatted(Formatting.RED))),
+                78, 96,
+                45, 63,
+                x, y,
+                matrices
+        );
+        renderLimitedTooltipAt(
+                (1 > 0 ? List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft", 30, 60)) :
+                        List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft.2")
+                            .formatted(Formatting.DARK_RED, Formatting.BOLD, Formatting.UNDERLINE))),
+                77, 97,
+                73, 82,
+                x, y,
+                matrices
+        );
+        renderLimitedTooltipAt(
+                List.of(new LiteralText("placeholder")), // TODO: Add proper explanation here
+                132, 141,
+                89, 99,
+                x, y,
+                matrices
+        );
+    }
 
     private void renderCheckMark(boolean isImminent, MatrixStack matrices) {
-        int x = this.x;
-        int y = this.y;
-
         if(isImminent) {
             drawTexture(matrices, x + 81, y + 49, textureIndex.get(11).x, textureIndex.get(11).y, 14, 12);
         } else {
@@ -89,9 +121,6 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
     }
 
     private void renderNumberSlot(int value, int slot, MatrixStack matrices) {
-        int x = this.x;
-        int y = this.y;
-
         switch(slot) { // Slot order is right to left
             case 3 -> drawTexture(matrices, x + 78, y + 73, textureIndex.get(value).x, textureIndex.get(value).y, 6, 9);
             case 2 -> drawTexture(matrices, x + 85, y + 73, textureIndex.get(value).x, textureIndex.get(value).y, 6, 9);
@@ -99,8 +128,15 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         }
     }
 
-    private TranslatableText isEnabled;
-    private TranslatableText b;
+    // Remember Y is counted from top to bottom
+    private void renderLimitedTooltipAt(List<Text> text, int leftX, int rightX, int bottomY, int topY, int mouseX, int mouseY, MatrixStack matrices) {
+        int inventoryX = this.x;
+        int inventoryY = this.y;
+
+        if((mouseX >= inventoryX+leftX && mouseX <= inventoryX+rightX) && (mouseY >= inventoryY+bottomY && mouseY <= inventoryY+topY)) {
+            this.renderTooltip(matrices, text, mouseX, mouseY);
+        }
+    }
 
 
     private final List<Coordinate> textureIndex = ImmutableList.of(
@@ -121,6 +157,9 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
             Coordinate.of(176, 0), // Checkmark
             Coordinate.of(191, 0) // X
     );
+
+    private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/morbus_clock.png");
+
 
     public static class Coordinate {
 

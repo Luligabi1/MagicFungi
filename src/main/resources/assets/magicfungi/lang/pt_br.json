@@ -30,14 +30,9 @@
   "actionType.magicfungi.unknown": "Desconhecido",
 
 
-  "message.magicfungi.isMorbusEnabled": "Iminente: ",
-
-  "message.magicfungi.yes": "Sim",
-  "message.magicfungi.no": "Não",
-
-  "message.magicfungi.daysLeft.1": "Dias: ",
-  "message.magicfungi.daysLeft.2": "%d dias restantes (Dia %d)",
-  "message.magicfungi.daysLeft.3": "TÁ ACONTECENDO!",
+  "message.magicfungi.morbus_clock.imminent": "Iminente: ",
+  "message.magicfungi.morbus_clock.daysLeft": "§8Começa em %d §4dias §8(§4Dia %d§8).",
+  "message.magicfungi.morbus_clock.daysLeft.2": "TÁ ACONTECENDO!",
 
   "message.magicfungi.fate_design": "Você tenta mudar o rumo do destino, mas nada acontece.",
 

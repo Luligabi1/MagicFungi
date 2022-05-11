@@ -37,14 +37,9 @@
   "actionType.magicfungi.unknown": "Unknown",
 
 
-  "message.magicfungi.isMorbusEnabled": "Imminent: ",
-
-  "message.magicfungi.yes": "Yes",
-  "message.magicfungi.no": "No",
-
-  "message.magicfungi.daysLeft.1": "Days: ",
-  "message.magicfungi.daysLeft.2": "%d days left (Day %d)",
-  "message.magicfungi.daysLeft.3": "IT'S HAPPENING!",
+  "message.magicfungi.morbus_clock.imminent": "Imminent: ",
+  "message.magicfungi.morbus_clock.daysLeft": "§8Starts in %d §4days §8(§4Day %d§8).",
+  "message.magicfungi.morbus_clock.daysLeft.2": "IT'S HAPPENING!",
 
   "message.magicfungi.fate_design": "You attempt to change fate's design, but nothing happens.",
 
