@@ -1,11 +1,17 @@
 package me.luligabi.magicfungi.common.item.misc;
 
+import me.luligabi.magicfungi.common.misc.GameRuleRegistry;
 import me.luligabi.magicfungi.common.screenhandler.misc.MorbusClockScreenHandler;
+import me.luligabi.magicfungi.common.util.WorldUtil;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
@@ -21,14 +27,31 @@ public class MorbusClockItem extends Item {
 
     public MorbusClockItem(Settings settings) {
         super(settings);
+        factory = new ExtendedScreenHandlerFactory() {
+
+            @Override
+            public ScreenHandler createMenu(int syncId, PlayerInventory inv, PlayerEntity player) {
+                return new MorbusClockScreenHandler(syncId, inv);
+            }
+
+            @Override
+            public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
+                buf.writeBoolean(player.getWorld().getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING));
+                buf.writeLong((player.getWorld().getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY) - WorldUtil.getCurrentInGameDay(player.getWorld())));
+                buf.writeInt(player.getWorld().getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY));
+            }
+
+            @Override
+            public Text getDisplayName() {
+                return new LiteralText("");
+            }
+        };
     }
 
     @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         if(!world.isClient()) {
-            user.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, player) ->
-                    new MorbusClockScreenHandler(syncId, inventory), new LiteralText("")
-            ));
+            user.openHandledScreen(factory);
             return TypedActionResult.success(user.getStackInHand(hand));
         }
         return TypedActionResult.pass(user.getStackInHand(hand));
@@ -39,17 +62,7 @@ public class MorbusClockItem extends Item {
         tooltip.add(new TranslatableText("tooltip.magicfungi.morbus_clock").formatted(Formatting.GRAY, Formatting.ITALIC));
     }
 
-    /*TranslatableText isEnabled = world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING) ? new TranslatableText("message.magicfungi.yes") : new TranslatableText("message.magicfungi.no");
-            user.sendMessage(new TranslatableText("message.magicfungi.isMorbusEnabled").formatted(Formatting.DARK_GRAY, Formatting.BOLD)
-                    .append(isEnabled.formatted(Formatting.GRAY)), false);
 
-            if (world.getGameRules().getBoolean(GameRuleRegistry.DO_MORBUS_SPREADING)) {
-                long daysLeft = (world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY) - WorldUtil.getCurrentInGameDay(world));
+    private final ExtendedScreenHandlerFactory factory;
 
-                TranslatableText daysLeftText = daysLeft > 0 ?
-                        new TranslatableText("message.magicfungi.daysLeft.2", daysLeft, world.getGameRules().getInt(GameRuleRegistry.MORBUS_SPREADING_DAY)) :
-                        new TranslatableText("message.magicfungi.daysLeft.3");
-                user.sendMessage(new TranslatableText("message.magicfungi.daysLeft.1").formatted(Formatting.DARK_GRAY, Formatting.BOLD)
-                        .append(daysLeftText.formatted(daysLeft > 0 ? Formatting.GRAY : Formatting.DARK_RED, Formatting.BOLD)), false);
-            }*/
 }

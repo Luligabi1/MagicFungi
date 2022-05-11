@@ -28,8 +28,6 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
     protected void init() {
         super.init();
         backgroundHeight = 205;
-        /*x = width / 2 - backgroundWidth / 2;
-        y = height / 2 - backgroundHeight / 2;*/
     }
 
     @Override
@@ -44,8 +42,8 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
-        renderCheckMark(false, matrices);
-        renderCountdown(0, matrices);
+        renderCheckMark(getScreenHandler().isImminent(), matrices);
+        renderCountdown((int) getScreenHandler().getDaysLeft(), matrices);
     }
 
     @Override
@@ -59,7 +57,7 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         renderLimitedTooltipAt(
                 List.of(new TranslatableText("message.magicfungi.morbus_clock.imminent")
                             .formatted(Formatting.DARK_RED, Formatting.BOLD)
-                        .append((false ? ((TranslatableText) ScreenTexts.YES) : ((TranslatableText) ScreenTexts.NO))
+                        .append((getScreenHandler().isImminent() ? ((TranslatableText) ScreenTexts.YES) : ((TranslatableText) ScreenTexts.NO))
                             .formatted(Formatting.RED))),
                 78, 96,
                 45, 63,
@@ -67,7 +65,7 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
                 matrices
         );
         renderLimitedTooltipAt(
-                (1 > 0 ? List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft", 30, 60)) :
+                (getScreenHandler().getDaysLeft() > 0 ? List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft", getScreenHandler().getDaysLeft(), getScreenHandler().getStartingDay())) :
                         List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft.2")
                             .formatted(Formatting.DARK_RED, Formatting.BOLD, Formatting.UNDERLINE))),
                 77, 97,
