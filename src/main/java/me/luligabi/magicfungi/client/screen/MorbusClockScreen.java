@@ -16,7 +16,6 @@ import net.minecraft.util.Identifier;
 
 import java.util.List;
 
-// TODO: Replace testing values with the actual values.
 public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
 
 
@@ -43,7 +42,7 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         RenderSystem.setShaderTexture(0, TEXTURE);
         drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
         renderCheckMark(getScreenHandler().isImminent(), matrices);
-        renderCountdown((int) getScreenHandler().getDaysLeft(), matrices);
+        renderCountdown((getScreenHandler().isImminent() ? (int) getScreenHandler().getDaysLeft() : -1), matrices);
     }
 
     @Override
@@ -65,9 +64,7 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
                 matrices
         );
         renderLimitedTooltipAt(
-                (getScreenHandler().getDaysLeft() > 0 ? List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft", getScreenHandler().getDaysLeft(), getScreenHandler().getStartingDay())) :
-                        List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft.2")
-                            .formatted(Formatting.DARK_RED, Formatting.BOLD, Formatting.UNDERLINE))),
+                getCountdownTooltip(),
                 77, 97,
                 73, 82,
                 x, y,
@@ -84,22 +81,26 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
 
     private void renderCheckMark(boolean isImminent, MatrixStack matrices) {
         if(isImminent) {
-            drawTexture(matrices, x + 81, y + 49, textureIndex.get(11).x, textureIndex.get(11).y, 14, 12);
+            drawTexture(matrices, x + 81, y + 49, textureIndex.get(12).x, textureIndex.get(12).y, 14, 12);
         } else {
-            drawTexture(matrices, x + 81, y + 48, textureIndex.get(12).x, textureIndex.get(12).y, 14, 14);
+            drawTexture(matrices, x + 81, y + 48, textureIndex.get(13).x, textureIndex.get(13).y, 14, 14);
         }
     }
 
     private void renderCountdown(int countdown, MatrixStack matrices) {
-        if(countdown > 999) { // Render as '999' if value can't be shown on 3 digits.
+         if(countdown > 999) { // Render as '999' if value can't be shown on 3 digits.
             renderNumberSlot(9, 1, matrices);
             renderNumberSlot(9, 2, matrices);
             renderNumberSlot(9, 3, matrices);
-        } else if(countdown <= 0) { // Render as '000' (in red) if value equals 0 aka Morbus Spreading is enabled.
+        } else if(countdown == 0) { // Render as '000' (in red) if value equals 0 aka Morbus Spreading is enabled.
             renderNumberSlot(10, 1, matrices);
             renderNumberSlot(10, 2, matrices);
             renderNumberSlot(10, 3, matrices);
-        } else { // If no special conditions are met, render actual countdown value.
+        } else if(countdown <= -1) { // Render as '000' (in green) if Morbus Spreading is disabled.
+             renderNumberSlot(11, 1, matrices);
+             renderNumberSlot(11, 2, matrices);
+             renderNumberSlot(11, 3, matrices);
+         } else { // If no special conditions are met, render actual countdown value.
             int length = (int) Math.ceil(Math.log10(countdown + 1));
             if(length >= 3) {
                 renderNumberSlot((countdown / 100) % 10, 3, matrices);
@@ -136,6 +137,19 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         }
     }
 
+    private List<Text> getCountdownTooltip() {
+        if(getScreenHandler().isImminent()) {
+            if(getScreenHandler().getDaysLeft() > 0) {
+                return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft", getScreenHandler().getDaysLeft(), getScreenHandler().getStartingDay()));
+            } else {
+                return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft.2")
+                        .formatted(Formatting.DARK_RED, Formatting.BOLD, Formatting.UNDERLINE));
+            }
+        } else {
+            return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft.3")
+                    .formatted(Formatting.DARK_GREEN, Formatting.BOLD));
+        }
+    }
 
     private final List<Coordinate> textureIndex = ImmutableList.of(
             Coordinate.of(176, 14), // 0
@@ -150,6 +164,7 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
             Coordinate.of(204, 24), // 9
 
             Coordinate.of(176, 34), // 0 (Red)
+            Coordinate.of(183, 34), // 0 (Green)
 
 
             Coordinate.of(176, 0), // Checkmark
