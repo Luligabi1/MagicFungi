@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "magicfungi:impetus_mushroom_stew",
+    "magicfungi:clypeus_mushroom_stew",
+    "magicfungi:utilis_mushroom_stew",
+    "magicfungi:vivifica_mushroom_stew",
+    "magicfungi:morbus_mushroom_stew"
+  ]
+}
