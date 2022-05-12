@@ -143,7 +143,7 @@
   "tooltip.magicfungi.morbus_clock": "Um dispositivo especial capaz de prever o apocalipse.",
 
   "message.magicfungi.morbus_clock.imminent": "Iminente: ",
-  "message.magicfungi.morbus_clock.daysLeft": "§8Começa em %d §4dias §8(§4Dia %d§8).",
+  "message.magicfungi.morbus_clock.daysLeft": "§7Começa em §4%d §7dias (Dia §4%d§7).",
   "message.magicfungi.morbus_clock.daysLeft.2": "TÁ ACONTECENDO!",
   "message.magicfungi.morbus_clock.daysLeft.3": "O Espalhamento Morbus não acontecerá. :]",
 

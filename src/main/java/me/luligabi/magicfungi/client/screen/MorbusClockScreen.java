@@ -155,7 +155,8 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
     private List<Text> getCountdownTooltip() {
         if(getScreenHandler().isImminent()) {
             if(getScreenHandler().getDaysLeft() > 0) {
-                return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft", getScreenHandler().getDaysLeft(), getScreenHandler().getStartingDay()));
+                return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft", getScreenHandler().getDaysLeft(), getScreenHandler().getStartingDay())
+                        .formatted(Formatting.DARK_RED));
             } else {
                 return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft.2")
                         .formatted(Formatting.DARK_RED, Formatting.BOLD, Formatting.UNDERLINE));

@@ -150,7 +150,7 @@
   "tooltip.magicfungi.morbus_clock": "A special clock capable to predict the doomsday.",
 
   "message.magicfungi.morbus_clock.imminent": "Imminent: ",
-  "message.magicfungi.morbus_clock.daysLeft": "§8Starts in %d §4days §8(§4Day %d§8).",
+  "message.magicfungi.morbus_clock.daysLeft": "§7Starts in §4%d §7days (§7Day §4%d§7).",
   "message.magicfungi.morbus_clock.daysLeft.2": "IT'S HAPPENING!",
   "message.magicfungi.morbus_clock.daysLeft.3": "Morbus Spreading will not happen. :]",
 
