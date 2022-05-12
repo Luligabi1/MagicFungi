@@ -30,14 +30,6 @@
   "actionType.magicfungi.unknown": "Desconhecido",
 
 
-  "message.magicfungi.morbus_clock.imminent": "Iminente: ",
-  "message.magicfungi.morbus_clock.daysLeft": "§8Começa em %d §4dias §8(§4Dia %d§8).",
-  "message.magicfungi.morbus_clock.daysLeft.2": "TÁ ACONTECENDO!",
-  "message.magicfungi.morbus_clock.daysLeft.3": "Espalhamento do Bioma Hospedeiro não acontecerá. :]",
-
-  "message.magicfungi.fate_design": "Você tenta mudar o rumo do destino, mas nada acontece.",
-
-
   "block.magicfungi.glyph_carving_workbench": "Mesa de Entalhamento de Glifos",
   "title.magicfungi.glyph_carving": "Entalhamento de Glifos",
 
@@ -150,15 +142,39 @@
   "item.magicfungi.morbus_clock": "Relógio Morbus",
   "tooltip.magicfungi.morbus_clock": "Um dispositivo especial capaz de prever o apocalipse.",
 
+  "message.magicfungi.morbus_clock.imminent": "Iminente: ",
+  "message.magicfungi.morbus_clock.daysLeft": "§8Começa em %d §4dias §8(§4Dia %d§8).",
+  "message.magicfungi.morbus_clock.daysLeft.2": "TÁ ACONTECENDO!",
+  "message.magicfungi.morbus_clock.daysLeft.3": "O Espalhamento Morbus não acontecerá. :]",
+
+  "message.magicfungi.morbus_clock.tip.1": "§7Este relógio mostrará se",
+  "message.magicfungi.morbus_clock.tip.2": "§7o §4Espalhamento Morbus",
+  "message.magicfungi.morbus_clock.tip.3": "§7acontecerá, e se sim,",
+  "message.magicfungi.morbus_clock.tip.4": "§7em quantos dias.",
+
+  "message.magicfungi.morbus_clock.tip.5": "§7'§4Espalhamento Morbus§7' é o nome",
+  "message.magicfungi.morbus_clock.tip.6": "§7dado ao evento apocalíptico",
+  "message.magicfungi.morbus_clock.tip.7": "§7em que o Bioma Hospedeiro",
+  "message.magicfungi.morbus_clock.tip.8": "§7começa a se espalhar aos biomas",
+  "message.magicfungi.morbus_clock.tip.9": "§7vizinhos, contaminando o solo.",
+
+  "message.magicfungi.morbus_clock.tip.10": "§7Para previnir ou curar o mundo",
+  "message.magicfungi.morbus_clock.tip.11": "§7desta maldição, considere",
+  "message.magicfungi.morbus_clock.tip.12": "§7ver meu Registro de Pesquisa.",
+
+
   "item.magicfungi.heart_of_vivifica": "Coração-de-Vivifica",
   "tooltip.magicfungi.heart_of_vivifica.1": "Um artefato ancião capaz de restaurar vida.",
-  "tooltip.magicfungi.heart_of_vivifica.2": "Pode ser utilizado para parar o espalhamento de Morbus.",
+  "tooltip.magicfungi.heart_of_vivifica.2": "Pode ser utilizado para parar o Espalhamento Morbus.",
   "message.magicfungi.heart_of_vivifica": "Você se sente aliviado que suas ações podem ter de alguma forma melhorado o mundo.",
 
   "item.magicfungi.heart_of_morbus": "Coração-de-Morbus",
   "tooltip.magicfungi.heart_of_morbus.1": "Um artefato ancião que pode trazer maldições.",
-  "tooltip.magicfungi.heart_of_morbus.2": "Pode ser utilizado para reabilitar o espalhamento de Morbus.",
+  "tooltip.magicfungi.heart_of_morbus.2": "Pode ser utilizado para reabilitar o Espalhamento Morbus",
   "message.magicfungi.heart_of_morbus": "Você se sente culpado que suas ações podem ter de alguma forma condenado o mundo.",
+
+  "message.magicfungi.fate_design": "Você tenta mudar o rumo do destino, mas nada acontece.",
+
 
   "item.magicfungi.guide_book": "Livro de Micologia Mágica",
 
@@ -213,9 +229,9 @@
   "description.magicfungi.vivifica_essence": "A essência pura do Cogumelo Vivifica. Seu catalisador é a Escama de Tartaruga.",
   "description.magicfungi.morbus_essence": "A essência pura do Cogumelo Morbus. Seu catalisador é o Crânio de Esqueleto Wither.",
 
-  "description.magicfungi.morbus_clock": "Um aparelho capaz de calcular quando o espalhamento ocorrerá.",
-  "description.magicfungi.heart_of_vivifica": "Um artefato mágico capaz de evitar o espalhamento.",
-  "description.magicfungi.heart_of_morbus": "Um artefato capaz de retomar o espalhamento.",
+  "description.magicfungi.morbus_clock": "Um relógio capaz de calcular quando o Espalhamento Morbus ocorrerá.",
+  "description.magicfungi.heart_of_vivifica": "Um artefato mágico capaz de evitar o Espalhamento Morbus.",
+  "description.magicfungi.heart_of_morbus": "Um artefato capaz de retomar o Espalhamento Morbus.",
 
   "description.magicfungi.guide_book": "Um guia cobrindo todo o conteúdo básico da Micologia Mágica. Você deve receber um quando primeiro criar o mundo. Se não, você pode fabricar um ao combinar um livro e qualquer um dos Cogumelos Mágicos.",
   "description.magicfungi.research_log": "Um registo de pesquisa antiquado feito por um autor desconhecido a respeito do Bioma Hospedeiro. Maior parte de suas páginas foram perdidas ao tempo, mas algumas delas ainda são legíveis.",
@@ -226,8 +242,8 @@
 
   "biome.magicfungi.host_biome": "Bioma Hospedeiro",
 
-  "gamerule.doMorbusSpreading": "Espalhamento do Bioma Hospedeiro",
-  "gamerule.morbusSpreadStartingDay": "Dias até o Espalhamento do Bioma Hospedeiro",
+  "gamerule.doMorbusSpreading": "Espalhamento Morbus",
+  "gamerule.morbusSpreadStartingDay": "Dias até o começo do Espalhamento Morbus",
 
   "gamerule.magicfungi.category": "Magic Fungi",
   "itemGroup.magicfungi.item_group": "Magic Fungi",

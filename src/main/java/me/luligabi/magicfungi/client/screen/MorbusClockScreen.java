@@ -60,21 +60,36 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
                             .formatted(Formatting.RED))),
                 78, 96,
                 45, 63,
-                x, y,
+                x, y, 0,
                 matrices
         );
         renderLimitedTooltipAt(
                 getCountdownTooltip(),
                 77, 97,
                 73, 82,
-                x, y,
+                x, y, 0,
                 matrices
         );
         renderLimitedTooltipAt(
-                List.of(new LiteralText("placeholder")), // TODO: Add proper explanation here
+                List.of(
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.1"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.2"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.3"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.4"),
+                        new LiteralText(" "),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.5"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.6"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.7"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.8"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.9"),
+                        new LiteralText(" "),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.10"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.11"),
+                        new TranslatableText("message.magicfungi.morbus_clock.tip.12")
+                ),
                 132, 141,
                 89, 99,
-                x, y,
+                x, y, -58,
                 matrices
         );
     }
@@ -128,12 +143,12 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
     }
 
     // Remember Y is counted from top to bottom
-    private void renderLimitedTooltipAt(List<Text> text, int leftX, int rightX, int bottomY, int topY, int mouseX, int mouseY, MatrixStack matrices) {
+    private void renderLimitedTooltipAt(List<Text> text, int leftX, int rightX, int bottomY, int topY, int mouseX, int mouseY, int tooltipOffset, MatrixStack matrices) {
         int inventoryX = this.x;
         int inventoryY = this.y;
 
         if((mouseX >= inventoryX+leftX && mouseX <= inventoryX+rightX) && (mouseY >= inventoryY+bottomY && mouseY <= inventoryY+topY)) {
-            this.renderTooltip(matrices, text, mouseX, mouseY);
+            this.renderTooltip(matrices, text, mouseX, mouseY+tooltipOffset);
         }
     }
 
