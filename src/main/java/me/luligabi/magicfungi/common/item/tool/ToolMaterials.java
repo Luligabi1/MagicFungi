@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.tool;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.recipe.Ingredient;
@@ -9,11 +10,13 @@ import java.util.function.Supplier;
 
 public enum ToolMaterials implements ToolMaterial {
 
-    IMPETUS(4, 3046, 10.5F, 18.5F, 15, () ->
+    IMPETUS(4, MagicFungi.CONFIG.relicDurability, MagicFungi.CONFIG.relicMiningSpeed, MagicFungi.CONFIG.impetusSwordAttackDamage, 15, () ->
             Ingredient.ofItems(ItemRegistry.IMPETUS_ESSENCE)),
-    UTILIS(4, 3046, 10.5F, 5.5F, 15, () ->
+    CLYPEUS(4, MagicFungi.CONFIG.relicDurability, 1, 1, 15, () ->
+            Ingredient.ofItems(ItemRegistry.CLYPEUS_ESSENCE)),
+    UTILIS(4, MagicFungi.CONFIG.relicDurability, MagicFungi.CONFIG.relicMiningSpeed, 5.5F, 15, () ->
             Ingredient.ofItems(ItemRegistry.UTILIS_ESSENCE)),
-    MORBUS(4, 3046, 10.5F, 11.5F, 15, () ->
+    MORBUS(4, MagicFungi.CONFIG.relicDurability, MagicFungi.CONFIG.relicMiningSpeed, MagicFungi.CONFIG.morbusScytheAttackDamage, 15, () ->
             Ingredient.ofItems(ItemRegistry.MORBUS_ESSENCE));
 
     private final int miningLevel;

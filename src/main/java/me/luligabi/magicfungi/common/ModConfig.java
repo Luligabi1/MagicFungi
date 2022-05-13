@@ -49,11 +49,23 @@ public class ModConfig implements Config {
     public float cibusSpellSaturationModifier = 0.8F;
 
     // Fungic Relics
+    @Comment(value = "Tool durability for all Fungic Relics.")
+    public int relicDurability = 3046;
+
+    @Comment(value = "Mining Speed for all Fungic Relics.")
+    public float relicMiningSpeed = 10.5F;
+
+    @Comment(value = "Impetus Sword's attack damage.")
+    public float impetusSwordAttackDamage = 18.5F;
+
     @Comment(value = "Utilis Pickaxe's haste effect duration in seconds.")
     public int utilisPickaxeEffectDuration = 4;
 
     @Comment(value = "Utilis Pickaxe's haste effect strength. 0 = I, 1 = II, etc.")
     public int utilisPickaxeEffectStrength = 2;
+
+    @Comment(value = "Morbus Scythe's attack damage.")
+    public float morbusScytheAttackDamage = 11.5F;
 
     @Comment(value = "Morbus Scythe's wither effect duration in seconds.")
     public int morbusScytheEffectDuration = 8;
