@@ -31,24 +31,14 @@ public class HostRegion extends Region {
 
     @Override
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper) {
-        /*addBiome(mapper,
-                ParameterUtils.Temperature.NEUTRAL,
-                ParameterUtils.Humidity.WET,
-                ParameterUtils.Continentalness.FAR_INLAND,
-                ParameterUtils.Erosion.EROSION_0,
-                ParameterUtils.Weirdness.VALLEY,
-                ParameterUtils.Depth.SURFACE,
-                0.1F,
-                BiomeRegistry.HOST_BIOME_KEY);*/
-
         this.addModifiedVanillaOverworldBiomes(mapper, builder -> {
             List<MultiNoiseUtil.NoiseHypercube> sunflowerPlainsPoints = new ParameterUtils.ParameterPointListBuilder()
-                    .temperature(ParameterUtils.Temperature.NEUTRAL)
-                    .humidity(ParameterUtils.Humidity.ARID)
+                    .temperature(ParameterUtils.Temperature.NEUTRAL, ParameterUtils.Temperature.COOL, ParameterUtils.Temperature.WARM)
+                    .humidity(ParameterUtils.Humidity.NEUTRAL, ParameterUtils.Humidity.WET, ParameterUtils.Humidity.DRY)
                     .continentalness(ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.COAST, ParameterUtils.Continentalness.MID_INLAND), ParameterUtils.Continentalness.span(ParameterUtils.Continentalness.MID_INLAND, ParameterUtils.Continentalness.FAR_INLAND))
                     .erosion(ParameterUtils.Erosion.EROSION_0, ParameterUtils.Erosion.EROSION_1, ParameterUtils.Erosion.EROSION_2, ParameterUtils.Erosion.EROSION_3, ParameterUtils.Erosion.EROSION_4, ParameterUtils.Erosion.EROSION_5, ParameterUtils.Erosion.EROSION_6)
                     .depth(ParameterUtils.Depth.SURFACE, ParameterUtils.Depth.FLOOR)
-                    .weirdness(ParameterUtils.Weirdness.VALLEY, ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_ASCENDING/*, ParameterUtils.Weirdness.PEAK_VARIANT*/, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING)
+                    .weirdness(ParameterUtils.Weirdness.VALLEY, ParameterUtils.Weirdness.LOW_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_ASCENDING, ParameterUtils.Weirdness.PEAK_VARIANT, ParameterUtils.Weirdness.HIGH_SLICE_VARIANT_DESCENDING, ParameterUtils.Weirdness.MID_SLICE_VARIANT_DESCENDING)
                     .offset(0.0F)
                     .build();
 

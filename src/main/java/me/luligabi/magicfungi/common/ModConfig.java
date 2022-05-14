@@ -128,7 +128,7 @@ public class ModConfig implements Config {
 
 
     @Comment(value = "Spawnrate for generation of the Host Biome.")
-    public int hostBiomeSpawnRate = 1;
+    public int hostBiomeSpawnRate = 7;
 
     @Comment(value = "Whether Wither Roses will be generated on the Host Biome.")
     public boolean canGenerateWitherRoseHostBiome = true;
