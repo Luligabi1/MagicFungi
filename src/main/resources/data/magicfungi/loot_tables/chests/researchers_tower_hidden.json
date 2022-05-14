@@ -66,8 +66,8 @@
               "function": "minecraft:set_count",
               "count": {
                 "type": "minecraft:uniform",
-                "min": 4,
-                "max": 9
+                "min": 2,
+                "max": 6
               }
             }
           ]
@@ -87,6 +87,15 @@
               "add": false
             }
           ]
+        },
+        {
+          "type": "minecraft:item",
+          "weight": 2,
+          "name": "minecraft:golden_apple"
+        },
+        {
+          "type": "minecraft:empty",
+          "weight": 7
         }
       ]
     }
