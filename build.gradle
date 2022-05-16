@@ -134,6 +134,7 @@ modrinth {
     uploadFile = remapJar
     gameVersions = [project.minecraft_version]
     loaders = ['fabric']
+    versionType = "beta"
     dependencies = [
             new ModDependency('P7dR8mSH', 'required'), // Fabric API
 
