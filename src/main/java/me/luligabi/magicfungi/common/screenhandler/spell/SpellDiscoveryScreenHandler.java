@@ -24,7 +24,7 @@ import java.util.Optional;
 
 public class SpellDiscoveryScreenHandler extends AbstractRecipeScreenHandler<SimpleCraftingInventory> {
 
-    private final SimpleCraftingInventory input;
+    public final SimpleCraftingInventory input;
     private final CraftingResultInventory result;
     public final PlayerInventory playerInventory;
     private final ScreenHandlerContext context;
