@@ -1,7 +1,9 @@
-package me.luligabi.magicfungi.client.compat.rei.spell;
+package me.luligabi.magicfungi.rei.client.displaycategory;
 
-import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
+import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
+import me.luligabi.magicfungi.rei.common.display.SpellRecipeDisplay;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.gui.Renderer;
@@ -57,7 +59,7 @@ public class SpellDisplayCategory implements DisplayCategory<SpellRecipeDisplay>
 
     @Override
     public CategoryIdentifier<? extends SpellRecipeDisplay> getCategoryIdentifier() {
-        return ReiPlugin.SPELL_DISCOVERY;
+        return CommonReiPlugin.SPELL_DISCOVERY;
     }
 
 }

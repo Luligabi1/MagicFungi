@@ -1,9 +1,10 @@
-package me.luligabi.magicfungi.client.compat.rei.essence;
+package me.luligabi.magicfungi.rei.common.display;
 
 
-import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
+import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
 import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipe;
 import me.luligabi.magicfungi.common.util.CatalystType;
+import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
@@ -45,7 +46,7 @@ public class EssenceRecipeDisplay implements Display {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return ReiPlugin.ESSENCE_EXTRACTION;
+        return CommonReiPlugin.ESSENCE_EXTRACTION;
     }
 
 }

@@ -26,7 +26,8 @@
       "me.luligabi.magicfungi.client.MagicFungiClient"
     ],
     "rei_plugins": [
-      "me.luligabi.magicfungi.client.compat.rei.ReiPlugin"
+      "me.luligabi.magicfungi.rei.common.CommonReiPlugin",
+      "me.luligabi.magicfungi.rei.client.ClientReiPlugin"
     ],
     "terrablender": [
       "me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry"

@@ -1,7 +1,8 @@
-package me.luligabi.magicfungi.client.compat.rei.spell;
+package me.luligabi.magicfungi.rei.common.display;
 
-import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
+import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
+import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.display.Display;
 import me.shedaniel.rei.api.common.entry.EntryIngredient;
@@ -64,7 +65,7 @@ public class SpellRecipeDisplay implements Display {
 
     @Override
     public CategoryIdentifier<?> getCategoryIdentifier() {
-        return ReiPlugin.SPELL_DISCOVERY;
+        return CommonReiPlugin.SPELL_DISCOVERY;
     }
 
 }

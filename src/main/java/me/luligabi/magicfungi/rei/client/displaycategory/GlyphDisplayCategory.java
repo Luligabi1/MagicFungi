@@ -1,7 +1,9 @@
-package me.luligabi.magicfungi.client.compat.rei.glyph;
+package me.luligabi.magicfungi.rei.client.displaycategory;
 
-import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
+import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
+import me.luligabi.magicfungi.rei.common.display.GlyphRecipeDisplay;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.gui.Renderer;
@@ -51,6 +53,6 @@ public class GlyphDisplayCategory implements DisplayCategory<GlyphRecipeDisplay>
     }
 
     @Override
-    public CategoryIdentifier<? extends GlyphRecipeDisplay> getCategoryIdentifier() { return ReiPlugin.GLYPH_CARVING; }
+    public CategoryIdentifier<? extends GlyphRecipeDisplay> getCategoryIdentifier() { return CommonReiPlugin.GLYPH_CARVING; }
 
 }

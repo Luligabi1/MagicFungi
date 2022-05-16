@@ -1,14 +1,7 @@
-package me.luligabi.magicfungi.client.compat.rei;
+package me.luligabi.magicfungi.rei.client;
 
 import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
-import me.luligabi.magicfungi.client.compat.rei.essence.EssenceDisplayCategory;
-import me.luligabi.magicfungi.client.compat.rei.essence.EssenceRecipeDisplay;
-import me.luligabi.magicfungi.client.compat.rei.glyph.GlyphDisplayCategory;
-import me.luligabi.magicfungi.client.compat.rei.glyph.GlyphRecipeDisplay;
-import me.luligabi.magicfungi.client.compat.rei.spell.SpellDisplayCategory;
-import me.luligabi.magicfungi.client.compat.rei.spell.SpellRecipeDisplay;
-import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import me.luligabi.magicfungi.common.item.glyph.GlyphRegistry;
@@ -16,10 +9,16 @@ import me.luligabi.magicfungi.common.item.spell.SpellRegistry;
 import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipe;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
+import me.luligabi.magicfungi.rei.client.displaycategory.EssenceDisplayCategory;
+import me.luligabi.magicfungi.rei.client.displaycategory.GlyphDisplayCategory;
+import me.luligabi.magicfungi.rei.client.displaycategory.SpellDisplayCategory;
+import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
+import me.luligabi.magicfungi.rei.common.display.EssenceRecipeDisplay;
+import me.luligabi.magicfungi.rei.common.display.GlyphRecipeDisplay;
+import me.luligabi.magicfungi.rei.common.display.SpellRecipeDisplay;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
-import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import me.shedaniel.rei.plugin.common.displays.DefaultInformationDisplay;
 import net.minecraft.item.ItemConvertible;
@@ -28,19 +27,19 @@ import net.minecraft.text.TranslatableText;
 
 import java.util.Map;
 
-public class ReiPlugin implements REIClientPlugin {
+public class ClientReiPlugin implements REIClientPlugin {
 
 
     @Override
     public void registerCategories(CategoryRegistry registry) {
         registry.add(new GlyphDisplayCategory());
-        registry.addWorkstations(GLYPH_CARVING, EntryStacks.of(BlockRegistry.GLYPH_CARVING_BLOCK));
+        registry.addWorkstations(CommonReiPlugin.GLYPH_CARVING, EntryStacks.of(BlockRegistry.GLYPH_CARVING_BLOCK));
 
         registry.add(new SpellDisplayCategory());
-        registry.addWorkstations(SPELL_DISCOVERY, EntryStacks.of(BlockRegistry.SPELL_DISCOVERY_BLOCK));
+        registry.addWorkstations(CommonReiPlugin.SPELL_DISCOVERY, EntryStacks.of(BlockRegistry.SPELL_DISCOVERY_BLOCK));
 
         registry.add(new EssenceDisplayCategory());
-        registry.addWorkstations(ESSENCE_EXTRACTION, EntryStacks.of(BlockRegistry.ESSENCE_EXTRACTOR_BLOCK));
+        registry.addWorkstations(CommonReiPlugin.ESSENCE_EXTRACTION, EntryStacks.of(BlockRegistry.ESSENCE_EXTRACTOR_BLOCK));
     }
 
     @Override
@@ -112,9 +111,5 @@ public class ReiPlugin implements REIClientPlugin {
             registry.add(info);
         });
     }
-
-    public static final CategoryIdentifier<GlyphRecipeDisplay> GLYPH_CARVING = CategoryIdentifier.of(MagicFungi.MOD_ID, "glyph_carving");
-    public static final CategoryIdentifier<SpellRecipeDisplay> SPELL_DISCOVERY = CategoryIdentifier.of(MagicFungi.MOD_ID, "spell_discovery");
-    public static final CategoryIdentifier<EssenceRecipeDisplay> ESSENCE_EXTRACTION = CategoryIdentifier.of(MagicFungi.MOD_ID, "essence_extraction");
 
 }

@@ -1,11 +1,13 @@
-package me.luligabi.magicfungi.client.compat.rei.essence;
+package me.luligabi.magicfungi.rei.client.displaycategory;
 
 import com.google.common.collect.Lists;
 import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.logging.LogUtils;
-import me.luligabi.magicfungi.client.compat.rei.ReiPlugin;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
+import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
+import me.luligabi.magicfungi.rei.common.display.EssenceRecipeDisplay;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.REIRuntime;
@@ -66,12 +68,12 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
 
     @Override
     public CategoryIdentifier<? extends EssenceRecipeDisplay> getCategoryIdentifier() {
-        return ReiPlugin.ESSENCE_EXTRACTION;
+        return CommonReiPlugin.ESSENCE_EXTRACTION;
     }
 
 
     private List<EntryStack<ItemStack>> getCatalyst(EssenceRecipeDisplay display) {
-        switch(display.catalystType) {
+        switch(display.getCatalystType()) {
             case IMPETUS -> {
                 addToCatalystList(IMPETUS.getTag(), impetusCatalystList);
                 return impetusCatalystList;
@@ -98,7 +100,7 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
 
 
     private int getCatalystBarTextureYCoordinate(EssenceRecipeDisplay display) {
-        return switch(display.catalystType) {
+        return switch(display.getCatalystType()) {
             case IMPETUS -> 29;
             case CLYPEUS -> 33;
             case UTILIS -> 37;
