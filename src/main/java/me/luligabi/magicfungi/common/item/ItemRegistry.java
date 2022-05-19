@@ -1,11 +1,11 @@
 package me.luligabi.magicfungi.common.item;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.item.armor.MagicalFungiArmorItem;
-import me.luligabi.magicfungi.common.item.armor.MagicalFungiArmorMaterial;
+import me.luligabi.magicfungi.common.item.relic.armor.MagicalFungiArmorItem;
+import me.luligabi.magicfungi.common.item.relic.armor.MagicalFungiArmorMaterial;
 import me.luligabi.magicfungi.common.item.misc.*;
-import me.luligabi.magicfungi.common.item.tool.ToolMaterials;
-import me.luligabi.magicfungi.common.item.tool.*;
+import me.luligabi.magicfungi.common.item.relic.ToolMaterials;
+import me.luligabi.magicfungi.common.item.relic.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.effect.StatusEffectInstance;

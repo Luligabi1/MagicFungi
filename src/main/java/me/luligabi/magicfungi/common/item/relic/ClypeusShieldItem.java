@@ -1,7 +1,6 @@
-package me.luligabi.magicfungi.common.item.tool;
+package me.luligabi.magicfungi.common.item.relic;
 
 import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricBannerShieldItem;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 

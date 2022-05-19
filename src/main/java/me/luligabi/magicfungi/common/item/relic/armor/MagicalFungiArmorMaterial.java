@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.item.armor;
+package me.luligabi.magicfungi.common.item.relic.armor;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.ItemRegistry;

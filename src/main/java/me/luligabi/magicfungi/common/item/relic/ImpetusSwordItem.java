@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.item.tool;
+package me.luligabi.magicfungi.common.item.relic;
 
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;

@@ -1,4 +1,4 @@
-package me.luligabi.magicfungi.common.item.armor;
+package me.luligabi.magicfungi.common.item.relic.armor;
 
 import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
