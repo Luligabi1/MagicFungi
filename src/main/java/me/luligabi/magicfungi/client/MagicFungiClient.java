@@ -5,6 +5,8 @@ import me.luligabi.magicfungi.client.renderer.entity.MorbusMooshroomEntityRender
 import me.luligabi.magicfungi.client.screen.MorbusClockScreen;
 import me.luligabi.magicfungi.client.tooltip.glyph.GlyphTooltipComponent;
 import me.luligabi.magicfungi.client.tooltip.glyph.GlyphTooltipData;
+import me.luligabi.magicfungi.client.tooltip.relic.utilis.UtilisPickaxeTooltipComponent;
+import me.luligabi.magicfungi.client.tooltip.relic.utilis.UtilisPickaxeTooltipData;
 import me.luligabi.magicfungi.client.tooltip.spell.SpellTooltipComponent;
 import me.luligabi.magicfungi.client.tooltip.spell.SpellTooltipData;
 import me.luligabi.magicfungi.client.screen.EssenceExtractorScreen;
@@ -22,7 +24,6 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
-import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
@@ -81,6 +82,8 @@ public class MagicFungiClient implements ClientModInitializer {
         TooltipComponentCallback.EVENT.register(data -> {
             if(data instanceof GlyphTooltipData) return new GlyphTooltipComponent((GlyphTooltipData) data);
             if(data instanceof SpellTooltipData) return new SpellTooltipComponent((SpellTooltipData) data);
+
+            if(data instanceof UtilisPickaxeTooltipData) return new UtilisPickaxeTooltipComponent((UtilisPickaxeTooltipData) data);
             return null;
         });
 

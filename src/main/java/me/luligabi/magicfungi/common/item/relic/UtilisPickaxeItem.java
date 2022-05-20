@@ -1,7 +1,9 @@
 package me.luligabi.magicfungi.common.item.relic;
 
+import me.luligabi.magicfungi.client.tooltip.relic.utilis.UtilisPickaxeTooltipData;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.client.item.TooltipData;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -21,6 +23,7 @@ import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
+import java.util.Optional;
 
 public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<UtilisPickaxeItem.State> {
 
@@ -29,7 +32,7 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
     }
 
 
-    @Override
+    @Override // FIXME: Stack does not have Efficiency 7 by default
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         if(world.isClient()) return TypedActionResult.pass(stack);
@@ -69,8 +72,8 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
     }
 
     @Override
-    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new LiteralText(getState(stack).toString()));
+    public Optional<TooltipData> getTooltipData(ItemStack stack) {
+        return Optional.of(new UtilisPickaxeTooltipData(getState(stack)));
     }
 
     @Override
@@ -84,11 +87,11 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
     }
 
 
-    @Override // TODO: Change sound
+    @Override
     public void sendStateChangeMessage(PlayerEntity player, State state) {
         player.sendMessage(new LiteralText(state.getSymbol()).formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD), true);
-        player.world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_STONE_BUTTON_CLICK_OFF,
-                SoundCategory.PLAYERS, 1F, 1F);
+        player.world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_NOTE_BLOCK_HARP,
+                SoundCategory.PLAYERS, 200F, 1.5F);
     }
 
     public State getState(ItemStack stack) {
