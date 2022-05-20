@@ -120,6 +120,13 @@
   "item.magicfungi.morbus_scythe": "Morbus Scythe",
 
 
+  "relicState.magicfungi.functionis": "Functionis",
+  "relicState.magicfungi.dysfunctionis": "Dysfunctionis",
+
+  "relicState.magicfungi.mollis": "Mollis",
+  "relicState.magicfungi.laser": "Laser",
+
+
   "item.magicfungi.fertilis_spell": "Fertilis Spell",
 
   "item.magicfungi.magical_fungi_helmet": "Magical Fungi Helmet",
