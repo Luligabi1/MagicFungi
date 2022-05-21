@@ -2,27 +2,20 @@ package me.luligabi.magicfungi.common.item.relic;
 
 import me.luligabi.magicfungi.client.tooltip.relic.utilis.UtilisPickaxeTooltipData;
 import net.minecraft.block.BlockState;
-import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.item.TooltipData;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.nbt.NbtByte;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
-import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
-import java.util.List;
 import java.util.Optional;
 
 public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<UtilisPickaxeItem.State> {
@@ -43,19 +36,25 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
             // TODO: Implement Laser
         } else {
             switch (stack.getOrCreateNbt().getByte("State")) {
-                default -> { // Functionis -> Mollis
+                default -> { // Functionis -> Fortunae
                     stack.setSubNbt("State", NbtByte.of((byte) 1));
+
+                    stack = removeEnchantments(stack, stack.getDamage());
+                    addEnchantment(stack, Enchantments.FORTUNE, 3);
+                }
+                case 1 -> { // Fortunae -> Mollis
+                    stack.setSubNbt("State", NbtByte.of((byte) 2));
 
                     stack = removeEnchantments(stack, stack.getDamage());
                     addEnchantment(stack, Enchantments.SILK_TOUCH, 1);
                 }
-                case 1 -> { // Mollis -> Laser
-                    stack.setSubNbt("State", NbtByte.of((byte) 2));
+                case 2 -> { // Mollis -> Laser
+                    stack.setSubNbt("State", NbtByte.of((byte) 3));
 
                     stack = removeEnchantments(stack, stack.getDamage());
                 }
-                case 2 -> stack.setSubNbt("State", NbtByte.of((byte) 3)); // Laser -> Dysfunctionis
-                case 3 -> { // Dysfunctionis -> Functionis
+                case 3 -> stack.setSubNbt("State", NbtByte.of((byte) 4)); // Laser -> Dysfunctionis
+                case 4 -> { // Dysfunctionis -> Functionis
                     stack.setSubNbt("State", NbtByte.of((byte) 0));
 
                     addEnchantment(stack, Enchantments.EFFICIENCY, 7);
@@ -90,16 +89,16 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
     @Override
     public void sendStateChangeMessage(PlayerEntity player, State state) {
         player.sendMessage(new LiteralText(state.getSymbol()).formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD), true);
-        player.world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_NOTE_BLOCK_HARP,
-                SoundCategory.PLAYERS, 200F, 1.5F);
+        StateBasedRelic.super.sendStateChangeMessage(player, state);
     }
 
     public State getState(ItemStack stack) {
         return switch(stack.getOrCreateNbt().getByte("State")) {
             default -> State.FUNCTIONIS;
-            case 1 -> State.MOLLIS;
-            case 2 -> State.LASER;
-            case 3 -> State.DYSFUNCTIONIS;
+            case 1 -> State.FORTUNAE;
+            case 2 -> State.MOLLIS;
+            case 3 -> State.LASER;
+            case 4 -> State.DYSFUNCTIONIS;
         };
     }
 
@@ -107,6 +106,7 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
     public enum State {
 
         FUNCTIONIS(new TranslatableText("relicState.magicfungi.functionis"), "⛏"),
+        FORTUNAE(new TranslatableText("relicState.magicfungi.fortunae"), "$"),
         MOLLIS(new TranslatableText("relicState.magicfungi.mollis"), "~"),
         LASER(new TranslatableText("relicState.magicfungi.laser"), "/"),
         DYSFUNCTIONIS(new TranslatableText("relicState.magicfungi.dysfunctionis"), "❌");

@@ -5,6 +5,8 @@ import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 
 import java.util.Collections;
 
@@ -13,7 +15,10 @@ public interface StateBasedRelic<T> {
 
     T getState(ItemStack stack);
 
-    void sendStateChangeMessage(PlayerEntity player, T state);
+    default void sendStateChangeMessage(PlayerEntity player, T state) {
+        player.world.playSound(null, player.getBlockPos(), SoundEvents.BLOCK_NOTE_BLOCK_HARP,
+                SoundCategory.PLAYERS, 200F, 1.5F);
+    }
 
 
     default void addEnchantment(ItemStack itemStack, Enchantment enchantment, int level) {
