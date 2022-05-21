@@ -43,7 +43,7 @@ public class UtilisPickaxeTooltipComponent implements TooltipComponent {
     @Override
     public void drawText(TextRenderer textRenderer, int x, int y, Matrix4f matrix, VertexConsumerProvider.Immediate vertexConsumers) {
         TranslatableText cooldownText = tooltipData.state.getTranslatableText();
-        textRenderer.draw(cooldownText.formatted(Formatting.LIGHT_PURPLE), (x + 24), y + 2.5F, -1, true, matrix, vertexConsumers, false, 0, 0xF000F0);
+        textRenderer.draw(cooldownText.formatted(Formatting.LIGHT_PURPLE), x + 20, y + 2.5F, -1, true, matrix, vertexConsumers, false, 0, 0xF000F0);
     }
 
     @Override
@@ -56,9 +56,10 @@ public class UtilisPickaxeTooltipComponent implements TooltipComponent {
         return 17;
     }
 
-    private Identifier getStateTexture() { // TODO: Add missing textures
+    private Identifier getStateTexture() {
         return switch(tooltipData.state) {
             case FUNCTIONIS -> new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/relic/utilis/functionis.png");
+            case FORTUNAE -> new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/relic/fortunae.png");
             case MOLLIS -> new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/relic/utilis/mollis.png");
             case LASER -> new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/relic/utilis/laser.png");
             case DYSFUNCTIONIS -> new Identifier(MagicFungi.MOD_ID, "textures/gui/tooltip/relic/dysfunctionis.png");
