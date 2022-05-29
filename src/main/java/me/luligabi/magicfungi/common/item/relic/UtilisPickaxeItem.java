@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.item.relic;
 
 import me.luligabi.magicfungi.client.tooltip.relic.utilis.UtilisPickaxeTooltipData;
+import me.luligabi.magicfungi.common.entity.UtilisLaserEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipData;
 import net.minecraft.enchantment.Enchantments;
@@ -9,6 +10,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.nbt.NbtByte;
+import net.minecraft.sound.SoundCategory;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
@@ -30,10 +33,15 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
         ItemStack stack = user.getStackInHand(hand);
         if(world.isClient()) return TypedActionResult.pass(stack);
 
-        if(!user.isSneaking()) {
+        if(!user.isSneaking()) { // Laser state
             if(getState(stack) != State.LASER) return TypedActionResult.pass(stack);
 
-            // TODO: Implement Laser
+            world.playSound(null, user.getX(), user.getY(), user.getZ(), // TODO: Add proper sound effect
+                    SoundEvents.ENTITY_SNOWBALL_THROW, SoundCategory.NEUTRAL, 0.5F, 1F);
+            UtilisLaserEntity laserEntity = new UtilisLaserEntity(world, user);
+            laserEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
+            world.spawnEntity(laserEntity);
+            //  TODO: Remove durability if not on creative
         } else {
             switch (stack.getOrCreateNbt().getByte("State")) {
                 default -> { // Functionis -> Fortunae
