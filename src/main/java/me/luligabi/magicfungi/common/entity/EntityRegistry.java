@@ -32,8 +32,8 @@ public class EntityRegistry {
     public static final EntityType<UtilisLaserEntity> UTILIS_LASER = Registry.register(
             Registry.ENTITY_TYPE, new Identifier(MagicFungi.MOD_ID, "utilis_laser"),
             FabricEntityTypeBuilder.<UtilisLaserEntity>create(SpawnGroup.MISC, UtilisLaserEntity::new)
-            .dimensions(EntityDimensions.fixed(0.25F, 0.25F))
-            .trackRangeBlocks(4).trackedUpdateRate(10)
+            .dimensions(EntityDimensions.fixed(0.5F, 0.5F))
+            .trackRangeBlocks(4).trackedUpdateRate(20)
             .build());
 
 
