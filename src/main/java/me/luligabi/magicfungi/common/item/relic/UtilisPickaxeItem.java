@@ -5,6 +5,7 @@ import me.luligabi.magicfungi.common.entity.UtilisLaserEntity;
 import net.minecraft.block.BlockState;
 import net.minecraft.client.item.TooltipData;
 import net.minecraft.enchantment.Enchantments;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.PickaxeItem;
@@ -41,7 +42,9 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
             UtilisLaserEntity laserEntity = new UtilisLaserEntity(world, user);
             laserEntity.setVelocity(user, user.getPitch(), user.getYaw(), 0.0F, 1.5F, 1.0F);
             world.spawnEntity(laserEntity);
-            //  TODO: Remove durability if not on creative
+            if (!user.getAbilities().creativeMode) {
+                stack.damage(3, user, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
+            }
         } else {
             switch (stack.getOrCreateNbt().getByte("State")) {
                 default -> { // Functionis -> Fortunae

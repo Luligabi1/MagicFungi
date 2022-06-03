@@ -40,21 +40,23 @@ public class UtilisLaserEntity extends ThrownItemEntity {
 
     public void tick() {
         super.tick();
-        if(getDataTracker().get(LIVING_TICKS) > 12*20) {
-            kill();
-        }
-        getDataTracker().set(LIVING_TICKS, getDataTracker().get(LIVING_TICKS) + 1);
-
-        Vec3d velocity = getVelocity();
-        double x = getX() + velocity.x;
-        double y = getY() + velocity.y;
-        double z = getZ() + velocity.z;
-
-        if (!isTouchingWater()) {
-            world.addParticle(ParticleRegistry.UTILIS_LASER, x, y, z, 0, 0, 0);
+        if(!world.isClient()) {
+            if(getDataTracker().get(LIVING_TICKS) > 12*20) {
+                kill();
+            }
+            getDataTracker().set(LIVING_TICKS, getDataTracker().get(LIVING_TICKS) + 1);
         } else {
-            for(int i = 0; i < 4; ++i) {
-                world.addParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0, 0);
+            Vec3d velocity = getVelocity();
+            double x = getX() + velocity.x;
+            double y = getY() + velocity.y;
+            double z = getZ() + velocity.z;
+
+            if (!isTouchingWater()) {
+                world.addParticle(ParticleRegistry.UTILIS_LASER, x, y, z, 0, 0, 0);
+            } else {
+                for(int i = 0; i < 4; ++i) {
+                    world.addParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0, 0);
+                }
             }
         }
     }
