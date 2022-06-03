@@ -8,6 +8,8 @@
     "BrewingStandScreenAccessor",
     "EntityInvoker",
     "HandledScreenAccessor",
+    "ItemRendererInvoker",
+    "ItemRendererMixin",
     "OrePlacedFeaturesInvoker",
     "PlayerEntityMixin",
     "PlayerInventoryAccessor",
