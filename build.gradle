@@ -5,16 +5,12 @@ plugins {
     id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
-
 archivesBaseName = project.archives_base_name
 version = project.mod_version
-group = project.maven_group
 
 def ENV = System.getenv()
 
-def RELEASE_NAME = "[${project.minecraft_version}] ${version}"
+def RELEASE_NAME = "${version}"
 def RELEASE_FILE = "${buildDir}/libs/${archivesBaseName}-${version}.jar"
 
 @SuppressWarnings('GrMethodMayBeStatic')
@@ -122,7 +118,6 @@ curseforge {
     }
 }
 
-//Modrinth publishing
 import com.modrinth.minotaur.dependencies.ModDependency
 
 modrinth {
@@ -140,4 +135,5 @@ modrinth {
 
             new ModDependency('nU0bVIaL', 'required') // Patchouli
     ]
+    changelog = getChangeLog()
 }
