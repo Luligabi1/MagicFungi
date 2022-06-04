@@ -30,7 +30,7 @@ public abstract class PlayerEntityMixin {
              * health boost effect's duration is equal to 2 seconds (2*20, as in 40 ticks) then setting
              *  the duration back to 4 seconds. Is it ugly? A bit, but hey, it works :)
              */
-            if(((StatusEffectInstanceAccessor) playerEntity.getActiveStatusEffects().get(StatusEffects.HEALTH_BOOST)).getDuration() == 2*20) {
+            if(playerEntity.getActiveStatusEffects().get(StatusEffects.HEALTH_BOOST) instanceof StatusEffectInstanceAccessor instance && instance.getDuration() == 2*20) {
                 ((StatusEffectInstanceAccessor) playerEntity.getActiveStatusEffects().get(StatusEffects.HEALTH_BOOST)).setDuration(4*20);
             }
         }
