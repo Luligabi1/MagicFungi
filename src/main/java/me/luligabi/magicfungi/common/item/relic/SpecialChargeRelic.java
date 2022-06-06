@@ -1,5 +1,7 @@
 package me.luligabi.magicfungi.common.item.relic;
 
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtByte;
 
@@ -19,8 +21,8 @@ public interface SpecialChargeRelic {
         setCharge(stack, getCharge(stack) + 1);
     }
 
-    default void resetCharge(ItemStack stack) {
-        setCharge(stack, 0);
+    default void resetCharge(ItemStack stack, PlayerEntity user) {
+        if(!user.isCreative()) setCharge(stack, 0);
     }
 
     default boolean isChargeFull(ItemStack stack) {

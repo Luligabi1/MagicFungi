@@ -50,7 +50,7 @@ public class VivificaElixirItem extends Item implements SpecialChargeRelic {
                     }
                 }
                 world.playSound(null, user.getBlockPos(), SoundEvents.ENTITY_GENERIC_DRINK, SoundCategory.PLAYERS, 1F, 1F);
-                resetCharge(stack);
+                resetCharge(stack, user);
                 user.getItemCooldownManager().set(this, 16*20);
                 return TypedActionResult.success(stack);
             }
