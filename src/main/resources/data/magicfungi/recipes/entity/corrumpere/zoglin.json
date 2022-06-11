@@ -1,0 +1,6 @@
+{
+  "type": "magicfungi:corrumpere_corruption",
+
+  "regularEntity": "minecraft:hoglin",
+  "corruptedEntity": "minecraft:zoglin"
+}

@@ -1,0 +1,6 @@
+{
+  "type": "magicfungi:corrumpere_corruption",
+
+  "regularEntity": "minecraft:cow",
+  "corruptedEntity": "magicfungi:morbus_mooshroom"
+}
