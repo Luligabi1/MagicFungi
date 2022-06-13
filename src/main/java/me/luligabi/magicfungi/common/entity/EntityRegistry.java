@@ -36,6 +36,13 @@ public class EntityRegistry {
             .trackRangeBlocks(4).trackedUpdateRate(20)
             .build());
 
+    public static final EntityType<MorbusProjectileEntity> MORBUS_PROJECTILE = Registry.register(
+            Registry.ENTITY_TYPE, new Identifier(MagicFungi.MOD_ID, "morbus_projectile"),
+            FabricEntityTypeBuilder.<MorbusProjectileEntity>create(SpawnGroup.MISC, MorbusProjectileEntity::new)
+            .dimensions(EntityDimensions.fixed(0.5F, 0.5F))
+            .trackRangeBlocks(4).trackedUpdateRate(20)
+            .build());
+
 
     public static void init() {
         FabricDefaultAttributeRegistry.register(MORBUS_MOOSHROOM, MobEntity.createMobAttributes().add(EntityAttributes.GENERIC_MAX_HEALTH, 52).add(EntityAttributes.GENERIC_ATTACK_DAMAGE, 6.5).add(EntityAttributes.GENERIC_MOVEMENT_SPEED, 0.20000000298023224).add(EntityAttributes.GENERIC_FOLLOW_RANGE, 14));

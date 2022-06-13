@@ -1,15 +1,11 @@
 package me.luligabi.magicfungi.common.item.relic;
 
-import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Tameable;
-import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.SmallFireballEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -42,9 +38,9 @@ public class VivificaElixirItem extends Item implements SpecialChargeRelic {
         ItemStack stack = user.getStackInHand(hand);
 
         if(!world.isClient()) {
-            if (user.isSneaking() && isChargeFull(stack)) {
-                for (Entity entities : world.getOtherEntities(null, new Box(user.getX() - 5, user.getY() - 5, user.getZ() - 5, user.getX() + 5, user.getY() + 5, user.getZ() + 5))) {
-                    if (entities instanceof PlayerEntity || entities instanceof TameableEntity) {
+            if(user.isSneaking() && isChargeFull(stack)) {
+                for(Entity entities : world.getOtherEntities(null, new Box(user.getX() - 5, user.getY() - 5, user.getZ() - 5, user.getX() + 5, user.getY() + 5, user.getZ() + 5))) {
+                    if(entities instanceof PlayerEntity || entities instanceof TameableEntity) {
                         ((LivingEntity) entities).addStatusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 2, false, true, true));
                         ((LivingEntity) entities).addStatusEffect(new StatusEffectInstance(StatusEffects.RESISTANCE, 18*20, 0, false, true, true));
                     }

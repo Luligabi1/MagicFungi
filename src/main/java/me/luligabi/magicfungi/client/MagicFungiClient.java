@@ -18,30 +18,21 @@ import me.luligabi.magicfungi.common.entity.EntityRegistry;
 import me.luligabi.magicfungi.common.misc.PacketRegistry;
 import me.luligabi.magicfungi.common.misc.ParticleRegistry;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
-import me.luligabi.magicfungi.mixin.EntityInvoker;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
-import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
-import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.ingame.HandledScreens;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.FlyingItemEntityRenderer;
 import net.minecraft.client.render.entity.model.EntityModelLayer;
 import net.minecraft.client.render.entity.model.ShieldEntityModel;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
 import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.math.Vec3d;
-import net.minecraft.util.registry.Registry;
-
-import java.util.UUID;
 
 @Environment(EnvType.CLIENT)
 public class MagicFungiClient implements ClientModInitializer {
@@ -82,6 +73,7 @@ public class MagicFungiClient implements ClientModInitializer {
 
         EntityRendererRegistry.register(EntityRegistry.MORBUS_MOOSHROOM, MorbusMooshroomEntityRenderer::new);
         EntityRendererRegistry.register(EntityRegistry.UTILIS_LASER, FlyingItemEntityRenderer::new);
+        EntityRendererRegistry.register(EntityRegistry.MORBUS_PROJECTILE, FlyingItemEntityRenderer::new);
 
         ParticleRegistry.clientInit();
 
@@ -100,29 +92,12 @@ public class MagicFungiClient implements ClientModInitializer {
         });
 
 
-        ClientPlayNetworking.registerGlobalReceiver(PacketRegistry.UTILIS_LASER_ID, (client, handler, buf, responseSender) -> {
-            EntityType<?> et = Registry.ENTITY_TYPE.get(buf.readVarInt());
-            UUID uuid = buf.readUuid();
-            int entityId = buf.readVarInt();
-            Vec3d pos = new Vec3d(buf.readDouble(), buf.readDouble(), buf.readDouble());
-            float pitch = (buf.readByte() * 360) / 256F;
-            float yaw = (buf.readByte() * 360) / 256F;
-            client.execute(() -> {
-                if (MinecraftClient.getInstance().world == null) throw new IllegalStateException("Tried to spawn entity in a null world!");
-                Entity entity = et.create(MinecraftClient.getInstance().world);
-                if (entity == null) throw new IllegalStateException("Failed to create instance of entity \"" + Registry.ENTITY_TYPE.getId(et) + "\"!");
-                entity.updateTrackedPosition(pos);
-                entity.setPos(pos.x, pos.y, pos.z);
-                ((EntityInvoker) entity).setPitch(pitch);
-                ((EntityInvoker) entity).setYaw(yaw);
-                entity.setId(entityId);
-                entity.setUuid(uuid);
-                MinecraftClient.getInstance().world.addEntity(entityId, entity);
-            });
-        });
+        PacketRegistry.clientInitProjectileEntity(PacketRegistry.UTILIS_LASER_ID);
+        PacketRegistry.clientInitProjectileEntity(PacketRegistry.MORBUS_PROJECTILE_ID);
 
         OmegaConfigGui.registerConfigScreen(MagicFungi.CONFIG);
     }
+
 
     public static final EntityModelLayer CLYPEUS_SHIELD_MODEL_LAYER = new EntityModelLayer(new Identifier(MagicFungi.MOD_ID, "clypeus_shield"),"main");
 }

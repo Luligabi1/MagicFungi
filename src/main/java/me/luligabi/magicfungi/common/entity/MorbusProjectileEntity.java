@@ -1,36 +1,37 @@
 package me.luligabi.magicfungi.common.entity;
 
 import me.luligabi.magicfungi.common.misc.PacketRegistry;
-import me.luligabi.magicfungi.common.misc.ParticleRegistry;
+import me.luligabi.magicfungi.common.util.Util;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.data.DataTracker;
 import net.minecraft.entity.data.TrackedData;
 import net.minecraft.entity.data.TrackedDataHandlerRegistry;
+import net.minecraft.entity.decoration.ArmorStandEntity;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.projectile.thrown.ThrownItemEntity;
 import net.minecraft.item.Item;
 import net.minecraft.network.Packet;
 import net.minecraft.particle.ParticleTypes;
-import net.minecraft.sound.SoundCategory;
-import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
 
-public class UtilisLaserEntity extends ThrownItemEntity {
+public class MorbusProjectileEntity extends ThrownItemEntity {
 
-    public UtilisLaserEntity(EntityType<UtilisLaserEntity> entityType, World world) {
+    public MorbusProjectileEntity(EntityType<MorbusProjectileEntity> entityType, World world) {
         super(entityType, world);
     }
 
-    public UtilisLaserEntity(World world, LivingEntity owner) {
-        super(EntityRegistry.UTILIS_LASER, owner, world);
+    public MorbusProjectileEntity(World world, LivingEntity owner, double x, double y, double z) {
+        super(EntityRegistry.MORBUS_PROJECTILE, owner, world);
+        updateVelocity(0.35F, new Vec3d(x, y, z));
+        refreshPosition();
     }
 
 
-    private static final TrackedData<Integer> LIVING_TICKS = DataTracker.registerData(UtilisLaserEntity.class, TrackedDataHandlerRegistry.INTEGER);
+    private static final TrackedData<Integer> LIVING_TICKS = DataTracker.registerData(MorbusProjectileEntity.class, TrackedDataHandlerRegistry.INTEGER);
 
     @Override
     protected void initDataTracker() {
@@ -52,7 +53,7 @@ public class UtilisLaserEntity extends ThrownItemEntity {
             double z = getZ() + velocity.z;
 
             if (!isTouchingWater()) {
-                world.addParticle(ParticleRegistry.UTILIS_LASER, x, y, z, 0, 0, 0);
+                world.addParticle(ParticleTypes.SMOKE, x, y, z, 0, 0, 0);
             } else {
                 for(int i = 0; i < 4; ++i) {
                     world.addParticle(ParticleTypes.BUBBLE, x, y, z, 0, 0, 0);
@@ -64,22 +65,13 @@ public class UtilisLaserEntity extends ThrownItemEntity {
     @Override
     protected void onBlockHit(BlockHitResult blockHitResult) {
         super.onBlockHit(blockHitResult);
-        if(world.getBlockState(blockHitResult.getBlockPos()).getBlock().getHardness() >= 0.01F) {
-            world.breakBlock(blockHitResult.getBlockPos(), true);
-        }
+        remove(RemovalReason.DISCARDED);
     }
 
     @Override
-    protected void onEntityHit(EntityHitResult entityHitResult) {
-        entityHitResult.getEntity().damage(DamageSource.MAGIC, 0F);
-    }
-
-
-    @Override
-    public void kill() {
-        super.kill();
-        world.playSound(null, getX(), getY(), getZ(),
-                SoundEvents.ENTITY_CHICKEN_EGG, SoundCategory.PLAYERS, 1F, 1F);
+    protected void onEntityHit(EntityHitResult entityHitResult) { // TODO: Add config for effect values
+        if(!(entityHitResult.getEntity() instanceof LivingEntity) || entityHitResult.getEntity() instanceof ArmorStandEntity) return;
+        Util.applyEffectIfNotPresent((LivingEntity) entityHitResult.getEntity(), StatusEffects.WITHER, 12, 2);
     }
 
     @Override
@@ -99,7 +91,7 @@ public class UtilisLaserEntity extends ThrownItemEntity {
 
     @Override
     public Packet<?> createSpawnPacket() {
-        return PacketRegistry.createS2CThrownItemPacket(this, PacketRegistry.UTILIS_LASER_ID);
+        return PacketRegistry.createS2CThrownItemPacket(this, PacketRegistry.MORBUS_PROJECTILE_ID);
     }
 
 }

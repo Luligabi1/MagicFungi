@@ -6,8 +6,10 @@
   "mixins": [
     "ArmorItemMixin",
     "BrewingStandScreenAccessor",
+    "EnchantmentHelperMixin",
     "EntityInvoker",
     "HandledScreenAccessor",
+    "HoeItemAccessor",
     "ItemRendererInvoker",
     "ItemRendererMixin",
     "OrePlacedFeaturesInvoker",
