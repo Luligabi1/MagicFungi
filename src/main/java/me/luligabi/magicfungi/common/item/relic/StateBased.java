@@ -2,7 +2,6 @@ package me.luligabi.magicfungi.common.item.relic;
 
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
@@ -10,7 +9,7 @@ import net.minecraft.sound.SoundEvents;
 
 import java.util.Collections;
 
-public interface StateBasedRelic<T> {
+public interface StateBased<T> {
 
 
     T getState(ItemStack stack);

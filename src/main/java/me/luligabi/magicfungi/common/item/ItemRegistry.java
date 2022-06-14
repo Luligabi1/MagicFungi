@@ -27,7 +27,10 @@ public class ItemRegistry {
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_essence"), MORBUS_ESSENCE);
 
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_sword"), IMPETUS_SWORD);
+
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_shield"), CLYPEUS_SHIELD);
+        CLYPEUS_SHIELD.initShieldEvents();
+
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_pickaxe"), UTILIS_PICKAXE);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_elixir"), VIVIFICA_ELIXIR);
         Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_scythe"), MORBUS_SCYTHE);
@@ -65,7 +68,7 @@ public class ItemRegistry {
 
 
     public static final Item IMPETUS_SWORD = new ImpetusSwordItem(ToolMaterials.IMPETUS, 3, -2.4F, new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP));
-    public static final Item CLYPEUS_SHIELD = new ClypeusShieldItem(new FabricItemSettings().rarity(Rarity.RARE).maxDamage(3072).group(MagicFungi.ITEM_GROUP), 10, ToolMaterials.CLYPEUS);
+    public static final ClypeusShieldItem CLYPEUS_SHIELD = new ClypeusShieldItem(new FabricItemSettings().rarity(Rarity.RARE).maxDamage(3072).group(MagicFungi.ITEM_GROUP), 10, ToolMaterials.CLYPEUS);
     public static final Item UTILIS_PICKAXE = new UtilisPickaxeItem(ToolMaterials.UTILIS, 1, -2.8F, new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP));
     public static final Item VIVIFICA_ELIXIR = new VivificaElixirItem(new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(9).saturationModifier(0.8F).statusEffect(new StatusEffectInstance(StatusEffects.INSTANT_HEALTH, 1, 1), 1.0F).statusEffect(new StatusEffectInstance(StatusEffects.ABSORPTION, 25*20, 2), 1.0F).alwaysEdible().build()));

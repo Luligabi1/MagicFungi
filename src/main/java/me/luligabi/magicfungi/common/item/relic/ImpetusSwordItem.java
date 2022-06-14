@@ -15,7 +15,7 @@ import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
 
-public class ImpetusSwordItem extends SwordItem implements SpecialChargeRelic {
+public class ImpetusSwordItem extends SwordItem implements Chargeable {
 
     public ImpetusSwordItem(ToolMaterial toolMaterial, int attackDamage, float attackSpeed, Settings settings) {
         super(toolMaterial, attackDamage, attackSpeed, settings);
@@ -61,7 +61,7 @@ public class ImpetusSwordItem extends SwordItem implements SpecialChargeRelic {
 
     @Override
     public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-        if(!isChargeFull(stack)) increaseCharge(stack);
+        increaseCharge(stack);
         return super.postHit(stack, target, attacker);
     }
 

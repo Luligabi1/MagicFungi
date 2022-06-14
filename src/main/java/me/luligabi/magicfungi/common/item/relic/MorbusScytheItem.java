@@ -25,7 +25,7 @@ import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 
-public class MorbusScytheItem extends SwordItem implements SpecialChargeRelic {
+public class MorbusScytheItem extends SwordItem implements Chargeable {
 
     public MorbusScytheItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
@@ -36,7 +36,7 @@ public class MorbusScytheItem extends SwordItem implements SpecialChargeRelic {
         stack.damage(1, attacker, e -> e.sendEquipmentBreakStatus(EquipmentSlot.MAINHAND));
         Util.applyEffectIfNotPresent(target, StatusEffects.WITHER,
                 MagicFungi.CONFIG.morbusScytheEffectDuration, MagicFungi.CONFIG.morbusScytheEffectStrength);
-        if(!isChargeFull(stack)) increaseCharge(stack);
+        increaseCharge(stack);
         return true;
     }
 

@@ -1,14 +1,12 @@
 package me.luligabi.magicfungi.mixin;
 
 import com.mojang.blaze3d.systems.RenderSystem;
-import me.luligabi.magicfungi.common.item.relic.SpecialChargeRelic;
+import me.luligabi.magicfungi.common.item.relic.Chargeable;
 import net.minecraft.client.font.TextRenderer;
 import net.minecraft.client.render.BufferBuilder;
 import net.minecraft.client.render.Tessellator;
 import net.minecraft.client.render.item.ItemRenderer;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
-import org.jetbrains.annotations.Nullable;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
@@ -23,15 +21,15 @@ public abstract class ItemRendererMixin {
         ItemRenderer itemRenderer = ((ItemRenderer) (Object) this);
 
         if(!stack.isEmpty()) {
-            if(stack.getItem() instanceof SpecialChargeRelic) {
-                if(((SpecialChargeRelic) stack.getItem()).getCharge(stack) <= 0) return;
+            if(stack.getItem() instanceof Chargeable) {
+                if(((Chargeable) stack.getItem()).getCharge(stack) <= 0) return;
                 RenderSystem.disableDepthTest();
                 RenderSystem.disableTexture();
                 RenderSystem.disableBlend();
                 Tessellator string = Tessellator.getInstance();
                 BufferBuilder immediate = string.getBuffer();
-                int chargeBarColor = ((SpecialChargeRelic) stack.getItem()).getChargeBarColor(stack);
-                int chargeBarStep = ((SpecialChargeRelic) stack.getItem()).getChargeBarStep(stack);
+                int chargeBarColor = ((Chargeable) stack.getItem()).getChargeBarColor(stack);
+                int chargeBarStep = ((Chargeable) stack.getItem()).getChargeBarStep(stack);
                 ((ItemRendererInvoker)  itemRenderer).invoke_renderGuiQuad(immediate, x, y + 15, 16, 1, 0, 0, 0, 255);
                 ((ItemRendererInvoker)  itemRenderer).invoke_renderGuiQuad(immediate, x, y + 15, chargeBarStep, 1, chargeBarColor >> 16 & 255, chargeBarColor >> 8 & 255, chargeBarColor & 255, 255);
                 RenderSystem.enableBlend();

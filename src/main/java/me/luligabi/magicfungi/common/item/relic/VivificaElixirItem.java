@@ -17,7 +17,7 @@ import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
 
-public class VivificaElixirItem extends Item implements SpecialChargeRelic {
+public class VivificaElixirItem extends Item implements Chargeable {
 
     public VivificaElixirItem(Settings settings) {
         super(settings);
@@ -28,7 +28,7 @@ public class VivificaElixirItem extends Item implements SpecialChargeRelic {
         if(user instanceof PlayerEntity) {
             user.eatFood(world, stack);
             ((PlayerEntity) user).getItemCooldownManager().set(this, 150*20);
-            if(!isChargeFull(stack)) increaseCharge(stack);
+            increaseCharge(stack);
         }
         return stack.copy();
     }

@@ -1,11 +1,10 @@
 package me.luligabi.magicfungi.common.item.relic;
 
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtByte;
 
-public interface SpecialChargeRelic {
+public interface Chargeable {
 
     default int getCharge(ItemStack stack) {
         return Byte.toUnsignedInt(stack.getOrCreateNbt().getByte("Charge"));
@@ -18,6 +17,10 @@ public interface SpecialChargeRelic {
     int getMaxCharge();
 
     default void increaseCharge(ItemStack stack) {
+        if(!isChargeFull(stack)) increaseChargeUnsafe(stack);
+    }
+
+    default void increaseChargeUnsafe(ItemStack stack) {
         setCharge(stack, getCharge(stack) + 1);
     }
 

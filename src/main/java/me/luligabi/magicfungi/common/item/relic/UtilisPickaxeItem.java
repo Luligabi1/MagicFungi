@@ -22,7 +22,7 @@ import net.minecraft.world.World;
 
 import java.util.Optional;
 
-public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<UtilisPickaxeItem.State> {
+public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisPickaxeItem.State> {
 
     public UtilisPickaxeItem(ToolMaterial material, int attackDamage, float attackSpeed, Settings settings) {
         super(material, attackDamage, attackSpeed, settings);
@@ -100,7 +100,7 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBasedRelic<Ut
     @Override
     public void sendStateChangeMessage(PlayerEntity player, State state) {
         player.sendMessage(new LiteralText(state.getSymbol()).formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD), true);
-        StateBasedRelic.super.sendStateChangeMessage(player, state);
+        StateBased.super.sendStateChangeMessage(player, state);
     }
 
     public State getState(ItemStack stack) {
