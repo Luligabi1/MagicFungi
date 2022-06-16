@@ -26,9 +26,13 @@ public class CorrumpereGlyphItem extends BaseGlyphItem {
     @Override
     public void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity) {
         if(!(livingEntity instanceof MobEntity)) return;
-        Optional<CorrumpereRecipe> corrumpereRecipe = playerEntity.world.getRecipeManager().getFirstMatch(CorrumpereRecipe.Type.INSTANCE, playerEntity.getInventory(), playerEntity.world);
 
-        if(corrumpereRecipe.isPresent() && corrumpereRecipe.get().matches((MobEntity) livingEntity)) {
+        Optional<CorrumpereRecipe> corrumpereRecipe = playerEntity.world.getRecipeManager().getAllMatches(CorrumpereRecipe.Type.INSTANCE, playerEntity.getInventory(), playerEntity.world)
+                .stream()
+                .filter(recipe -> recipe.matches((MobEntity) livingEntity))
+                .findAny();
+
+        if(corrumpereRecipe.isPresent()) {
             ((MobEntity) livingEntity).convertTo(corrumpereRecipe.get().getCorruptedEntity(), true);
             super.executeGlyph(playerEntity, itemStack);
         }

@@ -1,5 +1,7 @@
 package me.luligabi.magicfungi.common.item.relic;
 
+import me.luligabi.magicfungi.common.util.MushroomType;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
@@ -10,10 +12,15 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.hit.EntityHitResult;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ImpetusSwordItem extends SwordItem implements Chargeable {
 
@@ -65,6 +72,14 @@ public class ImpetusSwordItem extends SwordItem implements Chargeable {
         return super.postHit(stack, target, attacker);
     }
 
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        appendQuote(tooltip, MushroomType.IMPETUS, new TranslatableText("tooltip.magicfungi.impetus_sword.author"),
+                new TranslatableText("tooltip.magicfungi.impetus_sword.1"),
+                new TranslatableText("tooltip.magicfungi.impetus_sword.2"));
+        appendHiddenChargeLevel(tooltip, stack, MushroomType.IMPETUS);
+    }
 
     @Override
     public int getMaxCharge() {

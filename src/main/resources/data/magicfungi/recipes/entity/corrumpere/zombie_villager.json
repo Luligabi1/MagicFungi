@@ -1,6 +1,0 @@
-{
-  "type": "magicfungi:corrumpere_corruption",
-
-  "regularEntity": "minecraft:villager",
-  "corruptedEntity": "minecraft:zombie_villager"
-}

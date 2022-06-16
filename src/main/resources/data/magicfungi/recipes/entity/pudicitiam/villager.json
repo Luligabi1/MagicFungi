@@ -1,0 +1,6 @@
+{
+  "type": "magicfungi:pudicitiam_healing",
+
+  "corruptedEntity": "minecraft:zombie_villager",
+  "regularEntity": "minecraft:villager"
+}

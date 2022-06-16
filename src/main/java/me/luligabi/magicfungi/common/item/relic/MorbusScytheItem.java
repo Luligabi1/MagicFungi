@@ -3,8 +3,10 @@ package me.luligabi.magicfungi.common.item.relic;
 import com.mojang.datafixers.util.Pair;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.entity.MorbusProjectileEntity;
+import me.luligabi.magicfungi.common.util.MushroomType;
 import me.luligabi.magicfungi.common.util.Util;
 import me.luligabi.magicfungi.mixin.HoeItemAccessor;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffects;
@@ -15,12 +17,16 @@ import net.minecraft.item.SwordItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Predicate;
 
@@ -83,6 +89,14 @@ public class MorbusScytheItem extends SwordItem implements Chargeable {
     }
 
     @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        appendQuote(tooltip, MushroomType.MORBUS, new TranslatableText("tooltip.magicfungi.morbus_scythe.author"),
+                new TranslatableText("tooltip.magicfungi.morbus_scythe.1"),
+                new TranslatableText("tooltip.magicfungi.morbus_scythe.2"));
+        appendHiddenChargeLevel(tooltip, stack, MushroomType.MORBUS);
+    }
+
+    @Override
     public int getMaxCharge() {
         return 100;
     }
@@ -95,6 +109,11 @@ public class MorbusScytheItem extends SwordItem implements Chargeable {
     @Override
     public boolean hasGlint(ItemStack stack) {
         return isChargeFull(stack);
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
     }
 
 }

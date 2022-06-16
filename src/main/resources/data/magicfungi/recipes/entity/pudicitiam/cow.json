@@ -1,0 +1,6 @@
+{
+  "type": "magicfungi:pudicitiam_healing",
+
+  "corruptedEntity": "magicfungi:morbus_mooshroom",
+  "regularEntity": "minecraft:cow"
+}
