@@ -20,22 +20,16 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
 
-public abstract class BaseSpellItem extends Item {
+public abstract class AbstractSpellItem extends Item {
 
-    protected int cooldown = 20;
-    protected SoundEvent soundEvent;
-    protected MushroomType mushroomType;
-
-    protected ActionType actionType;
-
-    public BaseSpellItem(Settings settings) {
+    public AbstractSpellItem(Settings settings) {
         super(settings);
-        setMushroomType(MushroomType.INCOGNITA);
     }
 
     @Override
@@ -50,7 +44,7 @@ public abstract class BaseSpellItem extends Item {
         applyCooldown(playerEntity);
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-                soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
+                getSoundEvent(), SoundCategory.NEUTRAL, 1F, 1F);
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
 
@@ -63,13 +57,13 @@ public abstract class BaseSpellItem extends Item {
      * This is made mostly for balancing, as this avoids spell spams being made.
      */
     private void applyCooldown(PlayerEntity playerEntity) {
-        playerEntity.getItemCooldownManager().set(this, cooldown);
+        playerEntity.getItemCooldownManager().set(this, getCooldown());
 
         for (DefaultedList<ItemStack> itemStacks : ((PlayerInventoryAccessor) playerEntity.getInventory()).getCombinedInventory()) {
             for (ItemStack itemStack : itemStacks) {
-                if (itemStack.getItem() instanceof BaseSpellItem) {
+                if (itemStack.getItem() instanceof AbstractSpellItem) {
                     if (itemStack.getItem() != this) {
-                        if (((BaseSpellItem) itemStack.getItem()).getMushroomType() == this.getMushroomType()) {
+                        if (((AbstractSpellItem) itemStack.getItem()).getMushroomType() == this.getMushroomType()) {
                             playerEntity.getItemCooldownManager().set(itemStack.getItem(), 15*20);
                         }
                     }
@@ -78,45 +72,35 @@ public abstract class BaseSpellItem extends Item {
         }
     }
 
-    public MushroomType getMushroomType() {
-        return mushroomType;
-    }
+    public abstract @NotNull MushroomType getMushroomType();
 
-    protected void setMushroomType(MushroomType mushroomType) {
-        this.mushroomType = mushroomType;
-    }
+    public abstract @NotNull SoundEvent getSoundEvent();
 
+    public abstract int getCooldown();
 
-    protected void setSound(SoundEvent soundEvent) {
-        this.soundEvent = soundEvent;
-    }
+    public abstract @NotNull ActionType getActionType();
 
-    protected void setCooldown(int cooldown) {
-        this.cooldown = cooldown;
-    }
-
-    public void setActionType(ActionType actionType) { this.actionType = actionType; }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if(!Screen.hasShiftDown()) return;
         tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.1")
                 .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
-                .append(new TranslatableText("tooltip.magicfungi.spell_info.2", mushroomType.getFancyName(), mushroomType.getStatsName())
+                .append(new TranslatableText("tooltip.magicfungi.spell_info.2", getMushroomType().getFancyName(), getMushroomType().getStatsName())
                             .formatted(MushroomType.getLightColor(getMushroomType()))));
         tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.3")
                 .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
-                .append(new TranslatableText("tooltip.magicfungi.spell_info.4", cooldown/20)
+                .append(new TranslatableText("tooltip.magicfungi.spell_info.4", getCooldown()/20)
                             .formatted(MushroomType.getLightColor(getMushroomType()))));
         tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
                 .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
-                .append(actionType.getTranslatableText()
+                .append(getActionType().getTranslatableText()
                             .formatted(MushroomType.getLightColor(getMushroomType()))));
     }
 
     @Override
     public Optional<TooltipData> getTooltipData(ItemStack stack) {
-        return Optional.of(new SpellTooltipData(mushroomType, cooldown, actionType));
+        return Optional.of(new SpellTooltipData(getMushroomType(), getCooldown(), getActionType()));
     }
 
 }

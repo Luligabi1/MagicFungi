@@ -1,7 +1,6 @@
 package me.luligabi.magicfungi.common.item.glyph;
 
 import me.luligabi.magicfungi.client.tooltip.glyph.GlyphTooltipData;
-import me.luligabi.magicfungi.client.tooltip.spell.SpellTooltipData;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.client.gui.screen.Screen;
@@ -22,21 +21,18 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 import java.util.Optional;
 
-public abstract class BaseGlyphItem extends Item implements GlyphExecutor {
+public abstract class AbstractGlyphItem extends Item {
 
-    protected SoundEvent soundEvent;
-    protected MushroomType mushroomType;
     protected BlockPos blockPos;
-    protected ActionType actionType;
 
-    public BaseGlyphItem (Settings settings) {
+    public AbstractGlyphItem(Settings settings) {
         super(settings);
-        setMushroomType(MushroomType.INCOGNITA);
     }
 
     @Override
@@ -44,7 +40,7 @@ public abstract class BaseGlyphItem extends Item implements GlyphExecutor {
         blockPos = context.getBlockPos();
         World world = context.getWorld();
         PlayerEntity user = context.getPlayer();
-        if (!world.isClient) {
+        if (!world.isClient()) {
             executeBlockGlyph(user, context.getStack());
         }
         return ActionResult.CONSUME;
@@ -63,41 +59,37 @@ public abstract class BaseGlyphItem extends Item implements GlyphExecutor {
         itemStack.decrement(1);
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
-                soundEvent, SoundCategory.NEUTRAL, 1F, 1F);
+                getSoundEvent(), SoundCategory.NEUTRAL, 1F, 1F);
         playerEntity.incrementStat(Stats.USED.getOrCreateStat(this));
     }
-    
-    public MushroomType getMushroomType() {
-        return mushroomType;
-    }
 
-    protected void setMushroomType(MushroomType mushroomType) {
-        this.mushroomType = mushroomType;
-    }
+    public abstract @NotNull MushroomType getMushroomType();
 
-    protected void setSound(SoundEvent soundEvent) {
-        this.soundEvent = soundEvent;
-    }
+    public abstract @NotNull SoundEvent getSoundEvent();
 
-    public void setActionType(ActionType actionType) { this.actionType = actionType; }
+    public abstract @NotNull ActionType getActionType();
 
+
+    public abstract void executeBlockGlyph(PlayerEntity playerEntity, ItemStack itemStack);
+
+    public abstract void executeEntityGlyph(PlayerEntity playerEntity, ItemStack itemStack, LivingEntity livingEntity);
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if(!Screen.hasShiftDown()) return;
         tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.1")
                     .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
-                .append(new TranslatableText("tooltip.magicfungi.spell_info.2", mushroomType.getFancyName(), mushroomType.getStatsName())
+                .append(new TranslatableText("tooltip.magicfungi.spell_info.2", getMushroomType().getFancyName(), getMushroomType().getStatsName())
                         .formatted(MushroomType.getLightColor(getMushroomType()))));
         tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
                     .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
-                .append(actionType.getTranslatableText()
+                .append(getActionType().getTranslatableText()
                         .formatted(MushroomType.getLightColor(getMushroomType()))));
     }
 
     @Override
     public Optional<TooltipData> getTooltipData(ItemStack stack) {
-        return Optional.of(new GlyphTooltipData(mushroomType, actionType));
+        return Optional.of(new GlyphTooltipData(getMushroomType(), getActionType()));
     }
 
 }

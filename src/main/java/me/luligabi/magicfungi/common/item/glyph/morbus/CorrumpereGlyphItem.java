@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.item.glyph.morbus;
 
-import me.luligabi.magicfungi.common.item.glyph.BaseGlyphItem;
+import me.luligabi.magicfungi.common.item.glyph.AbstractGlyphItem;
 import me.luligabi.magicfungi.common.recipe.entity.corrumpere.CorrumpereRecipe;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
@@ -9,17 +9,32 @@ import net.minecraft.entity.mob.MobEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.Optional;
 
-public class CorrumpereGlyphItem extends BaseGlyphItem {
+public class CorrumpereGlyphItem extends AbstractGlyphItem {
 
     public CorrumpereGlyphItem(Item.Settings settings) {
         super(settings);
-        setMushroomType(MushroomType.MORBUS);
-        setSound(SoundEvents.ENTITY_ZOMBIE_VILLAGER_CONVERTED);
-        setActionType(ActionType.ENTITY);
+    }
+
+
+    @Override
+    public @NotNull MushroomType getMushroomType() {
+        return MushroomType.MORBUS;
+    }
+
+    @Override
+    public @NotNull SoundEvent getSoundEvent() {
+        return SoundEvents.ENTITY_ZOMBIE_VILLAGER_CONVERTED;
+    }
+
+    @Override
+    public @NotNull ActionType getActionType() {
+        return ActionType.ENTITY;
     }
 
 

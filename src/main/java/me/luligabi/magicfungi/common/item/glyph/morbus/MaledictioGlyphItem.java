@@ -2,24 +2,39 @@ package me.luligabi.magicfungi.common.item.glyph.morbus;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.item.glyph.BaseGlyphItem;
+import me.luligabi.magicfungi.common.item.glyph.AbstractGlyphItem;
 import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
-public class MaledictioGlyphItem extends BaseGlyphItem {
+public class MaledictioGlyphItem extends AbstractGlyphItem {
 
     public MaledictioGlyphItem(Settings settings) {
         super(settings);
-        setMushroomType(MushroomType.MORBUS);
-        setSound(SoundEvents.ENTITY_WITHER_SHOOT);
-        setActionType(ActionType.BLOCK);
+    }
+
+
+    @Override
+    public @NotNull MushroomType getMushroomType() {
+        return MushroomType.MORBUS;
+    }
+
+    @Override
+    public @NotNull SoundEvent getSoundEvent() {
+        return SoundEvents.ENTITY_WITHER_SHOOT;
+    }
+
+    @Override
+    public @NotNull ActionType getActionType() {
+        return ActionType.BLOCK;
     }
 
     @Override
