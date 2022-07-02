@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common.block.crafting.condenser;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
+import me.luligabi.magicfungi.common.item.misc.EssenceItem;
 import me.luligabi.magicfungi.common.recipe.condenser.MagicCondenserRecipe;
 import me.luligabi.magicfungi.common.screenhandler.condenser.MagicCondenserScreenHandler;
 import net.minecraft.block.BlockState;
@@ -9,9 +10,11 @@ import net.minecraft.block.entity.LockableContainerBlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.NetherStarItem;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
@@ -21,13 +24,15 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.Iterator;
 import java.util.Optional;
 
 // TODO: Implement SidedInventory interactions
-public class MagicCondenserBlockEntity extends LockableContainerBlockEntity /*implements SidedInventory*/ {
+public class MagicCondenserBlockEntity extends LockableContainerBlockEntity implements SidedInventory {
 
     public MagicCondenserBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistry.MAGIC_CONDENSER_BLOCK_ENTITY_TYPE, pos, state);
@@ -275,6 +280,34 @@ public class MagicCondenserBlockEntity extends LockableContainerBlockEntity /*im
     @Override
     protected ScreenHandler createScreenHandler(int syncId, PlayerInventory playerInventory) {
         return new MagicCondenserScreenHandler(syncId, playerInventory, this, this.propertyDelegate);
+    }
+
+    public boolean isValid(int slot, ItemStack stack) {
+        return switch(slot) {
+            case 0 -> true; // ingredient slot
+            case 1 -> stack.getItem() instanceof EssenceItem;
+            case 2 -> stack.getItem() instanceof NetherStarItem;
+            default -> false;
+        };
+    }
+
+    public int[] getAvailableSlots(Direction side) {
+        return switch(side.getId()) {
+            case 0 -> new int[]{0}; // DOWN - ingredient slot
+            case 1 -> new int[]{0}; // UP - ingredient slot
+            default -> new int[]{1, 2}; // SIDES - essence/nether star fuel slots
+        };
+    }
+
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+        return isValid(slot, stack);
+    }
+
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        return switch(side.getId()) {
+            case 0, 1 -> condensingTime <= 0; // Extract up/downward if nothing is being condensed
+            default -> false; // Never extract from sides
+        };
     }
 
     @Override
