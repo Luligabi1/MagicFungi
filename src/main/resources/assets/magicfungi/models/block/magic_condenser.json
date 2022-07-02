@@ -1,0 +1,26 @@
+{
+	"credit": "Made with Blockbench",
+	"parent": "block/block",
+	"textures": {
+		"particle": "minecraft:block/calcite",
+		"bottom": "minecraft:block/calcite",
+		"side": "magicfungi:block/magic_condenser/magic_condenser_side",
+		"side_essences": "magicfungi:block/magic_condenser/magic_condenser_side_essences",
+		"side_nether_star": "magicfungi:block/magic_condenser/magic_condenser_side_nether_star",
+		"top": "magicfungi:block/magic_condenser/magic_condenser_top"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 12, 16],
+			"faces": {
+				"north": {"uv": [0, 4, 16, 16], "texture": "#side", "cullface": "north"},
+				"east": {"uv": [0, 4, 16, 16], "texture": "#side_nether_star", "cullface": "east"},
+				"south": {"uv": [0, 4, 16, 16], "texture": "#side_essences", "cullface": "south"},
+				"west": {"uv": [0, 4, 16, 16], "texture": "#side", "cullface": "west"},
+				"up": {"uv": [0, 0, 16, 16], "texture": "#top"},
+				"down": {"uv": [0, 0, 16, 16], "texture": "#bottom", "cullface": "down"}
+			}
+		}
+	]
+}

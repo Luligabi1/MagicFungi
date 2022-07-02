@@ -57,6 +57,7 @@ public abstract class AbstractSpellItem extends Item {
      * This is made mostly for balancing, as this avoids spell spams being made.
      */
     private void applyCooldown(PlayerEntity playerEntity) {
+        if(playerEntity.isCreative()) return;
         playerEntity.getItemCooldownManager().set(this, getCooldown());
 
         for (DefaultedList<ItemStack> itemStacks : ((PlayerInventoryAccessor) playerEntity.getInventory()).getCombinedInventory()) {

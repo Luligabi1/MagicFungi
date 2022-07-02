@@ -2,10 +2,7 @@ package me.luligabi.magicfungi.client;
 
 import draylar.omegaconfiggui.OmegaConfigGui;
 import me.luligabi.magicfungi.client.renderer.entity.MorbusMooshroomEntityRenderer;
-import me.luligabi.magicfungi.client.screen.EssenceExtractorScreen;
-import me.luligabi.magicfungi.client.screen.GlyphCarvingScreen;
-import me.luligabi.magicfungi.client.screen.MorbusClockScreen;
-import me.luligabi.magicfungi.client.screen.SpellDiscoveryScreen;
+import me.luligabi.magicfungi.client.screen.*;
 import me.luligabi.magicfungi.client.tooltip.glyph.GlyphTooltipComponent;
 import me.luligabi.magicfungi.client.tooltip.glyph.GlyphTooltipData;
 import me.luligabi.magicfungi.client.tooltip.relic.utilis.UtilisPickaxeTooltipComponent;
@@ -68,6 +65,7 @@ public class MagicFungiClient implements ClientModInitializer {
         HandledScreens.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
         HandledScreens.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);
         HandledScreens.register(ScreenHandlingRegistry.ESSENCE_EXTRACTOR_SCREEN_HANDLER, EssenceExtractorScreen::new);
+        HandledScreens.register(ScreenHandlingRegistry.MAGIC_CONDENSER_SCREEN_HANDLER, MagicCondenserScreen::new);
 
         HandledScreens.register(ScreenHandlingRegistry.MORBUS_CLOCK_SCREEN_HANDLER, MorbusClockScreen::new);
 

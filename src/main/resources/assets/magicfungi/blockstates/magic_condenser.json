@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "magicfungi:block/magic_condenser"
+    },
+    "facing=south": {
+      "model": "magicfungi:block/magic_condenser",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "magicfungi:block/magic_condenser",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "magicfungi:block/magic_condenser",
+      "y": 90
+    }
+  }
+}

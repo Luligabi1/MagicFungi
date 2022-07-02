@@ -1,7 +1,6 @@
 package me.luligabi.magicfungi.rei.common.display;
 
 
-import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
 import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipe;
 import me.luligabi.magicfungi.common.util.CatalystType;
 import me.luligabi.magicfungi.rei.common.CommonReiPlugin;

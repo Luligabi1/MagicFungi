@@ -1,0 +1,11 @@
+{
+  "type": "magicfungi:magic_condenser",
+
+  "input" : {
+    "item": "minecraft:shield"
+  },
+  "clypeusEssenceCost": 16,
+  "netherStarFuelCost": 2,
+
+  "outputItem": "magicfungi:clypeus_shield"
+}

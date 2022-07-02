@@ -60,11 +60,11 @@ public class ItemRegistry {
     public static final Item GUIDE_BOOK = new AbstractBookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).group(MagicFungi.ITEM_GROUP), new Identifier(MagicFungi.MOD_ID, MagicFungi.MOD_ID));
 
 
-    public static final Item IMPETUS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
-    public static final Item CLYPEUS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
-    public static final Item UTILIS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
-    public static final Item VIVIFICA_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
-    public static final Item MORBUS_ESSENCE = new Item(new FabricItemSettings().recipeRemainder(Items.GLASS_BOTTLE).rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
+    public static final Item IMPETUS_ESSENCE = new EssenceItem();
+    public static final Item CLYPEUS_ESSENCE = new EssenceItem();
+    public static final Item UTILIS_ESSENCE = new EssenceItem();
+    public static final Item VIVIFICA_ESSENCE = new EssenceItem();
+    public static final Item MORBUS_ESSENCE = new EssenceItem();
 
 
     public static final Item IMPETUS_SWORD = new ImpetusSwordItem(ToolMaterials.IMPETUS, 3, -2.4F, new FabricItemSettings().rarity(Rarity.RARE).group(MagicFungi.ITEM_GROUP));

@@ -5,7 +5,6 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import com.mojang.logging.LogUtils;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
 import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
 import me.luligabi.magicfungi.rei.common.display.EssenceRecipeDisplay;
 import me.shedaniel.math.Point;

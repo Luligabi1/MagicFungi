@@ -1,0 +1,11 @@
+{
+  "type": "magicfungi:magic_condenser",
+
+  "input" : {
+    "item": "minecraft:netherite_sword"
+  },
+  "impetusEssenceCost": 16,
+  "netherStarFuelCost": 2,
+
+  "outputItem": "magicfungi:impetus_sword"
+}
