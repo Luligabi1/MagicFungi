@@ -19,6 +19,7 @@
   "mushroomType.magicfungi.morbus.stats": "Plague",
   "mushroomType.magicfungi.incognita.stats": "???",
 
+  "tooltip.magicfungi.generic_value": "%d",
 
   "tooltip.magicfungi.spell_info.1": "Type: ",
   "tooltip.magicfungi.spell_info.2": "%d (%d)",
@@ -46,6 +47,16 @@
   "block.magicfungi.essence_extractor": "Essence Extractor",
   "title.magicfungi.essence_extractor": "Essence Extraction",
   "tooltip.magicfungi.essence_extractor.catalyst_fuel": "Catalyst Fuel left: %d",
+
+  "block.magicfungi.magic_condenser": "Magic Condenser",
+  "title.magicfungi.magic_condenser.1": "Magic Condensation",
+  "title.magicfungi.magic_condenser.2": "Condensation of Magic",
+  "tooltip.magicfungi.impetus_essence": "Impetus Essence(s): ",
+  "tooltip.magicfungi.clypeus_essence": "Clypeus Essence(s): ",
+  "tooltip.magicfungi.utilis_essence": "Utilis Essence(s): ",
+  "tooltip.magicfungi.vivifica_essence": "Vivifica Essence(s): ",
+  "tooltip.magicfungi.morbus_essence": "Morbus Essence(s): ",
+  "tooltip.magicfungi.nether_star_fuel": "Nether Star Power: ",
 
   "block.magicfungi.morbus_mushroom_block": "Morbus Mushroom Block",
 
@@ -95,6 +106,9 @@
 
 
   "item.magicfungi.impetus_sword": "Impetus Sword",
+  "tooltip.magicfungi.impetus_sword.1": "\"a",
+  "tooltip.magicfungi.impetus_sword.2": "b\"",
+  "tooltip.magicfungi.impetus_sword.author": "- [] Impetus",
 
   "item.magicfungi.clypeus_shield": "Clypeus Shield",
   "item.magicfungi.clypeus_shield.red": "Red Clypeus Shield",
@@ -114,10 +128,36 @@
   "item.magicfungi.clypeus_shield.gray": "Gray Clypeus Shield",
   "item.magicfungi.clypeus_shield.dark_gray": "Dark Gray Clypeus Shield",
   "item.magicfungi.clypeus_shield.black": "Black Clypeus Shield",
+  "tooltip.magicfungi.clypeus_shield.1": "\"a",
+  "tooltip.magicfungi.clypeus_shield.2": "b\"",
+  "tooltip.magicfungi.clypeus_shield.author": "- Augustus Clypeus",
 
   "item.magicfungi.utilis_pickaxe": "Utilis Pickaxe",
+  "tooltip.magicfungi.utilis_pickaxe.1": "\"Innovation will be our",
+  "tooltip.magicfungi.utilis_pickaxe.2": "greatest step towards salvation.\"",
+  "tooltip.magicfungi.utilis_pickaxe.author": "- Lewis Utilis",
+
   "item.magicfungi.vivifica_elixir": "Vivifica Elixir",
+  "tooltip.magicfungi.vivifica_elixir.1": "\"The only mean to change the terrible",
+  "tooltip.magicfungi.vivifica_elixir.2": "end that awaits us is to heal.\"",
+  "tooltip.magicfungi.vivifica_elixir.author": "- Carolina Vivifica",
+
   "item.magicfungi.morbus_scythe": "Morbus Scythe",
+  "tooltip.magicfungi.morbus_scythe.1": "\"The end shall justify",
+  "tooltip.magicfungi.morbus_scythe.2": "my means of sin.\"",
+  "tooltip.magicfungi.morbus_scythe.author": "- §kGordon Morbus",
+
+
+  "tooltip.magicfungi.charge_info.1": "Special Charge: ",
+  "tooltip.magicfungi.charge_info.2": "%d/%d",
+
+
+  "relicState.magicfungi.functionis": "Functionis",
+  "relicState.magicfungi.dysfunctionis": "Dysfunctionis",
+
+  "relicState.magicfungi.fortunae": "Fortunae",
+  "relicState.magicfungi.mollis": "Mollis",
+  "relicState.magicfungi.laser": "Laser",
 
 
   "relicState.magicfungi.functionis": "Functionis",

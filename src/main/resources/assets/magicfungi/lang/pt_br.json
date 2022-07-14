@@ -40,6 +40,16 @@
   "title.magicfungi.essence_extractor": "Extração de Essência",
   "tooltip.magicfungi.essence_extractor.catalyst_fuel": "Combustível de Catalisador restante: %d",
 
+  "block.magicfungi.magic_condenser": "Condensador Mágico",
+  "title.magicfungi.magic_condenser.1": "Condensação Mágica",
+  "title.magicfungi.magic_condenser.2": "Condensação de Magia",
+  "tooltip.magicfungi.impetus_essence": "Essência(s) Impetus: ",
+  "tooltip.magicfungi.clypeus_essence": "Essência(s) Clypeus: ",
+  "tooltip.magicfungi.utilis_essence": "Essência(s) Utilis: ",
+  "tooltip.magicfungi.vivifica_essence": "Essência(s) Vivifica: ",
+  "tooltip.magicfungi.morbus_essence": "Essência(s) Morbus: ",
+  "tooltip.magicfungi.nether_star_fuel": "Energia de Estrela do Nether: ",
+
   "block.magicfungi.morbus_mushroom_block": "Bloco de Cogumelo Morbus",
 
   "block.magicfungi.host_grass_block": "Bloco de Grama Hospedeira",
@@ -112,8 +122,18 @@
   "item.magicfungi.clypeus_shield.black": "Escudo Clypeus Preto",
 
   "item.magicfungi.utilis_pickaxe": "Picareta Utilis",
+  "tooltip.magicfungi.utilis_pickaxe.1": "\"Inovação será o nosso",
+  "tooltip.magicfungi.utilis_pickaxe.2": "maior passo para a salvação.\"",
+
   "item.magicfungi.vivifica_elixir": "Elixir Vivifica",
+  "tooltip.magicfungi.vivifica_elixir.1": "\"O único jeito de mudar o terrível",
+  "tooltip.magicfungi.vivifica_elixir.2": "fim que nos aguarda é através da cura.\"",
+
   "item.magicfungi.morbus_scythe": "Foice Morbus",
+  "tooltip.magicfungi.morbus_scythe.1": "\"O fim justificará",
+  "tooltip.magicfungi.morbus_scythe.2": "meus meios de pecado.\"",
+
+  "tooltip.magicfungi.charge_info.1": "Carga Especial: ",
 
   "item.magicfungi.magical_fungi_helmet": "Capacete de Magia Fúngica",
   "item.magicfungi.magical_fungi_chestplate": "Peitoral de Magia Fúngica",

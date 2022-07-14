@@ -15,25 +15,25 @@ import net.minecraft.screen.slot.Slot;
 
 public class MagicCondenserScreenHandler extends ScreenHandler {
 
-    private final Inventory inventory;
-    private final PropertyDelegate propertyDelegate;
+    public final Inventory inventory;
+    protected final PropertyDelegate propertyDelegate;
 
     private final Slot inputSlot;
     private final Slot essenceSlot;
     private final Slot netherStarSlot;
 
     public MagicCondenserScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new SimpleInventory(3), new ArrayPropertyDelegate(3));
+        this(syncId, playerInventory, new SimpleInventory(3), new ArrayPropertyDelegate(7));
     }
 
     public MagicCondenserScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
         super(ScreenHandlingRegistry.MAGIC_CONDENSER_SCREEN_HANDLER, syncId);
         checkSize(inventory, 2);
-        checkDataCount(propertyDelegate, 3);
+        checkDataCount(propertyDelegate, 7);
         this.inventory = inventory;
         this.propertyDelegate = propertyDelegate;
-        this.inputSlot = this.addSlot(new MagicCondenserScreenHandler.InputSlot(inventory, false, 0, 80, 56));
-        this.essenceSlot = this.addSlot(new MagicCondenserScreenHandler.EssenceSlot(inventory, 1, 8, 95));
+        this.inputSlot = this.addSlot(new MagicCondenserScreenHandler.InputSlot(inventory, 0, 80, 56));
+        this.essenceSlot = this.addSlot(new MagicCondenserScreenHandler.EssenceSlot(inventory, 1, 8, 67));
         this.netherStarSlot = this.addSlot(new MagicCondenserScreenHandler.NetherStarSlot(inventory, 2, 152, 95));
         this.addProperties(propertyDelegate);
 
@@ -54,46 +54,38 @@ public class MagicCondenserScreenHandler extends ScreenHandler {
         return this.inventory.canPlayerUse(player);
     }
 
-    /*public ItemStack transferSlot(PlayerEntity player, int index) { //TODO: Implement shift-click interaction
+    /*public ItemStack transferSlot(PlayerEntity player, int index) { // TODO: Implement shift-click interactions
         ItemStack itemStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasStack()) {
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
-            if ((index < 0 || index > 2) && index != 3 && index != 4) {
-                if (EssenceExtractorScreenHandler.CatalystSlot.matches(itemStack)) {
-                    if (this.insertItem(itemStack2, 4, 5, false) || this.ingredientSlot.canInsert(itemStack2) && !this.insertItem(itemStack2, 3, 4, false)) {
+            if((index < 0 || index > 2) && index != 3 && index != 4) {
+                if(MagicCondenserScreenHandler.EssenceSlot.matches(itemStack)) {
+                    if(this.insertItem(itemStack2, 1, 2, false) || inputSlot.canInsert(itemStack2) && !this.insertItem(itemStack2, 3, 4, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (essenceSlotTransfer(inputSlot0, itemStack2)) {
-                    if (!this.insertItem(itemStack2, 0, 1, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (essenceSlotTransfer(inputSlot1, itemStack2)) {
-                    if (!this.insertItem(itemStack2, 1, 2, false)) {
-                        return ItemStack.EMPTY;
-                    }
-                } else if (essenceSlotTransfer(inputSlot2, itemStack2)) {
+                } else if(netherStarSlot.canInsert(itemStack2)) {
                     if (!this.insertItem(itemStack2, 2, 3, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (this.ingredientSlot.canInsert(itemStack2) && !itemStack2.isOf(Items.GLASS_BOTTLE)) {
-                    if (!this.insertItem(itemStack2, 3, 4, false)) {
+                } else if (BrewingStandScreenHandler.PotionSlot.matches(itemStack) && itemStack.getCount() == 1) {
+                    if (!this.insertItem(itemStack2, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
                 } else if (index >= 5 && index < 32) {
-                    if (!this.insertItem(itemStack2, 32, 41, false)) {
+                    if (!this.insertItem(itemStack2, 32, 39, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index >= 32 && index < 41) {
+                } else if (index >= 32 && index < 39) {
                     if (!this.insertItem(itemStack2, 5, 32, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (!this.insertItem(itemStack2, 5, 41, false)) {
+                } else if (!this.insertItem(itemStack2, 5, 39, false)) {
                     return ItemStack.EMPTY;
                 }
             } else {
-                if (!this.insertItem(itemStack2, 5, 41, true)) {
+                if (!this.insertItem(itemStack2, 5, 39, true)) {
                     return ItemStack.EMPTY;
                 }
 
@@ -116,22 +108,19 @@ public class MagicCondenserScreenHandler extends ScreenHandler {
         return itemStack;
     }*/
 
+    public int getProperty(int index) {
+        return this.propertyDelegate.get(index);
+    }
+
     private static class InputSlot extends Slot {
 
-        public InputSlot(Inventory inventory, boolean isProcessingRecipe, int index, int x, int y) {
+        public InputSlot(Inventory inventory, int index, int x, int y) {
             super(inventory, index, x, y);
-            this.isProcessingRecipe = isProcessingRecipe;
-        }
-
-        public boolean canInsert(ItemStack stack) {
-            return !isProcessingRecipe;
         }
 
         public int getMaxItemCount() {
             return 1;
         }
-
-        protected boolean isProcessingRecipe;
 
     }
 

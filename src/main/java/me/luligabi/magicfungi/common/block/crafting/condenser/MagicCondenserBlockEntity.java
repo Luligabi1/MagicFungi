@@ -65,7 +65,7 @@ public class MagicCondenserBlockEntity extends LockableContainerBlockEntity impl
             }
 
             public int size() {
-                return 3;
+                return 7;
             }
         };
     }
@@ -269,7 +269,7 @@ public class MagicCondenserBlockEntity extends LockableContainerBlockEntity impl
 
     @Override
     protected Text getContainerName() {
-        return new TranslatableText("block.magicfungi.magic_condenser");
+        return new TranslatableText("title.magicfungi.magic_condenser.1");
     }
 
     @Override

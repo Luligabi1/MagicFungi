@@ -8,9 +8,13 @@ import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
 
 public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHandler> {
 
@@ -32,12 +36,26 @@ public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHand
         super.render(matrices, mouseX, mouseY, delta);
         drawMouseoverTooltip(matrices, mouseX, mouseY);
 
-        /*if(handler.getFuel() > 0 && handler.getFuelType() <= 4) {
-            if((mouseX >= x+59 && mouseX <= x+78) && (mouseY >= y+43 && mouseY <= y+48)) {
-                renderTooltip(matrices, new TranslatableText("tooltip.magicfungi.essence_extractor.catalyst_fuel", handler.getFuel())
-                        .formatted(CatalystType.values()[handler.getFuelType()].getColor()), mouseX, mouseY);
-            }
-        }*/
+        if((mouseX >= x+7 && mouseX <= x+40) && (mouseY >= y+100 && mouseY <= y+111)) {
+            renderTooltip(matrices,
+                List.of(
+                    getCountText("tooltip.magicfungi.impetus_essence", handler.getProperty(0), Formatting.DARK_RED, Formatting.RED),
+                    getCountText("tooltip.magicfungi.clypeus_essence", handler.getProperty(1), Formatting.DARK_AQUA, Formatting.AQUA),
+                    getCountText("tooltip.magicfungi.utilis_essence", handler.getProperty(2), Formatting.DARK_PURPLE, Formatting.LIGHT_PURPLE),
+                    getCountText("tooltip.magicfungi.vivifica_essence", handler.getProperty(3), Formatting.DARK_GREEN, Formatting.GREEN),
+                    getCountText("tooltip.magicfungi.morbus_essence", handler.getProperty(4), Formatting.DARK_GRAY, Formatting.GRAY)
+                ),
+                mouseX, mouseY);
+        }
+
+        if((mouseX >= x+150 && mouseX <= x+169) && (mouseY >= y+113 && mouseY <= y+118)) {
+            renderTooltip(matrices,
+                    getCountText(
+                            "tooltip.magicfungi.nether_star_fuel", handler.getProperty(6)*10,
+                            Formatting.GRAY, Formatting.WHITE
+                    ).append("%"),
+                    mouseX, mouseY);
+        }
     }
 
     protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) { // TODO: Render essences/fuel & condesing progress
@@ -67,6 +85,13 @@ public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHand
             }
         }*/
 
+    }
+
+    private MutableText getCountText(String translationKey, int count, Formatting primaryColor, Formatting secondaryColor) {
+        return new TranslatableText(translationKey)
+                    .formatted(primaryColor)
+                .append(new TranslatableText("tooltip.magicfungi.generic_value", count)
+                    .formatted(secondaryColor));
     }
 
     private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/magic_condenser.png");
