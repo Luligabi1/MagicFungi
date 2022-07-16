@@ -13,6 +13,7 @@ import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.MathHelper;
 
 import java.util.List;
 
@@ -58,7 +59,7 @@ public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHand
         }
     }
 
-    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) { // TODO: Render essences/fuel & condesing progress
+    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) { // TODO: Render condensing progress
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
@@ -66,25 +67,27 @@ public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHand
         int y = (height - backgroundHeight) / 2;
         this.drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
 
-        /*int fuel = handler.getFuel();
-        int fuelBarLength = MathHelper.clamp((18 * fuel + 20 - 1) / 20, 0, 18);
+        int fuel = handler.getProperty(6);
+        int fuelBarLength = MathHelper.clamp((18 * (fuel*2) + 20 - 1) / 20, 0, 18);
         if (fuelBarLength > 0) {
-            this.drawTexture(matrices, x + 60, y + 44, 176, getFuelBarTypeYCoordinate(), fuelBarLength, 4);
+            this.drawTexture(matrices, x + 151, y + 114, 176, 10, fuelBarLength, 4);
         }
 
-        int brewTime = handler.getBrewTime();
-        if (brewTime > 0) {
-            int brewTimeProgress = Math.round(28.0F * (1.0F - brewTime / 400.0F));
-            if (brewTimeProgress > 0) {
-                this.drawTexture(matrices, x + 97, y + 16, 176, 0, 9, brewTimeProgress);
-            }
+        renderEssenceBar(0, 8, 176, matrices);
+        renderEssenceBar(1, 15, 180, matrices);
+        renderEssenceBar(2, 22, 184, matrices);
+        renderEssenceBar(3, 29, 188, matrices);
+        renderEssenceBar(4, 36, 192, matrices);
+    }
 
-            brewTimeProgress = BrewingStandScreenAccessor.getBubbleProgress()[brewTime / 2 % 7];
-            if (brewTimeProgress > 0) {
-                this.drawTexture(matrices, x + 63, y + 14 + 29 - brewTimeProgress, 185, 29 - brewTimeProgress, 12, brewTimeProgress);
+    private void renderEssenceBar(int propertyIndex, int xOffset, int textureOffset, MatrixStack matrices) {
+        int essence = handler.getProperty(propertyIndex);
+        if (essence > 0) {
+            int essenceBar = essence/2;
+            if (essenceBar > 0) {
+                this.drawTexture(matrices, x + xOffset, y + 101 + 10 - essenceBar, textureOffset, 10 - essenceBar, 4, essenceBar);
             }
-        }*/
-
+        }
     }
 
     private MutableText getCountText(String translationKey, int count, Formatting primaryColor, Formatting secondaryColor) {
@@ -93,6 +96,7 @@ public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHand
                 .append(new TranslatableText("tooltip.magicfungi.generic_value", count)
                     .formatted(secondaryColor));
     }
+
 
     private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/magic_condenser.png");
 
