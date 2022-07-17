@@ -59,13 +59,22 @@ public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHand
         }
     }
 
-    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) { // TODO: Render condensing progress
+    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
         RenderSystem.setShader(GameRenderer::getPositionTexShader);
         RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
         RenderSystem.setShaderTexture(0, TEXTURE);
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         this.drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
+
+        int condensingProgress = handler.getProperty(5); // TODO: Improve progress animation
+        if (condensingProgress > 0) {
+            int condensingBar = MathHelper.clamp((640 / 8) - (condensingProgress / 8), 0, 78);
+            if (condensingBar > 0) {
+                this.drawTexture(matrices, x + 45, y + 20 + 78 - condensingBar, 176, 92 - condensingBar, 43, condensingBar);
+                this.drawTexture(matrices, x + 88, y + 20 + 78 - condensingBar, 176, 170 - condensingBar, 43, condensingBar);
+            }
+        }
 
         int fuel = handler.getProperty(6);
         int fuelBarLength = MathHelper.clamp((18 * (fuel*2) + 20 - 1) / 20, 0, 18);
