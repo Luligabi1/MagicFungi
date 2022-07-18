@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.item.spell.vivifica;
 
+import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.item.spell.AbstractSpellItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
@@ -32,7 +33,7 @@ public class FertilisSpellItem extends AbstractSpellItem {
 
     @Override
     public int getCooldown() {
-        return 0;
+        return MagicFungi.CONFIG.fertilisSpellCooldown*20;
     }
 
     @Override
