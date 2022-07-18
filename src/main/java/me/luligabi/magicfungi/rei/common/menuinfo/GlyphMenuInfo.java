@@ -22,11 +22,9 @@ public class GlyphMenuInfo implements SimplePlayerInventoryMenuInfo<GlyphCarving
 
     @Override
     public Iterable<SlotAccessor> getInputSlots(MenuInfoContext<GlyphCarvingScreenHandler, ?, GlyphRecipeDisplay> context) {
-        GlyphCarvingScreenHandler handler = context.getMenu();
-
         List<SlotAccessor> list = new ArrayList<>(4);
         for (int i = 0; i <= 3; i++) {
-            list.add(SlotAccessor.fromContainer(handler.input, i));
+            list.add(SlotAccessor.fromContainer(context.getMenu().input, i));
         }
 
         return list;

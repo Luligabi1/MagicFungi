@@ -125,7 +125,7 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
     private final List<EntryStack<ItemStack>> morbusCatalystList = new ArrayList<>();
 
 
-    private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/rei/essence_extractor.png");
-    private static final Identifier TEXTURE_DARK = new Identifier(MagicFungi.MOD_ID, "textures/gui/rei/essence_extractor_dark.png");
+    private static final Identifier TEXTURE = new Identifier(MagicFungi.MOD_ID, "textures/gui/rei/essence_extractor/essence_extractor.png");
+    private static final Identifier TEXTURE_DARK = new Identifier(MagicFungi.MOD_ID, "textures/gui/rei/essence_extractor/essence_extractor_dark.png");
 
 }

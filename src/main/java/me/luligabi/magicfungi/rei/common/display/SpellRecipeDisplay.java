@@ -1,6 +1,5 @@
 package me.luligabi.magicfungi.rei.common.display;
 
-import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
 import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
