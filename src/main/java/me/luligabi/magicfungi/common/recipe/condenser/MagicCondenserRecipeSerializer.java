@@ -28,8 +28,6 @@ public class MagicCondenserRecipeSerializer implements RecipeSerializer<MagicCon
             throw new JsonSyntaxException("A required attribute is missing!");
         }
         if(recipeJson.outputAmount == 0) recipeJson.outputAmount = 1;
-
-        if(recipeJson.netherStarFuelCost == 0) recipeJson.netherStarFuelCost = 1;
         if(recipeJson.netherStarFuelCost > 20) recipeJson.netherStarFuelCost = 20;
 
         Ingredient input = Ingredient.fromJson(recipeJson.input);

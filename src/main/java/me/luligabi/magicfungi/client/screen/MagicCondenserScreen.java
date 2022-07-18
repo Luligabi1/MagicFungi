@@ -92,10 +92,8 @@ public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHand
     private void renderEssenceBar(int propertyIndex, int xOffset, int textureOffset, MatrixStack matrices) {
         int essence = handler.getProperty(propertyIndex);
         if (essence > 0) {
-            int essenceBar = essence/2;
-            if (essenceBar > 0) {
-                this.drawTexture(matrices, x + xOffset, y + 101 + 10 - essenceBar, textureOffset, 10 - essenceBar, 4, essenceBar);
-            }
+            int essenceBar = essence != 1 ? essence/2 : 1;
+            this.drawTexture(matrices, x + xOffset, y + 101 + 10 - essenceBar, textureOffset, 10 - essenceBar, 4, essenceBar);
         }
     }
 
