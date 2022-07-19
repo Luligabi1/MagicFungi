@@ -37,7 +37,7 @@ public class GlyphCarvingProcessor implements IComponentProcessor {
         } else if (key.equals("text")) {
             return IVariable.from(Text.of(text));
         } else {
-            return null;
+            return IVariable.empty();
         }
     }
 

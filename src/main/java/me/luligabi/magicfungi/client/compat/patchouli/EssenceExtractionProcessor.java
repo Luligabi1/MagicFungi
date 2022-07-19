@@ -33,7 +33,9 @@ public class EssenceExtractionProcessor implements IComponentProcessor {
     @Override
     public IVariable process(@NotNull String key) {
         switch(key) {
-            case "input" -> { return IVariable.from(recipe.getInput()); }
+            case "input" -> {
+                return IVariable.from(recipe.getInput());
+            }
             case "catalyst" -> {
                 List<ItemConvertible> catalystList = new ArrayList<>();
                 Registry.ITEM.getEntryList(recipe.getCatalystType().getTag()).ifPresentOrElse(
@@ -42,10 +44,18 @@ public class EssenceExtractionProcessor implements IComponentProcessor {
 
                 return IVariable.from(Ingredient.ofItems(catalystList.toArray(new ItemConvertible[0])));
             }
-            case "output" -> { return IVariable.from(recipe.getOutput()); }
-            case "header" -> { return IVariable.from(recipe.getOutput().getName()); }
-            case "text" -> { return IVariable.from(Text.of(text)); }
-            default -> { return null; }
+            case "output" -> {
+                return IVariable.from(recipe.getOutput());
+            }
+            case "header" -> {
+                return IVariable.from(recipe.getOutput().getName());
+            }
+            case "text" -> {
+                return IVariable.from(Text.of(text));
+            }
+            default -> {
+                return IVariable.empty();
+            }
         }
     }
 

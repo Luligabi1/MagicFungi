@@ -37,7 +37,7 @@ public class SpellDiscoveryProcessor implements IComponentProcessor {
         } else if (key.equals("text")) {
             return IVariable.from(Text.of(text));
         } else {
-            return null;
+            return IVariable.empty();
         }
     }
 

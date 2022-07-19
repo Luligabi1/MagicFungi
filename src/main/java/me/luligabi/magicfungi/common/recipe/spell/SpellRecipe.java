@@ -37,16 +37,7 @@ public class SpellRecipe implements Recipe<SimpleCraftingInventory> {
         this.inputH = inputH;
         this.outputStack = outputStack;
         this.identifier = identifier;
-
-        inputs = DefaultedList.of();
-        inputs.add(inputA);
-        inputs.add(inputB);
-        inputs.add(inputC);
-        inputs.add(inputD);
-        inputs.add(inputE);
-        inputs.add(inputF);
-        inputs.add(inputG);
-        inputs.add(inputH);
+        this.inputs = DefaultedList.copyOf(Ingredient.empty(), inputA, inputB, inputC, inputD, inputE, inputF, inputG, inputH);
     }
 
     public Ingredient getInputA() { return inputA; }
