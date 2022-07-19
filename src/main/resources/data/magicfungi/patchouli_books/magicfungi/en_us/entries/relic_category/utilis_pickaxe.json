@@ -5,8 +5,8 @@
   "sortnum": 3,
   "pages": [
     {
-      "type": "magicfungi:glyph_carving",
-      "recipe": "magicfungi:glyph/relics/utilis_pickaxe",
+      "type": "magicfungi:magic_condensation",
+      "recipe": "magicfungi:condenser/relics/utilis_pickaxe",
       "text": "$(d)$(l)Utilis Pickaxe $()is a special pickaxe made from $(d)Utilis Essence$(). After breaking a block, you'll receive temporary $(6)Haste Effect$()."
     }
   ]
