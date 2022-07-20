@@ -37,7 +37,7 @@ public class TooltippedArrow extends Arrow {
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
         arrow.render(matrices, mouseX, mouseY, delta);
         final Point mousePoint = new Point(mouseX, mouseY);
-        if (containsMouse(mousePoint)) getTooltip(mousePoint).queue();
+        if(containsMouse(mousePoint)) getTooltip(mousePoint).queue();
     }
 
     @Override
