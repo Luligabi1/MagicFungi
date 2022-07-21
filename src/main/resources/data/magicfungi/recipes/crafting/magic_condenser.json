@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "###",
+    "CCC",
+    "CEC"
+  ],
+  "key": {
+    "#": {
+      "tag": "magicfungi:essences"
+    },
+    "C": {
+      "item": "minecraft:calcite"
+    },
+    "E": {
+      "item": "minecraft:enchanting_table"
+    }
+  },
+  "result": {
+    "item": "magicfungi:magic_condenser",
+    "count": 1
+  }
+}

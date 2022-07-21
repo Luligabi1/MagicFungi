@@ -1,14 +1,14 @@
 {
   "name": "Capturing the Essence",
   "icon": "magicfungi:essence_extractor",
-  "category": "magicfungi:relic_category",
-  "sortnum": 0,
+  "category": "magicfungi:spell_category",
+  "sortnum": 5,
   "pages": [
     {
       "type": "spotlight",
       "item": "magicfungi:essence_extractor",
       "title": "Capturing the Essence",
-      "text": "To craft relics - or do any kind of advanced magic for that matter - mushrooms just won't cut it. You'll need to extract their $(l)essences$(): the purest form of the magic inside the fungi. To do this procedure, you'll need an $(l)Essence Extractor$():"
+      "text": "As you might have noticed by now, just $(l)Magic Mushrooms$() won't cut it when attempting to perform greater magic. You'll need to extract their $(l)essences$(): the purest form of the magic inside the fungi. To do this procedure, you'll need an $(l)Essence Extractor$():"
     },
     {
       "type": "crafting",
