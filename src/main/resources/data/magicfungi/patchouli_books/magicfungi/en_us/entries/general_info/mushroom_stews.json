@@ -17,7 +17,7 @@
     {
       "type": "spotlight",
       "item": "magicfungi:utilis_mushroom_stew",
-      "text": "$(d)$(l)Utilis Mushroom Stew $()is a umami, rose-colored mushroom stew made with $(d)$(l)Utilis Mushrooms$(). Upon consumption, it'll grant the user a few seconds of $(e)$(l)Haste$()."
+      "text": "$(d)$(l)Utilis Mushroom Stew $()is a umami, rose-colored mushroom stew made with $(d)$(l)Utilis Mushrooms$(). Upon consumption, it'll grant the user a few seconds of $(6)$(l)Haste$()."
     },
     {
       "type": "spotlight",

@@ -3,38 +3,26 @@ package me.luligabi.magicfungi.common.item.relic;
 import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldBlockCallback;
 import com.github.crimsondawn45.fabricshieldlib.lib.event.ShieldDisabledCallback;
 import com.github.crimsondawn45.fabricshieldlib.lib.object.FabricBannerShieldItem;
+import me.luligabi.magicfungi.common.util.MushroomType;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.Box;
+import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class ClypeusShieldItem extends FabricBannerShieldItem implements Chargeable {
 
     public ClypeusShieldItem(Settings settings, int cooldownTicks, ToolMaterial material) {
         super(settings, cooldownTicks, material);
-    }
-
-    @Override
-    public int getMaxCharge() {
-        return 72;
-    }
-
-    @Override
-    public int getChargeBarColor(ItemStack stack) {
-        return 0x55FFFF;
-    }
-
-    @Override
-    public boolean hasGlint(ItemStack stack) {
-        return isChargeFull(stack);
-    }
-
-    @Override
-    public boolean isEnchantable(ItemStack stack) {
-        return false;
     }
 
     public void initShieldEvents() {
@@ -60,6 +48,34 @@ public class ClypeusShieldItem extends FabricBannerShieldItem implements Chargea
             }
             return ActionResult.PASS;
         });
+    }
+
+    @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        appendQuote(tooltip, MushroomType.CLYPEUS, new TranslatableText("tooltip.magicfungi.clypeus_shield.author"),
+                new TranslatableText("tooltip.magicfungi.clypeus_shield.1"),
+                new TranslatableText("tooltip.magicfungi.clypeus_shield.2"));
+        appendHiddenChargeLevel(tooltip, stack, MushroomType.CLYPEUS);
+    }
+
+    @Override
+    public int getMaxCharge() {
+        return 72;
+    }
+
+    @Override
+    public int getChargeBarColor(ItemStack stack) {
+        return 0x55FFFF;
+    }
+
+    @Override
+    public boolean hasGlint(ItemStack stack) {
+        return isChargeFull(stack);
+    }
+
+    @Override
+    public boolean isEnchantable(ItemStack stack) {
+        return false;
     }
 
 }

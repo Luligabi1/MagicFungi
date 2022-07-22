@@ -13,7 +13,7 @@
     {
       "type": "magicfungi:magic_condensation",
       "recipe": "magicfungi:condenser/relics/morbus_scythe",
-      "text": "A special scythe made using the properties observed on $(l)Morbus Essence$().$(br)Those damaged by it are immediately prone to mild intoxication. Long-term effects are yet to be studied."
+      "text": "$(l)Morbus Scythe$() is the result of condensing $(l)Morbus Essence$() into a $(l)Netherite Hoe$(). If properly handled, the handler is able to consistently do broad attacks.$(br)Whenever a foe is attacked with this scythe, it'll earn a small amount of $(l)charge$().$(br)When fully charged, $(l)$(k:sneak) + $(k:use)$() to invoke a circle of Morbus Projectiles, prone to cause mild intoxication. Long-term effects are yet to be studied."
     }
   ]
 }

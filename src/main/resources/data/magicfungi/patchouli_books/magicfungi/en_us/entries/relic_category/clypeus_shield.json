@@ -7,7 +7,7 @@
     {
       "type": "magicfungi:magic_condensation",
       "recipe": "magicfungi:condenser/relics/clypeus_shield",
-      "text": "$(3)$(l)Clypeus Shield $()is a special shield made from $(3)Clypeus Essence$(). Has additional durability and lower cooldown times."
+      "text": "$(3)$(l)Clypeus Shield $()is the byproduct of $(l:relic_category/magic_condenser)condensing$() $(3)$(l)Clypeus Essence$() into a $(l)Shield$(). Whenever you block an enemy using this shield, you'll add $(3)charge$() to it.$(br)When fully charged, $(3)$(l)$(k:sneak) + $(k:use)$() to knock back all nearby enemies in a radius. $(3)$(l)Clypeus Shields$() also have additional durability and lower cooldown times."
     }
   ]
 }

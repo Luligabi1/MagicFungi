@@ -105,6 +105,9 @@
   "item.magicfungi.cibus_spell": "Cibus Spell",
 
 
+  "item.magicfungi.fertilis_spell": "Fertilis Spell",
+
+
   "item.magicfungi.impetus_sword": "Impetus Sword",
   "tooltip.magicfungi.impetus_sword.1": "\"a",
   "tooltip.magicfungi.impetus_sword.2": "b\"",
@@ -158,17 +161,6 @@
   "relicState.magicfungi.fortunae": "Fortunae",
   "relicState.magicfungi.mollis": "Mollis",
   "relicState.magicfungi.laser": "Laser",
-
-
-  "relicState.magicfungi.functionis": "Functionis",
-  "relicState.magicfungi.dysfunctionis": "Dysfunctionis",
-
-  "relicState.magicfungi.fortunae": "Fortunae",
-  "relicState.magicfungi.mollis": "Mollis",
-  "relicState.magicfungi.laser": "Laser",
-
-
-  "item.magicfungi.fertilis_spell": "Fertilis Spell",
 
   "item.magicfungi.magical_fungi_helmet": "Magical Fungi Helmet",
   "item.magicfungi.magical_fungi_chestplate": "Magical Fungi Chestplate",

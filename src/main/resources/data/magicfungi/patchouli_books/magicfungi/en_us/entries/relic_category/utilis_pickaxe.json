@@ -7,7 +7,11 @@
     {
       "type": "magicfungi:magic_condensation",
       "recipe": "magicfungi:condenser/relics/utilis_pickaxe",
-      "text": "$(d)$(l)Utilis Pickaxe $()is a special pickaxe made from $(d)Utilis Essence$(). After breaking a block, you'll receive temporary $(6)Haste Effect$()."
+      "text": "$(d)$(l)Utilis Pickaxe $()is the byproduct of $(l:relic_category/magic_condenser)condensing$() $(d)$(l)Utilis Essence$() into a $(l)Netherite Pickaxe$(). Using $(d)$(l)$(k:sneak) + $(k:use)$(), you can alternate between $(d)$(l)5 modes$() that change how the pickaxe interacts with the world:"
+    },
+    {
+      "type": "text",
+      "text": "$(li)$(d)$(l)Functionis:$() $(d)Mines way faster than any other state;$(br)$(li)$(d)$(l)Fortunae:$() $(d)Blocks mined have increased drops;$(br)$(li)$(d)$(l)Mollis:$() $(d)Allows mining blocks more gently;$(br)$(li)$(d)$(l)Laser:$() $(d)Shoots small beams able to break blocks they come in contact with;$(br)$(li)$(d)$(l)Dysfunctionis:$() $(d)Transforms the pickaxe into a paperweight, unable to break any block."
     }
   ]
 }
