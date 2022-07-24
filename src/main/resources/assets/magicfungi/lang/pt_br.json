@@ -323,8 +323,17 @@
   "advancements.magicfungi.essences": "O Essencial",
   "advancements.magicfungi.essences.description": "Obtenha o poder bruto de um cogumelo mágico extraindo sua essência",
 
+  "advancements.magicfungi.essence_glyphs": "Glifos Não-tão-essenciais",
+  "advancements.magicfungi.essence_glyphs.description": "Carve um glifo que requer essências.",
+
+  "advancements.magicfungi.essence_spells": "Feitiços Não-tão-essenciais",
+  "advancements.magicfungi.essence_spells.description": "Descinra um glifo que requer essências.",
+
+  "advancements.magicfungi.magic_condenser": "Condensação Mágica",
+  "advancements.magicfungi.magic_condenser.description": "Fabrique um Condensador Mágico.",
+
   "advancements.magicfungi.relics": "Relíquias Anciãs",
-  "advancements.magicfungi.relics.description": "Reconstrua uma antiga relíquia de muitas eras atrás",
+  "advancements.magicfungi.relics.description": "Condensa essências numa ferramenta para criar uma antiga relíquia de muitas eras atrás",
 
   "advancements.magicfungi.fungi_armor": "Poder Desabrochante",
   "advancements.magicfungi.fungi_armor.description": "Fabrique a armadura completa de Magia Fúngica"

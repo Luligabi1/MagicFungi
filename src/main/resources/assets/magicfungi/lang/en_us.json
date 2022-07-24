@@ -355,8 +355,17 @@
   "advancements.magicfungi.essences": "The Essentials",
   "advancements.magicfungi.essences.description": "Harness the raw power of a Magic Mushroom by extracting its essence",
 
+  "advancements.magicfungi.essence_glyphs": "Not-so-essential Glyphs",
+  "advancements.magicfungi.essence_glyphs.description": "Carve a glyph that requires essences.",
+
+  "advancements.magicfungi.essence_spells": "Not-so-essential Spells",
+  "advancements.magicfungi.essence_spells.description": "Discover a Spell that requires essences.",
+
+  "advancements.magicfungi.magic_condenser": "Magical Condensation",
+  "advancements.magicfungi.magic_condenser.description": "Craft a Magic Condenser.",
+
   "advancements.magicfungi.relics": "Ancient Relics",
-  "advancements.magicfungi.relics.description": "Forge an old relic from many eons ago",
+  "advancements.magicfungi.relics.description": "Condense essences into a tool to create an old relic from many eons ago",
 
   "advancements.magicfungi.fungi_armor": "Sprouting Power",
   "advancements.magicfungi.fungi_armor.description": "Craft the full Magical Fungi armor set"

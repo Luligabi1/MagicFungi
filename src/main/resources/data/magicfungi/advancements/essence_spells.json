@@ -1,24 +1,23 @@
 {
   "display": {
     "icon": {
-      "item": "magicfungi:impetus_essence"
+      "item": "magicfungi:cadere_spell"
     },
     "title": {
-      "translate": "advancements.magicfungi.essences"
+      "translate": "advancements.magicfungi.essence_spells"
     },
     "description": {
-      "translate": "advancements.magicfungi.essences.description"
-    },
-    "frame": "goal"
+      "translate": "advancements.magicfungi.essence_spells.description"
+    }
   },
-  "parent": "magicfungi:root",
+  "parent": "magicfungi:essences",
   "criteria": {
     "checkInv": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "tag": "magicfungi:essences"
+            "tag": "magicfungi:essence_spells"
           }
         ]
       }
