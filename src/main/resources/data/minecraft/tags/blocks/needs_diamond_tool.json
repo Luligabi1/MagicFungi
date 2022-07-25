@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
+    "magicfungi:magic_condenser",
     "magicfungi:magical_fungi_alloy_block"
   ]
 }
