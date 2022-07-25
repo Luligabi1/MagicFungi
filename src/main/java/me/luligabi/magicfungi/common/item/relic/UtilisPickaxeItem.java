@@ -2,7 +2,9 @@ package me.luligabi.magicfungi.common.item.relic;
 
 import me.luligabi.magicfungi.client.tooltip.relic.utilis.UtilisPickaxeTooltipData;
 import me.luligabi.magicfungi.common.entity.UtilisLaserEntity;
+import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.block.BlockState;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.client.item.TooltipData;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.EquipmentSlot;
@@ -14,12 +16,15 @@ import net.minecraft.nbt.NbtByte;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
+import java.util.List;
 import java.util.Optional;
 
 public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisPickaxeItem.State> {
@@ -29,7 +34,7 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisP
     }
 
 
-    @Override // FIXME: Stack does not have Efficiency 7 by default
+    @Override
     public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         if(world.isClient()) return TypedActionResult.pass(stack);
@@ -87,7 +92,17 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisP
     }
 
     @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        appendQuote(tooltip, MushroomType.UTILIS, new TranslatableText("tooltip.magicfungi.utilis_pickaxe.author"),
+                new TranslatableText("tooltip.magicfungi.utilis_pickaxe.1"),
+                new TranslatableText("tooltip.magicfungi.utilis_pickaxe.2"));
+    }
+
+    @Override
     public boolean hasGlint(ItemStack stack) {
+        // I know, I know. this ain't the best place to do this... BUT I suck at mixin sooo... :(
+        // TODO: Try to move this to a mixin.
+        applyDefaultEnchantment(stack, State.FUNCTIONIS, Enchantments.EFFICIENCY, 7);
         return getState(stack) != State.DYSFUNCTIONIS;
     }
 

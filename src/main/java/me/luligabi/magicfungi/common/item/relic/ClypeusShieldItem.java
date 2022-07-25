@@ -60,7 +60,7 @@ public class ClypeusShieldItem extends FabricBannerShieldItem implements Chargea
 
     @Override
     public int getMaxCharge() {
-        return 72;
+        return ToolMaterials.CLYPEUS.getMaxCharge();
     }
 
     @Override

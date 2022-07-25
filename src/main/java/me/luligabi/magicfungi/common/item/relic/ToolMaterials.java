@@ -10,14 +10,14 @@ import java.util.function.Supplier;
 
 public enum ToolMaterials implements ToolMaterial {
 
-    IMPETUS(4, MagicFungi.CONFIG.relicDurability, MagicFungi.CONFIG.relicMiningSpeed, MagicFungi.CONFIG.impetusSwordAttackDamage, 15, () ->
-            Ingredient.ofItems(ItemRegistry.IMPETUS_ESSENCE)),
-    CLYPEUS(4, MagicFungi.CONFIG.relicDurability, 1, 1, 15, () ->
-            Ingredient.ofItems(ItemRegistry.CLYPEUS_ESSENCE)),
+    IMPETUS(0, MagicFungi.CONFIG.relicDurability, MagicFungi.CONFIG.relicMiningSpeed, MagicFungi.CONFIG.impetusSwordAttackDamage, 15, () ->
+            Ingredient.ofItems(ItemRegistry.IMPETUS_ESSENCE), MagicFungi.CONFIG.impetusSwordMaxCharge),
+    CLYPEUS(0, MagicFungi.CONFIG.relicDurability, 1, 1, 15, () ->
+            Ingredient.ofItems(ItemRegistry.CLYPEUS_ESSENCE), MagicFungi.CONFIG.clypeusShieldMaxCharge),
     UTILIS(4, MagicFungi.CONFIG.relicDurability, MagicFungi.CONFIG.relicMiningSpeed, 5.5F, 15, () ->
-            Ingredient.ofItems(ItemRegistry.UTILIS_ESSENCE)),
-    MORBUS(4, MagicFungi.CONFIG.relicDurability, MagicFungi.CONFIG.relicMiningSpeed, MagicFungi.CONFIG.morbusScytheAttackDamage, 15, () ->
-            Ingredient.ofItems(ItemRegistry.MORBUS_ESSENCE));
+            Ingredient.ofItems(ItemRegistry.UTILIS_ESSENCE), -1),
+    MORBUS(0, MagicFungi.CONFIG.relicDurability, MagicFungi.CONFIG.relicMiningSpeed, MagicFungi.CONFIG.morbusScytheAttackDamage, 15, () ->
+            Ingredient.ofItems(ItemRegistry.MORBUS_ESSENCE), MagicFungi.CONFIG.morbusScytheMaxCharge);
 
     private final int miningLevel;
     private final int itemDurability;
@@ -25,14 +25,16 @@ public enum ToolMaterials implements ToolMaterial {
     private final float attackDamage;
     private final int enchantability;
     private final Lazy<Ingredient> repairIngredient;
+    private final int maxCharge;
 
-    ToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient) {
+    ToolMaterials(int miningLevel, int itemDurability, float miningSpeed, float attackDamage, int enchantability, Supplier<Ingredient> repairIngredient, int maxCharge) {
         this.miningLevel = miningLevel;
         this.itemDurability = itemDurability;
         this.miningSpeed = miningSpeed;
         this.attackDamage = attackDamage;
         this.enchantability = enchantability;
         this.repairIngredient = new Lazy<>(repairIngredient);
+        this.maxCharge = maxCharge;
     }
 
     public int getDurability() { return this.itemDurability; }
@@ -56,4 +58,9 @@ public enum ToolMaterials implements ToolMaterial {
     public Ingredient getRepairIngredient() {
         return this.repairIngredient.get();
     }
+
+    public int getMaxCharge() {
+        return maxCharge;
+    }
+
 }

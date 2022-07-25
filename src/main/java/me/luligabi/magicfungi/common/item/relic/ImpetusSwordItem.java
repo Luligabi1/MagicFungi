@@ -83,7 +83,7 @@ public class ImpetusSwordItem extends SwordItem implements Chargeable {
 
     @Override
     public int getMaxCharge() {
-        return 96;
+        return ToolMaterials.IMPETUS.getMaxCharge();
     }
 
     @Override

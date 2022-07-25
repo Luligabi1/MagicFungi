@@ -1,5 +1,8 @@
 package me.luligabi.magicfungi.common.item.relic;
 
+import me.luligabi.magicfungi.common.MagicFungi;
+import me.luligabi.magicfungi.common.util.MushroomType;
+import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.effect.StatusEffectInstance;
@@ -11,11 +14,16 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.text.Text;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class VivificaElixirItem extends Item implements Chargeable {
 
@@ -55,6 +63,14 @@ public class VivificaElixirItem extends Item implements Chargeable {
     }
 
     @Override
+    public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
+        appendQuote(tooltip, MushroomType.VIVIFICA, new TranslatableText("tooltip.magicfungi.vivifica_elixir.author"),
+                new TranslatableText("tooltip.magicfungi.vivifica_elixir.1"),
+                new TranslatableText("tooltip.magicfungi.vivifica_elixir.2"));
+        appendHiddenChargeLevel(tooltip, stack, MushroomType.VIVIFICA);
+    }
+
+    @Override
     public UseAction getUseAction(ItemStack stack) {
         return UseAction.DRINK;
     }
@@ -66,7 +82,7 @@ public class VivificaElixirItem extends Item implements Chargeable {
 
     @Override
     public int getMaxCharge() {
-        return 24;
+        return MagicFungi.CONFIG.vivificaElixirMaxCharge;
     }
 
     @Override

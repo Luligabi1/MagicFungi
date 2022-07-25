@@ -56,22 +56,28 @@ public class ModConfig implements Config {
     public float relicMiningSpeed = 10.5F;
 
     @Comment(value = "Impetus Sword's attack damage.")
-    public float impetusSwordAttackDamage = 18.5F;
+    public float impetusSwordAttackDamage = 10.0F;
 
-    @Comment(value = "Utilis Pickaxe's haste effect duration in seconds.")
-    public int utilisPickaxeEffectDuration = 4;
+    @Comment(value = "Impetus Sword's maximum charge.")
+    public int impetusSwordMaxCharge = 96;
 
-    @Comment(value = "Utilis Pickaxe's haste effect strength. 0 = I, 1 = II, etc.")
-    public int utilisPickaxeEffectStrength = 2;
+    @Comment(value = "Clypeus Shield's maximum charge.")
+    public int clypeusShieldMaxCharge = 72;
+
+    @Comment(value = "Vivifica Elixir's maximum charge.")
+    public int vivificaElixirMaxCharge = 72;
 
     @Comment(value = "Morbus Scythe's attack damage.")
-    public float morbusScytheAttackDamage = 11.5F;
+    public float morbusScytheAttackDamage = 8.5F;
 
     @Comment(value = "Morbus Scythe's wither effect duration in seconds.")
     public int morbusScytheEffectDuration = 8;
 
     @Comment(value = "Morbus Scythe's wither effect strength. 0 = I, 1 = II, etc.")
     public int morbusScytheEffectStrength = 0;
+
+    @Comment(value = "Morbus Scythe's maximum charge.")
+    public int morbusScytheMaxCharge = 100;
 
     @Comment(value = "Magical Fungi Armor's Durability Multiplier. Changing this value on worlds where you already have Magical Fungi Armor is NOT recommended.")
     public int magicalFungiArmorDurabilityMultiplier = 45;

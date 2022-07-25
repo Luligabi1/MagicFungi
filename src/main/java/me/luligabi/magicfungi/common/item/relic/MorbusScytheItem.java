@@ -98,7 +98,7 @@ public class MorbusScytheItem extends SwordItem implements Chargeable {
 
     @Override
     public int getMaxCharge() {
-        return 100;
+        return ToolMaterials.MORBUS.getMaxCharge();
     }
 
     @Override
