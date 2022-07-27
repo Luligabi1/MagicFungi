@@ -100,9 +100,6 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisP
 
     @Override
     public boolean hasGlint(ItemStack stack) {
-        // I know, I know. this ain't the best place to do this... BUT I suck at mixin sooo... :(
-        // TODO: Try to move this to a mixin.
-        applyDefaultEnchantment(stack, State.FUNCTIONIS, Enchantments.EFFICIENCY, 7);
         return getState(stack) != State.DYSFUNCTIONIS;
     }
 
@@ -111,6 +108,13 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisP
         return false;
     }
 
+    @Override
+    public boolean isItemBarVisible(ItemStack stack) {
+        // I know, I know. this ain't the best place to do this... BUT I suck at mixin sooo... :(
+        // TODO: Try to move this to a mixin.
+        applyDefaultEnchantment(stack, State.FUNCTIONIS, Enchantments.EFFICIENCY, 7);
+        return super.isItemBarVisible(stack);
+    }
 
     @Override
     public void sendStateChangeMessage(PlayerEntity player, State state) {

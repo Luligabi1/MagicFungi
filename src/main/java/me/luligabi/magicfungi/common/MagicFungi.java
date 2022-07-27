@@ -13,7 +13,6 @@ import me.luligabi.magicfungi.common.worldgen.LootTableRegistry;
 import me.luligabi.magicfungi.common.worldgen.feature.FeatureRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
-import net.minecraft.enchantment.Enchantments;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
@@ -118,12 +117,10 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_ESSENCE));
 
                 // Relics
+                stacks.add(new ItemStack(BlockRegistry.MAGIC_CONDENSER_BLOCK));
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_SWORD));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_SHIELD));
-
-                ItemStack utilisPickaxe = new ItemStack(ItemRegistry.UTILIS_PICKAXE);
-                utilisPickaxe.addEnchantment(Enchantments.EFFICIENCY, 7);
-                stacks.add(utilisPickaxe);
+                stacks.add(new ItemStack(ItemRegistry.UTILIS_PICKAXE));
                 stacks.add(new ItemStack(ItemRegistry.VIVIFICA_ELIXIR));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_SCYTHE));
 
