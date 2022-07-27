@@ -67,7 +67,7 @@ public class VivificaElixirItem extends Item implements Chargeable {
         appendQuote(tooltip, MushroomType.VIVIFICA, new TranslatableText("tooltip.magicfungi.vivifica_elixir.author"),
                 new TranslatableText("tooltip.magicfungi.vivifica_elixir.1"),
                 new TranslatableText("tooltip.magicfungi.vivifica_elixir.2"));
-        appendHiddenChargeLevel(tooltip, stack, MushroomType.VIVIFICA);
+        appendChargeLevel(tooltip, stack, MushroomType.VIVIFICA);
     }
 
     @Override

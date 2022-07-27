@@ -78,7 +78,7 @@ public class ImpetusSwordItem extends SwordItem implements Chargeable {
         appendQuote(tooltip, MushroomType.IMPETUS, new TranslatableText("tooltip.magicfungi.impetus_sword.author"),
                 new TranslatableText("tooltip.magicfungi.impetus_sword.1"),
                 new TranslatableText("tooltip.magicfungi.impetus_sword.2"));
-        appendHiddenChargeLevel(tooltip, stack, MushroomType.IMPETUS);
+        appendChargeLevel(tooltip, stack, MushroomType.IMPETUS);
     }
 
     @Override

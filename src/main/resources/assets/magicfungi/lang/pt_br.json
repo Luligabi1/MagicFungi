@@ -101,6 +101,9 @@
 
 
   "item.magicfungi.impetus_sword": "Espada Impetus",
+  "tooltip.magicfungi.impetus_sword.1": "\"Impetuosidade é chave para reduzir",
+  "tooltip.magicfungi.impetus_sword.2": "nossas perdas... na raiz.\"",
+
 
   "item.magicfungi.clypeus_shield": "Escudo Clypeus",
   "item.magicfungi.clypeus_shield.red": "Escudo Clypeus Vermelho",
@@ -120,6 +123,8 @@
   "item.magicfungi.clypeus_shield.gray": "Escudo Clypeus Cinza",
   "item.magicfungi.clypeus_shield.dark_gray": "Escudo Clypeus Cinza-Escuro",
   "item.magicfungi.clypeus_shield.black": "Escudo Clypeus Preto",
+  "tooltip.magicfungi.clypeus_shield.1": "\"Recuar não é um erro grosseiro,",
+  "tooltip.magicfungi.clypeus_shield.2": "é visar proteger os nossos.\"",
 
   "item.magicfungi.utilis_pickaxe": "Picareta Utilis",
   "tooltip.magicfungi.utilis_pickaxe.1": "\"Inovação será o nosso",

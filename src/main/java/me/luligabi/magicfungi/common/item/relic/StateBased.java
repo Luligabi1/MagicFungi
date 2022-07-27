@@ -9,7 +9,7 @@ import net.minecraft.sound.SoundEvents;
 
 import java.util.Collections;
 
-public interface StateBased<T> {
+public interface StateBased<T> extends Relic {
 
 
     T getState(ItemStack stack);
@@ -19,6 +19,11 @@ public interface StateBased<T> {
                 SoundCategory.PLAYERS, 200F, 1.5F);
     }
 
+    default void applyDefaultEnchantment(ItemStack stack, T defaultState, Enchantment enchantment, int enchantmentLevel) {
+        if(getState(stack) == defaultState && EnchantmentHelper.getLevel(enchantment, stack) != enchantmentLevel) {
+            addEnchantment(stack, enchantment, enchantmentLevel);
+        }
+    }
 
     default void addEnchantment(ItemStack itemStack, Enchantment enchantment, int level) {
         EnchantmentHelper.set(Collections.singletonMap(enchantment, level), itemStack);

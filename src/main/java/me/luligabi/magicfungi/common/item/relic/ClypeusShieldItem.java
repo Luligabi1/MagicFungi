@@ -55,7 +55,7 @@ public class ClypeusShieldItem extends FabricBannerShieldItem implements Chargea
         appendQuote(tooltip, MushroomType.CLYPEUS, new TranslatableText("tooltip.magicfungi.clypeus_shield.author"),
                 new TranslatableText("tooltip.magicfungi.clypeus_shield.1"),
                 new TranslatableText("tooltip.magicfungi.clypeus_shield.2"));
-        appendHiddenChargeLevel(tooltip, stack, MushroomType.CLYPEUS);
+        appendChargeLevel(tooltip, stack, MushroomType.CLYPEUS);
     }
 
     @Override

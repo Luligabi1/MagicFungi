@@ -109,9 +109,9 @@
 
 
   "item.magicfungi.impetus_sword": "Impetus Sword",
-  "tooltip.magicfungi.impetus_sword.1": "\"a",
-  "tooltip.magicfungi.impetus_sword.2": "b\"",
-  "tooltip.magicfungi.impetus_sword.author": "- [] Impetus",
+  "tooltip.magicfungi.impetus_sword.1": "\"Impetuosity is key to cut",
+  "tooltip.magicfungi.impetus_sword.2": "our losses... at the root.\"",
+  "tooltip.magicfungi.impetus_sword.author": "- Lotus Impetus",
 
   "item.magicfungi.clypeus_shield": "Clypeus Shield",
   "item.magicfungi.clypeus_shield.red": "Red Clypeus Shield",
@@ -131,8 +131,8 @@
   "item.magicfungi.clypeus_shield.gray": "Gray Clypeus Shield",
   "item.magicfungi.clypeus_shield.dark_gray": "Dark Gray Clypeus Shield",
   "item.magicfungi.clypeus_shield.black": "Black Clypeus Shield",
-  "tooltip.magicfungi.clypeus_shield.1": "\"a",
-  "tooltip.magicfungi.clypeus_shield.2": "b\"",
+  "tooltip.magicfungi.clypeus_shield.1": "\"To back down is not an error to own,",
+  "tooltip.magicfungi.clypeus_shield.2": "but rather to protect our own.\"",
   "tooltip.magicfungi.clypeus_shield.author": "- Augustus Clypeus",
 
   "item.magicfungi.utilis_pickaxe": "Utilis Pickaxe",

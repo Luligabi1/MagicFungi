@@ -9,7 +9,7 @@ import net.minecraft.recipe.RecipeType;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
-// TODO: Add REI support
+// TODO: Add custom times?
 public class MagicCondenserRecipe implements Recipe<Inventory> {
 
     private final Ingredient input;

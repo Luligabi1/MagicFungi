@@ -93,7 +93,7 @@ public class MorbusScytheItem extends SwordItem implements Chargeable {
         appendQuote(tooltip, MushroomType.MORBUS, new TranslatableText("tooltip.magicfungi.morbus_scythe.author"),
                 new TranslatableText("tooltip.magicfungi.morbus_scythe.1"),
                 new TranslatableText("tooltip.magicfungi.morbus_scythe.2"));
-        appendHiddenChargeLevel(tooltip, stack, MushroomType.MORBUS);
+        appendChargeLevel(tooltip, stack, MushroomType.MORBUS);
     }
 
     @Override
