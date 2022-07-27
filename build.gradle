@@ -1,12 +1,12 @@
 plugins {
     id 'fabric-loom' version '0.10-SNAPSHOT'
     id "com.matthewprenger.cursegradle" version '1.4.0'
-    id "com.modrinth.minotaur" version '2.2.0'
+    id "com.modrinth.minotaur" version '2.4.0'
     id 'maven-publish'
 }
 
-sourceCompatibility = JavaVersion.VERSION_16
-targetCompatibility = JavaVersion.VERSION_16
+sourceCompatibility = JavaVersion.VERSION_17
+targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
@@ -123,8 +123,6 @@ curseforge {
 }
 
 //Modrinth publishing
-import com.modrinth.minotaur.dependencies.ModDependency
-
 modrinth {
     if (ENV.MODRINTH_TOKEN) {
         token = ENV.MODRINTH_TOKEN
@@ -135,9 +133,11 @@ modrinth {
     gameVersions = [project.minecraft_version]
     loaders = ['fabric']
     versionType = "beta"
-    dependencies = [
-            new ModDependency('P7dR8mSH', 'required'), // Fabric API
+    changelog = getChangeLog()
+    dependencies {
+        required.project("fabric-api")
+        required.project("patchouli")
 
-            new ModDependency('nU0bVIaL', 'required') // Patchouli
-    ]
+        optional.project("roughly-enough-items")
+    }
 }
