@@ -224,6 +224,28 @@ public class FeatureRegistry {
     private static final String HOST_DIRT_ORE_DISK_ID = "host_dirt_ore_disk";
 
 
+    private static final RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> HOST_GRASS_BONEMEAL_CONFIGURED_FEATURE = ConfiguredFeatures.register(FeatureRegistry.HOST_GRASS_BONEMEAL_ID, Feature.SIMPLE_BLOCK,
+            new SimpleBlockFeatureConfig(BlockStateProvider.of(BlockRegistry.HOST_GRASS.getDefaultState()))
+    );
+
+    public static final RegistryEntry<PlacedFeature> HOST_GRASS_BONEMEAL_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.HOST_GRASS_BONEMEAL_ID, HOST_GRASS_BONEMEAL_CONFIGURED_FEATURE,
+            PlacedFeatures.isAir()
+    );
+
+    private static final String HOST_GRASS_BONEMEAL_ID = "host_grass_bonemeal";
+
+
+    private static final RegistryEntry<ConfiguredFeature<SimpleBlockFeatureConfig, ?>> SINGLE_WITHER_ROSE_CONFIGURED_FEATURE = ConfiguredFeatures.register(FeatureRegistry.SINGLE_WITHER_ROSE_ID, Feature.SIMPLE_BLOCK,
+            new SimpleBlockFeatureConfig(BlockStateProvider.of(Blocks.WITHER_ROSE.getDefaultState()))
+    );
+
+    public static final RegistryEntry<PlacedFeature> SINGLE_WITHER_ROSE_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.SINGLE_WITHER_ROSE_ID, WITHER_ROSE_CONFIGURED_FEATURE,
+            PlacedFeatures.isAir()
+    );
+
+    private static final String SINGLE_WITHER_ROSE_ID = "single_wither_rose";
+
+
     private static RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> flowerLikeFeature(Block block, int tries, String id) {
         return flowerLikeFeature(block, tries, 7, 2, id);
     }

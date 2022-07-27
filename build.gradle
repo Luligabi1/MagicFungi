@@ -10,11 +10,10 @@ targetCompatibility = JavaVersion.VERSION_17
 
 archivesBaseName = project.archives_base_name
 version = project.mod_version
-group = project.maven_group
 
 def ENV = System.getenv()
 
-def RELEASE_NAME = "[${project.minecraft_version}] ${version}"
+def RELEASE_NAME = "${version}"
 def RELEASE_FILE = "${buildDir}/libs/${archivesBaseName}-${version}.jar"
 
 @SuppressWarnings('GrMethodMayBeStatic')

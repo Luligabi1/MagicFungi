@@ -4,6 +4,7 @@ import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.block.mushroom.MagicMushroomPlantBlock;
 import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.util.WorldUtil;
+import me.luligabi.magicfungi.common.worldgen.feature.FeatureRegistry;
 import net.minecraft.block.*;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
@@ -11,9 +12,11 @@ import net.minecraft.sound.SoundEvents;
 import net.minecraft.tag.FluidTags;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
+import net.minecraft.world.gen.feature.PlacedFeature;
 
 import java.util.Random;
 
@@ -29,26 +32,30 @@ public class HostGrassBlock extends GrassBlock {
         BlockPos blockPos = pos.up();
         BlockState blockState = BlockRegistry.HOST_GRASS_BLOCK.getDefaultState();
 
-        label48:
+        BoneMealAction:
         for(int i = 0; i < 128; ++i) {
-            BlockPos blockPos2 = blockPos;
+            BlockPos blockPosCopy = blockPos;
 
             for(int j = 0; j < i / 16; ++j) {
-                blockPos2 = blockPos2.add(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
-                if (!world.getBlockState(blockPos2.down()).isOf(this) || world.getBlockState(blockPos2).isFullCube(world, blockPos2)) {
-                    continue label48;
+                blockPosCopy = blockPosCopy.add(random.nextInt(3) - 1, (random.nextInt(3) - 1) * random.nextInt(3) / 2, random.nextInt(3) - 1);
+                if(!world.getBlockState(blockPosCopy.down()).isOf(this) || world.getBlockState(blockPosCopy).isFullCube(world, blockPosCopy)) {
+                    continue BoneMealAction;
                 }
             }
 
-            BlockState blockState2 = world.getBlockState(blockPos2);
-            if (blockState2.isOf(blockState.getBlock()) && random.nextInt(10) == 0) {
-                ((Fertilizable)blockState.getBlock()).grow(world, random, blockPos2, blockState2);
+            BlockState blockstateCopy = world.getBlockState(blockPosCopy);
+            if(blockstateCopy.isOf(blockState.getBlock()) && random.nextInt(10) == 0) {
+                ((Fertilizable) blockState.getBlock()).grow(world, random, blockPosCopy, blockstateCopy);
             }
 
-            if (blockState2.isAir()) {
-                if (blockState.canPlaceAt(world, blockPos2)) {
-                    world.setBlockState(blockPos2, blockState, 3);
+            if(blockstateCopy.isAir()) {
+                RegistryEntry<PlacedFeature> registryEntry;
+                if(random.nextInt(14) == 0) {
+                    registryEntry = FeatureRegistry.SINGLE_WITHER_ROSE_PLACED_FEATURE;
+                } else {
+                    registryEntry = FeatureRegistry.HOST_GRASS_BONEMEAL_PLACED_FEATURE;
                 }
+                registryEntry.value().generateUnregistered(world, world.getChunkManager().getChunkGenerator(), random, blockPosCopy);
             }
         }
 
