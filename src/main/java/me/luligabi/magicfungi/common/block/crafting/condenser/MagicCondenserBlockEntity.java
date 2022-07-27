@@ -31,7 +31,6 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Iterator;
 import java.util.Optional;
 
-// TODO: Implement SidedInventory interactions
 public class MagicCondenserBlockEntity extends LockableContainerBlockEntity implements SidedInventory {
 
     public MagicCondenserBlockEntity(BlockPos pos, BlockState state) {

@@ -54,26 +54,26 @@ public class MagicCondenserScreenHandler extends ScreenHandler {
         return this.inventory.canPlayerUse(player);
     }
 
-    /*public ItemStack transferSlot(PlayerEntity player, int index) { // TODO: Implement shift-click interactions
+    public ItemStack transferSlot(PlayerEntity player, int index) {
         ItemStack itemStack = ItemStack.EMPTY;
         Slot slot = this.slots.get(index);
         if (slot != null && slot.hasStack()) {
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
-            if((index < 0 || index > 2) && index != 3 && index != 4) {
-                if(MagicCondenserScreenHandler.EssenceSlot.matches(itemStack)) {
+            if ((index < 0 || index > 2) && index != 3 && index != 4) {
+                if (EssenceSlot.matches(itemStack)) {
                     if(this.insertItem(itemStack2, 1, 2, false) || inputSlot.canInsert(itemStack2) && !this.insertItem(itemStack2, 3, 4, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if(netherStarSlot.canInsert(itemStack2)) {
+                } else if(NetherStarSlot.matches(itemStack2)) {
                     if (!this.insertItem(itemStack2, 2, 3, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (BrewingStandScreenHandler.PotionSlot.matches(itemStack) && itemStack.getCount() == 1) {
+                } else if(!inputSlot.hasStack() && inputSlot.canInsert(itemStack2)) {
                     if (!this.insertItem(itemStack2, 0, 1, false)) {
                         return ItemStack.EMPTY;
                     }
-                } else if (index >= 5 && index < 32) {
+                }  else if (index >= 3 && index < 32) {
                     if (!this.insertItem(itemStack2, 32, 39, false)) {
                         return ItemStack.EMPTY;
                     }
@@ -106,7 +106,7 @@ public class MagicCondenserScreenHandler extends ScreenHandler {
         }
 
         return itemStack;
-    }*/
+    }
 
     public int getProperty(int index) {
         return this.propertyDelegate.get(index);
