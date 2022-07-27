@@ -10,7 +10,7 @@
       "translate": "advancements.magicfungi.relics.description"
     }
   },
-  "parent": "magicfungi:essences",
+  "parent": "magicfungi:magic_condenser",
   "criteria": {
     "checkInv": {
       "trigger": "minecraft:inventory_changed",

@@ -3,6 +3,7 @@
   "values": [
     "magicfungi:glyph_carving_workbench",
     "magicfungi:magical_fungi_alloy_block",
-    "magicfungi:essence_extractor"
+    "magicfungi:essence_extractor",
+    "magicfungi:magic_condenser"
   ]
 }

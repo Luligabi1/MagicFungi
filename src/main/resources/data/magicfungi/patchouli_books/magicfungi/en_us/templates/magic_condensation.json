@@ -1,0 +1,36 @@
+{
+  "processor": "me.luligabi.magicfungi.client.compat.patchouli.MagicCondensationProcessor",
+
+  "components": [
+    {
+      "type": "patchouli:image",
+      "image": "magicfungi:textures/gui/patchouli/magic_condensation.png",
+      "width": 120,
+      "height": 100,
+      "texture_width": 128,
+      "y": 6
+    },
+    {
+      "type": "patchouli:header",
+      "text": "#header",
+      "maxWidth": 10,
+      "x": -1,
+      "y": -3
+    },
+    {
+      "type": "patchouli:text",
+      "text": "#text",
+      "x": 2,
+      "y": 32
+    },
+    {
+      "type": "patchouli:item", "item": "#input", "x": 21, "y": 10
+    },
+    {
+      "type": "patchouli:item", "item": "#output", "x": 77, "y": 10, "link_recipe": true
+    },
+    {
+      "type": "patchouli:item", "item": "magicfungi:magic_condenser", "x": 101, "y": 10
+    }
+  ]
+}

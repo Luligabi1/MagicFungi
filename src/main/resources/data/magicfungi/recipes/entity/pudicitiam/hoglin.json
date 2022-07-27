@@ -1,0 +1,6 @@
+{
+  "type": "magicfungi:pudicitiam_healing",
+
+  "corruptedEntity": "minecraft:zoglin",
+  "regularEntity": "minecraft:hoglin"
+}

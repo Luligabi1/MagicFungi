@@ -11,7 +11,7 @@
     },
     "frame": "goal"
   },
-  "parent": "magicfungi:spell_workbench",
+  "parent": "magicfungi:root",
   "criteria": {
     "checkInv": {
       "trigger": "minecraft:inventory_changed",

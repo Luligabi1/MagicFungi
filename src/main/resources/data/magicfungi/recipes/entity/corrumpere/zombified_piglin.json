@@ -1,0 +1,6 @@
+{
+  "type": "magicfungi:corrumpere_corruption",
+
+  "regularEntity": "minecraft:piglin",
+  "corruptedEntity": "minecraft:zombified_piglin"
+}

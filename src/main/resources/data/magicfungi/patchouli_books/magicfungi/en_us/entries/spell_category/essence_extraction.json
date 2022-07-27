@@ -1,0 +1,39 @@
+{
+  "name": "Capturing the Essence",
+  "icon": "magicfungi:essence_extractor",
+  "category": "magicfungi:spell_category",
+  "sortnum": 5,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "magicfungi:essence_extractor",
+      "title": "Capturing the Essence",
+      "text": "As you might have noticed by now, just $(l)Magic Mushrooms$() won't cut it when attempting to perform greater magic. You'll need to extract their $(l)essences$(): the purest form of the magic inside the fungi. To do this procedure, you'll need an $(l)Essence Extractor$():"
+    },
+    {
+      "type": "crafting",
+      "recipe": "magicfungi:crafting/essence_extractor",
+      "text": "To extract, you'll need 3 glass bottles, your mushroom of choice and a $(l)Catalyst$(). Catalysts are special items that stimulate the extraction process. Each fungi type has a specific catalyst that is required, as you can see on the next pages:"
+    },
+    {
+      "type": "magicfungi:essence_extraction",
+      "recipe": "magicfungi:essence/impetus_essence",
+      "text": "The pure essence of the $(c)$(l)Impetus Mushroom$(). $()Its catalyst is $(c)$(l)Blaze Powder$(): the rests of a powerful beast that fought until its last breath."
+    },
+    {
+      "type": "magicfungi:essence_extraction",
+      "recipe": "magicfungi:essence/clypeus_essence",
+      "text": "The pure essence of the $(3)$(l)Clypeus Mushroom$(). $()Its catalyst is $(3)$(l)Prismarine Crystals$(): part of a bigger structure that protected those inside it."
+    },
+    {
+      "type": "magicfungi:essence_extraction",
+      "recipe": "magicfungi:essence/utilis_essence",
+      "text": "The pure essence of the $(d)$(l)Utilis Mushroom$(). $()Its catalyst is $(d)$(l)Popped Chorus Fruit$(): the result of the adaptability required to thrive on a dire ambient."
+    },
+    {
+      "type": "magicfungi:essence_extraction",
+      "recipe": "magicfungi:essence/vivifica_essence",
+      "text": "The pure essence of the $(a)$(l)Vivifica Mushroom$(). $()Its catalyst is $(a)$(l)Scute$(): the outcome of one of the phases of the never-stopping cycle of life."
+    }
+  ]
+}

@@ -1,8 +1,6 @@
 package me.luligabi.magicfungi.rei.common.menuinfo;
 
-import me.luligabi.magicfungi.common.screenhandler.glyph.GlyphCarvingScreenHandler;
 import me.luligabi.magicfungi.common.screenhandler.spell.SpellDiscoveryScreenHandler;
-import me.luligabi.magicfungi.rei.common.display.GlyphRecipeDisplay;
 import me.luligabi.magicfungi.rei.common.display.SpellRecipeDisplay;
 import me.shedaniel.rei.api.common.transfer.info.MenuInfoContext;
 import me.shedaniel.rei.api.common.transfer.info.clean.InputCleanHandler;
@@ -24,11 +22,10 @@ public class SpellMenuInfo implements SimplePlayerInventoryMenuInfo<SpellDiscove
 
     @Override
     public Iterable<SlotAccessor> getInputSlots(MenuInfoContext<SpellDiscoveryScreenHandler, ?, SpellRecipeDisplay> context) {
-        SpellDiscoveryScreenHandler handler = context.getMenu();
 
         List<SlotAccessor> list = new ArrayList<>(8);
         for (int i = 0; i <= 7; i++) {
-            list.add(SlotAccessor.fromContainer(handler.input, i));
+            list.add(SlotAccessor.fromContainer(context.getMenu().input, i));
         }
 
         return list;

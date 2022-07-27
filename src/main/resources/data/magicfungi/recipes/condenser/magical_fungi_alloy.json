@@ -1,0 +1,14 @@
+{
+  "type": "magicfungi:magic_condenser",
+
+  "input" : {
+    "item": "minecraft:netherite_ingot"
+  },
+
+  "impetusEssenceCost": 1,
+  "clypeusEssenceCost": 1,
+  "utilisEssenceCost": 1,
+  "vivificaEssenceCost": 1,
+
+  "outputItem": "magicfungi:magical_fungi_alloy"
+}

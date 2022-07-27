@@ -5,9 +5,9 @@
   "sortnum": 1,
   "pages": [
     {
-      "type": "magicfungi:glyph_carving",
-      "recipe": "magicfungi:glyph/relics/impetus_sword",
-      "text": "$(4)$(l)Impetus Sword $()is a special sword made from $(4)Impetus Essence$(). Sets hit entities on $(c)fire$()."
+      "type": "magicfungi:magic_condensation",
+      "recipe": "magicfungi:condenser/relics/impetus_sword",
+      "text": "$(c)$(l)Impetus Sword$() is the byproduct of $(l:relic_category/magic_condenser)condensing$() $(c)$(l)Impetus Essence$() into a $(l)Netherite Sword$(). Whenever you hit a target using this sword, you'll add $(c)charge$() to it.$(br)When fully charged, $(c)$(l)$(k:sneak) + $(k:use)$() to invoke a few fireballs in a radius. The closer your targets are, the more efficient the charged attack is."
     }
   ]
 }

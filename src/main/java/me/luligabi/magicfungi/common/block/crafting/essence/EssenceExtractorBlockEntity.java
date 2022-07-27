@@ -1,7 +1,6 @@
 package me.luligabi.magicfungi.common.block.crafting.essence;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipe;
 import me.luligabi.magicfungi.common.screenhandler.essence.EssenceExtractorScreenHandler;
 import me.luligabi.magicfungi.common.util.CatalystType;
@@ -44,7 +43,7 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
                     case 0 -> EssenceExtractorBlockEntity.this.brewTime;
                     case 1 -> EssenceExtractorBlockEntity.this.fuel;
                     case 2 -> EssenceExtractorBlockEntity.this.fuelType;
-                    default -> 0;
+                    default -> throw new IllegalStateException("Unexpected index: " + index);
                 };
             }
 
@@ -63,11 +62,7 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
         };
     }
 
-    /*
-       Catalysts are stored on the NBT under an integer, with the purpose of taking advantage of the PropertyDelegate.
-       As primitive types cannot be null, we use CatalystType#EMPTY (5 on the values array) instead.
-    */
-    private static final int EMPTY_CATALYST = 5;
+
     private DefaultedList<ItemStack> inventory;
     int brewTime;
     private boolean[] slotsEmptyLastTick;
@@ -106,35 +101,34 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, EssenceExtractorBlockEntity blockEntity) {
-        ItemStack itemStack = blockEntity.inventory.get(4);
-        if (blockEntity.fuel <= 18 && !itemStack.isEmpty()) {
+        ItemStack catalystStack = blockEntity.inventory.get(4);
+        if (blockEntity.fuel <= 18 && !catalystStack.isEmpty()) {
             blockEntity.fuel += 2;
-            blockEntity.fuelType = blockEntity.checkFuelType(itemStack);
-            itemStack.decrement(1);
+            blockEntity.fuelType = CatalystType.checkCatalystType(catalystStack);
+            catalystStack.decrement(1);
             markDirty(world, pos, state);
         }
 
         boolean canCraft = canCraft(blockEntity, world, blockEntity.fuelType);
-        boolean isBrewing = blockEntity.brewTime > 0;
-        ItemStack itemStack2 = blockEntity.inventory.get(3);
+        ItemStack ingredientStack = blockEntity.inventory.get(3);
 
-        if (isBrewing) {
+        if (blockEntity.brewTime > 0) {
             --blockEntity.brewTime;
             boolean bl3 = blockEntity.brewTime == 0;
             if (bl3 && canCraft) {
                 craft(world, pos, blockEntity);
                 markDirty(world, pos, state);
-            } else if (!canCraft || !itemStack2.isOf(blockEntity.itemBrewing)) {
+            } else if (!canCraft || !ingredientStack.isOf(blockEntity.itemBrewing)) {
                 blockEntity.brewTime = 0;
                 markDirty(world, pos, state);
             }
         } else if (canCraft && blockEntity.fuel > 0) {
             --blockEntity.fuel;
             if(blockEntity.fuel <= 0) { // if fuel type reaches 0, remove fuelType tag
-                blockEntity.fuelType = EMPTY_CATALYST;
+                blockEntity.fuelType = CatalystType.EMPTY_CATALYST;
             }
-            blockEntity.brewTime = 400;
-            blockEntity.itemBrewing = itemStack2.getItem();
+            blockEntity.brewTime = 20*20;
+            blockEntity.itemBrewing = ingredientStack.getItem();
             markDirty(world, pos, state);
         }
 
@@ -298,21 +292,6 @@ public class EssenceExtractorBlockEntity extends LockableContainerBlockEntity im
 
     private static Optional<EssenceRecipe> createRecipeOptional(EssenceExtractorBlockEntity blockEntity, World world) {
         return world.getServer().getRecipeManager().getFirstMatch(EssenceRecipe.Type.INSTANCE, blockEntity, world);
-    }
-
-    private int checkFuelType(ItemStack stack) {
-        if(stack.isIn(TagRegistry.IMPETUS_CATALYST)) {
-            return 0;
-        } else if(stack.isIn(TagRegistry.CLYPEUS_CATALYST)) {
-            return 1;
-        } else if(stack.isIn(TagRegistry.UTILIS_CATALYST)) {
-            return 2;
-        } else if(stack.isIn(TagRegistry.VIVIFICA_CATALYST)) {
-            return 3;
-        } else if(stack.isIn(TagRegistry.MORBUS_CATALYST)) {
-            return 4;
-        }
-        return EMPTY_CATALYST;
     }
 
 }

@@ -117,6 +117,7 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_ESSENCE));
 
                 // Relics
+                stacks.add(new ItemStack(BlockRegistry.MAGIC_CONDENSER_BLOCK));
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_SWORD));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_SHIELD));
                 stacks.add(new ItemStack(ItemRegistry.UTILIS_PICKAXE));

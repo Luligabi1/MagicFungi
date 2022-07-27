@@ -29,11 +29,7 @@ public class GlyphRecipe implements Recipe<SimpleCraftingInventory> {
         this.inputD = inputD;
         this.outputStack = outputStack;
         this.identifier = identifier;
-        inputs = DefaultedList.of();
-        inputs.add(inputA);
-        inputs.add(inputB);
-        inputs.add(inputC);
-        inputs.add(inputD);
+        this.inputs = DefaultedList.copyOf(Ingredient.empty(), inputA, inputB, inputC, inputD);
     }
 
     public Ingredient getInputA() { return inputA; }

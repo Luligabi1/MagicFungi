@@ -40,6 +40,16 @@
   "title.magicfungi.essence_extractor": "Extração de Essência",
   "tooltip.magicfungi.essence_extractor.catalyst_fuel": "Combustível de Catalisador restante: %d",
 
+  "block.magicfungi.magic_condenser": "Condensador Mágico",
+  "title.magicfungi.magic_condenser.1": "Condensação Mágica",
+  "title.magicfungi.magic_condenser.2": "Condensação de Magia",
+  "tooltip.magicfungi.impetus_essence": "Essência(s) Impetus: ",
+  "tooltip.magicfungi.clypeus_essence": "Essência(s) Clypeus: ",
+  "tooltip.magicfungi.utilis_essence": "Essência(s) Utilis: ",
+  "tooltip.magicfungi.vivifica_essence": "Essência(s) Vivifica: ",
+  "tooltip.magicfungi.morbus_essence": "Essência(s) Morbus: ",
+  "tooltip.magicfungi.nether_star_fuel": "Energia de Estrela do Nether: ",
+
   "block.magicfungi.morbus_mushroom_block": "Bloco de Cogumelo Morbus",
 
   "block.magicfungi.host_grass_block": "Bloco de Grama Hospedeira",
@@ -91,6 +101,9 @@
 
 
   "item.magicfungi.impetus_sword": "Espada Impetus",
+  "tooltip.magicfungi.impetus_sword.1": "\"Impetuosidade é chave para reduzir",
+  "tooltip.magicfungi.impetus_sword.2": "nossas perdas... na raiz.\"",
+
 
   "item.magicfungi.clypeus_shield": "Escudo Clypeus",
   "item.magicfungi.clypeus_shield.red": "Escudo Clypeus Vermelho",
@@ -110,10 +123,22 @@
   "item.magicfungi.clypeus_shield.gray": "Escudo Clypeus Cinza",
   "item.magicfungi.clypeus_shield.dark_gray": "Escudo Clypeus Cinza-Escuro",
   "item.magicfungi.clypeus_shield.black": "Escudo Clypeus Preto",
+  "tooltip.magicfungi.clypeus_shield.1": "\"Recuar não é um erro grosseiro,",
+  "tooltip.magicfungi.clypeus_shield.2": "é visar proteger os nossos.\"",
 
   "item.magicfungi.utilis_pickaxe": "Picareta Utilis",
+  "tooltip.magicfungi.utilis_pickaxe.1": "\"Inovação será o nosso",
+  "tooltip.magicfungi.utilis_pickaxe.2": "maior passo para a salvação.\"",
+
   "item.magicfungi.vivifica_elixir": "Elixir Vivifica",
+  "tooltip.magicfungi.vivifica_elixir.1": "\"O único jeito de mudar o terrível",
+  "tooltip.magicfungi.vivifica_elixir.2": "fim que nos aguarda é através da cura.\"",
+
   "item.magicfungi.morbus_scythe": "Foice Morbus",
+  "tooltip.magicfungi.morbus_scythe.1": "\"O fim justificará",
+  "tooltip.magicfungi.morbus_scythe.2": "meus meios de pecado.\"",
+
+  "tooltip.magicfungi.charge_info.1": "Carga Especial: ",
 
   "item.magicfungi.magical_fungi_helmet": "Capacete de Magia Fúngica",
   "item.magicfungi.magical_fungi_chestplate": "Peitoral de Magia Fúngica",
@@ -303,8 +328,17 @@
   "advancements.magicfungi.essences": "O Essencial",
   "advancements.magicfungi.essences.description": "Obtenha o poder bruto de um cogumelo mágico extraindo sua essência",
 
+  "advancements.magicfungi.essence_glyphs": "Glifos Não-tão-essenciais",
+  "advancements.magicfungi.essence_glyphs.description": "Carve um glifo que requer essências.",
+
+  "advancements.magicfungi.essence_spells": "Feitiços Não-tão-essenciais",
+  "advancements.magicfungi.essence_spells.description": "Descinra um glifo que requer essências.",
+
+  "advancements.magicfungi.magic_condenser": "Condensação Mágica",
+  "advancements.magicfungi.magic_condenser.description": "Fabrique um Condensador Mágico.",
+
   "advancements.magicfungi.relics": "Relíquias Anciãs",
-  "advancements.magicfungi.relics.description": "Reconstrua uma antiga relíquia de muitas eras atrás",
+  "advancements.magicfungi.relics.description": "Condensa essências numa ferramenta para criar uma antiga relíquia de muitas eras atrás",
 
   "advancements.magicfungi.fungi_armor": "Poder Desabrochante",
   "advancements.magicfungi.fungi_armor.description": "Fabrique a armadura completa de Magia Fúngica"

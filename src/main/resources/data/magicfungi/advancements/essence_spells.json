@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:cadere_spell"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.essence_spells"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.essence_spells.description"
+    }
+  },
+  "parent": "magicfungi:essences",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:essence_spells"
+          }
+        ]
+      }
+    }
+  }
+}

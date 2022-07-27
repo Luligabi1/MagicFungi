@@ -1,25 +1,44 @@
 package me.luligabi.magicfungi.common.item.spell.vivifica;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
+import me.luligabi.magicfungi.common.item.spell.AbstractSpellItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropBlock;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
-public class FertilisSpellItem extends BaseSpellItem {
+public class FertilisSpellItem extends AbstractSpellItem {
 
     public FertilisSpellItem(Settings settings) {
         super(settings);
-        setMushroomType(MushroomType.VIVIFICA);
-        setSound(SoundEvents.ITEM_BONE_MEAL_USE);
-        setCooldown(MagicFungi.CONFIG.fertilisSpellCooldown*20);
-        setActionType(ActionType.BLOCK);
+    }
+
+
+    @Override
+    public @NotNull MushroomType getMushroomType() {
+        return MushroomType.VIVIFICA;
+    }
+
+    @Override
+    public @NotNull SoundEvent getSoundEvent() {
+        return SoundEvents.ITEM_BONE_MEAL_USE;
+    }
+
+    @Override
+    public int getCooldown() {
+        return MagicFungi.CONFIG.fertilisSpellCooldown*20;
+    }
+
+    @Override
+    public @NotNull ActionType getActionType() {
+        return ActionType.BLOCK;
     }
 
     @Override
@@ -43,4 +62,5 @@ public class FertilisSpellItem extends BaseSpellItem {
         }
         super.executeSpell(playerEntity, world);
     }
+
 }

@@ -1,6 +1,6 @@
 package me.luligabi.magicfungi.common.item.glyph.utilis;
 
-import me.luligabi.magicfungi.common.item.glyph.BaseGlyphItem;
+import me.luligabi.magicfungi.common.item.glyph.AbstractGlyphItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.EntityType;
@@ -9,16 +9,31 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
-public class PluviamGlyphItem extends BaseGlyphItem {
+public class PluviamGlyphItem extends AbstractGlyphItem {
 
     public PluviamGlyphItem(Settings settings) {
         super(settings);
-        setMushroomType(MushroomType.UTILIS);
-        setSound(SoundEvents.WEATHER_RAIN_ABOVE);
-        setActionType(ActionType.WORLD);
+    }
+
+
+    @Override
+    public @NotNull MushroomType getMushroomType() {
+        return MushroomType.UTILIS;
+    }
+
+    @Override
+    public @NotNull SoundEvent getSoundEvent() {
+        return SoundEvents.WEATHER_RAIN_ABOVE;
+    }
+
+    @Override
+    public @NotNull ActionType getActionType() {
+        return ActionType.WORLD;
     }
 
     @Override

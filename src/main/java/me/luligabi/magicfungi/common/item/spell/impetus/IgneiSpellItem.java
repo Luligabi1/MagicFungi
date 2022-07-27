@@ -1,22 +1,41 @@
 package me.luligabi.magicfungi.common.item.spell.impetus;
 
 import me.luligabi.magicfungi.common.MagicFungi;
-import me.luligabi.magicfungi.common.item.spell.BaseSpellItem;
+import me.luligabi.magicfungi.common.item.spell.AbstractSpellItem;
 import me.luligabi.magicfungi.common.util.ActionType;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.SmallFireballEntity;
+import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.NotNull;
 
-public class IgneiSpellItem extends BaseSpellItem {
+public class IgneiSpellItem extends AbstractSpellItem {
 
     public IgneiSpellItem(Settings settings) {
         super(settings);
-        setMushroomType(MushroomType.IMPETUS);
-        setCooldown(MagicFungi.CONFIG.igneiSpellCooldown*20);
-        setSound(SoundEvents.ITEM_FLINTANDSTEEL_USE);
-        setActionType(ActionType.WORLD);
+    }
+
+
+    @Override
+    public @NotNull MushroomType getMushroomType() {
+        return MushroomType.IMPETUS;
+    }
+
+    @Override
+    public @NotNull SoundEvent getSoundEvent() {
+        return SoundEvents.ITEM_FLINTANDSTEEL_USE;
+    }
+
+    @Override
+    public int getCooldown() {
+        return MagicFungi.CONFIG.igneiSpellCooldown*20;
+    }
+
+    @Override
+    public @NotNull ActionType getActionType() {
+        return ActionType.WORLD;
     }
 
     @Override
@@ -27,4 +46,5 @@ public class IgneiSpellItem extends BaseSpellItem {
         world.spawnEntity(fireball);
         super.executeSpell(playerEntity, world);
     }
+
 }

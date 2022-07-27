@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:pudicitiam_glyph"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.essence_glyphs"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.essence_glyphs.description"
+    }
+  },
+  "parent": "magicfungi:essences",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "tag": "magicfungi:essence_glyphs"
+          }
+        ]
+      }
+    }
+  }
+}

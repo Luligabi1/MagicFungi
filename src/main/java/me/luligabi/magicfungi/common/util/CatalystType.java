@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common.util;
 
 import me.luligabi.magicfungi.common.misc.TagRegistry;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.StringIdentifiable;
@@ -45,5 +46,22 @@ public enum CatalystType implements StringIdentifiable {
     public Formatting getColor() {
         return color;
     }
+
+    public static int checkCatalystType(ItemStack stack) {
+        if(stack.isIn(TagRegistry.IMPETUS_CATALYST)) {
+            return 0;
+        } else if(stack.isIn(TagRegistry.CLYPEUS_CATALYST)) {
+            return 1;
+        } else if(stack.isIn(TagRegistry.UTILIS_CATALYST)) {
+            return 2;
+        } else if(stack.isIn(TagRegistry.VIVIFICA_CATALYST)) {
+            return 3;
+        } else if(stack.isIn(TagRegistry.MORBUS_CATALYST)) {
+            return 4;
+        }
+        return EMPTY_CATALYST;
+    }
+
+    public static final int EMPTY_CATALYST = 5;
 
 }

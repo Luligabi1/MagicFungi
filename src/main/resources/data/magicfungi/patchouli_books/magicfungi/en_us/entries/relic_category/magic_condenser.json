@@ -1,0 +1,30 @@
+{
+  "name": "Magic Condensation",
+  "icon": "magicfungi:magic_condenser",
+  "category": "magicfungi:relic_category",
+  "sortnum": 0,
+  "pages": [
+    {
+      "type": "spotlight",
+      "item": "magicfungi:magic_condenser",
+      "title": "Magic Condensation",
+      "text": "Now that you have obtained the $(l:spell_category/essence_extraction)Magic Mushrooms' essences$(), it's time to $(l)condense$() them into other objects, creating new magical artifacts and tools. First things first, you'll need some $(l)Essences$(), $(l)Nether Stars$() and a $(l)Magic Condenser$():"
+    },
+    {
+      "type": "crafting",
+      "recipe": "magicfungi:crafting/magic_condenser",
+      "text": "Magic condensation takes a little while to be complete, so it might be better to do something else instead of waiting. If you're having issues using a Magic Condenser, check the following pages for instructions."
+    },
+    {
+      "type": "image",
+      "images": ["magicfungi:textures/guide_book/magic_condenser_tutorial.png"],
+      "title": "Condensing Interface",
+      "text": "Check the following page for usage instructions.",
+      "border": true
+    },
+    {
+      "type": "text",
+      "text": "$(c)$(l)1. Condensation Slot$() Where you place the object you want to condense essences into.$(br2)$(c)$(l)2. Essence Slot & Gauges$() Where you'll insert the essences required for your condensation. Don't worry if you add a essence that isn't used; only the required essences will be consumed.$(br2)$(c)$(l)3. NSP Slot$() Where $(l)Nether Stars$() are inserted to generate $(l)Nether Star Power (NSP)$(), used to perform most kinds of condensation."
+    }
+  ]
+}

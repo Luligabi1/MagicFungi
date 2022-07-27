@@ -1,5 +1,6 @@
 package me.luligabi.magicfungi.common.misc;
 
+import me.luligabi.magicfungi.client.particle.UtilisLaserParticle;
 import me.luligabi.magicfungi.common.MagicFungi;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
@@ -19,6 +20,8 @@ public class ParticleRegistry {
         Registry.register(Registry.PARTICLE_TYPE, new Identifier(MagicFungi.MOD_ID, "utilis_flame"), UTILIS_FLAME);
         Registry.register(Registry.PARTICLE_TYPE, new Identifier(MagicFungi.MOD_ID, "vivifica_flame"), VIVIFICA_FLAME);
         Registry.register(Registry.PARTICLE_TYPE, new Identifier(MagicFungi.MOD_ID, "morbus_flame"), MORBUS_FLAME);
+
+        Registry.register(Registry.PARTICLE_TYPE, new Identifier(MagicFungi.MOD_ID, "utilis_laser"), UTILIS_LASER);
     }
 
     public static void clientInit() {
@@ -35,6 +38,8 @@ public class ParticleRegistry {
         ParticleFactoryRegistry.getInstance().register(UTILIS_FLAME, FlameParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(VIVIFICA_FLAME, FlameParticle.Factory::new);
         ParticleFactoryRegistry.getInstance().register(MORBUS_FLAME, FlameParticle.Factory::new);
+
+        ParticleFactoryRegistry.getInstance().register(UTILIS_LASER, UtilisLaserParticle.Factory::new);
     }
 
     public static final DefaultParticleType IMPETUS_FLAME = FabricParticleTypes.simple();
@@ -42,5 +47,7 @@ public class ParticleRegistry {
     public static final DefaultParticleType UTILIS_FLAME = FabricParticleTypes.simple();
     public static final DefaultParticleType VIVIFICA_FLAME = FabricParticleTypes.simple();
     public static final DefaultParticleType MORBUS_FLAME = FabricParticleTypes.simple();
+
+    public static final DefaultParticleType UTILIS_LASER = FabricParticleTypes.simple();
 
 }

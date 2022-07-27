@@ -5,9 +5,9 @@
   "sortnum": 4,
   "pages": [
     {
-      "type": "magicfungi:glyph_carving",
-      "recipe": "magicfungi:glyph/relics/vivifica_elixir",
-      "text": "$(a)$(l)Vivifica Elixir $()is an infinite healing beverage made from $(a)Vivifica Essence$(). After using it, you'll receive $(c)Healing Effects$(), at the cost of a big cooldown."
+      "type": "magicfungi:magic_condensation",
+      "recipe": "magicfungi:condenser/relics/vivifica_elixir",
+      "text": "$(a)$(l)Vivifica Elixir$() is the byproduct of $(l:relic_category/magic_condenser)condensing$() $(a)$(l)Vivifica Essence$() into a $(l)Glass Bottle$(). Whenever you drink this elixir, you'll add $(a)charge$() to it.$(br)When fully charged, $(a)$(l)$(k:sneak) + $(k:use)$() to heal nearby humans and pets."
     }
   ]
 }
