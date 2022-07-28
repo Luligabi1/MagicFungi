@@ -1,5 +1,5 @@
 plugins {
-    id 'fabric-loom' version '0.10-SNAPSHOT'
+    id 'fabric-loom' version '0.12-SNAPSHOT'
     id "com.matthewprenger.cursegradle" version '1.4.0'
     id "com.modrinth.minotaur" version '2.4.0'
     id 'maven-publish'
@@ -49,9 +49,9 @@ dependencies {
     modImplementation "com.github.Draylar.omega-config:omega-config-gui:${project.omega_config_version}"
     include "com.github.Draylar.omega-config:omega-config-gui:${project.omega_config_version}"
 
-
-    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
-    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+    // remember to add the 'v' prefix to the version when compiling with a released build
+    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:${project.fabric_shield_lib_version}"
+    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:${project.fabric_shield_lib_version}"
 
 
     modCompileOnly "me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}"

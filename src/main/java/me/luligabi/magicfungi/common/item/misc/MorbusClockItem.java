@@ -12,9 +12,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -43,7 +41,7 @@ public class MorbusClockItem extends Item {
 
             @Override
             public Text getDisplayName() {
-                return new LiteralText("");
+                return Text.empty();
             }
         };
     }
@@ -59,7 +57,7 @@ public class MorbusClockItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.magicfungi.morbus_clock").formatted(Formatting.GRAY, Formatting.ITALIC));
+        tooltip.add(Text.translatable("tooltip.magicfungi.morbus_clock").formatted(Formatting.GRAY, Formatting.ITALIC));
     }
 
 

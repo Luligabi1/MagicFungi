@@ -9,6 +9,7 @@ import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.REIRuntime;
 import me.shedaniel.rei.api.client.gui.widgets.Tooltip;
+import me.shedaniel.rei.api.client.gui.widgets.TooltipContext;
 import me.shedaniel.rei.api.client.gui.widgets.WidgetWithBounds;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.Element;
@@ -19,7 +20,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 
 public class EssenceCostWidget extends WidgetWithBounds implements MagicCondenserUtil {
 
@@ -38,21 +38,19 @@ public class EssenceCostWidget extends WidgetWithBounds implements MagicCondense
         renderEssenceBarOnWidget(display.getMorbusEssenceCost(), startPoint.x, startPoint.y, 2, 16, matrices, helper);
 
         final Point mousePoint = new Point(mouseX, mouseY);
-        if(containsMouse(mousePoint)) getTooltip(mousePoint).queue();
+        if(containsMouse(mousePoint)) getTooltip(TooltipContext.of(mousePoint)).queue();
     }
 
     @Override
-    public @NotNull Tooltip getTooltip(Point mouse) {
-        Tooltip tooltip = super.getTooltip(mouse);
-        if(tooltip == null) tooltip = Tooltip.create(mouse);
-        Consumer<Tooltip> tooltipConsumer = consumer -> {
-            consumer.add(getCountText("tooltip.magicfungi.impetus_essence", display.getImpetusEssenceCost(), Formatting.DARK_RED, Formatting.RED));
-            consumer.add(getCountText("tooltip.magicfungi.clypeus_essence", display.getClypeusEssenceCost(), Formatting.DARK_AQUA, Formatting.AQUA));
-            consumer.add(getCountText("tooltip.magicfungi.utilis_essence", display.getUtilisEssenceCost(), Formatting.DARK_PURPLE, Formatting.LIGHT_PURPLE));
-            consumer.add(getCountText("tooltip.magicfungi.vivifica_essence", display.getVivificaEssenceCost(), Formatting.DARK_GREEN, Formatting.GREEN));
-            consumer.add(getCountText("tooltip.magicfungi.morbus_essence", display.getMorbusEssenceCost(), Formatting.DARK_GRAY, Formatting.GRAY));
-        };
-        tooltipConsumer.accept(tooltip);
+    public @NotNull Tooltip getTooltip(TooltipContext context) {
+        Tooltip tooltip = super.getTooltip(context);
+        if(tooltip == null) tooltip = Tooltip.create(context.getPoint(), List.of(
+                getCountText("tooltip.magicfungi.impetus_essence", display.getImpetusEssenceCost(), Formatting.DARK_RED, Formatting.RED),
+                getCountText("tooltip.magicfungi.clypeus_essence", display.getClypeusEssenceCost(), Formatting.DARK_AQUA, Formatting.AQUA),
+                getCountText("tooltip.magicfungi.utilis_essence", display.getUtilisEssenceCost(), Formatting.DARK_PURPLE, Formatting.LIGHT_PURPLE),
+                getCountText("tooltip.magicfungi.vivifica_essence", display.getVivificaEssenceCost(), Formatting.DARK_GREEN, Formatting.GREEN),
+                getCountText("tooltip.magicfungi.morbus_essence", display.getMorbusEssenceCost(), Formatting.DARK_GRAY, Formatting.GRAY)
+        ));
         return tooltip;
     }
 

@@ -10,7 +10,6 @@ import net.minecraft.client.item.TooltipData;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -33,14 +32,14 @@ public class CadentisGlyphItem extends BlockItem {
         if(!Screen.hasShiftDown()) return;
         MushroomType mushroomType = MushroomType.UTILIS;
 
-        tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.1")
+        tooltip.add(Text.translatable("tooltip.magicfungi.spell_info.1")
                 .formatted(MushroomType.getDarkColor(mushroomType), Formatting.BOLD)
-                .append(new TranslatableText("tooltip.magicfungi.spell_info.2", mushroomType.getFancyName(), mushroomType.getStatsName())
+                .append(Text.translatable("tooltip.magicfungi.spell_info.2", mushroomType.getFancyName(), mushroomType.getStatsName())
                         .formatted(MushroomType.getLightColor(mushroomType))));
-        tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
+        tooltip.add(Text.translatable("tooltip.magicfungi.spell_info.5")
                 .formatted(MushroomType.getDarkColor(mushroomType), Formatting.BOLD)
                 .append(ActionType.BLOCK.getTranslatableText()
-                        .formatted(MushroomType.getLightColor(mushroomType))));
+                        .copy().formatted(MushroomType.getLightColor(mushroomType))));
     }
 
     @Override //

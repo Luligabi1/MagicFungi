@@ -18,7 +18,6 @@ import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
@@ -33,7 +32,7 @@ public class MagicCondenserDisplayCategory extends DrawableHelper implements Dis
         widgets.add(Widgets.createRecipeBase(bounds));
         widgets.add(Widgets.createRecipeBase(bounds));
         widgets.add(new TooltippedArrow(new Point(startPoint.x + 32, startPoint.y + 4),
-                tooltip -> tooltip.add(new TranslatableText("category.rei.campfire.time", 32)))
+                List.of(Text.translatable("category.rei.campfire.time", 32)))
                 .animationDurationTicks(32*20));
         widgets.add(Widgets.createResultSlotBackground(new Point(startPoint.x + 66, startPoint.y + 5)));
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 9, startPoint.y + 5)).entries(display.getInputEntries().get(0)).markInput());
@@ -54,7 +53,7 @@ public class MagicCondenserDisplayCategory extends DrawableHelper implements Dis
 
     @Override
     public Text getTitle() {
-        return new TranslatableText("title.magicfungi.magic_condenser.2");
+        return Text.translatable("title.magicfungi.magic_condenser.2");
     }
 
     @Override

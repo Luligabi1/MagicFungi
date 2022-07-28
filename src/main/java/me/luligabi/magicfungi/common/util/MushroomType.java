@@ -2,36 +2,36 @@ package me.luligabi.magicfungi.common.util;
 
 import me.luligabi.magicfungi.common.misc.ParticleRegistry;
 import net.minecraft.particle.DefaultParticleType;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.StringIdentifiable;
 
 public enum MushroomType implements StringIdentifiable {
 
-    IMPETUS(new TranslatableText("mushroomType.magicfungi.impetus"), new TranslatableText("mushroomType.magicfungi.impetus.stats"), "impetus"),
-    CLYPEUS(new TranslatableText("mushroomType.magicfungi.clypeus"), new TranslatableText("mushroomType.magicfungi.clypeus.stats"), "clypeus"),
-    UTILIS(new TranslatableText("mushroomType.magicfungi.utilis"), new TranslatableText("mushroomType.magicfungi.utilis.stats"), "utilis"),
-    VIVIFICA(new TranslatableText("mushroomType.magicfungi.vivifica"), new TranslatableText("mushroomType.magicfungi.vivifica.stats"), "vivifica"),
-    MORBUS(new TranslatableText("mushroomType.magicfungi.morbus"), new TranslatableText("mushroomType.magicfungi.morbus.stats"), "morbus"),
+    IMPETUS(Text.translatable("mushroomType.magicfungi.impetus"), Text.translatable("mushroomType.magicfungi.impetus.stats"), "impetus"),
+    CLYPEUS(Text.translatable("mushroomType.magicfungi.clypeus"), Text.translatable("mushroomType.magicfungi.clypeus.stats"), "clypeus"),
+    UTILIS(Text.translatable("mushroomType.magicfungi.utilis"), Text.translatable("mushroomType.magicfungi.utilis.stats"), "utilis"),
+    VIVIFICA(Text.translatable("mushroomType.magicfungi.vivifica"), Text.translatable("mushroomType.magicfungi.vivifica.stats"), "vivifica"),
+    MORBUS(Text.translatable("mushroomType.magicfungi.morbus"), Text.translatable("mushroomType.magicfungi.morbus.stats"), "morbus"),
 
     // Unknown
-    INCOGNITA(new TranslatableText("mushroomType.magicfungi.incognita"), new TranslatableText("mushroomType.magicfungi.incognita.stats"), "incognita");
+    INCOGNITA(Text.translatable("mushroomType.magicfungi.incognita"), Text.translatable("mushroomType.magicfungi.incognita.stats"), "incognita");
 
-    private final TranslatableText fancyName;
-    private final TranslatableText statsName;
+    private final Text fancyName;
+    private final Text statsName;
     private final String id;
 
-    MushroomType(TranslatableText fancyName, TranslatableText statsName, String id) {
+    MushroomType(Text fancyName, Text statsName, String id) {
         this.fancyName = fancyName;
         this.statsName = statsName;
         this.id = id;
     }
 
-    public TranslatableText getFancyName() {
+    public Text getFancyName() {
         return fancyName;
     }
 
-    public TranslatableText getStatsName() {
+    public Text getStatsName() {
         return statsName;
     }
 

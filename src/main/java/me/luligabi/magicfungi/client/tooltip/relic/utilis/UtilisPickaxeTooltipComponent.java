@@ -8,8 +8,7 @@ import net.minecraft.client.gui.tooltip.TooltipComponent;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.Matrix4f;
@@ -42,8 +41,8 @@ public class UtilisPickaxeTooltipComponent implements TooltipComponent {
 
     @Override
     public void drawText(TextRenderer textRenderer, int x, int y, Matrix4f matrix, VertexConsumerProvider.Immediate vertexConsumers) {
-        TranslatableText cooldownText = tooltipData.state.getTranslatableText();
-        textRenderer.draw(cooldownText.formatted(Formatting.LIGHT_PURPLE), x + 20, y + 2.5F, -1, true, matrix, vertexConsumers, false, 0, 0xF000F0);
+        Text cooldownText = tooltipData.state.getTranslatableText();
+        textRenderer.draw(cooldownText.copy().formatted(Formatting.LIGHT_PURPLE), x + 20, y + 2.5F, -1, true, matrix, vertexConsumers, false, 0, 0xF000F0);
     }
 
     @Override

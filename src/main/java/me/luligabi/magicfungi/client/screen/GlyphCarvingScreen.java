@@ -26,7 +26,7 @@ public class GlyphCarvingScreen extends HandledScreen<ScreenHandler> {
         x = width / 2 - backgroundWidth / 2;
         y = height / 2 - backgroundHeight / 2;
         playerInventoryTitleY = 112;
-        ((HandledScreenAccessor) this).setPlayerInventoryTitle(playerInventoryTitle.shallowCopy().formatted(Formatting.WHITE));
+        ((HandledScreenAccessor) this).setPlayerInventoryTitle(playerInventoryTitle.copy().formatted(Formatting.WHITE));
         titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
     }
 

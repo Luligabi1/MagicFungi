@@ -8,8 +8,6 @@ import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 public class HostDirtBlock extends Block {
 
     public HostDirtBlock(Settings settings) {
@@ -17,7 +15,7 @@ public class HostDirtBlock extends Block {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, net.minecraft.util.math.random.Random random) {
         if(!WorldUtil.isMorbusSpreadingActive(world)) return;
         if(!hasExposedSide(pos, world)) return;
         BlockState blockState = this.getDefaultState();

@@ -21,7 +21,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tag.TagKey;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.registry.Registry;
@@ -62,7 +61,7 @@ public class EssenceDisplayCategory implements DisplayCategory<EssenceRecipeDisp
 
     @Override
     public Text getTitle() {
-        return new TranslatableText("title.magicfungi.essence_extractor");
+        return Text.translatable("title.magicfungi.essence_extractor");
     }
 
     @Override

@@ -48,7 +48,7 @@ public class PacketRegistry {
                 if (MinecraftClient.getInstance().world == null) throw new IllegalStateException("Tried to spawn entity in a null world!");
                 Entity entity = et.create(MinecraftClient.getInstance().world);
                 if (entity == null) throw new IllegalStateException("Failed to create instance of entity \"" + Registry.ENTITY_TYPE.getId(et) + "\"!");
-                entity.updateTrackedPosition(pos);
+                entity.updateTrackedPosition(pos.x, pos.y, pos.z);
                 entity.setPos(pos.x, pos.y, pos.z);
                 ((EntityInvoker) entity).setPitch(pitch);
                 ((EntityInvoker) entity).setYaw(yaw);

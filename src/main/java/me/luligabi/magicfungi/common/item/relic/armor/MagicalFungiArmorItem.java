@@ -6,9 +6,7 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -28,18 +26,18 @@ public class MagicalFungiArmorItem extends ArmorItem {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.magicfungi.magical_fungi_armor.1")
+        tooltip.add(Text.translatable("tooltip.magicfungi.magical_fungi_armor.1")
                 .formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
-        tooltip.add(new TranslatableText("tooltip.magicfungi.magical_fungi_armor.2")
+        tooltip.add(Text.translatable("tooltip.magicfungi.magical_fungi_armor.2")
                 .formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
         if(Screen.hasShiftDown()) {
-            tooltip.add(new LiteralText(" "));
-            tooltip.add(new TranslatableText("tooltip.magicfungi.magical_fungi_armor.3")
+            tooltip.add(Text.empty());
+            tooltip.add(Text.translatable("tooltip.magicfungi.magical_fungi_armor.3")
                     .formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip.magicfungi.magical_fungi_armor.4")
+            tooltip.add(Text.translatable("tooltip.magicfungi.magical_fungi_armor.4")
                     .formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
         } else {
-            tooltip.add(new TranslatableText("tooltip.magicfungi.extended_info")
+            tooltip.add(Text.translatable("tooltip.magicfungi.extended_info")
                     .formatted(Formatting.GRAY, Formatting.ITALIC));
         }
     }

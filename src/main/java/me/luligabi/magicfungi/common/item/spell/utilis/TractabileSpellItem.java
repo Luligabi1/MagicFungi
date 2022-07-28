@@ -10,7 +10,7 @@ import net.minecraft.screen.GenericContainerScreenHandler;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 
@@ -46,7 +46,7 @@ public class TractabileSpellItem extends AbstractSpellItem {
         if (enderChestInventory == null) return;
         playerEntity.openHandledScreen(new SimpleNamedScreenHandlerFactory((syncId, inventory, playerx) ->
                 GenericContainerScreenHandler.createGeneric9x3(syncId, inventory, enderChestInventory),
-                new TranslatableText("container.enderchest")));
+                Text.translatable("container.enderchest")));
         super.executeSpell(playerEntity, world);
     }
 

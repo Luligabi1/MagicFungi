@@ -5,7 +5,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 
 import java.util.List;
@@ -45,9 +44,9 @@ public interface Chargeable extends Relic {
     int getChargeBarColor(ItemStack stack);
 
     default void appendChargeLevel(List<Text> tooltip, ItemStack stack, MushroomType mushroomType) {
-        tooltip.add(new TranslatableText("tooltip.magicfungi.charge_info.1")
+        tooltip.add(Text.translatable("tooltip.magicfungi.charge_info.1")
                     .formatted(MushroomType.getDarkColor(mushroomType), Formatting.BOLD)
-                .append(new TranslatableText("tooltip.magicfungi.charge_info.2", getCharge(stack), getMaxCharge())
+                .append(Text.translatable("tooltip.magicfungi.charge_info.2", getCharge(stack), getMaxCharge())
                         .formatted(MushroomType.getLightColor(mushroomType))));
     }
 

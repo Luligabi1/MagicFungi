@@ -4,9 +4,7 @@ import net.minecraft.client.gui.screen.Screen;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.Nullable;
@@ -26,14 +24,14 @@ public class MagicalFungiAlloyItem extends Item {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.magicfungi.alloy_info.1")
+        tooltip.add(Text.translatable("tooltip.magicfungi.alloy_info.1")
                 .formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
-        tooltip.add(new TranslatableText("tooltip.magicfungi.alloy_info.2")
+        tooltip.add(Text.translatable("tooltip.magicfungi.alloy_info.2")
                 .formatted(Formatting.DARK_PURPLE, Formatting.ITALIC));
         if(Screen.hasShiftDown()) {
-            tooltip.add(new LiteralText("...")
+            tooltip.add(Text.literal("...")
                     .formatted(Formatting.GRAY, Formatting.ITALIC));
-            tooltip.add(new TranslatableText("tooltip.magicfungi.alloy_info.3")
+            tooltip.add(Text.translatable("tooltip.magicfungi.alloy_info.3")
                     .formatted(Formatting.GRAY, Formatting.ITALIC));
         }
     }

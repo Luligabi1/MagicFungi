@@ -24,8 +24,6 @@ import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
-import java.util.Random;
-
 @SuppressWarnings("deprecation")
 public class CadentisBlock extends Block {
 
@@ -61,7 +59,7 @@ public class CadentisBlock extends Block {
     }
 
     @Override
-    public void randomDisplayTick(BlockState state, World world, BlockPos pos, Random random) {
+    public void randomDisplayTick(BlockState state, World world, BlockPos pos, net.minecraft.util.math.random.Random random) {
         double x = (double) pos.getX() + 0.5D;
         double y = (double) pos.getY() + 0.5D;
         double z = (double) pos.getZ() + 0.5D;

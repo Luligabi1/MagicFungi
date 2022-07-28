@@ -25,8 +25,7 @@ import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import me.shedaniel.rei.plugin.common.displays.DefaultInformationDisplay;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.text.LiteralText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 
 import java.util.Map;
 
@@ -113,8 +112,8 @@ public class ClientReiPlugin implements REIClientPlugin {
                 .build());
 
         reiInformationMap.forEach((itemConvertible, text) -> {
-            DefaultInformationDisplay info = DefaultInformationDisplay.createFromEntry(EntryStacks.of(itemConvertible), new LiteralText(""));
-            info.line(new TranslatableText(text));
+            DefaultInformationDisplay info = DefaultInformationDisplay.createFromEntry(EntryStacks.of(itemConvertible), Text.empty());
+            info.line(Text.translatable(text));
             registry.add(info);
         });
     }

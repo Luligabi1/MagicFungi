@@ -4,11 +4,10 @@ import com.mojang.blaze3d.systems.RenderSystem;
 import me.luligabi.magicfungi.client.tooltip.MagicItemTooltipComponent;
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.client.font.TextRenderer;
-import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.render.VertexConsumerProvider;
 import net.minecraft.client.render.item.ItemRenderer;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.text.LiteralText;
+import net.minecraft.text.Text;
 import net.minecraft.util.math.Matrix4f;
 
 import java.awt.*;
@@ -38,8 +37,8 @@ public class SpellTooltipComponent implements MagicItemTooltipComponent {
 
     @Override
     public void drawText(TextRenderer textRenderer, int x, int y, Matrix4f matrix, VertexConsumerProvider.Immediate vertexConsumers) {
-        LiteralText cooldownText = new LiteralText(tooltipData.cooldown/20 + "s");
-        textRenderer.draw(cooldownText.formatted(MushroomType.getLightColor(tooltipData.mushroomType)), x + (32 - (3*cooldownText.asString().length())), y + 2.5F, -1, true, matrix, vertexConsumers, false, 0, 0xF000F0);
+        Text cooldownText = Text.of(tooltipData.cooldown/20 + "s");
+        textRenderer.draw(cooldownText.copy().formatted(MushroomType.getLightColor(tooltipData.mushroomType)), x + (32 - (3*cooldownText.getString().length())), y + 2.5F, -1, true, matrix, vertexConsumers, false, 0, 0xF000F0);
     }
 
     @Override

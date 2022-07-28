@@ -15,9 +15,7 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.nbt.NbtByte;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -93,9 +91,9 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisP
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        appendQuote(tooltip, MushroomType.UTILIS, new TranslatableText("tooltip.magicfungi.utilis_pickaxe.author"),
-                new TranslatableText("tooltip.magicfungi.utilis_pickaxe.1"),
-                new TranslatableText("tooltip.magicfungi.utilis_pickaxe.2"));
+        appendQuote(tooltip, MushroomType.UTILIS, Text.translatable("tooltip.magicfungi.utilis_pickaxe.author"),
+                Text.translatable("tooltip.magicfungi.utilis_pickaxe.1"),
+                Text.translatable("tooltip.magicfungi.utilis_pickaxe.2"));
     }
 
     @Override
@@ -118,7 +116,7 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisP
 
     @Override
     public void sendStateChangeMessage(PlayerEntity player, State state) {
-        player.sendMessage(new LiteralText(state.getSymbol()).formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD), true);
+        player.sendMessage(Text.literal(state.getSymbol()).formatted(Formatting.LIGHT_PURPLE, Formatting.BOLD), true);
         StateBased.super.sendStateChangeMessage(player, state);
     }
 
@@ -135,22 +133,22 @@ public class UtilisPickaxeItem extends PickaxeItem implements StateBased<UtilisP
 
     public enum State {
 
-        FUNCTIONIS(new TranslatableText("relicState.magicfungi.functionis"), "⛏"),
-        FORTUNAE(new TranslatableText("relicState.magicfungi.fortunae"), "$"),
-        MOLLIS(new TranslatableText("relicState.magicfungi.mollis"), "~"),
-        LASER(new TranslatableText("relicState.magicfungi.laser"), "/"),
-        DYSFUNCTIONIS(new TranslatableText("relicState.magicfungi.dysfunctionis"), "❌");
+        FUNCTIONIS(Text.translatable("relicState.magicfungi.functionis"), "⛏"),
+        FORTUNAE(Text.translatable("relicState.magicfungi.fortunae"), "$"),
+        MOLLIS(Text.translatable("relicState.magicfungi.mollis"), "~"),
+        LASER(Text.translatable("relicState.magicfungi.laser"), "/"),
+        DYSFUNCTIONIS(Text.translatable("relicState.magicfungi.dysfunctionis"), "❌");
 
-        State(TranslatableText translatableText, String symbol) {
+        State(Text translatableText, String symbol) {
             this.translatableText = translatableText;
             this.symbol = symbol;
         }
 
-        private final TranslatableText translatableText;
+        private final Text translatableText;
         private final String symbol;
 
 
-        public TranslatableText getTranslatableText() {
+        public Text getTranslatableText() {
             return translatableText;
         }
 

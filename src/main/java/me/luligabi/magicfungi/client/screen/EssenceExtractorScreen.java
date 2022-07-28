@@ -11,7 +11,6 @@ import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
@@ -27,7 +26,7 @@ public class EssenceExtractorScreen extends HandledScreen<EssenceExtractorScreen
     protected void init() {
         super.init();
         titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
-        ((HandledScreenAccessor) this).setPlayerInventoryTitle(playerInventoryTitle.shallowCopy().formatted(Formatting.WHITE));
+        ((HandledScreenAccessor) this).setPlayerInventoryTitle(playerInventoryTitle.copy().formatted(Formatting.WHITE));
     }
 
     public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
@@ -37,7 +36,7 @@ public class EssenceExtractorScreen extends HandledScreen<EssenceExtractorScreen
 
         if(handler.getFuel() > 0 && handler.getFuelType() <= 4) {
             if((mouseX >= x+59 && mouseX <= x+78) && (mouseY >= y+43 && mouseY <= y+48)) {
-                renderTooltip(matrices, new TranslatableText("tooltip.magicfungi.essence_extractor.catalyst_fuel", handler.getFuel())
+                renderTooltip(matrices, Text.translatable("tooltip.magicfungi.essence_extractor.catalyst_fuel", handler.getFuel())
                         .formatted(CatalystType.values()[handler.getFuelType()].getColor()), mouseX, mouseY);
             }
         }

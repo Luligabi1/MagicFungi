@@ -4,13 +4,11 @@ import com.google.common.collect.ImmutableList;
 import com.mojang.blaze3d.systems.RenderSystem;
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.screenhandler.misc.MorbusClockScreenHandler;
-import net.minecraft.client.gui.screen.ScreenTexts;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
-import net.minecraft.text.LiteralText;
+import net.minecraft.screen.ScreenTexts;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
@@ -54,10 +52,10 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         super.drawMouseoverTooltip(matrices, x, y);
 
         renderLimitedTooltipAt(
-                List.of(new TranslatableText("message.magicfungi.morbus_clock.imminent")
+                List.of(Text.translatable("message.magicfungi.morbus_clock.imminent")
                             .formatted(Formatting.DARK_RED, Formatting.BOLD)
-                        .append((getScreenHandler().isImminent() ? ((TranslatableText) ScreenTexts.YES) : ((TranslatableText) ScreenTexts.NO))
-                            .formatted(Formatting.RED))),
+                        .append((getScreenHandler().isImminent() ? ScreenTexts.YES : ScreenTexts.NO)
+                            .copy().formatted(Formatting.RED))),
                 78, 96,
                 45, 63,
                 x, y, 0,
@@ -72,20 +70,20 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
         );
         renderLimitedTooltipAt(
                 List.of(
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.1"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.2"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.3"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.4"),
-                        new LiteralText(" "),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.5"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.6"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.7"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.8"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.9"),
-                        new LiteralText(" "),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.10"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.11"),
-                        new TranslatableText("message.magicfungi.morbus_clock.tip.12")
+                        Text.translatable("message.magicfungi.morbus_clock.tip.1"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.2"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.3"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.4"),
+                        Text.empty(),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.5"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.6"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.7"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.8"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.9"),
+                        Text.empty(),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.10"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.11"),
+                        Text.translatable("message.magicfungi.morbus_clock.tip.12")
                 ),
                 132, 141,
                 89, 99,
@@ -155,14 +153,14 @@ public class MorbusClockScreen extends HandledScreen<MorbusClockScreenHandler> {
     private List<Text> getCountdownTooltip() {
         if(getScreenHandler().isImminent()) {
             if(getScreenHandler().getDaysLeft() > 0) {
-                return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft", getScreenHandler().getDaysLeft(), getScreenHandler().getStartingDay())
+                return List.of(Text.translatable("message.magicfungi.morbus_clock.daysLeft", getScreenHandler().getDaysLeft(), getScreenHandler().getStartingDay())
                         .formatted(Formatting.DARK_RED));
             } else {
-                return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft.2")
+                return List.of(Text.translatable("message.magicfungi.morbus_clock.daysLeft.2")
                         .formatted(Formatting.DARK_RED, Formatting.BOLD, Formatting.UNDERLINE));
             }
         } else {
-            return List.of(new TranslatableText("message.magicfungi.morbus_clock.daysLeft.3")
+            return List.of(Text.translatable("message.magicfungi.morbus_clock.daysLeft.3")
                     .formatted(Formatting.DARK_GREEN, Formatting.BOLD));
         }
     }

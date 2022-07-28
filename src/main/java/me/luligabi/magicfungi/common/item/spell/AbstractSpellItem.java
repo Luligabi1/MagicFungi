@@ -14,7 +14,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.stat.Stats;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -85,18 +84,18 @@ public abstract class AbstractSpellItem extends Item {
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
         if(!Screen.hasShiftDown()) return;
-        tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.1")
+        tooltip.add(Text.translatable("tooltip.magicfungi.spell_info.1")
                 .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
-                .append(new TranslatableText("tooltip.magicfungi.spell_info.2", getMushroomType().getFancyName(), getMushroomType().getStatsName())
+                .append(Text.translatable("tooltip.magicfungi.spell_info.2", getMushroomType().getFancyName(), getMushroomType().getStatsName())
                             .formatted(MushroomType.getLightColor(getMushroomType()))));
-        tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.3")
+        tooltip.add(Text.translatable("tooltip.magicfungi.spell_info.3")
                 .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
-                .append(new TranslatableText("tooltip.magicfungi.spell_info.4", getCooldown()/20)
+                .append(Text.translatable("tooltip.magicfungi.spell_info.4", getCooldown()/20)
                             .formatted(MushroomType.getLightColor(getMushroomType()))));
-        tooltip.add(new TranslatableText("tooltip.magicfungi.spell_info.5")
+        tooltip.add(Text.translatable("tooltip.magicfungi.spell_info.5")
                 .formatted(MushroomType.getDarkColor(getMushroomType()), Formatting.BOLD)
                 .append(getActionType().getTranslatableText()
-                            .formatted(MushroomType.getLightColor(getMushroomType()))));
+                        .copy().formatted(MushroomType.getLightColor(getMushroomType()))));
     }
 
     @Override

@@ -69,7 +69,6 @@ public class BiomeRegistry implements TerraBlenderApi {
 
         return (new Biome.Builder())
                 .precipitation(Biome.Precipitation.NONE)
-                .category(Biome.Category.NONE)
                 .temperature(1.0F)
                 .downfall(0.0F)
                 .effects((new BiomeEffects.Builder())

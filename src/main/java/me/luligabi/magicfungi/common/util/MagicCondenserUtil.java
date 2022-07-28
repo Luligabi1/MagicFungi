@@ -3,7 +3,7 @@ package me.luligabi.magicfungi.common.util;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.MutableText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 
@@ -33,9 +33,9 @@ public interface MagicCondenserUtil {
 
 
     default MutableText getCountText(String translationKey, int count, Formatting primaryColor, Formatting secondaryColor) {
-        return new TranslatableText(translationKey)
+        return Text.translatable(translationKey)
                     .formatted(primaryColor)
-                .append(new TranslatableText("tooltip.magicfungi.generic_value", count)
+                .append(Text.translatable("tooltip.magicfungi.generic_value", count)
                     .formatted(secondaryColor));
     }
 

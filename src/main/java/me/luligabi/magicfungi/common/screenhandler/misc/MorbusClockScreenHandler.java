@@ -3,6 +3,7 @@ package me.luligabi.magicfungi.common.screenhandler.misc;
 import me.luligabi.magicfungi.common.screenhandler.ScreenHandlingRegistry;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
 
@@ -21,6 +22,11 @@ public class MorbusClockScreenHandler extends ScreenHandler {
         isImminent = false;
         daysLeft = 0;
         startingDay = 0;
+    }
+
+    @Override
+    public ItemStack transferSlot(PlayerEntity player, int index) {
+        return null;
     }
 
     @Override

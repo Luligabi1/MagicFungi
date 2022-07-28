@@ -38,7 +38,7 @@
   ],
   "accessWidener" : "magicfungi.accesswidener",
   "depends": {
-    "minecraft": "1.18.x",
+    "minecraft": "1.19.x",
     "fabricloader": ">=0.11.3",
     "fabric": "*",
     "terrablender": ">=1.1.0.97",

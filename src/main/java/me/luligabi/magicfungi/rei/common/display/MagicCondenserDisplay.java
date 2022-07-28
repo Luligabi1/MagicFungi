@@ -105,11 +105,11 @@ public class MagicCondenserDisplay implements Display {
         @Override
         public NbtCompound save(NbtCompound tag, MagicCondenserDisplay display) {
             NbtList input = new NbtList();
-            display.input.forEach(entryStacks -> input.add(entryStacks.save()));
+            display.input.forEach(entryStacks -> input.add(entryStacks.saveIngredient()));
             tag.put("input", input);
 
             NbtList output = new NbtList();
-            display.output.forEach(entryStacks -> output.add(entryStacks.save()));
+            display.output.forEach(entryStacks -> output.add(entryStacks.saveIngredient()));
             tag.put("output", output);
 
             return tag;

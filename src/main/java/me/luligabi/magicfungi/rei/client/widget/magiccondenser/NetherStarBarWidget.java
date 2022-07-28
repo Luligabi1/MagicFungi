@@ -8,6 +8,7 @@ import me.shedaniel.math.Dimension;
 import me.shedaniel.math.Point;
 import me.shedaniel.math.Rectangle;
 import me.shedaniel.rei.api.client.gui.widgets.Tooltip;
+import me.shedaniel.rei.api.client.gui.widgets.TooltipContext;
 import me.shedaniel.rei.api.client.gui.widgets.WidgetWithBounds;
 import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.gui.Element;
@@ -18,7 +19,6 @@ import org.jetbrains.annotations.NotNull;
 import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
-import java.util.function.Consumer;
 
 public class NetherStarBarWidget extends WidgetWithBounds implements MagicCondenserUtil {
 
@@ -37,20 +37,16 @@ public class NetherStarBarWidget extends WidgetWithBounds implements MagicConden
         );
 
         final Point mousePoint = new Point(mouseX, mouseY);
-        if(containsMouse(mousePoint)) getTooltip(mousePoint).queue();
+        if(containsMouse(mousePoint)) getTooltip(TooltipContext.of(mousePoint)).queue();
     }
 
     @Override
-    public @NotNull Tooltip getTooltip(Point mouse) {
-        Tooltip tooltip = super.getTooltip(mouse);
-        if(tooltip == null) tooltip = Tooltip.create(mouse);
-        Consumer<Tooltip> tooltipConsumer = consumer -> {
-            consumer.add(getCountText(
-                    "tooltip.magicfungi.nether_star_fuel", display.getNetherStarFuelCost()*10,
-                    Formatting.GRAY, Formatting.WHITE
-            ).append("%"));
-        };
-        tooltipConsumer.accept(tooltip);
+    public @NotNull Tooltip getTooltip(TooltipContext context) {
+        Tooltip tooltip = super.getTooltip(context);
+        if(tooltip == null) tooltip = Tooltip.create(context.getPoint(), getCountText(
+                "tooltip.magicfungi.nether_star_fuel", display.getNetherStarFuelCost()*10,
+                Formatting.GRAY, Formatting.WHITE
+        ).append("%"));
         return tooltip;
     }
 

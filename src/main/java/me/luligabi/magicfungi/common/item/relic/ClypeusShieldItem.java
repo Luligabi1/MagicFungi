@@ -11,7 +11,6 @@ import net.minecraft.entity.passive.TameableEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.math.Box;
 import net.minecraft.world.World;
@@ -52,9 +51,9 @@ public class ClypeusShieldItem extends FabricBannerShieldItem implements Chargea
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        appendQuote(tooltip, MushroomType.CLYPEUS, new TranslatableText("tooltip.magicfungi.clypeus_shield.author"),
-                new TranslatableText("tooltip.magicfungi.clypeus_shield.1"),
-                new TranslatableText("tooltip.magicfungi.clypeus_shield.2"));
+        appendQuote(tooltip, MushroomType.CLYPEUS, Text.translatable("tooltip.magicfungi.clypeus_shield.author"),
+                Text.translatable("tooltip.magicfungi.clypeus_shield.1"),
+                Text.translatable("tooltip.magicfungi.clypeus_shield.2"));
         appendChargeLevel(tooltip, stack, MushroomType.CLYPEUS);
     }
 

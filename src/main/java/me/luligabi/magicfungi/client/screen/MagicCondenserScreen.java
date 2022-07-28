@@ -27,7 +27,7 @@ public class MagicCondenserScreen extends HandledScreen<MagicCondenserScreenHand
         titleX = (backgroundWidth - textRenderer.getWidth(title)) / 2;
         titleY = 4;
         playerInventoryTitleY = 115;
-        ((HandledScreenAccessor) this).setPlayerInventoryTitle(playerInventoryTitle.shallowCopy().formatted(Formatting.WHITE));
+        ((HandledScreenAccessor) this).setPlayerInventoryTitle(playerInventoryTitle.copy().formatted(Formatting.WHITE));
         super.init();
     }
 

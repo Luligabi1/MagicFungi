@@ -19,7 +19,6 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.collection.DefaultedList;
@@ -268,12 +267,12 @@ public class MagicCondenserBlockEntity extends LockableContainerBlockEntity impl
 
     @Override
     protected Text getContainerName() {
-        return new TranslatableText("title.magicfungi.magic_condenser.1");
+        return Text.translatable("title.magicfungi.magic_condenser.1");
     }
 
     @Override
     public Text getDisplayName() {
-        return this.getName().shallowCopy().formatted(Formatting.WHITE);
+        return this.getName().copy().formatted(Formatting.WHITE);
     }
 
     @Override

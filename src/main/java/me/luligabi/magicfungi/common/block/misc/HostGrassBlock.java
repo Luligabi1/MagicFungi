@@ -15,8 +15,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 import net.minecraft.world.chunk.light.ChunkLightProvider;
 
-import java.util.Random;
-
 public class HostGrassBlock extends GrassBlock {
 
     public HostGrassBlock(Settings settings) {
@@ -25,7 +23,7 @@ public class HostGrassBlock extends GrassBlock {
 
 
     @Override // Vanilla grass growth logic is overridden to use host variants of grass/dirt.
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) {
+    public void grow(ServerWorld world, net.minecraft.util.math.random.Random random, BlockPos pos, BlockState state) {
         BlockPos blockPos = pos.up();
         BlockState blockState = BlockRegistry.HOST_GRASS_BLOCK.getDefaultState();
 
@@ -55,7 +53,7 @@ public class HostGrassBlock extends GrassBlock {
     }
 
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) {
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, net.minecraft.util.math.random.Random random) {
         if (canSurvive(state, world, pos)) {
             if (world.getLightLevel(pos.up()) >= 9) {
                 BlockState blockState = this.getDefaultState();

@@ -7,8 +7,10 @@ import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
 import me.luligabi.magicfungi.mixin.OrePlacedFeaturesInvoker;
 import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
+import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
@@ -22,6 +24,8 @@ import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
+import java.util.List;
+
 import static net.minecraft.world.gen.feature.OreConfiguredFeatures.BASE_STONE_OVERWORLD;
 
 @SuppressWarnings("unused")
@@ -29,10 +33,10 @@ public class FeatureRegistry {
 
     public static void init() {
         // Regular Magic Mushroom gen
-        addMagicMushroomFeature(FeatureRegistry.IMPETUS_ID, FeatureRegistry.IMPETUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateImpetusMushrooms, Biome.Category.SAVANNA);
-        addMagicMushroomFeature(FeatureRegistry.CLYPEUS_ID, FeatureRegistry.CLYPEUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateClypeusMushrooms, Biome.Category.ICY);
-        addMagicMushroomFeature(FeatureRegistry.UTILIS_ID, FeatureRegistry.UTILIS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateUtilisMushrooms,  Biome.Category.MOUNTAIN, Biome.Category.EXTREME_HILLS);
-        addMagicMushroomFeature(FeatureRegistry.VIVIFICA_ID, FeatureRegistry.VIVIFICA_ENHANCED_ID, MagicFungi.CONFIG.canGenerateVivificaMushrooms, Biome.Category.JUNGLE);
+        addMagicMushroomFeature(FeatureRegistry.IMPETUS_ID, FeatureRegistry.IMPETUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateImpetusMushrooms, ConventionalBiomeTags.SAVANNA);
+        addMagicMushroomFeature(FeatureRegistry.CLYPEUS_ID, FeatureRegistry.CLYPEUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateClypeusMushrooms, ConventionalBiomeTags.SNOWY);
+        addMagicMushroomFeature(FeatureRegistry.UTILIS_ID, FeatureRegistry.UTILIS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateUtilisMushrooms,  ConventionalBiomeTags.MOUNTAIN);
+        addMagicMushroomFeature(FeatureRegistry.VIVIFICA_ID, FeatureRegistry.VIVIFICA_ENHANCED_ID, MagicFungi.CONFIG.canGenerateVivificaMushrooms, ConventionalBiomeTags.JUNGLE);
 
         addHostBiomeFeature(FeatureRegistry.MORBUS_ID, GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateMorbusMushrooms);
 
@@ -44,14 +48,16 @@ public class FeatureRegistry {
         //registerFeature(ORE_HOST_DIRT_CONFIGURED_FEATURE, ORE_HOST_DIRT_PLACED_FEATURE, "ore_host_dirt");
     }
 
-    private static void addMagicMushroomFeature(String regularIdentifier, String biomeEnhancedIdentifier, boolean enabled, Biome.Category... biomeCategory) {
+    private static void addMagicMushroomFeature(String regularIdentifier, String biomeEnhancedIdentifier, boolean enabled, TagKey<Biome> biomeCategory) {
         if(!enabled) return;
         // Regular feature registry
-        BiomeModifications.addFeature(BiomeSelectors.categories(OVERWORLD_BIOMES), GenerationStep.Feature.VEGETAL_DECORATION,
-                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(regularIdentifier)));
+        for(TagKey<Biome> biomeTag : OVERWORLD_BIOMES) {
+            BiomeModifications.addFeature(BiomeSelectors.tag(biomeTag), GenerationStep.Feature.VEGETAL_DECORATION,
+                    RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(regularIdentifier)));
+        }
 
         // Biome Enhanced feature
-        BiomeModifications.addFeature(BiomeSelectors.categories(biomeCategory), GenerationStep.Feature.VEGETAL_DECORATION,
+        BiomeModifications.addFeature(BiomeSelectors.tag(biomeCategory), GenerationStep.Feature.VEGETAL_DECORATION,
                 RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(biomeEnhancedIdentifier)));
     }
 
@@ -237,15 +243,17 @@ public class FeatureRegistry {
 
 
     // List of Overworld Biome Categories excluding biomes that would be odd for mushrooms to spawn (such as oceans and deserts)
-    private static final Biome.Category[] OVERWORLD_BIOMES = {
-            Biome.Category.PLAINS,
-            Biome.Category.FOREST,
-            Biome.Category.TAIGA,
-            Biome.Category.SAVANNA,
-            Biome.Category.ICY,
-            Biome.Category.SWAMP,
-            Biome.Category.JUNGLE,
-            Biome.Category.UNDERGROUND,
-            Biome.Category.MUSHROOM };
+    private static final List<TagKey<Biome>> OVERWORLD_BIOMES = List.of(
+            ConventionalBiomeTags.PLAINS,
+            ConventionalBiomeTags.FOREST,
+            ConventionalBiomeTags.TAIGA,
+            ConventionalBiomeTags.SAVANNA,
+            ConventionalBiomeTags.SNOWY,
+            ConventionalBiomeTags.ICY,
+            ConventionalBiomeTags.SWAMP,
+            ConventionalBiomeTags.JUNGLE,
+            ConventionalBiomeTags.UNDERGROUND,
+            ConventionalBiomeTags.MUSHROOM
+    );
 
 }

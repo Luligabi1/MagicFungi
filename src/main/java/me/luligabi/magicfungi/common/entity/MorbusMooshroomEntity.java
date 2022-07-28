@@ -34,12 +34,12 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.TimeHelper;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Random;
 import java.util.UUID;
 
 public class MorbusMooshroomEntity extends AnimalEntity implements Monster, Angerable {
@@ -92,7 +92,7 @@ public class MorbusMooshroomEntity extends AnimalEntity implements Monster, Ange
 
     @Override
     public float getPathfindingFavor(BlockPos pos, WorldView world) {
-        return world.getBlockState(pos.down()).isOf(BlockRegistry.HOST_GRASS_BLOCK) ? 10.0F : world.getDimension().getBrightness(world.getLightLevel(pos)) - 0.5F;
+        return world.getBlockState(pos.down()).isOf(BlockRegistry.HOST_GRASS_BLOCK) ? 10.0F : world.getPhototaxisFavor(pos);
     }
 
     public static boolean canSpawn(EntityType<MorbusMooshroomEntity> type, WorldAccess world, SpawnReason spawnReason, BlockPos pos, Random random) {

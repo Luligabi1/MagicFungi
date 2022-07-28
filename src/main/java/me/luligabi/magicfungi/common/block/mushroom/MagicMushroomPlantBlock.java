@@ -11,7 +11,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldView;
 
 import java.util.Arrays;
-import java.util.Random;
 
 public abstract class MagicMushroomPlantBlock extends MushroomPlantBlock {
 
@@ -29,7 +28,7 @@ public abstract class MagicMushroomPlantBlock extends MushroomPlantBlock {
 
     //TODO: Add custom behavior for growing giant Magic Mushrooms
     @Override
-    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, Random random) { }
+    public void randomTick(BlockState state, ServerWorld world, BlockPos pos, net.minecraft.util.math.random.Random random) { }
 
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.down();
@@ -45,7 +44,7 @@ public abstract class MagicMushroomPlantBlock extends MushroomPlantBlock {
     }
 
     @Override
-    public boolean trySpawningBigMushroom(ServerWorld world, BlockPos pos, BlockState state, Random random) {
+    public boolean trySpawningBigMushroom(ServerWorld world, BlockPos pos, BlockState state, net.minecraft.util.math.random.Random random) {
         return false;
     }
 
@@ -54,12 +53,12 @@ public abstract class MagicMushroomPlantBlock extends MushroomPlantBlock {
     }
 
     @Override
-    public boolean canGrow(World world, Random random, BlockPos pos, BlockState state) {
+    public boolean canGrow(World world, net.minecraft.util.math.random.Random random, BlockPos pos, BlockState state) {
         return false;
     }
 
     @Override
-    public void grow(ServerWorld world, Random random, BlockPos pos, BlockState state) { }
+    public void grow(ServerWorld world, net.minecraft.util.math.random.Random random, BlockPos pos, BlockState state) { }
 
     public MushroomType getMushroomType() { return mushroomType; }
 

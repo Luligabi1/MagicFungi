@@ -9,7 +9,7 @@ import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandlerContext;
 import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
@@ -36,7 +36,7 @@ public class GlyphCarvingBlock extends Block {
 
     public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) ->
-                new GlyphCarvingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), new TranslatableText("title.magicfungi.glyph_carving").formatted(Formatting.WHITE));
+                new GlyphCarvingScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), Text.translatable("title.magicfungi.glyph_carving").formatted(Formatting.WHITE));
     }
 
 }

@@ -15,7 +15,6 @@ import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
 import net.minecraft.util.UseAction;
@@ -64,9 +63,9 @@ public class VivificaElixirItem extends Item implements Chargeable {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        appendQuote(tooltip, MushroomType.VIVIFICA, new TranslatableText("tooltip.magicfungi.vivifica_elixir.author"),
-                new TranslatableText("tooltip.magicfungi.vivifica_elixir.1"),
-                new TranslatableText("tooltip.magicfungi.vivifica_elixir.2"));
+        appendQuote(tooltip, MushroomType.VIVIFICA, Text.translatable("tooltip.magicfungi.vivifica_elixir.author"),
+                Text.translatable("tooltip.magicfungi.vivifica_elixir.1"),
+                Text.translatable("tooltip.magicfungi.vivifica_elixir.2"));
         appendChargeLevel(tooltip, stack, MushroomType.VIVIFICA);
     }
 

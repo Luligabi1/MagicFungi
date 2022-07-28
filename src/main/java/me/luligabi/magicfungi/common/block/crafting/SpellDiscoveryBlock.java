@@ -13,7 +13,7 @@ import net.minecraft.screen.SimpleNamedScreenHandlerFactory;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.stat.Stats;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
@@ -39,7 +39,7 @@ public class SpellDiscoveryBlock extends Block {
 
     public NamedScreenHandlerFactory createScreenHandlerFactory(BlockState state, World world, BlockPos pos) {
         return new SimpleNamedScreenHandlerFactory((syncId, inventory, player) ->
-                new SpellDiscoveryScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), new TranslatableText("title.magicfungi.spell_discovery"));
+                new SpellDiscoveryScreenHandler(syncId, inventory, ScreenHandlerContext.create(world, pos)), Text.translatable("title.magicfungi.spell_discovery"));
     }
 
     @Override

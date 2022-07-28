@@ -1,7 +1,6 @@
 package me.luligabi.magicfungi.rei.client.displaycategory;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
-import me.luligabi.magicfungi.rei.client.ClientReiPlugin;
 import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
 import me.luligabi.magicfungi.rei.common.display.SpellRecipeDisplay;
 import me.shedaniel.math.Point;
@@ -13,7 +12,6 @@ import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +47,7 @@ public class SpellDisplayCategory implements DisplayCategory<SpellRecipeDisplay>
 
     @Override
     public Text getTitle() {
-        return new TranslatableText("title.magicfungi.spell_discovery");
+        return Text.translatable("title.magicfungi.spell_discovery");
     }
 
     @Override

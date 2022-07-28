@@ -3,7 +3,7 @@ package me.luligabi.magicfungi.common.misc;
 import me.luligabi.magicfungi.common.MagicFungi;
 import net.fabricmc.fabric.api.gamerule.v1.CustomGameRuleCategory;
 import net.fabricmc.fabric.api.gamerule.v1.GameRuleFactory;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 import net.minecraft.world.GameRules;
@@ -16,7 +16,7 @@ public class GameRuleRegistry {
 
     private static <T extends GameRules.Rule<T>> GameRules.Key<T> register(String name, GameRules.Type<T> type) {
         return net.fabricmc.fabric.api.gamerule.v1.GameRuleRegistry.register(name,
-                new CustomGameRuleCategory(new Identifier(MagicFungi.MOD_ID,"gamerule_category"), new TranslatableText("gamerule.magicfungi.category").formatted(Formatting.YELLOW, Formatting.BOLD)),
+                new CustomGameRuleCategory(new Identifier(MagicFungi.MOD_ID,"gamerule_category"), Text.translatable("gamerule.magicfungi.category").formatted(Formatting.YELLOW, Formatting.BOLD)),
                 type);
     }
 

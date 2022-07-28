@@ -18,7 +18,6 @@ import net.minecraft.item.ToolMaterial;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -90,9 +89,9 @@ public class MorbusScytheItem extends SwordItem implements Chargeable {
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        appendQuote(tooltip, MushroomType.MORBUS, new TranslatableText("tooltip.magicfungi.morbus_scythe.author"),
-                new TranslatableText("tooltip.magicfungi.morbus_scythe.1"),
-                new TranslatableText("tooltip.magicfungi.morbus_scythe.2"));
+        appendQuote(tooltip, MushroomType.MORBUS, Text.translatable("tooltip.magicfungi.morbus_scythe.author"),
+                Text.translatable("tooltip.magicfungi.morbus_scythe.1"),
+                Text.translatable("tooltip.magicfungi.morbus_scythe.2"));
         appendChargeLevel(tooltip, stack, MushroomType.MORBUS);
     }
 

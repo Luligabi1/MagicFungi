@@ -2,23 +2,21 @@ package me.luligabi.magicfungi.common.item.relic;
 
 import me.luligabi.magicfungi.common.util.MushroomType;
 import net.minecraft.client.gui.screen.Screen;
-import net.minecraft.text.LiteralText;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 
 import java.util.List;
 
 public interface Relic {
 
-    default void appendQuote(List<Text> tooltip, MushroomType mushroomType, TranslatableText quoteAuthor, TranslatableText... quote) {
+    default void appendQuote(List<Text> tooltip, MushroomType mushroomType, Text quoteAuthor, Text... quote) {
         if(!Screen.hasShiftDown()) return;
-        for(TranslatableText a : quote) {
-            tooltip.add(a.formatted(MushroomType.getLightColor(mushroomType), Formatting.ITALIC));
+        for(Text a : quote) {
+            tooltip.add(a.copy().formatted(MushroomType.getLightColor(mushroomType), Formatting.ITALIC));
         }
-        tooltip.add(new LiteralText(""));
-        tooltip.add(quoteAuthor.formatted(MushroomType.getLightColor(mushroomType)));
-        tooltip.add(new LiteralText(""));
+        tooltip.add(Text.empty());
+        tooltip.add(quoteAuthor.copy().formatted(MushroomType.getLightColor(mushroomType)));
+        tooltip.add(Text.empty());
     }
 
 }

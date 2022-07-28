@@ -8,7 +8,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.TypedActionResult;
@@ -32,18 +31,18 @@ public class VivificaHeartItem extends Item {
             user.getEntityWorld().playSound(null,
                     user.getX(), user.getY(), user.getZ(),
                     SoundEvents.BLOCK_MOSS_BREAK, SoundCategory.NEUTRAL, 1F, 1F);
-            user.sendMessage(new TranslatableText("message.magicfungi.heart_of_vivifica").formatted(Formatting.GREEN, Formatting.ITALIC), false);
+            user.sendMessage(Text.translatable("message.magicfungi.heart_of_vivifica").formatted(Formatting.GREEN, Formatting.ITALIC), false);
             return TypedActionResult.consume(user.getStackInHand(hand));
         } else {
-            user.sendMessage(new TranslatableText("message.magicfungi.fate_design").formatted(Formatting.GRAY, Formatting.ITALIC), false);
+            user.sendMessage(Text.translatable("message.magicfungi.fate_design").formatted(Formatting.GRAY, Formatting.ITALIC), false);
             return TypedActionResult.pass(user.getStackInHand(hand));
         }
     }
 
     @Override
     public void appendTooltip(ItemStack stack, @Nullable World world, List<Text> tooltip, TooltipContext context) {
-        tooltip.add(new TranslatableText("tooltip.magicfungi.heart_of_vivifica.1").formatted(Formatting.GREEN, Formatting.ITALIC));
-        tooltip.add(new TranslatableText("tooltip.magicfungi.heart_of_vivifica.2").formatted(Formatting.GREEN, Formatting.ITALIC));
+        tooltip.add(Text.translatable("tooltip.magicfungi.heart_of_vivifica.1").formatted(Formatting.GREEN, Formatting.ITALIC));
+        tooltip.add(Text.translatable("tooltip.magicfungi.heart_of_vivifica.2").formatted(Formatting.GREEN, Formatting.ITALIC));
     }
 
 }
