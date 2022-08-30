@@ -13,13 +13,21 @@
   },
   "parent": "magicfungi:root",
   "criteria": {
-    "host_biome": {
-      "trigger": "minecraft:location",
+    "magicfungi:host_biome": {
       "conditions": {
-        "location": {
-          "biome": "magicfungi:host_biome"
-        }
-      }
+        "player": [
+          {
+            "condition": "minecraft:entity_properties",
+            "entity": "this",
+            "predicate": {
+              "location": {
+                "biome": "magicfungi:host_biome"
+              }
+            }
+          }
+        ]
+      },
+      "trigger": "minecraft:location"
     }
   }
 }
