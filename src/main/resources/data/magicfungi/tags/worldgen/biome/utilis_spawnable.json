@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "#magicfungi:fungi_spawnable",
+    "#c:savanna",
+    "#c:icy",
+    "#c:jungle"
+  ]
+}

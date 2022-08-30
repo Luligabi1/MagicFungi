@@ -2,6 +2,7 @@ package me.luligabi.magicfungi.common.worldgen.feature;
 
 import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.misc.TagRegistry;
 import me.luligabi.magicfungi.common.util.WorldUtil;
 import me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry;
 import me.luligabi.magicfungi.mixin.OrePlacedFeaturesInvoker;
@@ -24,8 +25,6 @@ import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
 
-import java.util.List;
-
 import static net.minecraft.world.gen.feature.OreConfiguredFeatures.BASE_STONE_OVERWORLD;
 
 @SuppressWarnings("unused")
@@ -33,10 +32,10 @@ public class FeatureRegistry {
 
     public static void init() {
         // Regular Magic Mushroom gen
-        addMagicMushroomFeature(FeatureRegistry.IMPETUS_ID, FeatureRegistry.IMPETUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateImpetusMushrooms, ConventionalBiomeTags.SAVANNA);
-        addMagicMushroomFeature(FeatureRegistry.CLYPEUS_ID, FeatureRegistry.CLYPEUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateClypeusMushrooms, ConventionalBiomeTags.SNOWY);
-        addMagicMushroomFeature(FeatureRegistry.UTILIS_ID, FeatureRegistry.UTILIS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateUtilisMushrooms,  ConventionalBiomeTags.MOUNTAIN);
-        addMagicMushroomFeature(FeatureRegistry.VIVIFICA_ID, FeatureRegistry.VIVIFICA_ENHANCED_ID, MagicFungi.CONFIG.canGenerateVivificaMushrooms, ConventionalBiomeTags.JUNGLE);
+        addMagicMushroomFeature(FeatureRegistry.IMPETUS_ID, FeatureRegistry.IMPETUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateImpetusMushrooms, TagRegistry.IMPETUS_SPAWNABLE, ConventionalBiomeTags.SAVANNA);
+        addMagicMushroomFeature(FeatureRegistry.CLYPEUS_ID, FeatureRegistry.CLYPEUS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateClypeusMushrooms, TagRegistry.CLYPEUS_SPAWNABLE, ConventionalBiomeTags.SNOWY);
+        addMagicMushroomFeature(FeatureRegistry.UTILIS_ID, FeatureRegistry.UTILIS_ENHANCED_ID, MagicFungi.CONFIG.canGenerateUtilisMushrooms, TagRegistry.UTILIS_SPAWNABLE,  ConventionalBiomeTags.MOUNTAIN);
+        addMagicMushroomFeature(FeatureRegistry.VIVIFICA_ID, FeatureRegistry.VIVIFICA_ENHANCED_ID, MagicFungi.CONFIG.canGenerateVivificaMushrooms, TagRegistry.VIVIFICA_SPAWNABLE, ConventionalBiomeTags.JUNGLE);
 
         addHostBiomeFeature(FeatureRegistry.MORBUS_ID, GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateMorbusMushrooms);
 
@@ -44,20 +43,16 @@ public class FeatureRegistry {
         addHostBiomeFeature(FeatureRegistry.WITHER_ROSE_ID, GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateWitherRoseHostBiome);
 
         addHostBiomeFeature(FeatureRegistry.MORBUS_MUSHROOM_VEGETATION_ID, GenerationStep.Feature.TOP_LAYER_MODIFICATION, true);
-
-        //registerFeature(ORE_HOST_DIRT_CONFIGURED_FEATURE, ORE_HOST_DIRT_PLACED_FEATURE, "ore_host_dirt");
     }
 
-    private static void addMagicMushroomFeature(String regularIdentifier, String biomeEnhancedIdentifier, boolean enabled, TagKey<Biome> biomeCategory) {
+    private static void addMagicMushroomFeature(String regularIdentifier, String biomeEnhancedIdentifier, boolean enabled, TagKey<Biome> regularSpawnBiomes, TagKey<Biome> specialSpawnBiomes) {
         if(!enabled) return;
         // Regular feature registry
-        for(TagKey<Biome> biomeTag : OVERWORLD_BIOMES) {
-            BiomeModifications.addFeature(BiomeSelectors.tag(biomeTag), GenerationStep.Feature.VEGETAL_DECORATION,
-                    RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(regularIdentifier)));
-        }
+        BiomeModifications.addFeature(BiomeSelectors.tag(regularSpawnBiomes), GenerationStep.Feature.VEGETAL_DECORATION,
+                RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(regularIdentifier)));
 
         // Biome Enhanced feature
-        BiomeModifications.addFeature(BiomeSelectors.tag(biomeCategory), GenerationStep.Feature.VEGETAL_DECORATION,
+        BiomeModifications.addFeature(BiomeSelectors.tag(specialSpawnBiomes), GenerationStep.Feature.VEGETAL_DECORATION,
                 RegistryKey.of(Registry.PLACED_FEATURE_KEY, new Identifier(biomeEnhancedIdentifier)));
     }
 
@@ -86,8 +81,8 @@ public class FeatureRegistry {
             BiomePlacementModifier.of()
     );
 
-    private static final String IMPETUS_ID = "impetus_mushroom";
-    private static final String IMPETUS_ENHANCED_ID = "impetus_mushroom_enhanced";
+    private static final String IMPETUS_ID = "magicfungi:impetus_mushroom";
+    private static final String IMPETUS_ENHANCED_ID = "magicfungi:impetus_mushroom_enhanced";
 
     // Clypeus Mushroom
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLYPEUS_REGULAR_CONFIGURED_FEATURE =
@@ -109,8 +104,8 @@ public class FeatureRegistry {
     );
 
 
-    private static final String CLYPEUS_ID = "clypeus_mushroom";
-    private static final String CLYPEUS_ENHANCED_ID = "clypeus_mushroom_enhanced";
+    private static final String CLYPEUS_ID = "magicfungi:clypeus_mushroom";
+    private static final String CLYPEUS_ENHANCED_ID = "magicfungi:clypeus_mushroom_enhanced";
 
     // Utilis Mushroom
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> UTILIS_REGULAR_CONFIGURED_FEATURE =
@@ -132,8 +127,8 @@ public class FeatureRegistry {
     );
 
 
-    private static final String UTILIS_ID = "utilis_mushroom";
-    private static final String UTILIS_ENHANCED_ID = "utilis_mushroom_enhanced";
+    private static final String UTILIS_ID = "magicfungi:utilis_mushroom";
+    private static final String UTILIS_ENHANCED_ID = "magicfungi:utilis_mushroom_enhanced";
 
     // Vivifica Mushroom
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> VIVIFICA_REGULAR_CONFIGURED_FEATURE =
@@ -155,8 +150,8 @@ public class FeatureRegistry {
     );
 
 
-    private static final String VIVIFICA_ID = "vivifica_mushroom";
-    private static final String VIVIFICA_ENHANCED_ID = "vivifica_mushroom_enhanced";
+    private static final String VIVIFICA_ID = "magicfungi:vivifica_mushroom";
+    private static final String VIVIFICA_ENHANCED_ID = "magicfungi:vivifica_mushroom_enhanced";
 
     // Morbus Mushroom - Host Biome
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MORBUS_CONFIGURED_FEATURE =
@@ -169,7 +164,7 @@ public class FeatureRegistry {
     );
 
 
-    private static final String MORBUS_ID = "morbus_mushroom";
+    private static final String MORBUS_ID = "magicfungi:morbus_mushroom";
 
     // Wither Rose - Host Biome
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WITHER_ROSE_CONFIGURED_FEATURE =
@@ -182,7 +177,7 @@ public class FeatureRegistry {
     );
 
 
-    private static final String WITHER_ROSE_ID = "wither_rose_host_biome";
+    private static final String WITHER_ROSE_ID = "magicfungi:wither_rose_host_biome";
 
     // Morbus Mushroom Vegetation - Host Biome
     private static final RegistryEntry<ConfiguredFeature<HugeMushroomFeatureConfig, ?>> LARGE_MORBUS_MUSHROOM = ConfiguredFeatures.register("large_morbus_mushroom", Feature.HUGE_RED_MUSHROOM,
@@ -210,7 +205,7 @@ public class FeatureRegistry {
             BiomePlacementModifier.of()
     );
 
-    private static final String MORBUS_MUSHROOM_VEGETATION_ID = "morbus_mushroom_vegetation";
+    private static final String MORBUS_MUSHROOM_VEGETATION_ID = "magicfungi:morbus_mushroom_vegetation";
 
 
     // Host Dirt Ore Disk - Host Biome
@@ -227,7 +222,7 @@ public class FeatureRegistry {
                     HeightRangePlacementModifier.uniform(YOffset.fixed(0), YOffset.fixed(160)))
     );
 
-    private static final String HOST_DIRT_ORE_DISK_ID = "host_dirt_ore_disk";
+    private static final String HOST_DIRT_ORE_DISK_ID = "magicfungi:host_dirt_ore_disk";
 
 
     private static RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> flowerLikeFeature(Block block, int tries, String id) {
@@ -240,20 +235,5 @@ public class FeatureRegistry {
                 new SimpleBlockFeatureConfig(BlockStateProvider.of(block))))
         );
     }
-
-
-    // List of Overworld Biome Categories excluding biomes that would be odd for mushrooms to spawn (such as oceans and deserts)
-    private static final List<TagKey<Biome>> OVERWORLD_BIOMES = List.of(
-            ConventionalBiomeTags.PLAINS,
-            ConventionalBiomeTags.FOREST,
-            ConventionalBiomeTags.TAIGA,
-            ConventionalBiomeTags.SAVANNA,
-            ConventionalBiomeTags.SNOWY,
-            ConventionalBiomeTags.ICY,
-            ConventionalBiomeTags.SWAMP,
-            ConventionalBiomeTags.JUNGLE,
-            ConventionalBiomeTags.UNDERGROUND,
-            ConventionalBiomeTags.MUSHROOM
-    );
 
 }

@@ -6,6 +6,7 @@ import net.minecraft.item.Item;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.biome.Biome;
 
 public class TagRegistry {
 
@@ -30,6 +31,13 @@ public class TagRegistry {
 
     public static final TagKey<Block> HOST_BIOME_VEGETATION = TagKey.of(Registry.BLOCK_KEY, new Identifier(MagicFungi.MOD_ID, "host_biome_vegetation"));
     public static final TagKey<Block> MORBUS_MOOSHROOMS_SPAWNABLE_ON = TagKey.of(Registry.BLOCK_KEY, new Identifier(MagicFungi.MOD_ID, "morbus_mooshrooms_spawnable_on"));
+
+    public static final TagKey<Biome> FUNGI_SPAWNABLE = TagKey.of(Registry.BIOME_KEY, new Identifier(MagicFungi.MOD_ID, "fungi_spawnable"));
+    public static final TagKey<Biome> IMPETUS_SPAWNABLE = TagKey.of(Registry.BIOME_KEY, new Identifier(MagicFungi.MOD_ID, "impetus_spawnable"));
+    public static final TagKey<Biome> CLYPEUS_SPAWNABLE = TagKey.of(Registry.BIOME_KEY, new Identifier(MagicFungi.MOD_ID, "clypeus_spawnable"));
+    public static final TagKey<Biome> UTILIS_SPAWNABLE = TagKey.of(Registry.BIOME_KEY, new Identifier(MagicFungi.MOD_ID, "utilis_spawnable"));
+    public static final TagKey<Biome> VIVIFICA_SPAWNABLE = TagKey.of(Registry.BIOME_KEY, new Identifier(MagicFungi.MOD_ID, "vivifica_spawnable"));
+
 
     public static void init() {
         // NO-OP
