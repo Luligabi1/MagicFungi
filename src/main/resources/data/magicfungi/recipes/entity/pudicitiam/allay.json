@@ -1,0 +1,6 @@
+{
+  "type": "magicfungi:pudicitiam_healing",
+
+  "corruptedEntity": "minecraft:vex",
+  "regularEntity": "minecraft:allay"
+}

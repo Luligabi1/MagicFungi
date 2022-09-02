@@ -1,0 +1,6 @@
+{
+  "type": "magicfungi:corrumpere_corruption",
+
+  "regularEntity": "minecraft:allay",
+  "corruptedEntity": "minecraft:vex"
+}
