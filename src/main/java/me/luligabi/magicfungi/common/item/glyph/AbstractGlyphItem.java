@@ -55,7 +55,7 @@ public abstract class AbstractGlyphItem extends Item {
     }
 
     protected void executeGlyph(PlayerEntity playerEntity, ItemStack itemStack) {
-        itemStack.decrement(1);
+        if(!playerEntity.isCreative()) itemStack.decrement(1);
         playerEntity.getEntityWorld().playSound(null,
                 playerEntity.getX(), playerEntity.getY(), playerEntity.getZ(),
                 getSoundEvent(), SoundCategory.NEUTRAL, 1F, 1F);

@@ -42,6 +42,7 @@ public class MagicFungi implements ModInitializer {
         // Misc
         EntityRegistry.init();
         ParticleRegistry.init();
+        EventRegistry.init();
         GameRuleRegistry.init();
         if(CONFIG.addModContentToTrades) {
             TradeOfferRegistry.init();
