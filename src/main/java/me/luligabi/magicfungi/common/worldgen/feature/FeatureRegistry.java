@@ -10,20 +10,24 @@ import net.fabricmc.fabric.api.biome.v1.BiomeModifications;
 import net.fabricmc.fabric.api.biome.v1.BiomeSelectors;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalBiomeTags;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.collection.DataPool;
 import net.minecraft.util.registry.Registry;
 import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.util.registry.RegistryKey;
 import net.minecraft.world.biome.Biome;
 import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.YOffset;
+import net.minecraft.world.gen.blockpredicate.BlockPredicate;
 import net.minecraft.world.gen.feature.*;
 import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.HeightRangePlacementModifier;
 import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
 import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import net.minecraft.world.gen.stateprovider.WeightedBlockStateProvider;
 
 import static net.minecraft.world.gen.feature.OreConfiguredFeatures.BASE_STONE_OVERWORLD;
 
@@ -39,7 +43,7 @@ public class FeatureRegistry {
 
         addHostBiomeFeature(FeatureRegistry.MORBUS_ID, GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateMorbusMushrooms);
 
-        // TODO: Add Morbus & Morbus Tall Grass gen here.
+        addHostBiomeFeature(FeatureRegistry.HOST_GRASS_PATCH_ID, GenerationStep.Feature.VEGETAL_DECORATION, true);
         addHostBiomeFeature(FeatureRegistry.WITHER_ROSE_ID, GenerationStep.Feature.VEGETAL_DECORATION, MagicFungi.CONFIG.canGenerateWitherRoseHostBiome);
 
         addHostBiomeFeature(FeatureRegistry.MORBUS_MUSHROOM_VEGETATION_ID, GenerationStep.Feature.TOP_LAYER_MODIFICATION, true);
@@ -165,6 +169,21 @@ public class FeatureRegistry {
 
 
     private static final String MORBUS_ID = "magicfungi:morbus_mushroom";
+
+    // Host Grass - Host Biome
+    private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> HOST_GRASS_PATCH_CONFIGURED_FEATURE =
+            ConfiguredFeatures.register(FeatureRegistry.HOST_GRASS_PATCH_ID, Feature.RANDOM_PATCH, new RandomPatchFeatureConfig(32, 7, 3, PlacedFeatures.createEntry(Feature.SIMPLE_BLOCK,
+            new SimpleBlockFeatureConfig(new WeightedBlockStateProvider(DataPool.<BlockState>builder()
+                    .add(BlockRegistry.HOST_GRASS.getDefaultState(), 3)
+                    .add(BlockRegistry.HOST_FERN.getDefaultState(), 1)
+            )), BlockPredicate.IS_AIR)));
+
+    private static final RegistryEntry<PlacedFeature> HOST_GRASS_PATCH_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.HOST_GRASS_PATCH_ID, HOST_GRASS_PATCH_CONFIGURED_FEATURE,
+            VegetationPlacedFeatures.modifiers(2)
+    );
+
+
+    private static final String HOST_GRASS_PATCH_ID = "magicfungi:host_grass_patch";
 
     // Wither Rose - Host Biome
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WITHER_ROSE_CONFIGURED_FEATURE =
