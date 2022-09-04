@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "magicfungi:block/host_tall_grass_top"
+    "layer0": "magicfungi:block/host_vegetation/host_tall_grass_top"
   }
 }

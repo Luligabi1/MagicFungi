@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "magicfungi:block/large_host_fern_top"
+    "layer0": "magicfungi:block/host_vegetation/large_host_fern_top"
   }
 }

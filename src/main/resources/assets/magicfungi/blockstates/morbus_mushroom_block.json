@@ -5,7 +5,7 @@
         "north": "true"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block"
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block"
       }
     },
     {
@@ -13,7 +13,7 @@
         "east": "true"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block",
         "y": 90,
         "uvlock": true
       }
@@ -23,7 +23,7 @@
         "south": "true"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block",
         "y": 180,
         "uvlock": true
       }
@@ -33,7 +33,7 @@
         "west": "true"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block",
         "y": 270,
         "uvlock": true
       }
@@ -43,7 +43,7 @@
         "up": "true"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block",
         "x": 270,
         "uvlock": true
       }
@@ -53,7 +53,7 @@
         "down": "true"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block",
         "x": 90,
         "uvlock": true
       }
@@ -63,7 +63,7 @@
         "north": "false"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block_inside"
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block_inside"
       }
     },
     {
@@ -71,7 +71,7 @@
         "east": "false"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block_inside",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block_inside",
         "y": 90,
         "uvlock": false
       }
@@ -81,7 +81,7 @@
         "south": "false"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block_inside",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block_inside",
         "y": 180,
         "uvlock": false
       }
@@ -91,7 +91,7 @@
         "west": "false"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block_inside",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block_inside",
         "y": 270,
         "uvlock": false
       }
@@ -101,7 +101,7 @@
         "up": "false"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block_inside",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block_inside",
         "x": 270,
         "uvlock": false
       }
@@ -111,7 +111,7 @@
         "down": "false"
       },
       "apply": {
-        "model": "magicfungi:block/morbus_mushroom_block_inside",
+        "model": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block_inside",
         "x": 90,
         "uvlock": false
       }

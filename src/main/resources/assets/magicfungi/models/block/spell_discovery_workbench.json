@@ -1,12 +1,12 @@
 {
   "parent": "minecraft:block/cube",
   "textures": {
-    "particle": "magicfungi:block/spell_discovery_workbench_side2",
-    "north": "magicfungi:block/spell_discovery_workbench_side1",
-    "south": "magicfungi:block/spell_discovery_workbench_side1",
-    "east": "magicfungi:block/spell_discovery_workbench_side2",
-    "west": "magicfungi:block/spell_discovery_workbench_side2",
-    "up": "magicfungi:block/spell_discovery_workbench_top",
+    "particle": "magicfungi:block/spell_discovery_workbench/spell_discovery_workbench_side2",
+    "north": "magicfungi:block/spell_discovery_workbench/spell_discovery_workbench_side1",
+    "south": "magicfungi:block/spell_discovery_workbench/spell_discovery_workbench_side1",
+    "east": "magicfungi:block/spell_discovery_workbench/spell_discovery_workbench_side2",
+    "west": "magicfungi:block/spell_discovery_workbench/spell_discovery_workbench_side2",
+    "up": "magicfungi:block/spell_discovery_workbench/spell_discovery_workbench_top",
     "down": "minecraft:block/dark_oak_planks"
   }
 }

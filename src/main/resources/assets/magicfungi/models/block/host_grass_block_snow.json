@@ -1,9 +1,9 @@
 {
   "parent": "minecraft:block/cube_bottom_top",
   "textures": {
-    "top": "magicfungi:block/host_grass_block_top",
+    "top": "magicfungi:block/host_grass_block/host_grass_block_top",
     "bottom": "magicfungi:block/host_dirt",
-    "side": "magicfungi:block/host_grass_block_snow",
+    "side": "magicfungi:block/host_grass_block/host_grass_block_snow",
     "particle": "magicfungi:block/host_dirt"
   }
 }

@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/cube_all",
+  "textures": {
+    "all": "magicfungi:block/mushroom_block/morbus/morbus_mushroom_block"
+  }
+}

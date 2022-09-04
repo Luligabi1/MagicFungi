@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:block/cross",
   "textures": {
-    "cross": "magicfungi:block/host_tall_grass_top"
+    "cross": "magicfungi:block/host_vegetation/host_tall_grass_top"
   }
 }
