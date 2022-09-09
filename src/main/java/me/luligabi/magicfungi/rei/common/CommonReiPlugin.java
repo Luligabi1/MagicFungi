@@ -4,10 +4,7 @@ import me.luligabi.magicfungi.common.MagicFungi;
 import me.luligabi.magicfungi.common.screenhandler.condenser.MagicCondenserScreenHandler;
 import me.luligabi.magicfungi.common.screenhandler.glyph.GlyphCarvingScreenHandler;
 import me.luligabi.magicfungi.common.screenhandler.spell.SpellDiscoveryScreenHandler;
-import me.luligabi.magicfungi.rei.common.display.EssenceRecipeDisplay;
-import me.luligabi.magicfungi.rei.common.display.GlyphRecipeDisplay;
-import me.luligabi.magicfungi.rei.common.display.MagicCondenserDisplay;
-import me.luligabi.magicfungi.rei.common.display.SpellRecipeDisplay;
+import me.luligabi.magicfungi.rei.common.display.*;
 import me.luligabi.magicfungi.rei.common.menuinfo.GlyphMenuInfo;
 import me.luligabi.magicfungi.rei.common.menuinfo.MagicCondenserMenuInfo;
 import me.luligabi.magicfungi.rei.common.menuinfo.SpellMenuInfo;
@@ -39,5 +36,6 @@ public class CommonReiPlugin implements REIServerPlugin {
     public static final CategoryIdentifier<SpellRecipeDisplay> SPELL_DISCOVERY = CategoryIdentifier.of(MagicFungi.MOD_ID, "spell_discovery");
     public static final CategoryIdentifier<EssenceRecipeDisplay> ESSENCE_EXTRACTION = CategoryIdentifier.of(MagicFungi.MOD_ID, "essence_extraction");
     public static final CategoryIdentifier<MagicCondenserDisplay> MAGIC_CONDENSING = CategoryIdentifier.of(MagicFungi.MOD_ID, "magic_condensing");
+    public static final CategoryIdentifier<MoldingCauldronDisplay> MOLDING = CategoryIdentifier.of(MagicFungi.MOD_ID, "molding");
 
 }

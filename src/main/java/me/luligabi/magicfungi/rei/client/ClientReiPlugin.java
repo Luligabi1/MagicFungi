@@ -10,15 +10,9 @@ import me.luligabi.magicfungi.common.recipe.condenser.MagicCondenserRecipe;
 import me.luligabi.magicfungi.common.recipe.essence.EssenceRecipe;
 import me.luligabi.magicfungi.common.recipe.glyph.GlyphRecipe;
 import me.luligabi.magicfungi.common.recipe.spell.SpellRecipe;
-import me.luligabi.magicfungi.rei.client.displaycategory.EssenceDisplayCategory;
-import me.luligabi.magicfungi.rei.client.displaycategory.GlyphDisplayCategory;
-import me.luligabi.magicfungi.rei.client.displaycategory.MagicCondenserDisplayCategory;
-import me.luligabi.magicfungi.rei.client.displaycategory.SpellDisplayCategory;
+import me.luligabi.magicfungi.rei.client.displaycategory.*;
 import me.luligabi.magicfungi.rei.common.CommonReiPlugin;
-import me.luligabi.magicfungi.rei.common.display.EssenceRecipeDisplay;
-import me.luligabi.magicfungi.rei.common.display.GlyphRecipeDisplay;
-import me.luligabi.magicfungi.rei.common.display.MagicCondenserDisplay;
-import me.luligabi.magicfungi.rei.common.display.SpellRecipeDisplay;
+import me.luligabi.magicfungi.rei.common.display.*;
 import me.shedaniel.rei.api.client.plugins.REIClientPlugin;
 import me.shedaniel.rei.api.client.registry.category.CategoryRegistry;
 import me.shedaniel.rei.api.client.registry.display.DisplayRegistry;
@@ -45,6 +39,9 @@ public class ClientReiPlugin implements REIClientPlugin {
 
         registry.add(new MagicCondenserDisplayCategory());
         registry.addWorkstations(CommonReiPlugin.MAGIC_CONDENSING, EntryStacks.of(BlockRegistry.MAGIC_CONDENSER_BLOCK));
+
+        registry.add(new MoldingCauldronDisplayCategory());
+        registry.addWorkstations(CommonReiPlugin.MOLDING, EntryStacks.of(BlockRegistry.MOLDING_CAULDRON_BLOCK));
     }
 
     @Override
@@ -53,6 +50,8 @@ public class ClientReiPlugin implements REIClientPlugin {
         registry.registerFiller(SpellRecipe.class, SpellRecipeDisplay::new);
         registry.registerFiller(EssenceRecipe.class, EssenceRecipeDisplay::new);
         registry.registerFiller(MagicCondenserRecipe.class, MagicCondenserDisplay::new);
+        registry.add(new MoldingCauldronDisplay());
+
 
         Map<ItemConvertible, String> reiInformationMap = Maps.newHashMap((new ImmutableMap.Builder<ItemConvertible, String>())
                 .put(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, "description.magicfungi.impetus_mushroom")

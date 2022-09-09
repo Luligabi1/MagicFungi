@@ -7,6 +7,8 @@ import me.luligabi.magicfungi.common.block.crafting.condenser.MagicCondenserBloc
 import me.luligabi.magicfungi.common.block.crafting.condenser.MagicCondenserBlockEntity;
 import me.luligabi.magicfungi.common.block.crafting.essence.EssenceExtractorBlock;
 import me.luligabi.magicfungi.common.block.crafting.essence.EssenceExtractorBlockEntity;
+import me.luligabi.magicfungi.common.block.crafting.moldingcauldron.MoldingCauldronBlock;
+import me.luligabi.magicfungi.common.block.crafting.moldingcauldron.MoldingCauldronBlockEntity;
 import me.luligabi.magicfungi.common.block.misc.CadentisBlock;
 import me.luligabi.magicfungi.common.block.misc.HostDirtBlock;
 import me.luligabi.magicfungi.common.block.misc.HostFernBlock;
@@ -16,6 +18,7 @@ import me.luligabi.magicfungi.common.item.misc.MagicalFungiAlloyBlockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
+import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
@@ -24,6 +27,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
+@SuppressWarnings("UnstableApiUsage")
 public class BlockRegistry {
 
     public static void init() {
@@ -67,6 +71,10 @@ public class BlockRegistry {
 
         initBlock("magic_condenser", MAGIC_CONDENSER_BLOCK);
         MAGIC_CONDENSER_BLOCK_ENTITY_TYPE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MagicFungi.MOD_ID, "magic_condenser"), FabricBlockEntityTypeBuilder.create(MagicCondenserBlockEntity::new, MAGIC_CONDENSER_BLOCK).build());
+
+        initBlock("molding_cauldron", MOLDING_CAULDRON_BLOCK);
+        MOLDING_CAULDRON_BLOCK_ENTITY_TYPE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MagicFungi.MOD_ID, "molding_cauldron"), FabricBlockEntityTypeBuilder.create(MoldingCauldronBlockEntity::new, MOLDING_CAULDRON_BLOCK).build());
+        FluidStorage.SIDED.registerForBlockEntity((tank, direction) -> tank.fluidStorage, MOLDING_CAULDRON_BLOCK_ENTITY_TYPE);
 
         // Block registered apart from the BlockItem, since it's a glyph.
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "cadentis_block"), CADENTIS_BLOCK);
@@ -114,6 +122,8 @@ public class BlockRegistry {
     public static final Block MAGIC_CONDENSER_BLOCK = new MagicCondenserBlock(FabricBlockSettings.of(Material.STONE, MapColor.WHITE).requiresTool().luminance(state -> 7).strength(5.0F, 1200.0F));
     public static BlockEntityType<MagicCondenserBlockEntity> MAGIC_CONDENSER_BLOCK_ENTITY_TYPE;
 
+    public static final Block MOLDING_CAULDRON_BLOCK = new MoldingCauldronBlock();
+    public static BlockEntityType<MoldingCauldronBlockEntity> MOLDING_CAULDRON_BLOCK_ENTITY_TYPE;
 
     public static final Block MAGICAL_FUNGI_ALLOY_BLOCK = new Block(FabricBlockSettings.of(Material.METAL).strength(5.0F, 6.0F).requiresTool().sounds(BlockSoundGroup.METAL));
 

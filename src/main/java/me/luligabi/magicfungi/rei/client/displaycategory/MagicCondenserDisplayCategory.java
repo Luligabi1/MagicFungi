@@ -24,7 +24,6 @@ import java.util.List;
 
 public class MagicCondenserDisplayCategory extends DrawableHelper implements DisplayCategory<MagicCondenserDisplay> {
 
-    @SuppressWarnings("UnstableApiUsage")
     @Override
     public List<Widget> setupDisplay(MagicCondenserDisplay display, Rectangle bounds) {
         Point startPoint = new Point(bounds.getCenterX() - 41, bounds.getCenterY() - 13);

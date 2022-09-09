@@ -52,9 +52,8 @@ dependencies {
     include "com.github.Draylar.omega-config:omega-config-gui:${project.omega_config_version}"
     */
 
-    // remember to add the 'v' prefix to the version when compiling with a released build
-    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:${project.fabric_shield_lib_version}"
-    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:${project.fabric_shield_lib_version}"
+    modImplementation "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
+    include "com.github.CrimsonDawn45:Fabric-Shield-Lib:v${project.fabric_shield_lib_version}"
 
 
     modApi("dev.architectury:architectury-fabric:${project.architectury_version}")
