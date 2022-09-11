@@ -18,7 +18,6 @@ import me.luligabi.magicfungi.common.item.misc.MagicalFungiAlloyBlockItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.object.builder.v1.block.entity.FabricBlockEntityTypeBuilder;
-import net.fabricmc.fabric.api.transfer.v1.fluid.FluidStorage;
 import net.minecraft.block.*;
 import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.item.BlockItem;
@@ -74,7 +73,6 @@ public class BlockRegistry {
 
         initBlock("molding_cauldron", MOLDING_CAULDRON_BLOCK);
         MOLDING_CAULDRON_BLOCK_ENTITY_TYPE = Registry.register(Registry.BLOCK_ENTITY_TYPE, new Identifier(MagicFungi.MOD_ID, "molding_cauldron"), FabricBlockEntityTypeBuilder.create(MoldingCauldronBlockEntity::new, MOLDING_CAULDRON_BLOCK).build());
-        FluidStorage.SIDED.registerForBlockEntity((tank, direction) -> tank.fluidStorage, MOLDING_CAULDRON_BLOCK_ENTITY_TYPE);
 
         // Block registered apart from the BlockItem, since it's a glyph.
         Registry.register(Registry.BLOCK, new Identifier(MagicFungi.MOD_ID, "cadentis_block"), CADENTIS_BLOCK);
