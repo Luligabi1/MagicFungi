@@ -18,43 +18,45 @@ import net.minecraft.util.registry.Registry;
 public class ItemRegistry {
 
     public static void init() {
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "guide_book"), GUIDE_BOOK);
+        initItem("guide_book", GUIDE_BOOK);
 
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_essence"), IMPETUS_ESSENCE);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_essence"), CLYPEUS_ESSENCE);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_essence"), UTILIS_ESSENCE);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_essence"), VIVIFICA_ESSENCE);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_essence"), MORBUS_ESSENCE);
+        initItem("impetus_essence", IMPETUS_ESSENCE);
+        initItem("clypeus_essence", CLYPEUS_ESSENCE);
+        initItem("utilis_essence", UTILIS_ESSENCE);
+        initItem("vivifica_essence", VIVIFICA_ESSENCE);
+        initItem("morbus_essence", MORBUS_ESSENCE);
 
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_sword"), IMPETUS_SWORD);
-
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_shield"), CLYPEUS_SHIELD);
+        initItem("impetus_sword", IMPETUS_SWORD);
+        initItem("clypeus_shield", CLYPEUS_SHIELD);
         CLYPEUS_SHIELD.initShieldEvents();
+        initItem("utilis_pickaxe", UTILIS_PICKAXE);
+        initItem("vivifica_elixir", VIVIFICA_ELIXIR);
+        initItem("morbus_scythe", MORBUS_SCYTHE);
 
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_pickaxe"), UTILIS_PICKAXE);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_elixir"), VIVIFICA_ELIXIR);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_scythe"), MORBUS_SCYTHE);
+        initItem("magical_fungi_helmet", MAGICAL_FUNGI_HELMET);
+        initItem("magical_fungi_chestplate", MAGICAL_FUNGI_CHESTPLATE);
+        initItem("magical_fungi_leggings", MAGICAL_FUNGI_LEGGINGS);
+        initItem("magical_fungi_boots", MAGICAL_FUNGI_BOOTS);
 
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_helmet"), MAGICAL_FUNGI_HELMET);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_chestplate"), MAGICAL_FUNGI_CHESTPLATE);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_leggings"), MAGICAL_FUNGI_LEGGINGS);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_boots"), MAGICAL_FUNGI_BOOTS);
+        initItem("magical_fungi_alloy", MAGICAL_FUNGI_ALLOY);
+        initItem("magical_fungi_nugget", MAGICAL_FUNGI_ALLOY_NUGGET);
+        initItem("morbus_leather", MORBUS_LEATHER);
+        initItem("fungi_fertilizer", FUNGI_FERTILIZER);
 
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_alloy"), MAGICAL_FUNGI_ALLOY);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "magical_fungi_nugget"), MAGICAL_FUNGI_ALLOY_NUGGET);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_leather"), MORBUS_LEATHER);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "fungi_fertilizer"), FUNGI_FERTILIZER);
+        initItem("research_log", RESEARCH_LOG);
+        initItem("morbus_clock", MORBUS_CLOCK);
+        initItem("heart_of_vivifica", HEART_OF_VIVIFICA);
+        initItem("heart_of_morbus", HEART_OF_MORBUS);
 
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "research_log"), RESEARCH_LOG);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_clock"), MORBUS_CLOCK);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "heart_of_vivifica"), HEART_OF_VIVIFICA);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "heart_of_morbus"), HEART_OF_MORBUS);
+        initItem("impetus_mushroom_stew", IMPETUS_MUSHROOM_STEW);
+        initItem("clypeus_mushroom_stew", CLYPEUS_MUSHROOM_STEW);
+        initItem("utilis_mushroom_stew", UTILIS_MUSHROOM_STEW);
+        initItem("vivifica_mushroom_stew", VIVIFICA_MUSHROOM_STEW);
+        initItem("morbus_mushroom_stew", MORBUS_MUSHROOM_STEW);
+    }
 
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "impetus_mushroom_stew"), IMPETUS_MUSHROOM_STEW);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "clypeus_mushroom_stew"), CLYPEUS_MUSHROOM_STEW);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "utilis_mushroom_stew"), UTILIS_MUSHROOM_STEW);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "vivifica_mushroom_stew"), VIVIFICA_MUSHROOM_STEW);
-        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, "morbus_mushroom_stew"), MORBUS_MUSHROOM_STEW);
+    private static void initItem(String id, Item item) {
+        Registry.register(Registry.ITEM, new Identifier(MagicFungi.MOD_ID, id), item);
     }
 
     public static final Item GUIDE_BOOK = new AbstractBookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).group(MagicFungi.ITEM_GROUP), new Identifier(MagicFungi.MOD_ID, MagicFungi.MOD_ID));
