@@ -26,7 +26,6 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
-@SuppressWarnings("UnstableApiUsage")
 public class BlockRegistry {
 
     public static void init() {

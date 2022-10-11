@@ -32,10 +32,9 @@ public class MoldingCauldronBlock extends BlockWithEntity {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.isClient()) return ActionResult.CONSUME;
         MoldingCauldronBlockEntity blockEntity = (MoldingCauldronBlockEntity) world.getBlockEntity(pos);
-        ItemStack moldingItem = blockEntity.getInventory().get(0);
+        ItemStack moldingItem = blockEntity.getStack(0);
         ItemStack handStack = player.getStackInHand(hand);
 
-        if(!blockEntity.standBy) return ActionResult.PASS;
         if(moldingItem.isEmpty()) {
             if(!handStack.isEmpty() && handStack.isFood()) {
                 blockEntity.getInventory().set(0, copyStack(handStack));
@@ -57,13 +56,12 @@ public class MoldingCauldronBlock extends BlockWithEntity {
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
-        if (!state.isOf(newState.getBlock())) {
+        if(!state.isOf(newState.getBlock())) {
             BlockEntity blockEntity = world.getBlockEntity(pos);
-            if (blockEntity instanceof MoldingCauldronBlockEntity) {
+            if(blockEntity instanceof MoldingCauldronBlockEntity) {
                 ItemScatterer.spawn(world, pos, (MoldingCauldronBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
-
             super.onStateReplaced(state, world, pos, newState, moved);
         }
     }

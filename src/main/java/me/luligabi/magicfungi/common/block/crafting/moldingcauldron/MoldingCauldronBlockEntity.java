@@ -1,9 +1,11 @@
 package me.luligabi.magicfungi.common.block.crafting.moldingcauldron;
 
+import com.mojang.datafixers.util.Pair;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.block.util.ClientSyncedBlockEntity;
 import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.minecraft.block.BlockState;
+import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
@@ -24,9 +26,11 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
     public static void tick(World world, BlockPos pos, BlockState state, MoldingCauldronBlockEntity blockEntity) {
         if(blockEntity.isEmpty()) return;
         if(blockEntity.standBy) {
-            blockEntity.standBy = false;
-            blockEntity.processTime = blockEntity.getAdjustedProcessTime(blockEntity.getFoodComponent());
-            markDirty(world, blockEntity.pos, blockEntity.getCachedState());
+            if(blockEntity.getStack(0).isFood()) {
+                blockEntity.standBy = false;
+                blockEntity.processTime = blockEntity.getAdjustedProcessTime(blockEntity.getFoodComponent());
+                markDirty(world, blockEntity.pos, blockEntity.getCachedState());
+            }
         } else {
             blockEntity.processTime--;
             if(blockEntity.processTime <= 0) {
@@ -47,7 +51,7 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
     private int getAdjustedProcessTime(FoodComponent foodComponent) {
         int i = 600; // initial 30 seconds
 
-        i += foodComponent.getHunger() * 8; // additional time for the item's hunger value (i.e. cooked beef has 8 hunger, so 600 + 8*8 = 664)
+        i += foodComponent.getHunger() * 8 * 5; // additional time for the item's hunger value (i.e. cooked beef has 8 hunger, so 8*8*5= 320 ticks, aka 16 additional seconds)
         if(foodComponent.isSnack()) i /= 2; // snacks usually have very low hunger values, so we want to cut the time in half for them
 
         return i;
@@ -56,8 +60,16 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
     private int getMoldOutput(FoodComponent foodComponent) {
         int i = 1;
 
-        if(foodComponent.isMeat() && foodComponent.getHunger() >= 4) i += 2 + foodComponent.getHunger()/2; // hunger requirement avoids granting a bigger output to uncooked meats
+        if(foodComponent.isMeat() && foodComponent.getHunger() >= 4) i = 2 + foodComponent.getHunger()/2; // hunger requirement avoids granting a bigger output to uncooked meats
         if(foodComponent.isSnack()) i = 1;
+        if(!foodComponent.getStatusEffects().isEmpty()) { // Add or remove 1 for each beneficial/harmful effect the food grants
+            for(Pair<StatusEffectInstance, Float> pair : foodComponent.getStatusEffects()) {
+                switch(pair.getFirst().getEffectType().getCategory()) {
+                    case BENEFICIAL -> i += 1;
+                    case HARMFUL -> i -= 1;
+                }
+            }
+        }
 
         return Math.max(i, 1);
     }
