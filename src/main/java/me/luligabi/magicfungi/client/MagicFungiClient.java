@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.client;
 
 import draylar.omegaconfiggui.OmegaConfigGui;
+import me.luligabi.magicfungi.client.renderer.block.MoldingCauldronBlockEntityRenderer;
 import me.luligabi.magicfungi.client.renderer.entity.MorbusMooshroomEntityRenderer;
 import me.luligabi.magicfungi.client.screen.*;
 import me.luligabi.magicfungi.client.tooltip.glyph.GlyphTooltipComponent;
@@ -19,6 +20,7 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.rendering.v1.BlockEntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityModelLayerRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.EntityRendererRegistry;
 import net.fabricmc.fabric.api.client.rendering.v1.TooltipComponentCallback;
@@ -60,7 +62,10 @@ public class MagicFungiClient implements ClientModInitializer {
 
                 BlockRegistry.LARGE_HOST_FERN,
 
-                BlockRegistry.ESSENCE_EXTRACTOR_BLOCK);
+                BlockRegistry.ESSENCE_EXTRACTOR_BLOCK
+        );
+
+        BlockEntityRendererRegistry.register(BlockRegistry.MOLDING_CAULDRON_BLOCK_ENTITY_TYPE, MoldingCauldronBlockEntityRenderer::new);
 
         HandledScreens.register(ScreenHandlingRegistry.GLYPH_CARVING_SCREEN_HANDLER, GlyphCarvingScreen::new);
         HandledScreens.register(ScreenHandlingRegistry.SPELL_DISCOVERY_SCREEN_HANDLER, SpellDiscoveryScreen::new);

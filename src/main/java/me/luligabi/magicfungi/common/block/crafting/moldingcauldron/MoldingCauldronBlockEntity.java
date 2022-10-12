@@ -3,8 +3,8 @@ package me.luligabi.magicfungi.common.block.crafting.moldingcauldron;
 import com.mojang.datafixers.util.Pair;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.block.util.ClientSyncedBlockEntity;
-import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
@@ -26,30 +26,36 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
     public static void tick(World world, BlockPos pos, BlockState state, MoldingCauldronBlockEntity blockEntity) {
         if(blockEntity.isEmpty()) return;
         if(blockEntity.standBy) {
-            if(blockEntity.getStack(0).isFood()) {
+            if(blockEntity.getStack(0).isFood() && state.get(MoldingCauldronBlock.FULL)) {
                 blockEntity.standBy = false;
                 blockEntity.processTime = blockEntity.getAdjustedProcessTime(blockEntity.getFoodComponent());
                 markDirty(world, blockEntity.pos, blockEntity.getCachedState());
             }
         } else {
+            if(!state.get(MoldingCauldronBlock.FULL)) {
+                blockEntity.standBy = true;
+                blockEntity.processTime = 0;
+            }
             blockEntity.processTime--;
             if(blockEntity.processTime <= 0) {
                 craft(world, blockEntity);
+                blockEntity.sync();
             }
             markDirty(world, blockEntity.pos, blockEntity.getCachedState());
         }
     }
 
     private static void craft(World world, MoldingCauldronBlockEntity blockEntity) {
-        int i =  blockEntity.getMoldOutput(blockEntity.getFoodComponent());
-        blockEntity.inventory.set(0, new ItemStack(ItemRegistry.CLYPEUS_ESSENCE, i));
+        blockEntity.inventory.set(0, new ItemStack(Blocks.GLASS_PANE, blockEntity.getMoldOutput(blockEntity.getFoodComponent())));
         blockEntity.standBy = true;
         blockEntity.processTime = 0;
+        world.setBlockState(blockEntity.getPos(), world.getBlockState(blockEntity.getPos()).with(MoldingCauldronBlock.FULL, false));
+        // TODO: Add sound
         markDirty(world, blockEntity.pos, blockEntity.getCachedState());
     }
 
     private int getAdjustedProcessTime(FoodComponent foodComponent) {
-        int i = 600; // initial 30 seconds
+        int i = 30*20; // initial 30 seconds
 
         i += foodComponent.getHunger() * 8 * 5; // additional time for the item's hunger value (i.e. cooked beef has 8 hunger, so 8*8*5= 320 ticks, aka 16 additional seconds)
         if(foodComponent.isSnack()) i /= 2; // snacks usually have very low hunger values, so we want to cut the time in half for them
