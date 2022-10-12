@@ -56,7 +56,7 @@ public class MoldingCauldronBlock extends BlockWithEntity {
                 world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 return ActionResult.SUCCESS;
             } else if(handStack.isIn(ConventionalItemTags.EMPTY_BUCKETS) && state.get(FULL)) { // Remove Water
-                player.setStackInHand(hand, ItemUsage.exchangeStack(handStack, player, new ItemStack(Items.WATER_BUCKET)));
+                player.setStackInHand(hand, ItemUsage.exchangeStack(handStack, player, new ItemStack(Items.WATER_BUCKET))); // FIXME: return proper bucket
                 player.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
                 world.setBlockState(pos, state.with(FULL, false));
                 world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);

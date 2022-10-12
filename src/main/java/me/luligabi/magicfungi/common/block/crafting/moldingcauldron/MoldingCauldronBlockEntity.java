@@ -29,16 +29,21 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
             if(blockEntity.getStack(0).isFood() && state.get(MoldingCauldronBlock.FULL)) {
                 blockEntity.standBy = false;
                 blockEntity.processTime = blockEntity.getAdjustedProcessTime(blockEntity.getFoodComponent());
+                blockEntity.totalProcessTime = blockEntity.processTime;
                 markDirty(world, blockEntity.pos, blockEntity.getCachedState());
             }
         } else {
             if(!state.get(MoldingCauldronBlock.FULL)) {
                 blockEntity.standBy = true;
                 blockEntity.processTime = 0;
+                blockEntity.totalProcessTime = 0;
             }
             blockEntity.processTime--;
             if(blockEntity.processTime <= 0) {
                 craft(world, blockEntity);
+                blockEntity.sync();
+            }
+            if(blockEntity.processTime % 10 == 0) {
                 blockEntity.sync();
             }
             markDirty(world, blockEntity.pos, blockEntity.getCachedState());
@@ -49,6 +54,7 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
         blockEntity.inventory.set(0, new ItemStack(Blocks.GLASS_PANE, blockEntity.getMoldOutput(blockEntity.getFoodComponent())));
         blockEntity.standBy = true;
         blockEntity.processTime = 0;
+        blockEntity.totalProcessTime = 0;
         world.setBlockState(blockEntity.getPos(), world.getBlockState(blockEntity.getPos()).with(MoldingCauldronBlock.FULL, false));
         // TODO: Add sound
         markDirty(world, blockEntity.pos, blockEntity.getCachedState());
@@ -96,6 +102,7 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
     public void toTag(NbtCompound nbt) {
         Inventories.writeNbt(nbt, inventory);
         nbt.putShort("ProcessTime", (short) processTime);
+        nbt.putShort("TotalProcessTime", (short) totalProcessTime);
         nbt.putBoolean("StandBy", standBy);
     }
 
@@ -104,18 +111,18 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
         this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
         Inventories.readNbt(nbt, inventory);
         this.processTime = nbt.getShort("ProcessTime");
+        this.totalProcessTime = nbt.getShort("TotalProcessTime");
         this.standBy = nbt.getBoolean("StandBy");
     }
 
     @Override
     public void toClientTag(NbtCompound nbt) {
-        Inventories.writeNbt(nbt, inventory);
+        toTag(nbt);
     }
 
     @Override
     public void fromClientTag(NbtCompound nbt) {
-        this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
-        Inventories.readNbt(nbt, inventory);
+        fromTag(nbt);
     }
 
     public DefaultedList<ItemStack> getInventory() {
@@ -159,7 +166,8 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
 
 
     private DefaultedList<ItemStack> inventory;
-    int processTime;
-    boolean standBy = true;
+    public int processTime;
+    public int totalProcessTime;
+    public boolean standBy = true;
 
 }
