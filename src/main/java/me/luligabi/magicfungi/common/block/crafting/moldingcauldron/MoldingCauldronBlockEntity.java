@@ -9,14 +9,17 @@ import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.inventory.Inventory;
+import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.FoodComponent;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Direction;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
-public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implements Inventory {
+public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implements Inventory, SidedInventory {
 
     public MoldingCauldronBlockEntity(BlockPos pos, BlockState state) {
         super(BlockRegistry.MOLDING_CAULDRON_BLOCK_ENTITY_TYPE, pos, state);
@@ -157,6 +160,21 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
 
     public void clear() {
         this.inventory.clear();
+    }
+
+    @Override
+    public int[] getAvailableSlots(Direction side) {
+        return new int[]{0};
+    }
+
+    @Override
+    public boolean canInsert(int slot, ItemStack stack, @Nullable Direction dir) {
+        return isEmpty() && stack.getItem().isFood() && dir != Direction.DOWN;
+    }
+
+    @Override
+    public boolean canExtract(int slot, ItemStack stack, Direction side) {
+        return standBy && !stack.getItem().isFood() && side == Direction.DOWN;
     }
 
     @Override
