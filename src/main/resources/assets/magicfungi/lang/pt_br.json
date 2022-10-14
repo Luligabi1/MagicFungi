@@ -50,6 +50,13 @@
   "tooltip.magicfungi.morbus_essence": "Essência(s) Morbus: ",
   "tooltip.magicfungi.nether_star_fuel": "Energia de Estrela do Nether: ",
 
+  "block.magicfungi.molding_cauldron": "Caldeirão de Bolor",
+  "title.magicfungi.molding": "Criação de Bolor",
+  "tooltip.magicfungi.molding_cauldron.input": "Clique-Direito e coloque Água",
+  "tooltip.magicfungi.molding_cauldron.time": "Tempo depende da qualidade da comida.",
+  "tooltip.magicfungi.molding_cauldron.output.1": "Quantidade de Bolor gerado",
+  "tooltip.magicfungi.molding_cauldron.output.2": "depende da qualidade da comida",
+
   "block.magicfungi.morbus_mushroom_block": "Bloco de Cogumelo Morbus",
 
   "block.magicfungi.host_grass_block": "Bloco de Grama Hospedeira",

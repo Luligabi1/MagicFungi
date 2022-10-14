@@ -14,6 +14,7 @@ import me.shedaniel.rei.api.client.registry.display.DisplayCategory;
 import me.shedaniel.rei.api.common.category.CategoryIdentifier;
 import me.shedaniel.rei.api.common.util.EntryStacks;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 
 import java.util.Collections;
 import java.util.List;
@@ -25,10 +26,11 @@ public class MoldingCauldronDisplayCategory implements DisplayCategory<MoldingCa
         Point startPoint = new Point(bounds.getCenterX() - 31, bounds.getCenterY() - 13);
         List<Widget> widgets = Lists.newArrayList();
         widgets.add(Widgets.createRecipeBase(bounds));
-        widgets.add(Widgets.createArrow(new Point(startPoint.x - 4, startPoint.y + 4)));
+        widgets.add(new TooltippedArrow(new Point(startPoint.x - 4, startPoint.y + 4),
+                List.of(Text.translatable("tooltip.magicfungi.molding_cauldron.input").formatted(Formatting.GRAY))));
         widgets.add(new TooltippedArrow(new Point(startPoint.x + 42, startPoint.y + 4),
-                List.of(Text.translatable("category.rei.campfire.time", "placeholder"))) // add actual value here
-                .animationDurationTicks(32*20));
+                List.of(Text.translatable("tooltip.magicfungi.molding_cauldron.time").formatted(Formatting.GRAY)))
+                .animationDurationTicks(30*20));
         widgets.add(Widgets.createResultSlotBackground(new Point(startPoint.x + 73, startPoint.y + 5)));
         widgets.add(Widgets.createSlot(new Point(startPoint.x - 23, startPoint.y + 5)).entries(display.getInputEntries().get(0)).markInput());
         widgets.add(Widgets.createSlot(new Point(startPoint.x + 23, startPoint.y + 5)).entries(Collections.singleton(EntryStacks.of(BlockRegistry.MOLDING_CAULDRON_BLOCK))).disableBackground().disableHighlight());

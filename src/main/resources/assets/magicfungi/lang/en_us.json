@@ -58,6 +58,13 @@
   "tooltip.magicfungi.morbus_essence": "Morbus Essence(s): ",
   "tooltip.magicfungi.nether_star_fuel": "Nether Star Power: ",
 
+  "block.magicfungi.molding_cauldron": "Molding Cauldron",
+  "title.magicfungi.molding": "Molding",
+  "tooltip.magicfungi.molding_cauldron.input": "Right-Click and place Water",
+  "tooltip.magicfungi.molding_cauldron.time": "Time depends on food's quality.",
+  "tooltip.magicfungi.molding_cauldron.output.1": "Quantity of Mold generated",
+  "tooltip.magicfungi.molding_cauldron.output.2": "depends on food's quality.",
+
   "block.magicfungi.morbus_mushroom_block": "Morbus Mushroom Block",
 
   "block.magicfungi.host_grass_block": "Host Grass Block",
