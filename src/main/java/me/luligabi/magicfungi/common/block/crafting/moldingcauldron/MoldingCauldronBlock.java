@@ -38,15 +38,18 @@ public class MoldingCauldronBlock extends BlockWithEntity {
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if(world.isClient()) return ActionResult.CONSUME;
         MoldingCauldronBlockEntity blockEntity = (MoldingCauldronBlockEntity) world.getBlockEntity(pos);
-        ItemStack moldingItem = blockEntity.getStack(0);
+        ItemStack moldingStack = blockEntity.getStack(0);
         ItemStack handStack = player.getStackInHand(hand);
 
         if(!handStack.isEmpty()) {
-            if(handStack.isFood() && moldingItem.isEmpty()) { // Place Item
+            if(handStack.isFood() && moldingStack.isEmpty()) { // Place Item
                 blockEntity.getInventory().set(0, copyStack(handStack));
                 handStack.decrement(1);
                 blockEntity.markDirty();
                 world.playSound(null, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1.0F, 1.0F);
+                return ActionResult.SUCCESS;
+            } else if(handStack.isOf(moldingStack.getItem())) { // Remove Item (same as hand case)
+                removeItem(blockEntity, world, pos);
                 return ActionResult.SUCCESS;
             } else if(handStack.isIn(ConventionalItemTags.WATER_BUCKETS) && !state.get(FULL)) { // Place Water
                 Item recipeRemainder = handStack.getItem().getRecipeRemainder();
@@ -62,16 +65,21 @@ public class MoldingCauldronBlock extends BlockWithEntity {
                 world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 return ActionResult.SUCCESS;
             }
-        } else { // Remove Item
-            blockEntity.standBy = true;
-            blockEntity.processTime = 0;
-            blockEntity.markDirty();
-            ItemScatterer.spawn(world, pos, blockEntity);
-            world.playSound(null, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1.0F, 1.0F);
+        } else if(!blockEntity.isEmpty()) { // Remove Item (empty hand)
+            removeItem(blockEntity, world, pos);
             return ActionResult.SUCCESS;
         }
         return ActionResult.CONSUME;
     }
+
+    private void removeItem(MoldingCauldronBlockEntity blockEntity, World world, BlockPos pos) {
+        blockEntity.standBy = true;
+        blockEntity.processTime = 0;
+        blockEntity.markDirty();
+        ItemScatterer.spawn(world, pos, blockEntity);
+        world.playSound(null, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1.0F, 1.0F);
+    }
+
 
     @Override
     public void onStateReplaced(BlockState state, World world, BlockPos pos, BlockState newState, boolean moved) {
