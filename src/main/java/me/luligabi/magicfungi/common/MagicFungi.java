@@ -130,20 +130,21 @@ public class MagicFungi implements ModInitializer {
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_LEGGINGS));
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_BOOTS));
 
-                // Misc
+                // Magical Fungi Alloy
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY));
                 stacks.add(new ItemStack(ItemRegistry.MAGICAL_FUNGI_ALLOY_NUGGET));
                 stacks.add(new ItemStack(BlockRegistry.MAGICAL_FUNGI_ALLOY_BLOCK));
-                stacks.add(new ItemStack(ItemRegistry.MORBUS_LEATHER));
-
 
                 // Morbus Items
+                stacks.add(new ItemStack(ItemRegistry.MORBUS_LEATHER));
                 stacks.add(new ItemStack(ItemRegistry.RESEARCH_LOG));
                 stacks.add(new ItemStack(ItemRegistry.MORBUS_CLOCK));
                 stacks.add(new ItemStack(ItemRegistry.HEART_OF_VIVIFICA));
                 stacks.add(new ItemStack(ItemRegistry.HEART_OF_MORBUS));
 
                 // Fungi Fertilizer & Stews
+                stacks.add(new ItemStack(BlockRegistry.MOLDING_CAULDRON_BLOCK));
+                stacks.add(new ItemStack(ItemRegistry.BALL_OF_MOLD));
                 stacks.add(new ItemStack(ItemRegistry.FUNGI_FERTILIZER));
                 stacks.add(new ItemStack(ItemRegistry.IMPETUS_MUSHROOM_STEW));
                 stacks.add(new ItemStack(ItemRegistry.CLYPEUS_MUSHROOM_STEW));

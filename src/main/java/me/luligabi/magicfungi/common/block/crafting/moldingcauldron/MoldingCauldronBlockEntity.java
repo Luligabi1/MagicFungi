@@ -3,8 +3,8 @@ package me.luligabi.magicfungi.common.block.crafting.moldingcauldron;
 import com.mojang.datafixers.util.Pair;
 import me.luligabi.magicfungi.common.block.BlockRegistry;
 import me.luligabi.magicfungi.common.block.util.ClientSyncedBlockEntity;
+import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.minecraft.block.BlockState;
-import net.minecraft.block.Blocks;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.inventory.Inventories;
@@ -54,7 +54,7 @@ public class MoldingCauldronBlockEntity extends ClientSyncedBlockEntity implemen
     }
 
     private static void craft(World world, MoldingCauldronBlockEntity blockEntity) {
-        blockEntity.inventory.set(0, new ItemStack(Blocks.GLASS_PANE, blockEntity.getMoldOutput(blockEntity.getFoodComponent())));
+        blockEntity.inventory.set(0, new ItemStack(ItemRegistry.BALL_OF_MOLD, blockEntity.getMoldOutput(blockEntity.getFoodComponent())));
         blockEntity.standBy = true;
         blockEntity.processTime = 0;
         blockEntity.totalProcessTime = 0;

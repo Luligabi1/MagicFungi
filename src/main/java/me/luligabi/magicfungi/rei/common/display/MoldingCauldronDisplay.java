@@ -26,7 +26,7 @@ public class MoldingCauldronDisplay extends BasicDisplay {
     private MoldingCauldronDisplay(@Nullable List<EntryIngredient> input, @Nullable List<EntryIngredient> output, @Nullable NbtCompound tag) {
         super(
                 Collections.singletonList(EntryIngredients.ofItemTag(ConventionalItemTags.FOODS)),
-                Collections.singletonList(EntryIngredient.of(EntryStacks.of(new ItemStack(ItemRegistry.CLYPEUS_ESSENCE)).copy()
+                Collections.singletonList(EntryIngredient.of(EntryStacks.of(new ItemStack(ItemRegistry.BALL_OF_MOLD)).copy()
                         .tooltip(
                                 Text.translatable("tooltip.magicfungi.molding_cauldron.output.1").formatted(Formatting.GRAY, Formatting.ITALIC),
                                 Text.translatable("tooltip.magicfungi.molding_cauldron.output.2").formatted(Formatting.GRAY, Formatting.ITALIC)                        )

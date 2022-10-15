@@ -41,12 +41,14 @@ public class ItemRegistry {
         initItem("magical_fungi_alloy", MAGICAL_FUNGI_ALLOY);
         initItem("magical_fungi_nugget", MAGICAL_FUNGI_ALLOY_NUGGET);
         initItem("morbus_leather", MORBUS_LEATHER);
-        initItem("fungi_fertilizer", FUNGI_FERTILIZER);
 
         initItem("research_log", RESEARCH_LOG);
         initItem("morbus_clock", MORBUS_CLOCK);
         initItem("heart_of_vivifica", HEART_OF_VIVIFICA);
         initItem("heart_of_morbus", HEART_OF_MORBUS);
+
+        initItem("ball_of_mold", BALL_OF_MOLD);
+        initItem("fungi_fertilizer", FUNGI_FERTILIZER);
 
         initItem("impetus_mushroom_stew", IMPETUS_MUSHROOM_STEW);
         initItem("clypeus_mushroom_stew", CLYPEUS_MUSHROOM_STEW);
@@ -87,7 +89,6 @@ public class ItemRegistry {
     public static final Item MAGICAL_FUNGI_ALLOY = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
     public static final Item MAGICAL_FUNGI_ALLOY_NUGGET = new MagicalFungiAlloyItem(new FabricItemSettings().rarity(Rarity.EPIC).group(MagicFungi.ITEM_GROUP));
     public static final Item MORBUS_LEATHER = new Item(new FabricItemSettings().rarity(Rarity.UNCOMMON).group(MagicFungi.ITEM_GROUP));
-    public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
 
 
     public static final Item RESEARCH_LOG = new AbstractBookItem(new FabricItemSettings().rarity(Rarity.UNCOMMON).maxCount(1).group(MagicFungi.ITEM_GROUP), new Identifier(MagicFungi.MOD_ID, "research_log"));
@@ -96,6 +97,8 @@ public class ItemRegistry {
     public static final Item HEART_OF_MORBUS = new MorbusHeartItem(new FabricItemSettings().rarity(Rarity.EPIC).maxCount(1).group(MagicFungi.ITEM_GROUP));
 
 
+    public static final Item BALL_OF_MOLD = new Item(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
+    public static final Item FUNGI_FERTILIZER = new FungiFertilizerItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP));
     public static final Item IMPETUS_MUSHROOM_STEW = new StewItem(new FabricItemSettings().group(MagicFungi.ITEM_GROUP).maxCount(1).food(
             (new FoodComponent.Builder()).hunger(6).saturationModifier(0.6F).statusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 10*20, 1), 1.0F).build()));
 
