@@ -286,7 +286,10 @@
   "advancements.magicfungi.magic_fungi": "Magic Fungi",
   "advancements.magicfungi.magic_fungi.description": "Comece seus estudos de magia encontrando um cogumelo mágico",
 
-  "advancements.magicfungi.fungi_fertilizer": "Dedo Marrom",
+  "advancements.magicfungi.ball_of_mold": "Magia Nojenta",
+  "advancements.magicfungi.ball_of_mold.description": "Obtenha uma Bola de Bolor usando um Caldeirão de Bolor",
+
+  "advancements.magicfungi.fungi_fertilizer": "Dedo Turquesa",
   "advancements.magicfungi.fungi_fertilizer.description": "Fabrique um Fertilizador Fúngico",
 
   "advancements.magicfungi.mushroom_stew": "Culinária Fúngica",

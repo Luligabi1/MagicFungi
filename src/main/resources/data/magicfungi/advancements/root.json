@@ -9,7 +9,7 @@
     "description": {
       "translate": "advancements.magicfungi.magic_fungi.description"
     },
-    "background": "magicfungi:textures/block/morbus_mushroom_block.png"
+    "background": "magicfungi:textures/block/mushroom_block/morbus/morbus_mushroom_block.png"
   },
   "criteria": {
     "checkInv": {

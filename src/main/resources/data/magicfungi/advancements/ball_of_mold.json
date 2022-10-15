@@ -1,0 +1,26 @@
+{
+  "display": {
+    "icon": {
+      "item": "magicfungi:ball_of_mold"
+    },
+    "title": {
+      "translate": "advancements.magicfungi.ball_of_mold"
+    },
+    "description": {
+      "translate": "advancements.magicfungi.ball_of_mold.description"
+    }
+  },
+  "parent": "magicfungi:root",
+  "criteria": {
+    "checkInv": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["magicfungi:ball_of_mold"]
+          }
+        ]
+      }
+    }
+  }
+}

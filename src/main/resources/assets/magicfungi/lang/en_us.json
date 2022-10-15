@@ -313,7 +313,10 @@
   "advancements.magicfungi.magic_fungi": "Magic Fungi",
   "advancements.magicfungi.magic_fungi.description": "Start your magic studies by finding a Magic Mushroom",
 
-  "advancements.magicfungi.fungi_fertilizer": "Brown Thumb",
+  "advancements.magicfungi.ball_of_mold": "Disgusting Magic",
+  "advancements.magicfungi.ball_of_mold.description": "Obtain Mold by getting your hands dirty with a Molding Cauldron",
+
+  "advancements.magicfungi.fungi_fertilizer": "Turquoise Thumb",
   "advancements.magicfungi.fungi_fertilizer.description": "Craft a Fungi Fertilizer",
 
   "advancements.magicfungi.mushroom_stew": "Fungi Culinary",
