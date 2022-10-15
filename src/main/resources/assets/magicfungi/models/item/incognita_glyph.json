@@ -1,6 +1,7 @@
 {
   "parent": "item/generated",
   "textures": {
-    "layer0": "magicfungi:item/incognita_glyph"
+    "layer0": "magicfungi:item/glyph/blank_glyph",
+    "layer1": "magicfungi:item/glyph/incognita_overlay"
   }
 }

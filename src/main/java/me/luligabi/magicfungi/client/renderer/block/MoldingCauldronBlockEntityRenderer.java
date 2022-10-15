@@ -90,7 +90,7 @@ public class MoldingCauldronBlockEntityRenderer implements BlockEntityRenderer<M
         vc.quad(ms.peek(), emitter.toBakedQuad(0, sprite, false), r, g, b, 0x00F0_00F0, OverlayTexture.DEFAULT_UV);
     }
 
-    private static int interpolateColor(int currentClass, int numOfClasses) {
+    private static int interpolateColor(int current, int total) {
         float[] minhsb = Color.RGBtoHSB(SWAMP_COLOR[0], SWAMP_COLOR[1], SWAMP_COLOR[2], null); // Swamp Water Color
         float[] maxhsb = Color.RGBtoHSB(OCEAN_COLOR[0], OCEAN_COLOR[1], OCEAN_COLOR[2], null);
 
@@ -103,9 +103,9 @@ public class MoldingCauldronBlockEntityRenderer implements BlockEntityRenderer<M
         float minBri = minhsb[2];
         float maxBri = maxhsb[2];
 
-        double hue = minHue + (currentClass * (maxHue - minHue) / (numOfClasses - 1));
-        double saturation = minSat + (currentClass * (maxSat - minSat) / (numOfClasses - 1));
-        double brightness = minBri + (currentClass * (maxBri - minBri) / (numOfClasses - 1));
+        double hue = minHue + (current * (maxHue - minHue) / (total - 1));
+        double saturation = minSat + (current * (maxSat - minSat) / (total - 1));
+        double brightness = minBri + (current * (maxBri - minBri) / (total - 1));
 
         Color hsbColor = Color.getHSBColor((float) hue, (float) saturation, (float) brightness);
 
