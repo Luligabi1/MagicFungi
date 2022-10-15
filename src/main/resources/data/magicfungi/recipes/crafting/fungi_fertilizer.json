@@ -1,16 +1,16 @@
 {
   "type": "minecraft:crafting_shaped",
   "pattern": [
-    "BMB",
+    "MMM",
     "MBM",
-    "BMB"
+    "MMM"
   ],
   "key": {
     "B": {
       "item": "minecraft:bone_meal"
     },
     "M": {
-      "tag": "magicfungi:mushrooms"
+      "item": "magicfungi:ball_of_mold"
     }
   },
   "result": {
