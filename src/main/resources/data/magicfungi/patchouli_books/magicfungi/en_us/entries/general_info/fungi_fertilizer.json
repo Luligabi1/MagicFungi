@@ -8,11 +8,21 @@
       "type": "spotlight",
       "item": "magicfungi:fungi_fertilizer",
       "title": "Fertilizing the Fungi",
-      "text": "Fungi Fertilizers are a special fertilizer to stimulate the surrounding areas to grow mushrooms in the dark. They can spawn varying types of magic fungi (except Morbus) in small patches. $(br)$(br)You might craft one by doing the following crafting:"
+      "text": "Magic isn't always a bed of roses. If you're having trouble adventuring for Magic Mushrooms, you can use some $(l)Fungi Fertilizer$(), capable of stimulating Magic Mushrooms' growth in the dark.$(br2)You might craft one by doing the following crafting:"
     },
     {
       "type": "crafting",
-      "recipe": "magicfungi:crafting/fungi_fertilizer"
+      "recipe": "magicfungi:crafting/fungi_fertilizer",
+      "text": "As you may have noticed, we'll need some $(3)$(l)Balls of Mold$(). To obtain them, we'll need any kind of $(6)$(l)food$(), $(9)$(l)Water$() and a $(8)$(l)Molding Cauldron$():"
+    },
+    {
+      "type": "crafting",
+      "recipe": "magicfungi:crafting/molding_cauldron",
+      "text": "First, insert the food of your choice into the cauldron.$(br)Then, place water inside the Cauldron and wait.$(br)This progress $(n)will$() take a while, so it might be better to do something else while you wait."
+    },
+    {
+      "type": "text",
+      "text": "Once the water is gone, your mold is ready. The amount of mold created depends of the chosen food's quality.$(br2)$(l)$(n)What determines food's$(br)quality?$()$(br2)$(li)Its nourishment value;$(br)$(li)Whether it's made of meat;$(br)$(li)Grants beneficial effects;$(br)$(li)Whether it's a snack.$(br)"
     }
   ]
 }
