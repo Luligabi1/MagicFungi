@@ -104,6 +104,10 @@ public class ClientReiPlugin implements REIClientPlugin {
                 .put(ItemRegistry.HEART_OF_VIVIFICA, "description.magicfungi.heart_of_vivifica")
                 .put(ItemRegistry.HEART_OF_MORBUS, "description.magicfungi.heart_of_morbus")
 
+                // Mold Stuff
+                .put(BlockRegistry.MOLDING_CAULDRON_BLOCK, "description.magicfungi.molding_cauldron")
+                .put(ItemRegistry.FUNGI_FERTILIZER, "description.magicfungi.fungi_fertilizer")
+
                 // Misc
                 .put(ItemRegistry.GUIDE_BOOK, "description.magicfungi.guide_book")
                 .put(ItemRegistry.RESEARCH_LOG, "description.magicfungi.research_log")
