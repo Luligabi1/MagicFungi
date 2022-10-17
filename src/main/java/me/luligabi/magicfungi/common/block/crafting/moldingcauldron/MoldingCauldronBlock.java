@@ -44,7 +44,9 @@ public class MoldingCauldronBlock extends BlockWithEntity {
         if(!handStack.isEmpty()) {
             if(handStack.isFood() && moldingStack.isEmpty()) { // Place Item
                 blockEntity.getInventory().set(0, copyStack(handStack));
-                handStack.decrement(1);
+                if(!player.isCreative()) {
+                    handStack.decrement(1);
+                }
                 blockEntity.markDirty();
                 world.playSound(null, pos, SoundEvents.ENTITY_ITEM_FRAME_ADD_ITEM, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 return ActionResult.SUCCESS;
