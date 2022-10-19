@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.misc;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.fabricmc.fabric.api.registry.CompostingChanceRegistry;
 
 public class CompostableRegistry {
@@ -19,6 +20,8 @@ public class CompostableRegistry {
 
         CompostingChanceRegistry.INSTANCE.add(BlockRegistry.HOST_FERN, 0.3F);
         CompostingChanceRegistry.INSTANCE.add(BlockRegistry.LARGE_HOST_FERN, 0.5F);
+
+        CompostingChanceRegistry.INSTANCE.add(ItemRegistry.BALL_OF_MOLD, 1.0F);
     }
 
 }
