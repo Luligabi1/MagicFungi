@@ -12,6 +12,8 @@
     "HoeItemAccessor",
     "ItemRendererInvoker",
     "ItemRendererMixin",
+    "MoldingCauldronPlaceDispenserBehaviorMixin",
+    "MoldingCauldronTakeDispenserBehaviorMixin",
     "OrePlacedFeaturesInvoker",
     "PlayerEntityMixin",
     "PlayerInventoryAccessor",
