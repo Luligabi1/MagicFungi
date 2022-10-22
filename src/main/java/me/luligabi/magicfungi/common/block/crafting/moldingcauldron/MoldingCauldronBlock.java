@@ -1,6 +1,7 @@
 package me.luligabi.magicfungi.common.block.crafting.moldingcauldron;
 
 import me.luligabi.magicfungi.common.block.BlockRegistry;
+import me.luligabi.magicfungi.common.item.ItemRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.fabricmc.fabric.api.tag.convention.v1.ConventionalItemTags;
 import net.minecraft.block.*;
@@ -17,6 +18,7 @@ import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Properties;
 import net.minecraft.util.*;
+import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
@@ -58,12 +60,14 @@ public class MoldingCauldronBlock extends BlockWithEntity {
                 player.setStackInHand(hand, ItemUsage.exchangeStack(handStack, player, recipeRemainder != null ? new ItemStack(recipeRemainder) : ItemStack.EMPTY));
                 player.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
                 world.setBlockState(pos, state.with(FULL, true));
+                world.updateComparators(pos, this);
                 world.playSound(null, pos, SoundEvents.ITEM_BUCKET_EMPTY, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 return ActionResult.SUCCESS;
             } else if(handStack.isIn(ConventionalItemTags.EMPTY_BUCKETS) && state.get(FULL)) { // Remove Water
                 player.setStackInHand(hand, ItemUsage.exchangeStack(handStack, player, new ItemStack(Items.WATER_BUCKET))); // FIXME: return proper bucket
                 player.incrementStat(Stats.USED.getOrCreateStat(handStack.getItem()));
                 world.setBlockState(pos, state.with(FULL, false));
+                world.updateComparators(pos, this);
                 world.playSound(null, pos, SoundEvents.ITEM_BUCKET_FILL, SoundCategory.BLOCKS, 1.0F, 1.0F);
                 return ActionResult.SUCCESS;
             }
@@ -79,6 +83,7 @@ public class MoldingCauldronBlock extends BlockWithEntity {
         blockEntity.processTime = 0;
         blockEntity.markDirty();
         ItemScatterer.spawn(world, pos, blockEntity);
+        world.updateComparators(pos, this);
         world.playSound(null, pos, SoundEvents.ENTITY_ITEM_FRAME_REMOVE_ITEM, SoundCategory.BLOCKS, 1.0F, 1.0F);
     }
 
@@ -121,6 +126,39 @@ public class MoldingCauldronBlock extends BlockWithEntity {
     @Override
     public BlockState mirror(BlockState state, BlockMirror mirror) {
         return state.rotate(mirror.getRotation(state.get(FACING)));
+    }
+
+    /*
+     * Has water and no item -> 4
+     * Has item and no water -> 8
+     * Has item and water -> 12
+     * Item is Mold, regardless of whether cauldron is full -> 15
+     */
+    @Override
+    public int getComparatorOutput(BlockState state, World world, BlockPos pos) {
+        boolean isFull = state.get(FULL);
+
+        DefaultedList<ItemStack> inventory = ((MoldingCauldronBlockEntity) world.getBlockEntity(pos)).getInventory();
+        boolean isMold = inventory.get(0).isOf(ItemRegistry.BALL_OF_MOLD);
+        boolean hasItem = !inventory.get(0).isEmpty();
+
+        if(isFull) {
+            if(hasItem) { // Item & Water
+                return isMold ? 15 : 3*4;
+            } else { // Water Only
+                return 1*4;
+            }
+        } else {
+            if(hasItem) { // Item Only
+                return isMold ? 15 : 2*4;
+            } else { // Neither
+                return 0;
+            }
+        }    }
+
+    @Override
+    public boolean hasComparatorOutput(BlockState state) {
+        return true;
     }
 
     @Override
