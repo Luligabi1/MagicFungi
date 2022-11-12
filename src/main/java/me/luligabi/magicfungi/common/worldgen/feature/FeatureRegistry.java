@@ -68,7 +68,7 @@ public class FeatureRegistry {
 
     // Impetus Mushroom
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> IMPETUS_REGULAR_CONFIGURED_FEATURE =
-            flowerLikeFeature(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusRegularSpawnRatio, FeatureRegistry.IMPETUS_ID);
+            flowerLikeFeature(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusRegularSpawnRate, FeatureRegistry.IMPETUS_ID);
 
     private static final RegistryEntry<PlacedFeature> IMPETUS_REGULAR_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.IMPETUS_ID, IMPETUS_REGULAR_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -77,7 +77,7 @@ public class FeatureRegistry {
     );
 
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            flowerLikeFeature(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusBiomeEnhancedSpawnRatio, FeatureRegistry.IMPETUS_ENHANCED_ID);
+            flowerLikeFeature(BlockRegistry.IMPETUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.impetusBiomeEnhancedSpawnRate, FeatureRegistry.IMPETUS_ENHANCED_ID);
 
     private static final RegistryEntry<PlacedFeature> IMPETUS_BIOME_ENHANCED_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.IMPETUS_ENHANCED_ID, IMPETUS_BIOME_ENHANCED_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -90,7 +90,7 @@ public class FeatureRegistry {
 
     // Clypeus Mushroom
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLYPEUS_REGULAR_CONFIGURED_FEATURE =
-            flowerLikeFeature(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusRegularSpawnRatio, FeatureRegistry.CLYPEUS_ID);
+            flowerLikeFeature(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusRegularSpawnRate, FeatureRegistry.CLYPEUS_ID);
 
     private static final RegistryEntry<PlacedFeature> CLYPEUS_REGULAR_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.CLYPEUS_ID, CLYPEUS_REGULAR_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -99,7 +99,7 @@ public class FeatureRegistry {
     );
 
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            flowerLikeFeature(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusBiomeEnhancedSpawnRatio, FeatureRegistry.CLYPEUS_ENHANCED_ID);
+            flowerLikeFeature(BlockRegistry.CLYPEUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.clypeusBiomeEnhancedSpawnRate, FeatureRegistry.CLYPEUS_ENHANCED_ID);
 
     private static final RegistryEntry<PlacedFeature> CLYPEUS_BIOME_ENHANCED_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.CLYPEUS_ENHANCED_ID, CLYPEUS_BIOME_ENHANCED_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -113,7 +113,7 @@ public class FeatureRegistry {
 
     // Utilis Mushroom
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> UTILIS_REGULAR_CONFIGURED_FEATURE =
-            flowerLikeFeature(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisRegularSpawnRatio, FeatureRegistry.UTILIS_ID);
+            flowerLikeFeature(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisRegularSpawnRate, FeatureRegistry.UTILIS_ID);
 
     private static final RegistryEntry<PlacedFeature> UTILIS_REGULAR_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.UTILIS_ID, UTILIS_REGULAR_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -122,7 +122,7 @@ public class FeatureRegistry {
     );
 
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE =
-    flowerLikeFeature(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisBiomeEnhancedSpawnRatio, FeatureRegistry.UTILIS_ENHANCED_ID);
+    flowerLikeFeature(BlockRegistry.UTILIS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.utilisBiomeEnhancedSpawnRate, FeatureRegistry.UTILIS_ENHANCED_ID);
 
     private static final RegistryEntry<PlacedFeature> UTILIS_BIOME_ENHANCED_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.UTILIS_ENHANCED_ID, UTILIS_BIOME_ENHANCED_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -136,7 +136,7 @@ public class FeatureRegistry {
 
     // Vivifica Mushroom
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> VIVIFICA_REGULAR_CONFIGURED_FEATURE =
-            flowerLikeFeature(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRatio, FeatureRegistry.VIVIFICA_ID);
+            flowerLikeFeature(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRate, FeatureRegistry.VIVIFICA_ID);
 
     private static final RegistryEntry<PlacedFeature> VIVIFICA_REGULAR_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.VIVIFICA_ID, VIVIFICA_REGULAR_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -145,7 +145,7 @@ public class FeatureRegistry {
     );
 
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE =
-            flowerLikeFeature(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaBiomeEnhancedSpawnRatio, FeatureRegistry.VIVIFICA_ENHANCED_ID);
+            flowerLikeFeature(BlockRegistry.VIVIFICA_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaBiomeEnhancedSpawnRate, FeatureRegistry.VIVIFICA_ENHANCED_ID);
 
     private static final RegistryEntry<PlacedFeature> VIVIFICA_BIOME_ENHANCED_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.VIVIFICA_ENHANCED_ID, VIVIFICA_BIOME_ENHANCED_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -159,7 +159,7 @@ public class FeatureRegistry {
 
     // Morbus Mushroom - Host Biome
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> MORBUS_CONFIGURED_FEATURE =
-            flowerLikeFeature(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRatio, FeatureRegistry.MORBUS_ID);
+            flowerLikeFeature(BlockRegistry.MORBUS_MUSHROOM_PLANT_BLOCK, MagicFungi.CONFIG.vivificaRegularSpawnRate, FeatureRegistry.MORBUS_ID);
 
     private static final RegistryEntry<PlacedFeature> MORBUS_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.MORBUS_ID, MORBUS_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),
@@ -187,7 +187,7 @@ public class FeatureRegistry {
 
     // Wither Rose - Host Biome
     private static final RegistryEntry<ConfiguredFeature<RandomPatchFeatureConfig, ?>> WITHER_ROSE_CONFIGURED_FEATURE =
-            flowerLikeFeature(Blocks.WITHER_ROSE, MagicFungi.CONFIG.hostBiomeWitherRoseSpawnRatio, FeatureRegistry.WITHER_ROSE_ID);
+            flowerLikeFeature(Blocks.WITHER_ROSE, MagicFungi.CONFIG.hostBiomeWitherRoseSpawnRate, FeatureRegistry.WITHER_ROSE_ID);
 
     private static final RegistryEntry<PlacedFeature> WITHER_ROSE_PLACED_FEATURE = PlacedFeatures.register(FeatureRegistry.WITHER_ROSE_ID, WITHER_ROSE_CONFIGURED_FEATURE,
             SquarePlacementModifier.of(),

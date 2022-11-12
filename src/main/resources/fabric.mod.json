@@ -26,14 +26,17 @@
     "client": [
       "me.luligabi.magicfungi.client.MagicFungiClient"
     ],
+    "terrablender": [
+      "me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry"
+    ],
+    "modmenu": [
+      "me.luligabi.magicfungi.client.compat.modmenu.ConfigScreenEntrypoint"
+    ],
     "rei_common": [
       "me.luligabi.magicfungi.rei.common.CommonReiPlugin"
     ],
     "rei_client": [
       "me.luligabi.magicfungi.rei.client.ClientReiPlugin"
-    ],
-    "terrablender": [
-      "me.luligabi.magicfungi.common.worldgen.biome.BiomeRegistry"
     ]
   },
   "mixins": [

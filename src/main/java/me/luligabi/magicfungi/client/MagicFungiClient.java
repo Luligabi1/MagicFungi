@@ -1,6 +1,5 @@
 package me.luligabi.magicfungi.client;
 
-import draylar.omegaconfiggui.OmegaConfigGui;
 import me.luligabi.magicfungi.client.renderer.block.MoldingCauldronBlockEntityRenderer;
 import me.luligabi.magicfungi.client.renderer.entity.MorbusMooshroomEntityRenderer;
 import me.luligabi.magicfungi.client.screen.*;
@@ -97,8 +96,6 @@ public class MagicFungiClient implements ClientModInitializer {
 
         PacketRegistry.clientInitProjectileEntity(PacketRegistry.UTILIS_LASER_ID);
         PacketRegistry.clientInitProjectileEntity(PacketRegistry.MORBUS_PROJECTILE_ID);
-
-        OmegaConfigGui.registerConfigScreen(MagicFungi.CONFIG);
     }
 
 
