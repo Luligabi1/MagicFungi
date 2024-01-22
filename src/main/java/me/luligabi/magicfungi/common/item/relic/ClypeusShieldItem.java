@@ -8,6 +8,7 @@ import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.passive.TameableEntity;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.text.Text;
@@ -27,12 +28,16 @@ public class ClypeusShieldItem extends FabricBannerShieldItem implements Chargea
     public void initShieldEvents() {
         ShieldBlockCallback.EVENT.register((entity, source, amount, hand, shield) -> {
             if(!entity.world.isClient() && shield.getItem() instanceof ClypeusShieldItem) {
-                increaseCharge(entity.getStackInHand(hand));
-                if(entity.isSneaking()) {
+                ItemStack stackInHand = entity.getStackInHand(hand);
+                increaseCharge(stackInHand);
+                if(entity.isSneaking() && isChargeFull(stackInHand)) {
                     for(Entity entities : entity.world.getOtherEntities(entity, new Box(entity.getX() - 5, entity.getY() - 3, entity.getZ() - 5, entity.getX() + 5, entity.getY() + 3, entity.getZ() + 5))) {
-                        if(entities instanceof LivingEntity && !(entities instanceof TameableEntity)) {
+                        if(entities instanceof LivingEntity living && !(entities instanceof TameableEntity) && !living.isTeammate(entity)) {
                             entities.setVelocity(entities.getPos().subtract(entity.getPos()).normalize().multiply(3)); // TODO: Make this configurable
                         }
+                    }
+                    if (entity instanceof PlayerEntity player) {
+                        resetCharge(stackInHand, player);
                     }
                 }
             }
